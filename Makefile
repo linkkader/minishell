@@ -61,7 +61,7 @@ clean:
 	rm -Rf $(OBJECTS_DIRECTORY)
 
 fclean: clean
-	@make fclean -sC $(LIBFT_DIRECTORY)
+	#@make fclean -sC $(LIBFT_DIRECTORY)
 	rm -f $(NAME)
 
 re: fclean all

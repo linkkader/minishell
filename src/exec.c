@@ -104,7 +104,10 @@ void exec(char **cmd)
 {
 	if (ft_strncmp(cmd[0], "/usr/bin/cd", ft_strlen(cmd[0])) == 0)
 	{
-		cd_builtin(cmd[1]);
+		chdir("/");
+		cmd[0] = NULL;
+		cmd[1] = NULL;
+		execve(cmd[0], cmd, NULL);
 	}
 	else
 	{

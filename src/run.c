@@ -71,7 +71,7 @@ static void	run_last(char **cmd, t_var *v, int i)
 		exit(0);
 	}
 	close(pdes[1]);
-	dup2(pdes[0], STDIN_FILENO);
+	///dup2(pdes[0], STDIN_FILENO);
 }
 
 void	run_all(t_var *v)
@@ -95,5 +95,4 @@ void	run_all(t_var *v)
 		run_last(cmd, v, i);
 	while (i > -1)
 		waitpid(v->pids[i--], NULL, 0);
-	exit(1);
 }

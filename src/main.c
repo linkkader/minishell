@@ -44,7 +44,7 @@ static void	init(char **env, t_var *var, int ac, char **av)
 
 static void	exe(t_var v)
 {
-	pid_t	child;
+	//pid_t	child;
 	int		i;
 
 	v.pids = malloc((v.length) * sizeof(pid_t));
@@ -54,14 +54,13 @@ static void	exe(t_var v)
 	if (v.pids == NULL)
 		return ;
 	dup2(v.in, STDIN_FILENO);
-	child = fork();
-	chdir("/");
-	if (child == -1)
-		perror("Pipe");
-	if (child == 0)
-		run_all(&v);
-	else
-		wait(NULL);
+	//child = fork();
+	//if (child == -1)
+	//	perror("Pipe");
+	//if (child == 0)
+	run_all(&v);
+	//else
+	//wait(NULL);
 }
 
 void	init_one(t_var *v, char *str)

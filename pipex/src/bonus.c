@@ -13,7 +13,7 @@
 
 void	my_pipe(int length, t_var v, int start)
 {
-	pid_t	child;
+	//pid_t	child;
 	int		console_fd;
 	int		i;
 
@@ -25,13 +25,13 @@ void	my_pipe(int length, t_var v, int start)
 		return ;
 	console_fd = dup(STDIN_FILENO);
 	dup2(v.in, STDIN_FILENO);
-	child = fork();
-	if (child == -1)
-		perror("Pipe");
-	if (child == 0)
-		run_all(length, &v, start, console_fd);
-	else
-		wait(NULL);
+	//child = fork();
+	//if (child == -1)
+	//	perror("Pipe");
+	//if (child == 0)
+	run_all(length, &v, start, console_fd);
+	//else
+	wait(NULL);
 }
 
 void	doc_here(t_var v)
