@@ -21,6 +21,19 @@ static void	clear(char **cmd)
 		free(cmd[i++]);
 }
 
+static char	**check_builtin(char **cmd)
+{
+	if (cmd == NULL)
+		return (cmd);
+	if (ft_strncmp(cmd[0], "/usr/bin/cd", ft_strlen(cmd[0])) == 0)
+		cd_builtin(cmd);
+	else if (ft_strncmp(cmd[0], "/bin/pwd", ft_strlen(cmd[0])) == 0)
+		pwd_builtin(cmd);
+	else
+		return (cmd);
+	return (NULL);
+}
+
 static char	*ft_strjoin2(char *str1, char *str2, char *split)
 {
 	char	*str;
@@ -57,8 +70,10 @@ char	**check_cmd(t_var v, int index, int console)
 	sp = ft_split(v.cmd[index], ' ');
 	if (sp == NULL)
 		return (NULL);
-	if (v.sp[0] && access(sp[0], X_OK) == 0)
+	if (access(sp[0], X_OK) == 0)
 		return (sp);
+	if (ft_strncmp(sp[0], "exit", ft_strlen(sp[0])) == 0)
+		exit_builtin(sp);
 	while (v.sp[i])
 	{
 		s = ft_strjoin2(v.sp[i], sp[0], "/");
@@ -66,7 +81,7 @@ char	**check_cmd(t_var v, int index, int console)
 		{
 			free(sp[0]);
 			sp[0] = s;
-			return (sp);
+			return (check_builtin(sp));
 		}
 		free(s);
 		i++;
@@ -98,19 +113,4 @@ int	to_pipe(int fd)
 	wait(NULL);
 	close(pdes[1]);
 	return (pdes[0]);
-}
-
-void exec(char **cmd)
-{
-	if (ft_strncmp(cmd[0], "/usr/bin/cd", ft_strlen(cmd[0])) == 0)
-	{
-		chdir("/");
-		cmd[0] = NULL;
-		cmd[1] = NULL;
-		execve(cmd[0], cmd, NULL);
-	}
-	else
-	{
-		execve(cmd[0], cmd, NULL);
-	}
 }

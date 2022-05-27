@@ -43,8 +43,7 @@ static pid_t	run(char **cmd)
 	{
 		dup2(pdes[1], STDOUT_FILENO);
 		close(pdes[0]);
-		exec(cmd);
-		//execve(cmd[0], cmd, NULL);
+		execve(cmd[0], cmd, NULL);
 		exit(0);
 	}
 	close(pdes[1]);
@@ -66,8 +65,7 @@ static void	run_last(char **cmd, t_var *v, int i)
 	{
 		dup2(pdes[1], v->out);
 		close(pdes[0]);
-		exec(cmd);
-		//execve(cmd[0], cmd, NULL);
+		execve(cmd[0], cmd, NULL);
 		exit(0);
 	}
 	close(pdes[1]);

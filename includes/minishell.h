@@ -28,10 +28,11 @@
 typedef struct var{
 	int		in;
 	int		out;
-	char	**env;
+	//char	**env;
 	int		length;
 	char	**cmd;
 	char	**sp;
+	//t_list	*env;
 	int 	console_fd;
 	pid_t	*pids;
 }	t_var;
@@ -50,6 +51,8 @@ int		to_pipe(int fd);
 char	**split_string(char *s, char c);
 void	exec(char **cmd);
 
-void	cd_builtin(char *path);
+void	cd_builtin(char **path);
+void	pwd_builtin(char **cmd);
+void	exit_builtin(char **cmd);
 
 #endif
