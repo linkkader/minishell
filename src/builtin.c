@@ -21,7 +21,7 @@ static void	clear(char **cmd)
 		free(cmd[i++]);
 }
 
-void	cd_builtin(char **cmd)
+void	cd_builtin(char **cmd, t_var *v)
 {
 	char	*path;
 
@@ -36,7 +36,7 @@ void	cd_builtin(char **cmd)
 	clear(cmd);
 }
 
-void	pwd_builtin(char **cmd)
+void	pwd_builtin(char **cmd, t_var *v)
 {
 	char 	*path;
 
@@ -59,7 +59,24 @@ void	pwd_builtin(char **cmd)
 	clear(cmd);
 }
 
-void	exit_builtin(char **cmd)
+void	env_builtin(char **cmd, t_var *v)
+{
+	t_list	*temp;
+
+	if (cmd[1] == NULL)
+	{
+		temp = v->env;
+		while (temp)
+		{
+			printf("%s\n", (char *)(temp->content));
+			temp = temp->next;
+		}
+	}
+	else
+		ft_putstr_fd("env: too many arguments\n",2);
+}
+
+void	exit_builtin(char **cmd, t_var *v)
 {
 	//free all value here
 	exit(0);

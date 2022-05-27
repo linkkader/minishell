@@ -21,14 +21,16 @@ static void	clear(char **cmd)
 		free(cmd[i++]);
 }
 
-static char	**check_builtin(char **cmd)
+static char	**check_builtin(char **cmd, t_var *var)
 {
 	if (cmd == NULL)
 		return (cmd);
 	if (ft_strncmp(cmd[0], "/usr/bin/cd", ft_strlen(cmd[0])) == 0)
-		cd_builtin(cmd);
+		cd_builtin(cmd, var);
 	else if (ft_strncmp(cmd[0], "/bin/pwd", ft_strlen(cmd[0])) == 0)
-		pwd_builtin(cmd);
+		pwd_builtin(cmd, var);
+	else if (ft_strncmp(cmd[0], "/usr/bin/env", ft_strlen(cmd[0])) == 0)
+		env_builtin(cmd, var);
 	else
 		return (cmd);
 	return (NULL);
@@ -60,6 +62,25 @@ static char	*ft_strjoin2(char *str1, char *str2, char *split)
 	return (str);
 }
 
+static char	*path(t_list *lst)
+{
+	while (lst)
+	{
+		if (ft_strncmp ("PATH=/", lst->content, 6) == 0)
+			return (lst->content);
+		lst = lst->next;
+	}
+	return (NULL);
+}
+
+static void init(t_var *var)
+{
+	char	*str;
+
+	str = path(var->env);
+	var->sp = ft_split(str, ':');
+}
+
 char	**check_cmd(t_var v, int index, int console)
 {
 	char	**sp;
@@ -67,13 +88,14 @@ char	**check_cmd(t_var v, int index, int console)
 	char	*s;
 
 	i = 0;
+	init(&v);
 	sp = ft_split(v.cmd[index], ' ');
 	if (sp == NULL)
 		return (NULL);
 	if (access(sp[0], X_OK) == 0)
 		return (sp);
 	if (ft_strncmp(sp[0], "exit", ft_strlen(sp[0])) == 0)
-		exit_builtin(sp);
+		exit_builtin(sp, &v);
 	while (v.sp[i])
 	{
 		s = ft_strjoin2(v.sp[i], sp[0], "/");
@@ -81,7 +103,7 @@ char	**check_cmd(t_var v, int index, int console)
 		{
 			free(sp[0]);
 			sp[0] = s;
-			return (check_builtin(sp));
+			return (check_builtin(sp, &v));
 		}
 		free(s);
 		i++;

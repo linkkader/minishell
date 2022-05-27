@@ -12,7 +12,7 @@
 
 NAME = minishell
 
-FILE = main.c run.c exec.c split_string.c builtin.c
+FILE = main.c run.c exec.c split_string.c builtin.c t_list_utils.c
 
 FILE_BONUS = exec.c  bonus.c     utils.c    run.c
 
@@ -66,7 +66,7 @@ fclean: clean
 
 re: fclean all
 
-exe: all
+exe: re
 	./minishell
 
 .PHONY: all clean fclean re

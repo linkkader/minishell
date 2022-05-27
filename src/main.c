@@ -12,34 +12,17 @@
 
 #include "../includes/minishell.h"
 
-static int	path_index(char **env)
-{
-	int		i;
-
-	i = 0;
-	while (1)
-	{
-		if (ft_strncmp ("PATH=/", env[i], 6) == 0)
-			break ;
-		if (env[i] == NULL)
-		{
-			i = -1;
-			break ;
-		}
-		i++;
-	}
-	return (i);
-}
-
 static void	init(char **env, t_var *var, int ac, char **av)
 {
 	int		index;
 
-	index = path_index(env);
-	if (index == -1)
-		return ;
-	var->sp = ft_split(env[index], ':');
-	var->env = env;
+	index = 0;
+	var->env = NULL;
+	while (env[index])
+	{
+		push(&var->env, env[index]);
+		index++;
+	}
 }
 
 static void	exe(t_var v)
