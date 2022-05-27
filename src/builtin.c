@@ -62,13 +62,16 @@ void	pwd_builtin(char **cmd, t_var *v)
 void	env_builtin(char **cmd, t_var *v)
 {
 	t_list	*temp;
+	t_entry *entry;
 
 	if (cmd[1] == NULL)
 	{
 		temp = v->env;
 		while (temp)
 		{
-			printf("%s\n", (char *)(temp->content));
+			entry = to_entry(temp->content);
+			if (entry->value != NULL)
+				printf("%s=%s\n", entry->key, entry->value);
 			temp = temp->next;
 		}
 	}
@@ -80,4 +83,26 @@ void	exit_builtin(char **cmd, t_var *v)
 {
 	//free all value here
 	exit(0);
+}
+
+void	export_builtin(char **cmd, t_var *v)
+{
+	t_list	*temp;
+	t_entry *entry;
+
+	if (cmd[1] == NULL)
+	{
+		temp = v->env;
+		while (temp)
+		{
+			entry = to_entry(temp->content);
+			if (entry->value != NULL)
+				printf("declare -x %s=\"%s\"\n", entry->key, entry->value);
+			else
+				printf("declare -x %s\n", entry->key);
+			temp = temp->next;
+		}
+	}
+	else
+		ft_putstr_fd("env: too many arguments\n",2);
 }

@@ -14,5 +14,35 @@
 
 void	push(t_list **lst, char *str)
 {
-	ft_lstadd_back(lst, ft_lstnew(ft_strdup(str)));
+	t_entry		*entry;
+	char		sp;
+	int 		i;
+
+	entry = malloc(sizeof(entry));
+	if (entry == NULL)
+		return ;
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '=')
+			break;
+		i++;
+	}
+	if (i == ft_strlen(str))
+	{
+		entry->key = ft_strdup(str);
+		entry->value = NULL;
+	}
+	else
+	{
+		entry->key = ft_substr(str, 0, i);
+		entry->value = ft_substr(str, i + 1, ft_strlen(str) - i -1);
+	}
+	//printf("%s=%s\n", entry->key, entry->value);
+	ft_lstadd_back(lst, ft_lstnew(entry));
+}
+
+t_entry	*to_entry(void *e)
+{
+	return ((t_entry *)(e));
 }

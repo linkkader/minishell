@@ -25,6 +25,11 @@
 
 # define ERR_CMD "Command not found: "
 
+typedef struct entries{
+	char	*key;
+	char 	*value;
+}	t_entry;
+
 typedef struct var{
 	int		in;
 	int		out;
@@ -55,8 +60,9 @@ void	cd_builtin(char **path, t_var *v);
 void	pwd_builtin(char **cmd, t_var *v);
 void	exit_builtin(char **cmd, t_var *v);
 void	env_builtin(char **cmd, t_var *v);
-
+void	export_builtin(char **cmd, t_var *v);
 
 void	push(t_list **lst, char *str);
+t_entry	*to_entry(void *e);
 
 #endif

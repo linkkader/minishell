@@ -66,8 +66,9 @@ static char	*path(t_list *lst)
 {
 	while (lst)
 	{
-		if (ft_strncmp ("PATH=/", lst->content, 6) == 0)
-			return (lst->content);
+		if (ft_strncmp ("PATH", to_entry(lst->content)->key,
+			ft_strlen(to_entry(lst->content)->key)) == 0)
+			return (to_entry(lst->content)->value);
 		lst = lst->next;
 	}
 	return (NULL);
@@ -79,6 +80,50 @@ static void init(t_var *var)
 
 	str = path(var->env);
 	var->sp = ft_split(str, ':');
+}
+
+static t_bool export_value(char **sp, t_var *var)
+{
+	int 	i;
+	t_bool 	bool;
+	int 	j;
+	t_list	*temp;
+	char 	*str;
+
+	i = 0;
+	bool = false;
+	while (sp && sp[i])
+	{
+		j = 0;
+		while (sp[i][j])
+		{
+			if (sp[i][j] == '=')
+			{
+				bool = true;
+				break;
+			}
+			j++;
+		}
+		if (j != ft_strlen(sp[i]) && ft_isprint(sp[i][j + 1]) && sp[i][j + 1] > 32)
+		{
+			str = ft_substr(sp[i], 0, i - 1);
+			temp = var->env;
+			while (temp)
+			{
+				if (ft_strncmp(str, to_entry(temp)->key) == 0)
+				{
+					push();
+				}
+				temp = temp->next;
+			}
+		}
+		else
+		{
+
+		}
+		i++;
+	}
+	return false;
 }
 
 char	**check_cmd(t_var v, int index, int console)
@@ -96,6 +141,11 @@ char	**check_cmd(t_var v, int index, int console)
 		return (sp);
 	if (ft_strncmp(sp[0], "exit", ft_strlen(sp[0])) == 0)
 		exit_builtin(sp, &v);
+	else if (ft_strncmp(sp[0], "export", ft_strlen(sp[0])) == 0)
+	{
+		export_builtin(sp, &v);
+		return (NULL);
+	}
 	while (v.sp[i])
 	{
 		s = ft_strjoin2(v.sp[i], sp[0], "/");
@@ -108,6 +158,7 @@ char	**check_cmd(t_var v, int index, int console)
 		free(s);
 		i++;
 	}
+
 	ft_putstr_fd(ERR_CMD, console);
 	ft_putstr_fd(sp[0], console);
 	ft_putstr_fd("\n", console);
