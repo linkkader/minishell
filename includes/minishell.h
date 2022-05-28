@@ -25,11 +25,6 @@
 
 # define ERR_CMD "Command not found: "
 
-typedef struct entries{
-	char	*key;
-	char 	*value;
-}	t_entry;
-
 typedef struct var{
 	int		in;
 	int		out;
@@ -40,6 +35,7 @@ typedef struct var{
 	t_list	*env;
 	int 	console_fd;
 	pid_t	*pids;
+	char	**envtest;
 }	t_var;
 
 typedef enum bool
@@ -48,9 +44,16 @@ typedef enum bool
 	false
 }	t_bool;
 
+
+typedef struct entries{
+	char	*key;
+	char 	*value;
+	t_bool	is_exported;
+}	t_entry;
+
 char	*read_line(int entry);
 void	exec_doc(int *pdes, char *limit);
-char	**check_cmd(t_var v, int index, int console);
+char	**check_cmd(t_var *v, int index, int console);
 void	run_all(t_var *v);
 int		to_pipe(int fd);
 char	**split_string(char *s, char c);
@@ -61,6 +64,7 @@ void	pwd_builtin(char **cmd, t_var *v);
 void	exit_builtin(char **cmd, t_var *v);
 void	env_builtin(char **cmd, t_var *v);
 void	export_builtin(char **cmd, t_var *v);
+void	try_export_value(char **sp, t_var *var,t_bool is_in_export, int start);
 
 void	push(t_list **lst, char *str);
 t_entry	*to_entry(void *e);

@@ -12,7 +12,7 @@
 
 #include "../includes/minishell.h"
 
-static void	init(char **env, t_var *var, int ac, char **av)
+static void	init(char **env, t_var *var)
 {
 	int		index;
 
@@ -25,23 +25,23 @@ static void	init(char **env, t_var *var, int ac, char **av)
 	}
 }
 
-static void	exe(t_var v)
+static void	exe(t_var *v)
 {
 	//pid_t	child;
 	int		i;
 
-	v.pids = malloc((v.length) * sizeof(pid_t));
+	v->pids = malloc((v->length) * sizeof(pid_t));
 	i = -1;
-	while (i < v.length)
-		v.pids[i++] = -1;
-	if (v.pids == NULL)
+	while (i < v->length)
+		v->pids[i++] = -1;
+	if (v->pids == NULL)
 		return ;
-	dup2(v.in, STDIN_FILENO);
+	dup2(v->in, STDIN_FILENO);
 	//child = fork();
 	//if (child == -1)
 	//	perror("Pipe");
 	//if (child == 0)
-	run_all(&v);
+	run_all(v);
 	//else
 	//wait(NULL);
 }
@@ -61,12 +61,13 @@ int		main(int ac, char **av, char **env)
 	char 	*str;
 	t_var	v;
 
-	init(env, &v, ac, av);
+	v.envtest = env;
+	init(env, &v);
 	while (1){
 		str = readline("minishell$ ");
 		add_history(str);
 		init_one(&v, str);
-		exe(v);
+		exe(&v);
 	}
 	return (0);
 }

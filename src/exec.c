@@ -64,11 +64,14 @@ static char	*ft_strjoin2(char *str1, char *str2, char *split)
 
 static char	*path(t_list *lst)
 {
+	t_entry		*entry;
+
 	while (lst)
 	{
-		if (ft_strncmp ("PATH", to_entry(lst->content)->key,
-			ft_strlen(to_entry(lst->content)->key)) == 0)
-			return (to_entry(lst->content)->value);
+		entry = to_entry(lst->content);
+		if (ft_strncmp ("PATH", entry->key,
+			ft_strlen(entry->key)) == 0)
+			return (entry->value);
 		lst = lst->next;
 	}
 	return (NULL);
@@ -82,87 +85,43 @@ static void init(t_var *var)
 	var->sp = ft_split(str, ':');
 }
 
-static t_bool export_value(char **sp, t_var *var)
-{
-	int 	i;
-	t_bool 	bool;
-	int 	j;
-	t_list	*temp;
-	char 	*str;
-
-	i = 0;
-	bool = false;
-	while (sp && sp[i])
-	{
-		j = 0;
-		while (sp[i][j])
-		{
-			if (sp[i][j] == '=')
-			{
-				bool = true;
-				break;
-			}
-			j++;
-		}
-		if (j != ft_strlen(sp[i]) && ft_isprint(sp[i][j + 1]) && sp[i][j + 1] > 32)
-		{
-			str = ft_substr(sp[i], 0, i - 1);
-			temp = var->env;
-			while (temp)
-			{
-				if (ft_strncmp(str, to_entry(temp)->key) == 0)
-				{
-					push();
-				}
-				temp = temp->next;
-			}
-		}
-		else
-		{
-
-		}
-		i++;
-	}
-	return false;
-}
-
-char	**check_cmd(t_var v, int index, int console)
+char	**check_cmd(t_var *v, int index, int console)
 {
 	char	**sp;
 	int		i;
 	char	*s;
 
 	i = 0;
-	init(&v);
-	sp = ft_split(v.cmd[index], ' ');
+	init(v);
+	sp = ft_split(v->cmd[index], ' ');
 	if (sp == NULL)
 		return (NULL);
 	if (access(sp[0], X_OK) == 0)
 		return (sp);
 	if (ft_strncmp(sp[0], "exit", ft_strlen(sp[0])) == 0)
-		exit_builtin(sp, &v);
+		exit_builtin(sp, v);
 	else if (ft_strncmp(sp[0], "export", ft_strlen(sp[0])) == 0)
 	{
-		export_builtin(sp, &v);
+		export_builtin(sp, v);
 		return (NULL);
 	}
-	while (v.sp[i])
+	while (v->sp[i])
 	{
-		s = ft_strjoin2(v.sp[i], sp[0], "/");
+		s = ft_strjoin2(v->sp[i], sp[0], "/");
 		if (access(s, X_OK) == 0)
 		{
 			free(sp[0]);
 			sp[0] = s;
-			return (check_builtin(sp, &v));
+			return (check_builtin(sp, v));
 		}
 		free(s);
 		i++;
 	}
-
-	ft_putstr_fd(ERR_CMD, console);
-	ft_putstr_fd(sp[0], console);
-	ft_putstr_fd("\n", console);
-	clear(sp);
+	try_export_value(sp, v, false, 1);
+	//ft_putstr_fd(ERR_CMD, console);
+	//ft_putstr_fd(sp[0], console);
+	//ft_putstr_fd("\n", console);
+	//clear(sp);
 	return (NULL);
 }
 

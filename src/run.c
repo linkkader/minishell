@@ -81,14 +81,14 @@ void	run_all(t_var *v)
 	dup2(v->out, STDOUT_FILENO);
 	while (i < v->length - 1)
 	{
-		cmd = check_cmd(*v, i, v->console_fd);
+		cmd = check_cmd(v, i, v->console_fd);
 		if (cmd != NULL)
 			v->pids[i] = run(cmd);
 		else
 			clear_pipe(STDIN_FILENO);
 		i++;
 	}
-	cmd = check_cmd(*v, i, v->console_fd);
+	cmd = check_cmd(v, i, v->console_fd);
 	if (cmd != NULL)
 		run_last(cmd, v, i);
 	while (i > -1)
