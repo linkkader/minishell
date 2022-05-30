@@ -117,7 +117,7 @@ char	**check_cmd(t_var *v, int index, int console)
 		free(s);
 		i++;
 	}
-	try_export_value(sp, v, false, 1);
+	try_export_value(sp, v, false, 0);
 	//ft_putstr_fd(ERR_CMD, console);
 	//ft_putstr_fd(sp[0], console);
 	//ft_putstr_fd("\n", console);

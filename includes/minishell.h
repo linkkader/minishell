@@ -24,6 +24,7 @@
 
 
 # define ERR_CMD "Command not found: "
+# define NOT_AN_IDENTIFIER "minishell: export: %s: not a valid identifier"
 
 typedef struct var{
 	int		in;

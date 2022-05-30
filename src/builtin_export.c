@@ -27,14 +27,17 @@ static	void export_value(char *key, char *value,  t_var *var, t_bool is_in_expor
 	t_entry *entry;
 	t_bool	is_in;
 
-	temp = var->env;
-	entry = to_entry(temp);
 	is_in = false;
+	temp = var->env;
+	printf("key  %s  value  %s\n", key, value);
 	while (temp)
 	{
+		entry = to_entry(temp->content);
 		if (ft_strncmp(key, entry->key, ft_strlen(entry->key)) == 0)
 		{
-			entry->value =  value;
+			if (entry->value)
+				free(entry->value);
+			entry->value = value;
 			is_in = true;
 			break;
 		}
@@ -52,6 +55,13 @@ static	void export_value(char *key, char *value,  t_var *var, t_bool is_in_expor
 	}
 }
 
+static void	not_an_identifier(t_var *var)
+{
+	ft_putstr_fd("minishell: export: ", var->console_fd);
+	ft_putstr_fd("out", var->console_fd);
+	ft_putstr_fd(": not a valid identifier\n", var->console_fd);
+}
+//[a-zA-Z_][a-zA-Z0-9_]
 void try_export_value(char **sp, t_var *var,t_bool is_in_export, int start)
 {
 	int 	i;
@@ -59,36 +69,51 @@ void try_export_value(char **sp, t_var *var,t_bool is_in_export, int start)
 	int 	j;
 
 	i = start;
-	bool = true;
-	while (sp && sp[i] && bool == true)
+	while (sp && sp[i])
 	{
+		printf("not found %s\n", sp[i]);
 		j = 0;
+		bool = false;
+		if (!(ft_isalpha(sp[i][j]) == 1 || sp[i][j] == '_'))
+		{
+			bool = true;
+			not_an_identifier(var);
+		}
 		while (sp[i][j])
 		{
-			if (sp[i][j] == '=')
+			if (!(ft_isalpha(sp[i][j]) == 1 || ft_isalnum(sp[i][j]) == 1 || sp[i][j] == '_'))
 			{
 				bool = true;
+				if (sp[i][j] == '=')
+				{
+					export_value(ft_substr(sp[i], 0, j),
+								 ft_substr(sp[i], j + 1, ft_strlen(sp[i]) - j -  1),
+								 var, is_in_export
+					);
+				}
+				else
+					not_an_identifier(var);
 				break;
 			}
 			j++;
 		}
-		if (j != ft_strlen(sp[i]))
+		i++;
+		if (bool == true)
+			continue;
+		if (is_in_export == true && j == ft_strlen(sp[i - 1]))
 		{
-			export_value(ft_substr(sp[i], 0, j),
-						 ft_substr(sp[i], j + 1, ft_strlen(sp[i]) - j -  1),
+			export_value(ft_substr(sp[i - 1], 0, j),
+						 NULL,
 						 var, is_in_export
 			);
+			continue;
 		}
-		else
-		{
-			ft_putstr_fd(ERR_CMD, var->console_fd);
-			ft_putstr_fd(sp[0], var->console_fd);
-			ft_putstr_fd("\n", var->console_fd);
-			clear(sp);
-			break;
-		}
-		i++;
+		ft_putstr_fd(ERR_CMD, var->console_fd);
+		ft_putstr_fd(sp[i - 1], var->console_fd);
+		ft_putstr_fd("\n", var->console_fd);
+		break;
 	}
+	clear(sp);
 }
 
 void	export_builtin(char **cmd, t_var *v)
