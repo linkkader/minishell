@@ -31,6 +31,8 @@ static char	**check_builtin(char **cmd, t_var *var)
 		pwd_builtin(cmd, var);
 	else if (ft_strncmp(cmd[0], "/usr/bin/env", ft_strlen(cmd[0])) == 0)
 		env_builtin(cmd, var);
+	else if (ft_strncmp(cmd[0], "/bin/echo", ft_strlen(cmd[0])) == 0)
+		echo_builtin(cmd, var);
 	else
 		return (cmd);
 	return (NULL);

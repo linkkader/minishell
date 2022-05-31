@@ -77,10 +77,36 @@ void	env_builtin(char **cmd, t_var *v)
 	}
 	else
 		ft_putstr_fd("env: too many arguments\n",2);
+	clear(cmd);
 }
 
 void	exit_builtin(char **cmd, t_var *v)
 {
 	//free all value here
 	exit(0);
+}
+
+void	echo_builtin(char **cmd, t_var *v)
+{
+	int 	i;
+	t_bool 	arg;
+
+	i = 1;
+	arg = false;
+	if (cmd[i] && ft_strncmp("-n", cmd[i], 2) == 0)
+	{
+		arg = true;
+		i++;
+	}
+	while (cmd[i])
+	{
+		if (cmd[i + 1] == 0)
+			printf("%s",cmd[i]);
+		else
+			printf("%s ",cmd[i]);
+		i++;
+	}
+	if (arg == false)
+		printf("\n");
+	clear(cmd);
 }

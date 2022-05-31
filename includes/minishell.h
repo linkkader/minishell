@@ -60,6 +60,7 @@ int		to_pipe(int fd);
 char	**split_string(char *s, char c);
 void	exec(char **cmd);
 
+void	echo_builtin(char **cmd, t_var *v);
 void	cd_builtin(char **path, t_var *v);
 void	pwd_builtin(char **cmd, t_var *v);
 void	exit_builtin(char **cmd, t_var *v);
