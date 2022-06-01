@@ -110,3 +110,22 @@ void	echo_builtin(char **cmd, t_var *v)
 		printf("\n");
 	clear(cmd);
 }
+
+void	delete_item(s_list *item, char *str)
+{
+	s_list	*temp;
+	t_entry entry;
+
+	temp = temp[0];
+	while (temp)
+	{
+		if ()
+		if (entry)
+		temp = temp->next;
+	}
+}
+
+void	unset_builtin(char **cmd, t_var *v)
+{
+	v->env;
+}
