@@ -102,6 +102,11 @@ char	**check_cmd(t_var *v, int index, int console)
 		return (sp);
 	if (ft_strncmp(sp[0], "exit", ft_strlen(sp[0])) == 0)
 		exit_builtin(sp, v);
+	else if (ft_strncmp(sp[0], "unset", ft_strlen(sp[0])) == 0)
+	{
+		unset_builtin(sp, v);
+		return (NULL);
+	}
 	else if (ft_strncmp(sp[0], "export", ft_strlen(sp[0])) == 0)
 	{
 		export_builtin(sp, v);

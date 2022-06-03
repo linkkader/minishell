@@ -56,15 +56,31 @@ void	init_one(t_var *v, char *str)
 	v->cmd[0] = str;
 }
 
+void	catch(int sig)
+{
+	char c;
+
+	c = '\0';
+	write(0, &c, 1);
+}
+
 int		main(int ac, char **av, char **env)
 {
-	char 	*str;
-	t_var	v;
+	char		*str;
+	t_var		v;
 
 	v.envtest = env;
+	//ctrl-C
+	signal(SIGINT, &catch);
+	signal(SIGQUIT, &catch);
 	init(env, &v);
 	while (1){
 		str = readline("minishell$ ");
+		if (!str) {
+			printf("\n");
+			exit_builtin(NULL, &v);
+			continue;
+		}
 		add_history(str);
 		init_one(&v, str);
 		exe(&v);

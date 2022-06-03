@@ -20,6 +20,7 @@
 #include <stdio.h>
 #include <readline/readline.h>
 #include <readline/history.h>
+#include <signal.h>
 #include "../libft/libft.h"
 
 
@@ -67,6 +68,7 @@ void	exit_builtin(char **cmd, t_var *v);
 void	env_builtin(char **cmd, t_var *v);
 void	export_builtin(char **cmd, t_var *v);
 void	try_export_value(char **sp, t_var *var,t_bool is_in_export, int start);
+void	unset_builtin(char **cmd, t_var *v);
 
 void	push(t_list **lst, char *str);
 t_entry	*to_entry(void *e);

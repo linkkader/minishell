@@ -111,21 +111,53 @@ void	echo_builtin(char **cmd, t_var *v)
 	clear(cmd);
 }
 
-void	delete_item(s_list *item, char *str)
+void	delete_item(t_list **lst, char *str)
 {
-	s_list	*temp;
-	t_entry entry;
+	t_list	*temp;
+	t_list	*temp2;
+	t_entry *entry;
 
-	temp = temp[0];
+	temp = lst[0];
+	if (temp)
+	{
+		entry = to_entry(temp->content);
+		if (ft_strncmp(entry->key, str, ft_strlen(str) + 1) == 0)
+		{
+			printf("%s\n", entry->key);
+			free(entry->value);
+			free(entry->key);
+			temp2 = temp->next;
+			free(temp);
+			temp = temp2;
+		}
+		lst[0] = temp;
+	}
 	while (temp)
 	{
-		if ()
-		if (entry)
+		entry = to_entry(temp->content);
+		if (ft_strncmp(entry->key, str, ft_strlen(str) + 1) == 0)
+		{
+			printf("%s\n", entry->key);
+			free(entry->value);
+			free(entry->key);
+			free(temp);
+			temp2->next = temp->next;
+			temp = temp2;
+		}
+		temp2 = temp;
 		temp = temp->next;
 	}
 }
 
 void	unset_builtin(char **cmd, t_var *v)
 {
-	v->env;
+	int 	i;
+
+	i = 1;
+	while (cmd[i])
+	{
+		delete_item(&v->env, cmd[i]);
+		i++;
+	}
+	clear(cmd);
 }
