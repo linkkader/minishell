@@ -12,7 +12,7 @@
 
 #include "../includes/minishell.h"
 
-static void	clear(char **cmd)
+static void	my_clear(char **cmd)
 {
 	int		i;
 
@@ -113,7 +113,7 @@ void try_export_value(char **sp, t_var *var,t_bool is_in_export, int start)
 		ft_putstr_fd("\n", var->console_fd);
 		break;
 	}
-	clear(sp);
+	my_clear(sp);
 }
 
 void	export_builtin(char **cmd, t_var *v)

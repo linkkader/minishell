@@ -12,7 +12,7 @@
 
 #include "../includes/minishell.h"
 
-static void	clear(char **cmd)
+static void	my_clear(char **cmd)
 {
 	int		i;
 

@@ -55,7 +55,11 @@ $(OBJECTS_DIRECTORY):
 	mkdir -p $@
 
 $(NAME): $(LIBFT) $(OBJECTS_DIRECTORY) $(OBJS)
-	gcc $(FLAGS) -I $(HEADERS) $(PRINTF) $(OBJS) $(LIBFT)  -lreadline -o ${NAME}
+	gcc $(FLAGS) -I $(HEADERS) $(PRINTF) $(OBJS) $(LIBFT) parse.a -lreadline -o $(NAME)
+
+
+test: $(LIBFT) $(OBJECTS_DIRECTORY) $(OBJS)
+	gcc $(FLAGS) -I $(HEADERS) $(PRINTF) $(OBJS) $(LIBFT) parse.a -lreadline -o $(NAME)
 
 clean:
 	rm -Rf $(OBJECTS_DIRECTORY)

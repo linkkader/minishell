@@ -22,22 +22,21 @@
 #include <readline/history.h>
 #include <signal.h>
 #include "../libft/libft.h"
-
+#include "../parsing/minishell.h"
 
 # define ERR_CMD "Command not found: "
+# define PROMPT_CMD "minishell$ "
 # define NOT_AN_IDENTIFIER "minishell: export: %s: not a valid identifier"
 
 typedef struct var{
 	int		in;
 	int		out;
-	//char	**env;
 	int		length;
 	char	**cmd;
 	char	**sp;
 	t_list	*env;
 	int 	console_fd;
 	pid_t	*pids;
-	char	**envtest;
 }	t_var;
 
 typedef enum bool

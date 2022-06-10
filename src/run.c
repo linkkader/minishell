@@ -12,7 +12,7 @@
 
 #include "../includes/minishell.h"
 
-static void	clear_pipe(int fd)
+static void clear_pipe(int fd)
 {
 	char	c;
 
@@ -21,7 +21,7 @@ static void	clear_pipe(int fd)
 	}
 }
 
-static void	clear(char **cmd)
+static void	my_clear(char **cmd)
 {
 	int		i;
 
@@ -49,7 +49,7 @@ static pid_t	run(char **cmd)
 	close(pdes[1]);
 	dup2(pdes[0], STDIN_FILENO);
 	close(pdes[0]);
-	clear(cmd);
+	my_clear(cmd);
 	return (child);
 }
 
@@ -86,7 +86,7 @@ void	run_all(t_var *v)
 			v->pids[i] = run(cmd);
 		else
 			clear_pipe(STDIN_FILENO);
-		i++;
+		i++;m
 	}
 	cmd = check_cmd(v, i, v->console_fd);
 	if (cmd != NULL)

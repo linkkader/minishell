@@ -56,33 +56,56 @@ void	init_one(t_var *v, char *str)
 	v->cmd[0] = str;
 }
 
-void	catch(int sig)
+void	handler(int sig)
 {
-	char c;
+	if (sig == SIGINT)
+	{
+		write(1, "\n", 1);
+		write(1, PROMPT_CMD, ft_strlen(PROMPT_CMD));
+	}
+	else if (sig == SIGQUIT)
+	{
 
-	c = '\0';
-	write(0, &c, 1);
+	}
 }
+
+
 
 int		main(int ac, char **av, char **env)
 {
-	char		*str;
-	t_var		v;
+	char				*str;
+	t_var				v;
+	struct sigaction	sa;
 
-	v.envtest = env;
-	//ctrl-C
-	signal(SIGINT, &catch);
-	signal(SIGQUIT, &catch);
+	int			**pipes;
+	t_command			*head;
+
+	sigemptyset(&sa.sa_flags);
+	sa.sa_handler = &handler;
+	sa.sa_flags = SA_RESTART;
+	sigemptyset(&sa.sa_mask);
+	sigaddset(&sa.sa_mask, SIGINT);
+	sigaction(SIGINT, &sa, NULL);
+	sigaction(SIGQUIT, &sa, NULL);
 	init(env, &v);
 	while (1){
-		str = readline("minishell$ ");
-		if (!str) {
-			printf("\n");
-			exit_builtin(NULL, &v);
+		head  = NULL;
+		str = readline(PROMPT_CMD);
+		if (ft_strlen(str) == 0)
 			continue;
-		}
 		add_history(str);
-		init_one(&v, str);
+		head = tokenizer(str);
+		if (check_redirect(head))
+			parser(head, &pipes,env);
+		printf("name %s\n", head->command_name);
+		printf("path %s\n", head->command_path);
+		int i = 0;
+		printf("arg\n");
+		while (head->command_args && head->command_args[i]){
+			printf("%s ", head->command_args[i++]);
+		}
+		printf("\n");
+		//init_one(&v, str);
 		exe(&v);
 	}
 	return (0);

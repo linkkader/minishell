@@ -12,7 +12,7 @@
 
 #include "../includes/minishell.h"
 
-static void	clear(char **cmd)
+static void	my_clear(char **cmd)
 {
 	int		i;
 
@@ -33,7 +33,7 @@ void	cd_builtin(char **cmd, t_var *v)
 		chdir(path);
 	else
 		perror("cd");
-	clear(cmd);
+	my_clear(cmd);
 }
 
 void	pwd_builtin(char **cmd, t_var *v)
@@ -56,7 +56,7 @@ void	pwd_builtin(char **cmd, t_var *v)
 	{
 		ft_putstr_fd("pwd: too many arguments\n",2);
 	}
-	clear(cmd);
+	my_clear(cmd);
 }
 
 void	env_builtin(char **cmd, t_var *v)
@@ -77,7 +77,7 @@ void	env_builtin(char **cmd, t_var *v)
 	}
 	else
 		ft_putstr_fd("env: too many arguments\n",2);
-	clear(cmd);
+	my_clear(cmd);
 }
 
 void	exit_builtin(char **cmd, t_var *v)
@@ -108,7 +108,7 @@ void	echo_builtin(char **cmd, t_var *v)
 	}
 	if (arg == false)
 		printf("\n");
-	clear(cmd);
+	my_clear(cmd);
 }
 
 void	delete_item(t_list **lst, char *str)
@@ -159,5 +159,5 @@ void	unset_builtin(char **cmd, t_var *v)
 		delete_item(&v->env, cmd[i]);
 		i++;
 	}
-	clear(cmd);
+	my_clear(cmd);
 }

@@ -3,5 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/libft" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pars2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/parsing" vcs="Git" />
   </component>
 </project>
