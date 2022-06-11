@@ -48,7 +48,7 @@ static pid_t	run(char *path, char **arg)
 		exit(0);
 	}
 	close(pdes[1]);
-	dup2(pdes[0], STDIN_FILENO);
+	//dup2(pdes[0], STDIN_FILENO);
 	close(pdes[0]);
 	return (child);
 }
