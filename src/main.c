@@ -42,18 +42,19 @@ static void	exe(t_var *v)
 	//	perror("Pipe");
 	//if (child == 0)
 	run_all(v);
+
 	//else
 	//wait(NULL);
 }
 
 void	init_one(t_var *v, char *str)
 {
-	v->length = 1;
-	v->cmd = malloc(1 * sizeof(char *));
+	//v->length = 1;
+	//v->cmd = malloc(1 * sizeof(char *));
 	// tres important
 	v->out = dup(STDOUT_FILENO);
 	v->console_fd = dup(STDIN_FILENO);
-	v->cmd[0] = str;
+	//v->cmd[0] = str;
 }
 
 void	handler(int sig)
@@ -85,12 +86,12 @@ int		main(int ac, char **av, char **env)
 	sa.sa_flags = SA_RESTART;
 	sigemptyset(&sa.sa_mask);
 	sigaddset(&sa.sa_mask, SIGINT);
-	sigaction(SIGINT, &sa, NULL);
-	sigaction(SIGQUIT, &sa, NULL);
+	//sigaction(SIGINT, &sa, NULL);
+	//sigaction(SIGQUIT, &sa, NULL);
 	init(env, &v);
 	while (1){
-		head  = NULL;
 		str = readline(PROMPT_CMD);
+		head  = NULL;
 		if (ft_strlen(str) == 0)
 			continue;
 		add_history(str);
@@ -105,7 +106,8 @@ int		main(int ac, char **av, char **env)
 			printf("%s ", head->command_args[i++]);
 		}
 		printf("\n");
-		//init_one(&v, str);
+		init_one(&v, str);
+		v.head = head;
 		exe(&v);
 	}
 	return (0);

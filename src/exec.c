@@ -87,48 +87,33 @@ static void init(t_var *var)
 	var->sp = ft_split(str, ':');
 }
 
-char	**check_cmd(t_var *v, int index, int console)
+char	**check_cmd(t_var *v, t_command *head, char **path)
 {
 	char	**sp;
-	int		i;
-	char	*s;
 
-	i = 0;
-	init(v);
-	sp = ft_split(v->cmd[index], ' ');
+	if (head == NULL)
+		return (NULL);
+	sp = head->command_args;
 	if (sp == NULL)
 		return (NULL);
-	if (access(sp[0], X_OK) == 0)
-		return (sp);
-	if (ft_strncmp(sp[0], "exit", ft_strlen(sp[0])) == 0)
+	if (ft_strncmp(head->command_name, "exit", ft_strlen(sp[0])) == 0)
 		exit_builtin(sp, v);
-	else if (ft_strncmp(sp[0], "unset", ft_strlen(sp[0])) == 0)
+	else if (ft_strncmp(head->command_name, "unset", ft_strlen(sp[0])) == 0)
 	{
 		unset_builtin(sp, v);
 		return (NULL);
 	}
-	else if (ft_strncmp(sp[0], "export", ft_strlen(sp[0])) == 0)
+	else if (ft_strncmp(head->command_name, "export", ft_strlen(sp[0])) == 0)
 	{
 		export_builtin(sp, v);
 		return (NULL);
 	}
-	while (v->sp[i])
+	if (head && sp != NULL)
 	{
-		s = ft_strjoin2(v->sp[i], sp[0], "/");
-		if (access(s, X_OK) == 0)
-		{
-			free(sp[0]);
-			sp[0] = s;
-			return (check_builtin(sp, v));
-		}
-		free(s);
-		i++;
+		path[0] = head->command_path;
+		return (head->command_args);
 	}
 	try_export_value(sp, v, false, 0);
-	//ft_putstr_fd(ERR_CMD, console);
-	//ft_putstr_fd(sp[0], console);
-	//ft_putstr_fd("\n", console);
-	//clear(sp);
 	return (NULL);
 }
 

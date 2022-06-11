@@ -37,6 +37,7 @@ typedef struct var{
 	t_list	*env;
 	int 	console_fd;
 	pid_t	*pids;
+	t_command			*head;
 }	t_var;
 
 typedef enum bool
@@ -54,7 +55,7 @@ typedef struct entries{
 
 char	*read_line(int entry);
 void	exec_doc(int *pdes, char *limit);
-char	**check_cmd(t_var *v, int index, int console);
+char	**check_cmd(t_var *v, t_command *head, char **path);
 void	run_all(t_var *v);
 int		to_pipe(int fd);
 char	**split_string(char *s, char c);

@@ -30,7 +30,7 @@ static void	my_clear(char **cmd)
 		free(cmd[i++]);
 }
 
-static pid_t	run(char **cmd)
+static pid_t	run(char *path, char **arg)
 {
 	int		pdes[2];
 	pid_t	child;
@@ -41,56 +41,64 @@ static pid_t	run(char **cmd)
 		perror("Pipe");
 	else if (child == 0)
 	{
+		printf("path run %s\n", path);
 		dup2(pdes[1], STDOUT_FILENO);
 		close(pdes[0]);
-		execve(cmd[0], cmd, NULL);
+		execve(path, arg, NULL);
 		exit(0);
 	}
 	close(pdes[1]);
 	dup2(pdes[0], STDIN_FILENO);
 	close(pdes[0]);
-	my_clear(cmd);
 	return (child);
 }
 
-static void	run_last(char **cmd, t_var *v, int i)
+static int	run_last(t_var *v, char *path, char **arg)
 {
 	int		pdes[2];
+	pid_t	id;
 
 	pipe(pdes);
-	v->pids[i] = fork();
-	if (v->pids[i] == -1)
+	id = fork();
+	if (id == -1)
 		perror("Pipe");
-	else if (v->pids[i] == 0)
+	else if (id == 0)
 	{
+		printf("path %s\n", path);
 		dup2(pdes[1], v->out);
 		close(pdes[0]);
-		execve(cmd[0], cmd, NULL);
+		execve(path, arg, NULL);
 		exit(0);
 	}
 	close(pdes[1]);
+	return (id);
 	///dup2(pdes[0], STDIN_FILENO);
 }
 
 void	run_all(t_var *v)
 {
-	int		i;
-	char	**cmd;
+	t_command	*temp;
+	char		**args;
+	char		*path;
+	int 		i;
 
+	//need optimize
 	i = 0;
 	dup2(v->out, STDOUT_FILENO);
-	while (i < v->length - 1)
+	temp = v->head;
+	while (temp && temp->next)
 	{
-		cmd = check_cmd(v, i, v->console_fd);
-		if (cmd != NULL)
-			v->pids[i] = run(cmd);
+		args = check_cmd(v, temp, &path);
+		if (args != NULL)
+			run(path, args);
 		else
 			clear_pipe(STDIN_FILENO);
-		i++;m
+		temp = temp->next;
+		i++;
 	}
-	cmd = check_cmd(v, i, v->console_fd);
-	if (cmd != NULL)
-		run_last(cmd, v, i);
+	args = check_cmd(v, temp, &path);
+	if (args != NULL)
+		v->pids[i] = run_last(v, path, args);
 	while (i > -1)
 		waitpid(v->pids[i--], NULL, 0);
 }
