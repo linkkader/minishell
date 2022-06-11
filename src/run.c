@@ -30,7 +30,7 @@ static void	my_clear(char **cmd)
 		free(cmd[i++]);
 }
 
-static pid_t	run(char *path, char **arg)
+static pid_t	run(char *path, char **arg, t_var *v, t_command *cmd)
 {
 	int		pdes[2];
 	pid_t	child;
@@ -41,16 +41,17 @@ static pid_t	run(char *path, char **arg)
 		perror("Pipe");
 	else if (child == 0)
 	{
-		printf("path run %s\n", path);
-		dup2(pdes[1], STDOUT_FILENO);
+		//cmd->output = pdes[1];
+		close(pdes[0]);
+		dup2(cmd->input, STDIN_FILENO);
+		dup2(cmd->output, STDOUT_FILENO);
 		close(pdes[0]);
 		execve(path, arg, NULL);
 		exit(0);
 	}
 	close(pdes[1]);
-	printf("out %d\n", pdes[0]);
-	dup2(pdes[0], STDIN_FILENO);
-	close(pdes[0]);
+	if (cmd->next)cmd->next->input = pdes[0];
+	//printf("out %d %d in\n", v->out, v->in);
 	return (child);
 }
 
@@ -71,7 +72,7 @@ static int	run_last(t_var *v, char *path, char **arg)
 		execve(path, arg, NULL);
 		exit(0);
 	}
-	close(pdes[1]);
+	//close(pdes[1]);
 	return (id);
 	///dup2(pdes[0], STDIN_FILENO);
 }
@@ -83,26 +84,43 @@ void	run_all(t_var *v)
 	char		*path;
 	int 		i;
 
+	int 	fd;
+
+	fd = open("MAKEFILE", O_RDONLY);
+	int outfd = open("out.txt", O_WRONLY | O_CREAT | O_TRUNC, 0777);
+	printf("fd  %d oufd %d \n", fd, outfd);
+	v->in = dup(fd);
+	v->out = dup(outfd);
 	//need optimize
 	i = 0;
-	dup2(v->out, STDOUT_FILENO);
+	if (v->fake == NULL)
+	{
+		v->fake = malloc(sizeof(int));
+		*v->fake = dup(STDOUT_FILENO);
+	}
+	//dup2(v->out, STDOUT_FILENO);
 	temp = v->head;
-	while (temp && temp->next)
+	if (temp)
+	{
+		temp->input = v->in;
+		temp->output = v->out;
+	}
+	while (temp)
 	{
 		args = check_cmd(v, temp, &path);
 		if (args != NULL)
 		{
-			v->pids[i] = run(path, args);
+			v->pids[i] = run(path, args, v, temp);
 		}
 		else
 			clear_pipe(STDIN_FILENO);
 		temp = temp->next;
 		i++;
 	}
-//	args = check_cmd(v, temp, &path);
-//	if (args != NULL)
-//		v->pids[i] = run_last(v, path, args);
-//	while (i > -1)
-//		waitpid(v->pids[i--], NULL, 0);
+	//args = check_cmd(v, temp, &path);
+	//if (args != NULL)
+	//	v->pids[i] = run_last(v, path, args);
+	while (i > -1)
+		waitpid(v->pids[i--], NULL, 0);
 
 }

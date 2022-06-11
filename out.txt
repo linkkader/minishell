@@ -1,0 +1,11 @@
+Makefile
+includes
+libft
+minishell
+obj
+out.txt
+parse.a
+parsing
+pipex
+pipex2
+src
