@@ -38,6 +38,7 @@ typedef struct var{
 	int 	console_fd;
 	pid_t	*pids;
 	t_command			*head;
+	int 	*fake;
 }	t_var;
 
 typedef enum bool

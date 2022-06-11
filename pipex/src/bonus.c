@@ -10,6 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "pipex.h"
+#include <readline/readline.h>
+#include <readline/history.h>
+#include <stdio.h>
 
 void	my_pipe(int length, t_var v, int start)
 {
@@ -104,6 +107,8 @@ int	main(int ac, char **av, char **env)
 			doc_here(v);
 		else
 		{
+			char *str = readline("");
+			printf("%s\n",str);
 			fd = open(av[1], O_RDONLY);
 			if (access(av[1], F_OK) != 0)
 			{
@@ -115,6 +120,7 @@ int	main(int ac, char **av, char **env)
 			printf("start \n");
 			my_pipe(ac - 2, v, 2);
 			printf("end\n");
+
 			//my_pipe(ac - 2, v, 2);
 		}
 	}

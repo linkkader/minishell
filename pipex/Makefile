@@ -43,7 +43,7 @@ $(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c
 all:$(NAME)
 
 bonus: $(NAME) $(OBJS_BONUS)
-	gcc $(FLAGS) -I $(HEADERS) $(PRINTF) $(OBJS_BONUS) -o ${NAME}
+	gcc $(FLAGS) -I $(HEADERS) $(PRINTF) $(OBJS_BONUS) -lreadline -o ${NAME}
 
 $(PRINTF):
 	@echo "make ft_printf"

@@ -48,6 +48,7 @@ static pid_t	run(char *path, char **arg)
 		exit(0);
 	}
 	close(pdes[1]);
+	printf("out %d\n", pdes[0]);
 	dup2(pdes[0], STDIN_FILENO);
 	close(pdes[0]);
 	return (child);
@@ -98,9 +99,10 @@ void	run_all(t_var *v)
 		temp = temp->next;
 		i++;
 	}
-	args = check_cmd(v, temp, &path);
-	if (args != NULL)
-		v->pids[i] = run_last(v, path, args);
-	while (i > -1)
-		waitpid(v->pids[i--], NULL, 0);
+//	args = check_cmd(v, temp, &path);
+//	if (args != NULL)
+//		v->pids[i] = run_last(v, path, args);
+//	while (i > -1)
+//		waitpid(v->pids[i--], NULL, 0);
+
 }
