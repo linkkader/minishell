@@ -30,27 +30,33 @@ static void	my_clear(char **cmd)
 		free(cmd[i++]);
 }
 
-static pid_t	run(char *path, char **arg, t_var *v, t_command *cmd)
+static pid_t	run(char *path, char **arg, t_var *v, t_command *next_cmd, int in, int out)
 {
 	int		pdes[2];
 	pid_t	child;
 
 	pipe(pdes);
+	if (next_cmd)
+	{
+		next_cmd->output = dup(pdes[0]);
+		next_cmd->input = dup(pdes[1]);
+	}
 	child = fork();
 	if (child == -1)
 		perror("Pipe");
 	else if (child == 0)
 	{
-		//cmd->output = pdes[1];
 		close(pdes[0]);
-		dup2(cmd->input, STDIN_FILENO);
-		dup2(cmd->output, STDOUT_FILENO);
-		close(pdes[0]);
+		dup2(in, STDIN_FILENO);
+		if (next_cmd)
+			dup2(next_cmd->input, STDOUT_FILENO);
+		else
+			dup2(v->out, STDOUT_FILENO);
 		execve(path, arg, NULL);
 		exit(0);
 	}
 	close(pdes[1]);
-	if (cmd->next)cmd->next->input = pdes[0];
+	//if (next_cmd->next)next_cmd->next->input = pdes[0];
 	//printf("out %d %d in\n", v->out, v->in);
 	return (child);
 }
@@ -83,6 +89,7 @@ void	run_all(t_var *v)
 	char		**args;
 	char		*path;
 	int 		i;
+	int		pdes[2];
 
 	int 	fd;
 
@@ -93,24 +100,26 @@ void	run_all(t_var *v)
 	v->out = dup(outfd);
 	//need optimize
 	i = 0;
-	if (v->fake == NULL)
-	{
-		v->fake = malloc(sizeof(int));
-		*v->fake = dup(STDOUT_FILENO);
-	}
 	//dup2(v->out, STDOUT_FILENO);
+
+	temp = v->head;
+	while (temp && temp->next){
+		temp = temp->next;
+	}
 	temp = v->head;
 	if (temp)
 	{
-		temp->input = v->in;
-		temp->output = v->out;
+		v->pids[i] = run(path, args, v, temp->next, v->in, 0);
+		i++;
+		//temp->output = v->out;
+		temp = temp->next;
 	}
 	while (temp)
 	{
 		args = check_cmd(v, temp, &path);
 		if (args != NULL)
 		{
-			v->pids[i] = run(path, args, v, temp);
+			//v->pids[i] = run(path, args, v, temp);
 		}
 		else
 			clear_pipe(STDIN_FILENO);
