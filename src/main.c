@@ -30,7 +30,8 @@ static void	exe(t_var *v)
 	//pid_t	child;
 	int		i;
 
-	v->pids = malloc((v->length) * sizeof(pid_t));
+	if (v->pids == NULL)v->pids = malloc((100) * sizeof(pid_t));
+	printf("run all\n");
 	i = -1;
 	while (i < v->length)
 		v->pids[i++] = -1;
@@ -44,7 +45,7 @@ static void	exe(t_var *v)
 	run_all(v);
 
 	//else
-	//wait(NULL);
+	wait(NULL);
 }
 
 void	init_one(t_var *v, char *str)
@@ -52,6 +53,7 @@ void	init_one(t_var *v, char *str)
 	//v->length = 1;
 	//v->cmd = malloc(1 * sizeof(char *));
 	// tres important
+	v->length = 1000;
 	v->out = dup(STDOUT_FILENO);
 	v->console_fd = dup(STDIN_FILENO);
 	//v->cmd[0] = str;
@@ -89,10 +91,16 @@ int		main(int ac, char **av, char **env)
 	//sigaction(SIGINT, &sa, NULL);
 	//sigaction(SIGQUIT, &sa, NULL);
 	init(env, &v);
+	int i = 0;
+	v.pids = NULL;
 	while (1){
+		i++;
+		//close(STDIN_FILENO);
 		str = readline(PROMPT_CMD);
+
 		head  = NULL;
-		if (ft_strlen(str) == 0)
+		printf("%s\n", str);
+		if (str == NULL || ft_strlen(str) == 0)
 			continue;
 		add_history(str);
 		head = tokenizer(str);
@@ -108,6 +116,7 @@ int		main(int ac, char **av, char **env)
 		printf("\n");
 		init_one(&v, str);
 		v.head = head;
+		printf("start exec\n");
 		exe(&v);
 	}
 	return (0);

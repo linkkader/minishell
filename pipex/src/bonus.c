@@ -87,6 +87,7 @@ static void	init(char **env, t_var *var, int ac, char **av)
 	outfd = open(av[ac - 1], O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	if (outfd == -1)
 		perror(av[ac - 1]);
+	outfd = 1;
 	var->out = dup(outfd);
 }
 //outfd = 1;
@@ -111,7 +112,10 @@ int	main(int ac, char **av, char **env)
 			}
 			else
 				v.in = dup(fd);
+			printf("start \n");
 			my_pipe(ac - 2, v, 2);
+			printf("end\n");
+			//my_pipe(ac - 2, v, 2);
 		}
 	}
 	else

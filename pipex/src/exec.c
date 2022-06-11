@@ -75,16 +75,31 @@ static char	*ft_strjoin2(char *str1, char *str2, char *split)
 	return (str);
 }
 
-char	**check_cmd(t_var v, int index, t_command *head, char **path)
+char	**check_cmd(t_var v, int index, int console)
 {
-	if (head && head->command_args != NULL)
+	char	**sp;
+	int		i;
+	char	*s;
+
+	i = 0;
+	sp = ft_split(v.av[index], ' ');
+	if (sp == NULL)
+		return (NULL);
+	while (v.sp[i])
 	{
-		path[0] = head->command_path;
-		return (head->command_args);
+		s = ft_strjoin2(v.sp[i], sp[0], "/");
+		if (access(s, X_OK) == 0)
+		{
+			free(sp[0]);
+			sp[0] = s;
+			return (sp);
+		}
+		free(s);
+		i++;
 	}
-	ft_putstr_fd(ERR_CMD, v.console_fd);
-	ft_putstr_fd(head->command_name, v.console_fd);
-	ft_putstr_fd("\n", v.console_fd);
+	ft_putstr_fd(ERR_CMD, console);
+	ft_putstr_fd(sp[0], console);
+	ft_putstr_fd("\n", console);
 	clear(sp);
 	return (NULL);
 }

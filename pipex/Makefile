@@ -64,7 +64,7 @@ fclean: clean
 
 re: fclean all
 
-exe: re
-	 ./pipex in.txt "cat -e" "cat -e" ii.txt
+exe: bonus
+	 ./pipex ls "ls" "cat -e" 'cat -e' 'cat -e' 'cat -e' a1.out
 
 .PHONY: all clean fclean re

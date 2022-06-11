@@ -21,14 +21,6 @@ static void	clear_pipe(int fd)
 	}
 }
 
-static void	clear(char **cmd)
-{
-	int		i;
-
-	i = 0;
-	while (cmd[i])
-		free(cmd[i++]);
-}
 
 static pid_t	run(char **cmd)
 {
@@ -49,7 +41,6 @@ static pid_t	run(char **cmd)
 	close(pdes[1]);
 	dup2(pdes[0], STDIN_FILENO);
 	close(pdes[0]);
-	clear(cmd);
 	return (child);
 }
 

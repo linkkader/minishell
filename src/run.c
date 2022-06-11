@@ -48,7 +48,7 @@ static pid_t	run(char *path, char **arg)
 		exit(0);
 	}
 	close(pdes[1]);
-	//dup2(pdes[0], STDIN_FILENO);
+	dup2(pdes[0], STDIN_FILENO);
 	close(pdes[0]);
 	return (child);
 }
@@ -90,7 +90,9 @@ void	run_all(t_var *v)
 	{
 		args = check_cmd(v, temp, &path);
 		if (args != NULL)
-			run(path, args);
+		{
+			v->pids[i] = run(path, args);
+		}
 		else
 			clear_pipe(STDIN_FILENO);
 		temp = temp->next;
