@@ -2,9 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/libft" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/pars2" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/parsing" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/pipex2" vcs="Git" />
   </component>
 </project>

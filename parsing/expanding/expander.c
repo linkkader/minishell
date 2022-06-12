@@ -47,7 +47,7 @@ void	get_variable(t_env_var	*env_var, char **env)
 	if (!parse_ft_strcmp("?", env_var->var))
 		env_var->val = ft_itoa(errno);
 	else
-		env_var->val = ft_getenv(env_var->var, env);
+		env_var->val = parse_ft_getenv(env_var->var, env);
 	env_var->val_len = parse_ft_strlen(env_var->val);
 }
 

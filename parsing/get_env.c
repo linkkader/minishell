@@ -12,7 +12,7 @@
 
 #include "minishell.h"
 
-char	*ft_getenv(char *var, char **env)
+char	*parse_ft_getenv(char *var, char **env)
 {
 	int		i;
 	int		len;

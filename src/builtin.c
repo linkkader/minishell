@@ -12,28 +12,39 @@
 
 #include "../includes/minishell.h"
 
-static void	my_clear(char **cmd)
+char *ft_getenv(t_var *var, char *name)
 {
-	int		i;
+	t_entry		*entry;
+	t_list		*temp;
 
-	i = 0;
-	while (cmd[i])
-		free(cmd[i++]);
+	temp = var->env;
+	while (temp)
+	{
+		entry = to_entry(temp->content);
+		if (ft_strncmp(entry->key, name, ft_strlen(name) + 1) == 0)
+			return (entry->value);
+		temp = temp->next;
+	}
+	return (NULL);
 }
 
 void	cd_builtin(char **cmd, t_var *v)
 {
 	char	*path;
 
+	chdir(path);
+
 	if (cmd[1] == NULL)
-		path = "~";
+	{
+		path = ft_getenv( v, "HOME");
+	}
 	else
 		path = cmd[1];
+	printf("home %s\n", path);
 	if (access(path, X_OK) == 0)
 		chdir(path);
 	else
 		perror("cd");
-	my_clear(cmd);
 }
 
 void	pwd_builtin(char **cmd, t_var *v)
@@ -56,7 +67,6 @@ void	pwd_builtin(char **cmd, t_var *v)
 	{
 		ft_putstr_fd("pwd: too many arguments\n",2);
 	}
-	my_clear(cmd);
 }
 
 void	env_builtin(char **cmd, t_var *v)
@@ -64,6 +74,7 @@ void	env_builtin(char **cmd, t_var *v)
 	t_list	*temp;
 	t_entry *entry;
 
+	printf("builtin\n");
 	if (cmd[1] == NULL)
 	{
 		temp = v->env;
@@ -77,7 +88,6 @@ void	env_builtin(char **cmd, t_var *v)
 	}
 	else
 		ft_putstr_fd("env: too many arguments\n",2);
-	my_clear(cmd);
 }
 
 void	exit_builtin(char **cmd, t_var *v)
@@ -108,7 +118,6 @@ void	echo_builtin(char **cmd, t_var *v)
 	}
 	if (arg == false)
 		printf("\n");
-	my_clear(cmd);
 }
 
 void	delete_item(t_list **lst, char *str)
@@ -159,5 +168,4 @@ void	unset_builtin(char **cmd, t_var *v)
 		delete_item(&v->env, cmd[i]);
 		i++;
 	}
-	my_clear(cmd);
 }

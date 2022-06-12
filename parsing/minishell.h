@@ -77,7 +77,7 @@ int		ft_isnum(char c);
 int		parse_ft_isalnum(char c);
 char	*ft_itoa(int n);
 int		parse_ft_strncmp(const char *s1, const char *s2, size_t n);
-char	*ft_getenv(char *var, char **env);
+char	*parse_ft_getenv(char *var, char **env);
 char	*expand_var(char *str, char **env, char expand_all);
 char	*remove_quotes(char *str);
 
