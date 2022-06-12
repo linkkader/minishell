@@ -131,28 +131,23 @@ void	run_all(t_var *v)
 	//}
 	temp = v->head;
 	int in = v->in;
-	if (temp && 0)
-	{
-		args = check_cmd(v, temp, &path);
-		v->pids[i] = run(path, args, v, temp->next, v->in, &v->out);
-		in = v->out;
-		i++;
-		//temp->output = v->out;
-		temp = temp->next;
-	}
+//	if (temp && 0)
+//	{
+//		args = check_cmd(v, temp, &path);
+//		v->pids[i] = run(path, args, v, temp->next, v->in, &v->out);
+//		in = v->out;
+//		i++;
+//		//temp->output = v->out;
+//		temp = temp->next;
+//	}
 	while (temp)
 	{
 		args = check_cmd(v, temp, &path);
 		if (args != NULL)
+		{
 			v->pids[i] = run(path, args, v, temp, in, &v->out);
-		else
-			clear_pipe(STDIN_FILENO);
-//		char c;
-//		while (read(temp->output, &c, 1) > 0)
-//			write(1, &c, 1);
-//		printf("end1\n");
-//		while (1);
-		in = temp->output;
+			in = temp->output;
+		}
 		temp = temp->next;
 		i++;
 	}

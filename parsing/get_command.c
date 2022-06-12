@@ -32,7 +32,7 @@ char	*get_command_path(char *command_name, char **env)
 	if (!access(command_name, F_OK))
 		return (parse_ft_strdup(command_name));
 	i = -1;
-	path = ft_getenv("PATH", env);
+	path = parse_ft_getenv("PATH", env);
 	split(&paths, path, ':');
 	free(path);
 	path = strjoin("/", command_name);
