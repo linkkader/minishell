@@ -118,7 +118,6 @@ void	run_all(t_var *v)
 
 	fd = open("MAKEFILE", O_RDONLY);
 	int outfd = open("out.txt", O_WRONLY | O_CREAT | O_TRUNC, 0777);
-	printf("fd  %d oufd %d \n", fd, outfd);
 	v->in = dup(fd);
 	v->out = dup(0);
 	//need optimize

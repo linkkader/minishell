@@ -44,7 +44,7 @@ static void	exe(t_var *v)
 	//return;
 	//v->in = STDIN_FILENO;
 	//dup2(v->in, STDIN_FILENO);
-	printf("%d\n", v->in);
+	//printf("%d\n", v->in);
 	//child = fork();
 	//if (child == -1)
 	//	perror("Pipe");
@@ -109,26 +109,36 @@ int		main(int ac, char **av, char **env)
 		str = readline(PROMPT_CMD);
 
 		head  = NULL;
-		printf("%s\n", str);
 		//if (str == NULL || ft_strlen(str) == 0)
 		//	continue;
 		add_history(str);
-		ft_putstr_fd("start token\n", 1);
+		//ft_putstr_fd("start token\n", 1);
 		head = tokenizer(str);
-		ft_putstr_fd("end token\n", 1);
+		//ft_putstr_fd("end token\n", 1);
 		if (check_redirect(head))
 			parser(head, &pipes,env);
-		printf("name %s\n", head->command_name);
-		printf("path %s\n", head->command_path);
-		int i = 0;
-		printf("arg\n");
-		while (head->command_args && head->command_args[i]){
-			printf("%s ", head->command_args[i++]);
+
+
+		t_command	*temp;
+
+		temp = head;
+		while (temp)
+		{
+			printf("%d  %d\n", temp->input, temp->output);
+			temp = temp->next;
 		}
-		printf("\n");
+
+//		printf("name %s\n", head->command_name);
+//		printf("path %s\n", head->command_path);
+//		int i = 0;
+//		printf("arg\n");
+//		while (head->command_args && head->command_args[i]){
+//			printf("%s ", head->command_args[i++]);
+//		}
+//		printf("\n");
 		init_one(&v, str);
 		v.head = head;
-		ft_putstr_fd("start exec\n", 1);
+		//ft_putstr_fd("start exec\n", 1);
 		exe(&v);
 		str = NULL;
 	}

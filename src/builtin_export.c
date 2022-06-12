@@ -29,15 +29,18 @@ static	void export_value(char *key, char *value,  t_var *var, t_bool is_in_expor
 
 	is_in = false;
 	temp = var->env;
-	printf("key  %s  value  %s\n", key, value);
+	printf("key  %s  value  %s %d\n", key, value, is_in_export);
 	while (temp)
 	{
 		entry = to_entry(temp->content);
-		if (ft_strncmp(key, entry->key, ft_strlen(entry->key)) == 0)
+		if (ft_strncmp(key, entry->key, ft_strlen(entry->key) + 1) == 0)
 		{
 			if (entry->value)
 				free(entry->value);
-			entry->value = value;
+			if (value == NULL && entry->value != NULL)
+				entry->is_exported = is_in_export;
+			else
+				entry->value = value;
 			is_in = true;
 			break;
 		}
@@ -71,7 +74,6 @@ void try_export_value(char **sp, t_var *var,t_bool is_in_export, int start)
 	i = start;
 	while (sp && sp[i])
 	{
-		printf("not found %s\n", sp[i]);
 		j = 0;
 		bool = false;
 		if (!(ft_isalpha(sp[i][j]) == 1 || sp[i][j] == '_'))

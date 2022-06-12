@@ -24,23 +24,23 @@ static void	my_clear(char **cmd)
 static char	**check_builtin(t_command *head, t_var *var)
 {
 	char	*name;
+	int 	len;
 
-	if (head == NULL)
-		return (NULL);
 	name = head->command_name;
-	if (ft_strncmp(name, "exit", ft_strlen(name)) == 0)
+	len = ft_strlen(name) + 1;
+	if (ft_strncmp(name, "exit", len) == 0)
 		exit_builtin(head->command_args, var);
 	else if (ft_strncmp(name, "unset", ft_strlen(name)) == 0)
 		unset_builtin(head->command_args, var);
-	else if (ft_strncmp(name, "export", ft_strlen(name)) == 0)
+	else if (ft_strncmp(name, "export", len) == 0)
 		export_builtin(head->command_args, var);
-	else if (ft_strncmp(name, "cd", ft_strlen(name)) == 0)
+	else if (ft_strncmp(name, "cd", len) == 0)
 		cd_builtin(head->command_args, var);
-	else if (ft_strncmp(name, "pwd", ft_strlen(name)) == 0)
+	else if (ft_strncmp(name, "pwd", len) == 0)
 		pwd_builtin(head->command_args, var);
-	else if (ft_strncmp(name, "env", ft_strlen(name)) == 0)
+	else if (ft_strncmp(name, "env", len) == 0)
 		env_builtin(head->command_args, var);
-	else if (ft_strncmp(name, "echo", ft_strlen(name)) == 0)
+	else if (ft_strncmp(name, "echo", len) == 0)
 		echo_builtin(head->command_args, var);
 	else
 		return (head->command_args);
@@ -55,12 +55,11 @@ char	**check_cmd(t_var *v, t_command *head, char **path)
 	if (head == NULL)
 		return (NULL);
 	sp = head->command_args;
-	printf("%s\n", head->command_name);
 	if (sp == NULL)
 		return (NULL);
 	if (check_builtin(head, v) == NULL)
 		return (NULL);
-	if (head && sp != NULL)
+	if (head->command_path)
 	{
 		path[0] = head->command_path;
 		return (head->command_args);

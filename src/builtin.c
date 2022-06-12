@@ -21,7 +21,6 @@ char *ft_getenv(t_var *var, char *name)
 	while (temp)
 	{
 		entry = to_entry(temp->content);
-		printf("%s %s\n", entry->key  , name);
 		if (ft_strncmp(entry->key, name, ft_strlen(name) + 1) == 0)
 			return (entry->value);
 		temp = temp->next;
@@ -37,7 +36,6 @@ void	cd_builtin(char **cmd, t_var *v)
 
 	if (cmd[1] == NULL)
 	{
-		//path = "~";
 		path = ft_getenv( v, "HOME");
 	}
 	else

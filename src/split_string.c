@@ -107,7 +107,7 @@ char	**split_string(char *s, char c)
 	i = 0;
 	count = 0;
 	s = ftlen (s, c, &len);
-	printf("%d\n",len);
+	//printf("%d\n",len);
 	tab = malloc ((len + 1) * sizeof (char *));
 	if (tab == NULL)
 		return (NULL);
