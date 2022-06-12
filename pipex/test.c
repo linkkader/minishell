@@ -30,58 +30,29 @@ static void	my_clear(char **cmd)
 		free(cmd[i++]);
 }
 
-static pid_t	run(char *path, char **arg, t_var *v, t_command *cmd, int in, int *out)
+static pid_t	run(char *path, char **arg, t_var *v, t_command *cmd)
 {
 	int		pdes[2];
 	pid_t	child;
 
-	//if (next_cmd)
-	//{
-	//	printf("ok\n");
-		//next_cmd->output = dup(pdes[1]);//read here but pipe input
-		//next_cmd->input = dup(pdes[0]);//write here but pipe output
-	//}
 	pipe(pdes);
 	child = fork();
 	if (child == -1)
 		perror("Pipe");
 	else if (child == 0)
 	{
-		if (cmd->next)
-			dup2(pdes[1], STDOUT_FILENO);
-		else
-			dup2(v->out, STDOUT_FILENO);
-		dup2(in, STDIN_FILENO);
-
-		//dup2(pdes[1], STDOUT_FILENO);
+		//cmd->output = pdes[1];
+		close(pdes[0]);
+		dup2(cmd->input, STDIN_FILENO);
+		dup2(cmd->output, STDOUT_FILENO);
 		close(pdes[0]);
 		execve(path, arg, NULL);
 		exit(0);
 	}
-	wait(NULL);
-
-
 	close(pdes[1]);
-	cmd->output = dup(pdes[0]);
-
-	return child;
-//	while (read(dup(*out), &c, 1) > 0)
-//		write(1, &c, 1);
-//	printf("end\n");
-//	while (1);
-
-
-
-
-//	close(pdes[1]);
-//	//close(pdes[0]);
-//	if(next_cmd){
-//		printf("here");
-//		close(next_cmd->input);
-//	}
-//	//if (next_cmd->next)next_cmd->next->input = pdes[0];
-//	//printf("out %d %d in\n", v->out, v->in);
-//	return (child);
+	if (cmd->next)cmd->next->input = pdes[0];
+	//printf("out %d %d in\n", v->out, v->in);
+	return (child);
 }
 
 static int	run_last(t_var *v, char *path, char **arg)
@@ -112,6 +83,56 @@ void	run_all(t_var *v)
 	char		**args;
 	char		*path;
 	int 		i;
+
+	int 	fd;
+
+	fd = open("MAKEFILE", O_RDONLY);
+	int outfd = open("out.txt", O_WRONLY | O_CREAT | O_TRUNC, 0777);
+	printf("fd  %d oufd %d \n", fd, outfd);
+	v->in = dup(fd);
+	v->out = dup(outfd);
+	//need optimize
+	i = 0;
+	if (v->fake == NULL)
+	{
+		v->fake = malloc(sizeof(int));
+		*v->fake = dup(STDOUT_FILENO);
+	}
+	//dup2(v->out, STDOUT_FILENO);
+	temp = v->head;
+	if (temp)
+	{
+		temp->input = v->in;
+		temp->output = v->out;
+	}
+	while (temp)
+	{
+		args = check_cmd(v, temp, &path);
+		if (args != NULL)
+		{
+			v->pids[i] = run(path, args, v, temp);
+		}
+		else
+			clear_pipe(STDIN_FILENO);
+		temp = temp->next;
+		i++;
+	}
+	//args = check_cmd(v, temp, &path);
+	//if (args != NULL)
+	//	v->pids[i] = run_last(v, path, args);
+	while (i > -1)
+		waitpid(v->pids[i--], NULL, 0);
+
+}
+
+
+
+void	run_all(t_var *v)
+{
+	t_command	*temp;
+	char		**args;
+	char		*path;
+	int 		i;
 	int		pdes[2];
 
 	int 	fd;
@@ -120,7 +141,7 @@ void	run_all(t_var *v)
 	int outfd = open("out.txt", O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	printf("fd  %d oufd %d \n", fd, outfd);
 	v->in = dup(fd);
-	v->out = dup(0);
+	v->out = dup(outfd);
 	//need optimize
 	i = 0;
 	//dup2(v->out, STDOUT_FILENO);
@@ -130,12 +151,9 @@ void	run_all(t_var *v)
 	//	temp = temp->next;
 	//}
 	temp = v->head;
-	int in = v->in;
-	if (temp && 0)
+	if (temp)
 	{
-		args = check_cmd(v, temp, &path);
-		v->pids[i] = run(path, args, v, temp->next, v->in, &v->out);
-		in = v->out;
+		v->pids[i] = run(path, args, v, temp->next, v->in, v->out);
 		i++;
 		//temp->output = v->out;
 		temp = temp->next;
@@ -144,15 +162,11 @@ void	run_all(t_var *v)
 	{
 		args = check_cmd(v, temp, &path);
 		if (args != NULL)
-			v->pids[i] = run(path, args, v, temp, in, &v->out);
+		{
+			//v->pids[i] = run(path, args, v, temp);
+		}
 		else
 			clear_pipe(STDIN_FILENO);
-//		char c;
-//		while (read(temp->output, &c, 1) > 0)
-//			write(1, &c, 1);
-//		printf("end1\n");
-//		while (1);
-		in = temp->output;
 		temp = temp->next;
 		i++;
 	}
