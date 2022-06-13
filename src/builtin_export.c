@@ -134,9 +134,18 @@ void	export_builtin(char **cmd, t_var *v)
 		{
 			entry = to_entry(temp->content);
 			if (entry->is_exported == true && entry->value != NULL)
-				printf("declare -x %s=\"%s\"\n", entry->key, entry->value);
+			{
+				ft_putstr_fd("declare -x ", v->out);
+				ft_putstr_fd(entry->key, v->out);
+				ft_putstr_fd("=\"", v->out);
+				ft_putstr_fd(entry->value, v->out);
+				ft_putstr_fd("\"\n", v->out);
+				//printf("declare -x %s=\"%s\"\n", entry->key, entry->value);
+			}
 			else if (entry->is_exported== true)
+			{
 				printf("declare -x %s\n", entry->key);
+			}
 			temp = temp->next;
 		}
 	}
@@ -144,4 +153,5 @@ void	export_builtin(char **cmd, t_var *v)
 	{
 		try_export_value(cmd, v, true, 1);
 	}
+	//ft_putstr_fd("the end", 2);
 }

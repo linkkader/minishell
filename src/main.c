@@ -87,7 +87,10 @@ int		main(int ac, char **av, char **env)
 		i++;
 		//close(STDIN_FILENO);
 		str = readline(PROMPT_CMD);
-
+		if (str == NULL){
+			ft_putstr_fd("NULL\n", 2);
+			exit(0);
+		}
 		head  = NULL;
 		printf("%s\n", str);
 		add_history(str);
