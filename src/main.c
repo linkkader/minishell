@@ -27,7 +27,6 @@ static void	init(char **env, t_var *var)
 
 static void	exe(t_var *v)
 {
-	//pid_t	child;
 	int		i;
 
 	if (v->pids == NULL)v->pids = malloc((v->length) * sizeof(pid_t));
@@ -36,34 +35,15 @@ static void	exe(t_var *v)
 		return ;
 	while (i < v->length)
 		v->pids[i++] = -1;
-
-	//char c;
-	//while (read(STDIN_FILENO, &c, 1)){
-	//	printf("%c", c);
-	//}
-	//return;
-	//v->in = STDIN_FILENO;
-	//dup2(v->in, STDIN_FILENO);
-	printf("%d\n", v->in);
-	//child = fork();
-	//if (child == -1)
-	//	perror("Pipe");
-	//if (child == 0)
 	run_all(v);
-
-	//else
 	wait(NULL);
 }
 
 void	init_one(t_var *v, char *str)
 {
-	//v->length = 1;
-	//v->cmd = malloc(1 * sizeof(char *));
-	// tres important
 	v->length = 1000;
 	v->out = dup(STDOUT_FILENO);
 	v->console_fd = dup(STDIN_FILENO);
-	//v->cmd[0] = str;
 }
 
 void	handler(int sig)
@@ -110,8 +90,6 @@ int		main(int ac, char **av, char **env)
 
 		head  = NULL;
 		printf("%s\n", str);
-		//if (str == NULL || ft_strlen(str) == 0)
-		//	continue;
 		add_history(str);
 		ft_putstr_fd("start token\n", 1);
 		head = tokenizer(str);
@@ -128,6 +106,13 @@ int		main(int ac, char **av, char **env)
 		printf("\n");
 		init_one(&v, str);
 		v.head = head;
+
+		t_command *temp = head;
+		while (temp)
+		{
+			printf("%s  %d %d\n", temp->command_name, temp->input, temp->output);
+			temp = temp->next;
+		}
 		ft_putstr_fd("start exec\n", 1);
 		exe(&v);
 		str = NULL;

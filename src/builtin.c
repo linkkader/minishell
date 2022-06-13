@@ -40,7 +40,6 @@ void	cd_builtin(char **cmd, t_var *v)
 	}
 	else
 		path = cmd[1];
-	printf("home %s\n", path);
 	if (access(path, X_OK) == 0)
 		chdir(path);
 	else
@@ -74,7 +73,6 @@ void	env_builtin(char **cmd, t_var *v)
 	t_list	*temp;
 	t_entry *entry;
 
-	printf("builtin\n");
 	if (cmd[1] == NULL)
 	{
 		temp = v->env;
@@ -132,7 +130,6 @@ void	delete_item(t_list **lst, char *str)
 		entry = to_entry(temp->content);
 		if (ft_strncmp(entry->key, str, ft_strlen(str) + 1) == 0)
 		{
-			printf("%s\n", entry->key);
 			free(entry->value);
 			free(entry->key);
 			temp2 = temp->next;
@@ -146,7 +143,6 @@ void	delete_item(t_list **lst, char *str)
 		entry = to_entry(temp->content);
 		if (ft_strncmp(entry->key, str, ft_strlen(str) + 1) == 0)
 		{
-			printf("%s\n", entry->key);
 			free(entry->value);
 			free(entry->key);
 			free(temp);

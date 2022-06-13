@@ -52,7 +52,7 @@ char	**check_cmd(t_var *v, t_command *head, char **path)
 {
 	char	**sp;
 
-	if (head == NULL)
+	if (head == NULL || head->command_name == NULL)
 		return (NULL);
 	sp = head->command_args;
 	if (sp == NULL)

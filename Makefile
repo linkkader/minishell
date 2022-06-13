@@ -20,7 +20,7 @@ LIBFT_DIRECTORY = libft/
 
 LIBFT = $(LIBFT_DIRECTORY)libft.a
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 FLAGS =
 

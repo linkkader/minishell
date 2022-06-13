@@ -58,10 +58,50 @@ static pid_t	run(char *path, char **arg, t_var *v, t_command *cmd, int in, int *
 		execve(path, arg, NULL);
 		exit(0);
 	}
-	wait(NULL);
 
 
 	close(pdes[1]);
+	cmd->output = dup(pdes[0]);
+
+	return child;
+//	while (read(dup(*out), &c, 1) > 0)
+//		write(1, &c, 1);
+//	printf("end\n");
+//	while (1);
+
+
+
+
+//	close(pdes[1]);
+//	//close(pdes[0]);
+//	if(next_cmd){
+//		printf("here");
+//		close(next_cmd->input);
+//	}
+//	//if (next_cmd->next)next_cmd->next->input = pdes[0];
+//	//printf("out %d %d in\n", v->out, v->in);
+//	return (child);
+}
+
+static pid_t	run_null(char *path, char **arg, t_var *v, t_command *cmd, int in, int *out)
+{
+	int		pdes[2];
+	pid_t	child;
+
+	//if (next_cmd)
+	//{
+	//	printf("ok\n");
+	//next_cmd->output = dup(pdes[1]);//read here but pipe input
+	//next_cmd->input = dup(pdes[0]);//write here but pipe output
+	//}
+	pipe(pdes);
+	close(pdes[1]);
+	char c;
+	while (read(in, &c, 1))
+	{
+		write(pdes[1], &c, 1);
+	}
+	//write(1, "enf\n", 4);
 	cmd->output = dup(pdes[0]);
 
 	return child;
@@ -118,7 +158,8 @@ void	run_all(t_var *v)
 
 	fd = open("MAKEFILE", O_RDONLY);
 	int outfd = open("out.txt", O_WRONLY | O_CREAT | O_TRUNC, 0777);
-	v->in = dup(fd);
+	//v->in = dup(fd);
+	v->in = dup(v->head->input);
 	v->out = dup(0);
 	//need optimize
 	i = 0;
@@ -128,6 +169,7 @@ void	run_all(t_var *v)
 	//while (temp && temp->next){
 	//	temp = temp->next;
 	//}
+	v->head->input = v->in;
 	temp = v->head;
 	int in = v->in;
 //	if (temp && 0)
@@ -144,15 +186,17 @@ void	run_all(t_var *v)
 		args = check_cmd(v, temp, &path);
 		if (args != NULL)
 		{
-			v->pids[i] = run(path, args, v, temp, in, &v->out);
-			in = temp->output;
+			v->pids[i] = run(path, args, v, temp, temp->input, &v->out);
+			if (temp->next)
+				temp->next->input = temp->output;
+		}
+		else
+		{
+			temp->next->input = to_pipe(temp->input);
 		}
 		temp = temp->next;
 		i++;
 	}
-	//args = check_cmd(v, temp, &path);
-	//if (args != NULL)
-	//	v->pids[i] = run_last(v, path, args);
 	while (i > -1)
 		waitpid(v->pids[i--], NULL, 0);
 
