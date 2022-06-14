@@ -38,6 +38,7 @@ typedef struct var{
 	char	**sp;
 	t_list	*env;
 	int 	console_fd;
+	char 	**env2;
 	pid_t	*pids;
 	t_command			*head;
 	int 	*fake;

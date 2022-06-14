@@ -14,11 +14,22 @@ void restore(void) {
 }
 
 
-int main() {
+int main(int ac, char **av, char **env) {
 
+	int i = fork();
 
-
-	printf("Entering the loop\n");
-	while(1) {};
-
+	int j = 0;
+	while (env[j])
+	{
+		printf("%s\n", env[j]);
+		j++;
+	}
+	return 0;
+	if (i == 0){
+		printf("child\n");
+		execve(av[1], av, env);
+		exit(0);
+	}
+	wait(NULL);
+	printf("parent");
 }

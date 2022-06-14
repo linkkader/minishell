@@ -56,8 +56,42 @@ void disable_echo()
 	tcsetattr(STDIN_FILENO, TCSAFLUSH, &attributes);
 }
 
+int test(int ac, char **av, char **env) {
+
+	char 		**env1;
+
+	int j = 0;
+	while (env[j])
+	{
+		//printf("%s\n", env[j]);
+		j++;
+	}
+
+	env1 = malloc((j + 1) * sizeof(char *));
+
+	j = 0;
+	while (env[j])
+	{
+		env1[j] = strdup(env[j]);
+		printf("%s|\n", env1[j]);
+		j++;
+	}
+	return 0;
+	int i = fork();
+
+	if (i == 0){
+		printf("child\n");
+		execve(av[1], av, env1);
+		exit(0);
+	}
+	wait(NULL);
+	printf("parent");
+	return 0;
+}
+
 int		main(int ac, char **av, char **env)
 {
+	//return test(ac, av, env);
 	char				*str;
 	t_var				v;
 	int			**pipes;
@@ -70,6 +104,7 @@ int		main(int ac, char **av, char **env)
 
 	v.pids = NULL;
 	v.fake = NULL;
+	v.env2 = env;
 	while (1){
 		i++;
 		str = readline(PROMPT_CMD);

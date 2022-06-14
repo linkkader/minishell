@@ -12,7 +12,7 @@
 
 NAME = minishell
 
-FILE = main.c run.c exec.c split_string.c builtin.c builtin_export.c t_list_utils.c signal.c
+FILE = main.c run.c exec.c builtin.c builtin_export.c t_list_utils.c signal.c
 
 FILE_BONUS = exec.c  bonus.c     utils.c    run.c
 

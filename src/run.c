@@ -59,48 +59,6 @@ static pid_t	run(char *path, char **arg, t_var *v, t_command *cmd, int in, int *
 	return child;
 }
 
-static pid_t	run_null(char *path, char **arg, t_var *v, t_command *cmd, int in, int *out)
-{
-	int		pdes[2];
-	pid_t	child;
-
-	//if (next_cmd)
-	//{
-	//	printf("ok\n");
-	//next_cmd->output = dup(pdes[1]);//read here but pipe input
-	//next_cmd->input = dup(pdes[0]);//write here but pipe output
-	//}
-	pipe(pdes);
-	close(pdes[1]);
-	char c;
-	while (read(in, &c, 1))
-	{
-		write(pdes[1], &c, 1);
-	}
-	//write(1, "enf\n", 4);
-	cmd->output = dup(pdes[0]);
-
-	return child;
-//	while (read(dup(*out), &c, 1) > 0)
-//		write(1, &c, 1);
-//	printf("end\n");
-//	while (1);
-
-
-
-
-//	close(pdes[1]);
-//	//close(pdes[0]);
-//	if(next_cmd){
-//		printf("here");
-//		close(next_cmd->input);
-//	}
-//	//if (next_cmd->next)next_cmd->next->input = pdes[0];
-//	//printf("out %d %d in\n", v->out, v->in);
-//	return (child);
-}
-
-
 void	exe(t_command *tmp, char **env)
 {
 	int	id;
@@ -151,7 +109,7 @@ static char	**to_env(t_list *list)
 	char 		*temp;
 
 	i = 0;
-	env = malloc(ft_lstsize(list) + 1);
+	env = malloc((ft_lstsize(list) + 1) * sizeof(char *));
 	if (env == NULL)
 		return (NULL);
 	while (list)
@@ -169,9 +127,11 @@ static char	**to_env(t_list *list)
 		free(temp);
 		if (env[i] == NULL)
 			return (NULL);
+		i++;
 		list = list->next;
 	}
 	env[i] = NULL;
+	printf("finis\n");
 	return (env);
 }
 
@@ -185,7 +145,6 @@ void	run_all(t_var *v)
 
 	temp = v->head;
 	env = to_env(v->env);
-
 	i = 0;
 	sig[0] = signal(SIGINT, sigint_handler_in_process);
 	sig[1] = signal(SIGQUIT, sigquit_handler_in_process);
@@ -205,7 +164,7 @@ void	run_all(t_var *v)
 				if (temp->output != 1)
 					close(temp->output);
 				if (temp->should_execute)
-					if (execve(temp->command_path, temp->command_args, env) == -1)
+					if (execve(temp->command_path, temp->command_args, v->env2) == -1)
 						exit (1/*puterror("", strerror(errno))*/);
 				exit (2);
 			}
