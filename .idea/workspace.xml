@@ -20,20 +20,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0a3fc66d-3f27-474e-96a3-d556e9d0b164" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/minishell.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/builtin.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtin.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/builtin_export.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtin_export.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/main.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/run.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/run.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse.a" beforeDir="false" afterPath="$PROJECT_DIR$/parse.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parsing/parse.a" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/parse.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/src/a.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/builtin.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtin.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/builtin_export.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtin_export.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/run.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/run.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/signal.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/signal.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +82,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="structure.view.defaults.are.configured" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -122,7 +112,7 @@
       <workItem from="1655039043907" duration="2195000" />
       <workItem from="1655071327892" duration="3552000" />
       <workItem from="1655089036443" duration="2820000" />
-      <workItem from="1655138601233" duration="11386000" />
+      <workItem from="1655138601233" duration="12781000" />
     </task>
     <servers />
   </component>
