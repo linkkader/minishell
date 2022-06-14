@@ -31,13 +31,14 @@
 # define NOT_AN_IDENTIFIER "minishell: export: %s: not a valid identifier"
 
 typedef struct var{
-	int		in;
-	int		out;
-	char	**sp;
-	t_list	*env;
-	int 	console_fd;
-	pid_t	*pids;
-	t_command			*head;
+	int				in;
+	int				out;
+	char			**sp;
+	t_list			*env;
+	int 			console_fd;
+	struct termios	attributes;
+	pid_t			*pids;
+	t_command		*head;
 }	t_var;
 
 typedef enum bool
@@ -75,6 +76,7 @@ void	unset_builtin(char **cmd, t_var *v);
 char	**to_env(t_list *list);
 void	my_clear(char **cmd);
 
+void	correct_echo(t_var *v);
 void	push(t_list **lst, char *str);
 t_entry	*to_entry(void *e);
 

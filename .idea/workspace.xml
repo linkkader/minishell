@@ -74,7 +74,6 @@
       <change beforePath="$PROJECT_DIR$/obj/run.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/run.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/signal.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/signal.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/t_list_utils.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/t_list_utils.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse.a" beforeDir="false" afterPath="$PROJECT_DIR$/parse.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parsing/check_for_error.o" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/check_for_error.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parsing/close_all.o" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/close_all.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parsing/expanding/expander.o" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/expanding/expander.o" afterDir="false" />
@@ -104,21 +103,14 @@
       <change beforePath="$PROJECT_DIR$/parsing/libft/string/split/tokens_length.o" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/libft/string/split/tokens_length.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parsing/libft/string/string.o" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/libft/string/string.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parsing/libft/string/wrap_with_space.o" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/libft/string/wrap_with_space.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parsing/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parsing/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/main.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parsing/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/minishell.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parsing/open_pipes.o" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/open_pipes.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parsing/parse.a" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/parse.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parsing/parser.o" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/parser.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parsing/remove_quotes.o" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/remove_quotes.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parsing/tokenizer.o" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/tokenizer.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/builtin.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtin.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/builtin_export.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtin_export.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exec.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/exec.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/run.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/run.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/t_list_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/t_list_utils.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,22 +155,9 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/acouliba/Desktop/minishell&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />

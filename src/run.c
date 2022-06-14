@@ -145,6 +145,23 @@ char	**to_env(t_list *list)
 	return (env);
 }
 
+
+void correct_echo(t_var *v)
+{
+	struct termios attributes;
+
+	tcgetattr(STDIN_FILENO, &v->attributes);
+	tcgetattr(STDIN_FILENO, &attributes);
+	attributes.c_lflag &= ~~(ECHO | IEXTEN);
+	tcsetattr(STDIN_FILENO, TCSAFLUSH, &attributes);
+	//tcsetattr(STDIN_FILENO, TCSAFLUSH, &v->attributes);
+}
+
+void normal_echo(t_var *v)
+{
+	tcsetattr(STDIN_FILENO, TCSAFLUSH, &v->attributes);
+}
+
 void	run_all(t_var *v)
 {
 	t_command	*temp;
@@ -158,6 +175,7 @@ void	run_all(t_var *v)
 	i = 0;
 	sig[0] = signal(SIGINT, sigint_handler_in_process);
 	sig[1] = signal(SIGQUIT, sigquit_handler_in_process);
+	normal_echo(v);
 	while (temp)
 	{
 		v->out = temp->output;
@@ -190,6 +208,8 @@ void	run_all(t_var *v)
 	while (i > -1)
 		waitpid(v->pids[i--], NULL, 0);
 	my_clear(env);
+	//correct_echo();
 	signal(SIGINT, sig[0]);
 	signal(SIGQUIT, sig[1]);
+	correct_echo(v);
 }

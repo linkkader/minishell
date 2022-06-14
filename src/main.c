@@ -57,16 +57,6 @@ static void	exe(t_var *v)
 	wait(NULL);
 }
 
-
-void correct_echo()
-{
-	struct termios attributes;
-
-	tcgetattr(STDIN_FILENO, &attributes);
-	attributes.c_lflag &= ~~(ECHO | IEXTEN);
-	tcsetattr(STDIN_FILENO, TCSAFLUSH, &attributes);
-}
-
 int		main(int ac, char **av, char **env)
 {
 	//return test(ac, av, env);
@@ -79,7 +69,8 @@ int		main(int ac, char **av, char **env)
 	int 	i = 0;
 
 	signals();
-	correct_echo();
+	correct_echo(&v);
+
 	init(env, &v);
 	while (1)
 	{

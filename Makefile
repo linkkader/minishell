@@ -23,8 +23,8 @@ LIBFT = $(LIBFT_DIRECTORY)libft.a
 LDFLAGS ="-L/opt/homebrew/opt/readline/lib"
 CPPFLAGS ="-I/opt/homebrew/opt/readline/include"
 
-LDFLAGS="-L/goinfre/acouliba/brew/opt/readline/lib"
-CPPFLAGS="-I/goinfre/acouliba/brew/opt/readline/include"
+#LDFLAGS="-L/goinfre/acouliba/brew/opt/readline/lib"
+#CPPFLAGS="-I/goinfre/acouliba/brew/opt/readline/include"
 
 
 FLAGS = -Wall -Wextra -Werror -fsanitize=address $(LDFLAGS) $(CPPFLAGS)
@@ -62,11 +62,8 @@ $(OBJECTS_DIRECTORY):
 	mkdir -p $@
 
 $(NAME): $(LIBFT) $(OBJECTS_DIRECTORY) $(OBJS)
-	gcc $(FLAGS) -I $(HEADERS) $(PRINTF) $(OBJS) $(LIBFT) parse.a -lreadline -o $(NAME)
+	gcc $(FLAGS) -I $(HEADERS) $(PRINTF) $(OBJS) $(LIBFT) parsing/parse.a -lreadline -o $(NAME)
 
-
-test: $(LIBFT) $(OBJECTS_DIRECTORY) $(OBJS)
-	gcc $(FLAGS) -I $(HEADERS) $(PRINTF) $(OBJS) $(LIBFT) parse.a -lreadline -o $(NAME)
 
 clean:
 	rm -Rf $(OBJECTS_DIRECTORY)
@@ -75,7 +72,15 @@ fclean: clean
 	#@make fclean -sC $(LIBFT_DIRECTORY)
 	rm -f $(NAME)
 
+
 re: fclean all
+
+ree: fclean
+	@make re -sC $(LIBFT_DIRECTORY)
+	@make bonus -sC $(LIBFT_DIRECTORY)
+	@make fclean -sC parsing
+	@make test -sC parsing
+	@make bonus -sC $(LIBFT_DIRECTORY)
 
 exe: re
 	./minishell
