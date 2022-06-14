@@ -20,7 +20,10 @@ void	push(t_list **lst, char *str)
 
 	entry = malloc(sizeof(*entry));
 	if (entry == NULL)
+	{
+		//exit here
 		return ;
+	}
 	i = 0;
 	while (str[i])
 	{
@@ -31,16 +34,21 @@ void	push(t_list **lst, char *str)
 	if (i == ft_strlen(str))
 	{
 		entry->key = ft_strdup(str);
+		if (entry->key)
+		{
+			//exit here
+		}
 		entry->value = NULL;
 	}
 	else
 	{
 		entry->key = ft_substr(str, 0, i);
 		entry->value = ft_substr(str, i + 1, ft_strlen(str) - i -1);
+		if (entry->key == NULL || entry->value == NULL)
+		{
+
+		}
 	}
-	//entry->is_exported = malloc(sizeof(t_bool));
-	//if (entry->is_exported == NULL)
-	//	return ;
 	entry->is_exported = true;
 	ft_lstadd_back(lst, ft_lstnew(entry));
 }

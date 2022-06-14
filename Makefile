@@ -12,7 +12,7 @@
 
 NAME = minishell
 
-FILE = main.c run.c exec.c split_string.c builtin.c builtin_export.c t_list_utils.c
+FILE = main.c run.c exec.c builtin.c builtin_export.c t_list_utils.c signal.c
 
 FILE_BONUS = exec.c  bonus.c     utils.c    run.c
 
@@ -20,9 +20,16 @@ LIBFT_DIRECTORY = libft/
 
 LIBFT = $(LIBFT_DIRECTORY)libft.a
 
-FLAGS = -Wall -Wextra -Werror
+LDFLAGS ="-L/opt/homebrew/opt/readline/lib"
+CPPFLAGS ="-I/opt/homebrew/opt/readline/include"
 
-FLAGS =
+#LDFLAGS="-L/goinfre/acouliba/brew/opt/readline/lib"
+#CPPFLAGS="-I/goinfre/acouliba/brew/opt/readline/include"
+
+
+FLAGS = -Wall -Wextra -Werror -fsanitize=address $(LDFLAGS) $(CPPFLAGS)
+
+FLAGS =  $(LDFLAGS) $(CPPFLAGS)
 
 
 HEADERS = includes
@@ -55,11 +62,8 @@ $(OBJECTS_DIRECTORY):
 	mkdir -p $@
 
 $(NAME): $(LIBFT) $(OBJECTS_DIRECTORY) $(OBJS)
-	gcc $(FLAGS) -I $(HEADERS) $(PRINTF) $(OBJS) $(LIBFT) parse.a -lreadline -o $(NAME)
+	gcc $(FLAGS) -I $(HEADERS) $(PRINTF) $(OBJS) $(LIBFT) parsing/parse.a -lreadline -o $(NAME)
 
-
-test: $(LIBFT) $(OBJECTS_DIRECTORY) $(OBJS)
-	gcc $(FLAGS) -I $(HEADERS) $(PRINTF) $(OBJS) $(LIBFT) parse.a -lreadline -o $(NAME)
 
 clean:
 	rm -Rf $(OBJECTS_DIRECTORY)
@@ -68,7 +72,15 @@ fclean: clean
 	#@make fclean -sC $(LIBFT_DIRECTORY)
 	rm -f $(NAME)
 
+
 re: fclean all
+
+ree: fclean
+	@make re -sC $(LIBFT_DIRECTORY)
+	@make bonus -sC $(LIBFT_DIRECTORY)
+	@make fclean -sC parsing
+	@make test -sC parsing
+	@make bonus -sC $(LIBFT_DIRECTORY)
 
 exe: re
 	./minishell

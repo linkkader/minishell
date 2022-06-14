@@ -21,7 +21,7 @@ static void clear_pipe(int fd)
 	}
 }
 
-static void	my_clear(char **cmd)
+void	my_clear(char **cmd)
 {
 	int		i;
 
@@ -35,12 +35,7 @@ static pid_t	run(char *path, char **arg, t_var *v, t_command *cmd, int in, int *
 	int		pdes[2];
 	pid_t	child;
 
-	//if (next_cmd)
-	//{
-	//	printf("ok\n");
-		//next_cmd->output = dup(pdes[1]);//read here but pipe input
-		//next_cmd->input = dup(pdes[0]);//write here but pipe output
-	//}
+
 	pipe(pdes);
 	child = fork();
 	if (child == -1)
@@ -52,108 +47,169 @@ static pid_t	run(char *path, char **arg, t_var *v, t_command *cmd, int in, int *
 		else
 			dup2(v->out, STDOUT_FILENO);
 		dup2(in, STDIN_FILENO);
-
-		//dup2(pdes[1], STDOUT_FILENO);
 		close(pdes[0]);
 		execve(path, arg, NULL);
 		exit(0);
 	}
-	wait(NULL);
 
 
 	close(pdes[1]);
 	cmd->output = dup(pdes[0]);
 
 	return child;
-//	while (read(dup(*out), &c, 1) > 0)
-//		write(1, &c, 1);
-//	printf("end\n");
-//	while (1);
-
-
-
-
-//	close(pdes[1]);
-//	//close(pdes[0]);
-//	if(next_cmd){
-//		printf("here");
-//		close(next_cmd->input);
-//	}
-//	//if (next_cmd->next)next_cmd->next->input = pdes[0];
-//	//printf("out %d %d in\n", v->out, v->in);
-//	return (child);
 }
 
-static int	run_last(t_var *v, char *path, char **arg)
+void	exe(t_command *tmp, char **env)
 {
-	int		pdes[2];
-	pid_t	id;
+	int	id;
 
-	pipe(pdes);
-	id = fork();
-	if (id == -1)
-		perror("Pipe");
-	else if (id == 0)
+	while (tmp)
 	{
-		printf("path %s\n", path);
-		dup2(pdes[1], v->out);
-		close(pdes[0]);
-		execve(path, arg, NULL);
-		exit(0);
+		id = fork();
+		if (!id)
+		{
+			dup2(tmp->input, 0);
+			dup2(tmp->output, 1);
+			if (tmp->input != 0)
+				close(tmp->input);
+			if (tmp->output != 1)
+				close(tmp->output);
+			if (tmp->should_execute)
+				if (execve(tmp->command_path, tmp->command_args, env) == -1)
+					exit (1/*puterror("", strerror(errno))*/);
+			exit (2);
+		}
+		wait(NULL);
+		if (tmp->input != 0)
+			close(tmp->input);
+		if (tmp->output != 1)
+			close(tmp->output);
+		tmp = tmp->next;
 	}
-	//close(pdes[1]);
-	return (id);
-	///dup2(pdes[0], STDIN_FILENO);
+}
+
+
+static void	sigint_handler_in_process(int sig)
+{
+	(void) sig;
+	printf("\n");
+}
+
+static void	sigquit_handler_in_process(int sig)
+{
+	(void) sig;
+	printf("Quit: %d\n", sig);
+}
+
+char	**to_env(t_list *list)
+{
+	t_entry 	*entry;
+	char 		**env;
+	int 		i;
+	char 		*temp;
+
+	i = 0;
+	env = malloc((ft_lstsize(list) + 1) * sizeof(char *));
+	if (env == NULL)
+	{
+		//exit here
+		return (NULL);
+	}
+	while (list)
+	{
+		entry = to_entry(list->content);
+		if (entry->is_exported == false || entry->value == NULL)
+		{
+			list = list->next;
+			continue;
+		}
+		temp = ft_strjoin(entry->key, "=");
+		if (temp == NULL)
+		{
+			//exit here
+			return (NULL);
+		}
+		env[i] = ft_strjoin(temp,entry->value);
+		if (env[i] == NULL)
+		{
+			//exit here
+			return (NULL);
+		}
+		free(temp);
+		if (env[i] == NULL)
+			return (NULL);
+		i++;
+		list = list->next;
+	}
+	env[i] = NULL;
+	return (env);
+}
+
+
+void correct_echo(t_var *v)
+{
+	struct termios attributes;
+
+	tcgetattr(STDIN_FILENO, &v->attributes);
+	tcgetattr(STDIN_FILENO, &attributes);
+	attributes.c_lflag &= ~~(ECHO | IEXTEN);
+	tcsetattr(STDIN_FILENO, TCSAFLUSH, &attributes);
+	//tcsetattr(STDIN_FILENO, TCSAFLUSH, &v->attributes);
+}
+
+void normal_echo(t_var *v)
+{
+	tcsetattr(STDIN_FILENO, TCSAFLUSH, &v->attributes);
 }
 
 void	run_all(t_var *v)
 {
 	t_command	*temp;
 	char		**args;
-	char		*path;
+	char		**env;
 	int 		i;
-	int		pdes[2];
+	sig_t		sig[2];
 
-	int 	fd;
-
-	fd = open("MAKEFILE", O_RDONLY);
-	int outfd = open("out.txt", O_WRONLY | O_CREAT | O_TRUNC, 0777);
-	v->in = dup(fd);
-	v->out = dup(0);
-	//need optimize
-	i = 0;
-	//dup2(v->out, STDOUT_FILENO);
-
-	//temp = v->head;
-	//while (temp && temp->next){
-	//	temp = temp->next;
-	//}
 	temp = v->head;
-	int in = v->in;
-//	if (temp && 0)
-//	{
-//		args = check_cmd(v, temp, &path);
-//		v->pids[i] = run(path, args, v, temp->next, v->in, &v->out);
-//		in = v->out;
-//		i++;
-//		//temp->output = v->out;
-//		temp = temp->next;
-//	}
+	env = to_env(v->env);
+	i = 0;
+	sig[0] = signal(SIGINT, sigint_handler_in_process);
+	sig[1] = signal(SIGQUIT, sigquit_handler_in_process);
+	normal_echo(v);
 	while (temp)
 	{
-		args = check_cmd(v, temp, &path);
+		v->out = temp->output;
+		args = check_cmd(v, temp);
 		if (args != NULL)
 		{
-			v->pids[i] = run(path, args, v, temp, in, &v->out);
-			in = temp->output;
+			v->pids[i] = fork();
+			if (!v->pids[i])
+			{
+				dup2(temp->input, 0);
+				dup2(temp->output, 1);
+				if (temp->input != 0)
+					close(temp->input);
+				if (temp->output != 1)
+					close(temp->output);
+				if (temp->should_execute)
+					if (execve(temp->command_path, temp->command_args, env) == -1)
+						exit (1/*puterror("", strerror(errno))*/);
+				exit (2);
+			}
 		}
-		temp = temp->next;
+		if (temp->input != 0)
+			close(temp->input);
+		if (temp->output != 1)
+			close(temp->output);
+		//tmp = tmp->next;
 		i++;
+		temp = temp->next;
 	}
-	//args = check_cmd(v, temp, &path);
-	//if (args != NULL)
-	//	v->pids[i] = run_last(v, path, args);
 	while (i > -1)
 		waitpid(v->pids[i--], NULL, 0);
-
+	my_clear(env);
+	//correct_echo();
+	signal(SIGINT, sig[0]);
+	signal(SIGQUIT, sig[1]);
+	correct_echo(v);
 }

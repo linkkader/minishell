@@ -12,15 +12,6 @@
 
 #include "../includes/minishell.h"
 
-static void	my_clear(char **cmd)
-{
-	int		i;
-
-	i = 0;
-	while (cmd[i])
-		free(cmd[i++]);
-}
-
 static char	**check_builtin(t_command *head, t_var *var)
 {
 	char	*name;
@@ -48,11 +39,11 @@ static char	**check_builtin(t_command *head, t_var *var)
 }
 
 
-char	**check_cmd(t_var *v, t_command *head, char **path)
+char	**check_cmd(t_var *v, t_command *head)
 {
 	char	**sp;
 
-	if (head == NULL)
+	if (head == NULL || head->command_name == NULL)
 		return (NULL);
 	sp = head->command_args;
 	if (sp == NULL)
@@ -60,10 +51,7 @@ char	**check_cmd(t_var *v, t_command *head, char **path)
 	if (check_builtin(head, v) == NULL)
 		return (NULL);
 	if (head->command_path)
-	{
-		path[0] = head->command_path;
 		return (head->command_args);
-	}
 	try_export_value(sp, v, false, 0);
 	return (NULL);
 }

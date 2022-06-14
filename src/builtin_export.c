@@ -12,35 +12,33 @@
 
 #include "../includes/minishell.h"
 
-static void	my_clear(char **cmd)
-{
-	int		i;
-
-	i = 0;
-	while (cmd[i])
-		free(cmd[i++]);
-}
-
 static	void export_value(char *key, char *value,  t_var *var, t_bool is_in_export)
 {
 	t_list	*temp;
 	t_entry *entry;
 	t_bool	is_in;
 
+	if (key || value)
+	{
+		//exit here
+	}
 	is_in = false;
 	temp = var->env;
-	printf("key  %s  value  %s %d\n", key, value, is_in_export);
 	while (temp)
 	{
 		entry = to_entry(temp->content);
 		if (ft_strncmp(key, entry->key, ft_strlen(entry->key) + 1) == 0)
 		{
-			if (entry->value)
-				free(entry->value);
 			if (value == NULL && entry->value != NULL)
+			{
 				entry->is_exported = is_in_export;
+			}
 			else
+			{
+				if (entry->value)
+					free(entry->value);
 				entry->value = value;
+			}
 			is_in = true;
 			break;
 		}
@@ -50,7 +48,10 @@ static	void export_value(char *key, char *value,  t_var *var, t_bool is_in_expor
 	{
 		entry = malloc(sizeof(*entry));
 		if (entry == NULL)
+		{
+			//exit here
 			return ;
+		}
 		entry->key = key;
 		entry->is_exported = is_in_export;
 		entry->value = value;
@@ -129,10 +130,15 @@ void	export_builtin(char **cmd, t_var *v)
 		while (temp)
 		{
 			entry = to_entry(temp->content);
+			ft_putstr_fd("declare -x ", v->out);
+			ft_putstr_fd(entry->key, v->out);
 			if (entry->is_exported == true && entry->value != NULL)
-				printf("declare -x %s=\"%s\"\n", entry->key, entry->value);
-			else if (entry->is_exported== true)
-				printf("declare -x %s\n", entry->key);
+			{
+				ft_putstr_fd("=\"", v->out);
+				ft_putstr_fd(entry->value, v->out);
+				ft_putstr_fd("\"", v->out);
+			}
+			ft_putstr_fd("\n", v->out);
 			temp = temp->next;
 		}
 	}
@@ -140,4 +146,5 @@ void	export_builtin(char **cmd, t_var *v)
 	{
 		try_export_value(cmd, v, true, 1);
 	}
+	//ft_putstr_fd("the end", 2);
 }
