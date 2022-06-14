@@ -21,7 +21,7 @@ static void clear_pipe(int fd)
 	}
 }
 
-static void	my_clear(char **cmd)
+void	my_clear(char **cmd)
 {
 	int		i;
 
@@ -101,7 +101,7 @@ static void	sigquit_handler_in_process(int sig)
 	printf("Quit: %d\n", sig);
 }
 
-static char	**to_env(t_list *list)
+char	**to_env(t_list *list)
 {
 	t_entry 	*entry;
 	char 		**env;
@@ -111,7 +111,10 @@ static char	**to_env(t_list *list)
 	i = 0;
 	env = malloc((ft_lstsize(list) + 1) * sizeof(char *));
 	if (env == NULL)
+	{
+		//exit here
 		return (NULL);
+	}
 	while (list)
 	{
 		entry = to_entry(list->content);
@@ -122,8 +125,16 @@ static char	**to_env(t_list *list)
 		}
 		temp = ft_strjoin(entry->key, "=");
 		if (temp == NULL)
+		{
+			//exit here
 			return (NULL);
+		}
 		env[i] = ft_strjoin(temp,entry->value);
+		if (env[i] == NULL)
+		{
+			//exit here
+			return (NULL);
+		}
 		free(temp);
 		if (env[i] == NULL)
 			return (NULL);
@@ -131,7 +142,6 @@ static char	**to_env(t_list *list)
 		list = list->next;
 	}
 	env[i] = NULL;
-	printf("finis\n");
 	return (env);
 }
 
@@ -164,7 +174,7 @@ void	run_all(t_var *v)
 				if (temp->output != 1)
 					close(temp->output);
 				if (temp->should_execute)
-					if (execve(temp->command_path, temp->command_args, v->env2) == -1)
+					if (execve(temp->command_path, temp->command_args, env) == -1)
 						exit (1/*puterror("", strerror(errno))*/);
 				exit (2);
 			}

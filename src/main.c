@@ -23,31 +23,42 @@ static void	init(char **env, t_var *var)
 		push(&var->env, env[index]);
 		index++;
 	}
+	//var->length = 1000;
+	//v->out = dup(STDOUT_FILENO);
+	var->console_fd = 2;
+}
+
+static int size_t_command(t_command *cmd)
+{
+	int		i;
+
+	i = 0;
+	while (cmd)
+	{
+		i++;
+		cmd = cmd->next;
+	}
+	return (i);
 }
 
 static void	exe(t_var *v)
 {
 	int		i;
 
-	if (v->pids == NULL)v->pids = malloc((v->length) * sizeof(pid_t));
+	v->pids = malloc((size_t_command(v->head)) * sizeof(pid_t));
+	if (v->pids == NULL)
+	{
+		//exit here
+	}
 	i = -1;
 	if (v->pids == NULL)
 		return ;
-	while (i < v->length)
-		v->pids[i++] = -1;
 	run_all(v);
 	wait(NULL);
 }
 
-void	init_one(t_var *v, char *str)
-{
-	v->length = 1000;
-	v->out = dup(STDOUT_FILENO);
-	v->console_fd = 2;
-}
 
-
-void disable_echo()
+void correct_echo()
 {
 	struct termios attributes;
 
@@ -56,68 +67,37 @@ void disable_echo()
 	tcsetattr(STDIN_FILENO, TCSAFLUSH, &attributes);
 }
 
-int test(int ac, char **av, char **env) {
-
-	char 		**env1;
-
-	int j = 0;
-	while (env[j])
-	{
-		//printf("%s\n", env[j]);
-		j++;
-	}
-
-	env1 = malloc((j + 1) * sizeof(char *));
-
-	j = 0;
-	while (env[j])
-	{
-		env1[j] = strdup(env[j]);
-		printf("%s|\n", env1[j]);
-		j++;
-	}
-	return 0;
-	int i = fork();
-
-	if (i == 0){
-		printf("child\n");
-		execve(av[1], av, env1);
-		exit(0);
-	}
-	wait(NULL);
-	printf("parent");
-	return 0;
-}
-
 int		main(int ac, char **av, char **env)
 {
 	//return test(ac, av, env);
-	char				*str;
-	t_var				v;
+	char		*str;
+	t_var		v;
 	int			**pipes;
-	t_command			*head;
+	t_command	*head;
+	char 		**temp_env;
+
+	int 	i = 0;
 
 	signals();
-	disable_echo();
+	correct_echo();
 	init(env, &v);
-	int i = 0;
-
-	v.pids = NULL;
-	v.fake = NULL;
-	v.env2 = env;
-	while (1){
+	while (1)
+	{
+		v.pids = NULL;
 		i++;
 		str = readline(PROMPT_CMD);
-		if (str == NULL){
-			ft_putstr_fd("NULL\n", 2);
+		if (str == NULL)
+		{
+			ft_putstr_fd(PROMPT_CMD, 1);
+			ft_putstr_fd("exit\n", 1);
 			exit(0);
 		}
 		head  = NULL;
 		add_history(str);
 		head = tokenizer(str);
+		temp_env = to_env(v.env);
 		if (check_redirect(head))
-			parser(head, &pipes,env);
-		init_one(&v, str);
+			parser(head, &pipes, temp_env);
 		v.head = head;
 		t_command *temp = head;
 		while (temp)
@@ -125,8 +105,11 @@ int		main(int ac, char **av, char **env)
 			printf("%s  %d %d\n", temp->command_name, temp->input, temp->output);
 			temp = temp->next;
 		}
+		free(v.pids);
 		exe(&v);
-		str = NULL;
+		free(str);
+		my_clear(temp_env);
+		//cleaning(&head, &pipes);
 	}
 	return (0);
 }

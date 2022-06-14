@@ -12,21 +12,16 @@
 
 #include "../includes/minishell.h"
 
-void	my_clear(char **cmd)
-{
-	int		i;
-
-	i = 0;
-	while (cmd[i])
-		free(cmd[i++]);
-}
-
 static	void export_value(char *key, char *value,  t_var *var, t_bool is_in_export)
 {
 	t_list	*temp;
 	t_entry *entry;
 	t_bool	is_in;
 
+	if (key || value)
+	{
+		//exit here
+	}
 	is_in = false;
 	temp = var->env;
 	while (temp)
@@ -53,7 +48,10 @@ static	void export_value(char *key, char *value,  t_var *var, t_bool is_in_expor
 	{
 		entry = malloc(sizeof(*entry));
 		if (entry == NULL)
+		{
+			//exit here
 			return ;
+		}
 		entry->key = key;
 		entry->is_exported = is_in_export;
 		entry->value = value;

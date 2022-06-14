@@ -33,15 +33,11 @@
 typedef struct var{
 	int		in;
 	int		out;
-	int		length;
-	char	**cmd;
 	char	**sp;
 	t_list	*env;
 	int 	console_fd;
-	char 	**env2;
 	pid_t	*pids;
 	t_command			*head;
-	int 	*fake;
 }	t_var;
 
 typedef enum bool
@@ -76,6 +72,8 @@ void	env_builtin(char **cmd, t_var *v);
 void	export_builtin(char **cmd, t_var *v);
 void	try_export_value(char **sp, t_var *var,t_bool is_in_export, int start);
 void	unset_builtin(char **cmd, t_var *v);
+char	**to_env(t_list *list);
+void	my_clear(char **cmd);
 
 void	push(t_list **lst, char *str);
 t_entry	*to_entry(void *e);

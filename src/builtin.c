@@ -54,6 +54,7 @@ void	pwd_builtin(char **cmd, t_var *v)
 	if (path == NULL)
 	{
 		perror("pwd");
+		//exit here
 		return ;
 	}
 	if (cmd[1] == NULL)
@@ -168,7 +169,6 @@ void	unset_builtin(char **cmd, t_var *v)
 	int 	i;
 
 	i = 1;
-	printf("unset\n");
 	while (cmd[i])
 	{
 		delete_item(&v->env, cmd[i]);

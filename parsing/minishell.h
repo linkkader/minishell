@@ -101,4 +101,6 @@ void	*ft_calloc(size_t count, size_t size);
 void	clear_tokens(t_command **head);
 void    open_pipes(t_command *cmds, int ***pipes);
 void    close_all(t_command *cmds, int ***pipes);
+
+void	cleaning(t_command **cmds, int ***pipes);
 #endif

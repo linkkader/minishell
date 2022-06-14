@@ -12,15 +12,6 @@
 
 #include "../includes/minishell.h"
 
-static void	my_clear(char **cmd)
-{
-	int		i;
-
-	i = 0;
-	while (cmd[i])
-		free(cmd[i++]);
-}
-
 static char	**check_builtin(t_command *head, t_var *var)
 {
 	char	*name;

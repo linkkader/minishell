@@ -23,6 +23,7 @@ void	cleaning(t_command **cmds, int ***pipes)
 	parse_ft_lstclear(cmds);
 }
 
+/*
 void	exe(t_command *tmp, char **env)
 {
 	int	id;
@@ -51,7 +52,7 @@ void	exe(t_command *tmp, char **env)
 			tmp = tmp->next;
 		}
 }
-
+*/
 
 /*
 int main(int ac, char **av, char **env)
