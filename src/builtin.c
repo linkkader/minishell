@@ -59,13 +59,12 @@ void	pwd_builtin(char **cmd, t_var *v)
 	if (cmd[1] == NULL)
 	{
 		getcwd(path, 1000);
-		printf("%s\n", path);
+		ft_putstr_fd(path, v->out);
+		ft_putstr_fd("\n", v->out);
 		free(path);
 	}
 	else
-	{
 		ft_putstr_fd("pwd: too many arguments\n",2);
-	}
 }
 
 void	env_builtin(char **cmd, t_var *v)
@@ -80,7 +79,12 @@ void	env_builtin(char **cmd, t_var *v)
 		{
 			entry = to_entry(temp->content);
 			if (entry->is_exported == true && entry->value != NULL)
-				printf("%s=%s\n", entry->key, entry->value);
+			{
+				ft_putstr_fd(entry->key, v->out);
+				ft_putstr_fd("=", v->out);
+				ft_putstr_fd(entry->value, v->out);
+				ft_putstr_fd("\n", v->out);
+			}
 			temp = temp->next;
 		}
 	}
@@ -109,13 +113,18 @@ void	echo_builtin(char **cmd, t_var *v)
 	while (cmd[i])
 	{
 		if (cmd[i + 1] == 0)
-			printf("%s",cmd[i]);
+		{
+			ft_putstr_fd(cmd[i], v->out);
+		}
 		else
-			printf("%s ",cmd[i]);
+		{
+			ft_putstr_fd(cmd[i], v->out);
+			ft_putstr_fd(" ", v->out);
+		}
 		i++;
 	}
 	if (arg == false)
-		printf("\n");
+		ft_putstr_fd("\n", v->out);
 }
 
 void	delete_item(t_list **lst, char *str)

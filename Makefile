@@ -12,7 +12,7 @@
 
 NAME = minishell
 
-FILE = main.c run.c exec.c split_string.c builtin.c builtin_export.c t_list_utils.c
+FILE = main.c run.c exec.c split_string.c builtin.c builtin_export.c t_list_utils.c signal.c
 
 FILE_BONUS = exec.c  bonus.c     utils.c    run.c
 
@@ -20,9 +20,12 @@ LIBFT_DIRECTORY = libft/
 
 LIBFT = $(LIBFT_DIRECTORY)libft.a
 
-FLAGS = -Wall -Wextra -Werror -fsanitize=address
+LDFLAGS ="-L/opt/homebrew/opt/readline/lib"
+CPPFLAGS ="-I/opt/homebrew/opt/readline/include"
 
-FLAGS =
+FLAGS = -Wall -Wextra -Werror -fsanitize=address $(LDFLAGS) $(CPPFLAGS)
+
+FLAGS =  $(LDFLAGS) $(CPPFLAGS)
 
 
 HEADERS = includes

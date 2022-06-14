@@ -46,37 +46,32 @@ void	init_one(t_var *v, char *str)
 	v->console_fd = dup(STDIN_FILENO);
 }
 
-void	handler(int sig)
-{
-	if (sig == SIGINT)
-	{
-		write(1, "\n", 1);
-		write(1, PROMPT_CMD, ft_strlen(PROMPT_CMD));
-	}
-	else if (sig == SIGQUIT)
-	{
+struct termios saved;
 
-	}
+void restore(void) {
+	tcsetattr(STDIN_FILENO, TCSANOW, &saved);
 }
+void disable_echo()
+{
+	struct termios attributes;
 
+	tcgetattr(STDIN_FILENO, &saved);
+	atexit(restore);
 
+	tcgetattr(STDIN_FILENO, &attributes);
+	attributes.c_lflag &= ~~(ECHO | IEXTEN);
+	tcsetattr(STDIN_FILENO, TCSAFLUSH, &attributes);
+}
 
 int		main(int ac, char **av, char **env)
 {
 	char				*str;
 	t_var				v;
-	struct sigaction	sa;
-
 	int			**pipes;
 	t_command			*head;
 
-	sigemptyset(&sa.sa_flags);
-	sa.sa_handler = &handler;
-	sa.sa_flags = SA_RESTART;
-	sigemptyset(&sa.sa_mask);
-	sigaddset(&sa.sa_mask, SIGINT);
-	//sigaction(SIGINT, &sa, NULL);
-	//sigaction(SIGQUIT, &sa, NULL);
+	signals();
+	disable_echo();
 	init(env, &v);
 	int i = 0;
 

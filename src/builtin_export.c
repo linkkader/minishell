@@ -29,7 +29,6 @@ static	void export_value(char *key, char *value,  t_var *var, t_bool is_in_expor
 
 	is_in = false;
 	temp = var->env;
-	printf("key  %s  value  %s %d\n", key, value, is_in_export);
 	while (temp)
 	{
 		entry = to_entry(temp->content);
@@ -114,9 +113,9 @@ void try_export_value(char **sp, t_var *var,t_bool is_in_export, int start)
 			);
 			continue;
 		}
-		ft_putstr_fd(ERR_CMD, var->console_fd);
-		ft_putstr_fd(sp[i - 1], var->console_fd);
-		ft_putstr_fd("\n", var->console_fd);
+//		ft_putstr_fd(ERR_CMD, var->console_fd);
+//		ft_putstr_fd(sp[i - 1], var->console_fd);
+//		ft_putstr_fd("\n", var->console_fd);
 		break;
 	}
 	my_clear(sp);
@@ -133,19 +132,15 @@ void	export_builtin(char **cmd, t_var *v)
 		while (temp)
 		{
 			entry = to_entry(temp->content);
+			ft_putstr_fd("declare -x ", v->out);
+			ft_putstr_fd(entry->key, v->out);
 			if (entry->is_exported == true && entry->value != NULL)
 			{
-				ft_putstr_fd("declare -x ", v->out);
-				ft_putstr_fd(entry->key, v->out);
 				ft_putstr_fd("=\"", v->out);
 				ft_putstr_fd(entry->value, v->out);
-				ft_putstr_fd("\"\n", v->out);
-				//printf("declare -x %s=\"%s\"\n", entry->key, entry->value);
+				ft_putstr_fd("\"", v->out);
 			}
-			else if (entry->is_exported== true)
-			{
-				printf("declare -x %s\n", entry->key);
-			}
+			ft_putstr_fd("\n", v->out);
 			temp = temp->next;
 		}
 	}

@@ -131,15 +131,28 @@ void	exe(t_command *tmp, char **env)
 }
 
 
+void	sigint_handler_in_process(int sig)
+{
+	(void) sig;
+	printf("\n");
+}
+
+void	sigquit_handler_in_process(int sig)
+{
+	(void) sig;
+	printf("Quit: %d\n", sig);
+}
+
+
 void	run_all(t_var *v)
 {
 	t_command	*temp;
 	char		**args;
 	char		*path;
 	int 		i;
-	int		pdes[2];
-
-	int 	fd;
+	int			pdes[2];
+	sig_t		sig[2];
+	int			fd;
 
 	temp = v->head;
 	i = 0;
@@ -150,6 +163,8 @@ void	run_all(t_var *v)
 		if (args != NULL)
 		{
 			v->pids[i] = fork();
+			sig[0] = signal(SIGINT, sigint_handler_in_process);
+			sig[0] = signal(SIGQUIT, sigquit_handler_in_process);
 			if (!v->pids[i])
 			{
 				dup2(temp->input, 0);
@@ -174,6 +189,9 @@ void	run_all(t_var *v)
 	}
 	while (i > -1)
 		waitpid(v->pids[i--], NULL, 0);
+	signal(SIGINT, sig[0]);
+	signal(SIGQUIT, sig[1]);
+
 	//while (1);
 }
 
@@ -184,16 +202,7 @@ void	run_all1(t_var *v)
 	char		**args;
 	char		*path;
 	int 		i;
-	int		pdes[2];
 
-	int 	fd;
-
-	fd = open("MAKEFILE", O_RDONLY);
-	int outfd = open("out.txt", O_WRONLY | O_CREAT | O_TRUNC, 0777);
-	//v->in = dup(fd);
-	v->in = dup(v->head->input);
-	v->out = dup(0);
-	//need optimize
 	i = 0;
 	v->head->input = v->in;
 	temp = v->head;

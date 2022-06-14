@@ -18,6 +18,8 @@
 # include <limits.h>
 # include <stdio.h>
 #include <stdio.h>
+#include <termios.h>
+#include <unistd.h>
 #include <readline/readline.h>
 #include <readline/history.h>
 #include <signal.h>
@@ -53,6 +55,9 @@ typedef struct entries{
 	char 	*value;
 	t_bool	is_exported;
 }	t_entry;
+
+
+void	signals(void);
 
 char	*read_line(int entry);
 void	exec_doc(int *pdes, char *limit);
