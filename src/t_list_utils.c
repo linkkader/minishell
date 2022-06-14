@@ -38,9 +38,6 @@ void	push(t_list **lst, char *str)
 		entry->key = ft_substr(str, 0, i);
 		entry->value = ft_substr(str, i + 1, ft_strlen(str) - i -1);
 	}
-	//entry->is_exported = malloc(sizeof(t_bool));
-	//if (entry->is_exported == NULL)
-	//	return ;
 	entry->is_exported = true;
 	ft_lstadd_back(lst, ft_lstnew(entry));
 }

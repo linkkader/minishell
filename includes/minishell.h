@@ -61,7 +61,7 @@ void	signals(void);
 
 char	*read_line(int entry);
 void	exec_doc(int *pdes, char *limit);
-char	**check_cmd(t_var *v, t_command *head, char **path);
+char	**check_cmd(t_var *v, t_command *head);
 void	run_all(t_var *v);
 int		to_pipe(int fd);
 char	**split_string(char *s, char c);

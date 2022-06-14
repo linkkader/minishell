@@ -154,8 +154,8 @@ void	delete_item(t_list **lst, char *str)
 		{
 			free(entry->value);
 			free(entry->key);
-			free(temp);
 			temp2->next = temp->next;
+			free(temp);
 			temp = temp2;
 		}
 		temp2 = temp;
@@ -168,6 +168,7 @@ void	unset_builtin(char **cmd, t_var *v)
 	int 	i;
 
 	i = 1;
+	printf("unset\n");
 	while (cmd[i])
 	{
 		delete_item(&v->env, cmd[i]);

@@ -43,7 +43,7 @@ void	init_one(t_var *v, char *str)
 {
 	v->length = 1000;
 	v->out = dup(STDOUT_FILENO);
-	v->console_fd = dup(STDIN_FILENO);
+	v->console_fd = 2;
 }
 
 
@@ -70,7 +70,6 @@ int		main(int ac, char **av, char **env)
 
 	v.pids = NULL;
 	v.fake = NULL;
-
 	while (1){
 		i++;
 		str = readline(PROMPT_CMD);

@@ -12,7 +12,7 @@
 
 #include "../includes/minishell.h"
 
-static void	my_clear(char **cmd)
+void	my_clear(char **cmd)
 {
 	int		i;
 
@@ -113,9 +113,9 @@ void try_export_value(char **sp, t_var *var,t_bool is_in_export, int start)
 			);
 			continue;
 		}
-//		ft_putstr_fd(ERR_CMD, var->console_fd);
-//		ft_putstr_fd(sp[i - 1], var->console_fd);
-//		ft_putstr_fd("\n", var->console_fd);
+		ft_putstr_fd(ERR_CMD, var->console_fd);
+		ft_putstr_fd(sp[i - 1], var->console_fd);
+		ft_putstr_fd("\n", var->console_fd);
 		break;
 	}
 	my_clear(sp);

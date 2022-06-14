@@ -131,40 +131,71 @@ void	exe(t_command *tmp, char **env)
 }
 
 
-void	sigint_handler_in_process(int sig)
+static void	sigint_handler_in_process(int sig)
 {
 	(void) sig;
 	printf("\n");
 }
 
-void	sigquit_handler_in_process(int sig)
+static void	sigquit_handler_in_process(int sig)
 {
 	(void) sig;
 	printf("Quit: %d\n", sig);
 }
 
+static char	**to_env(t_list *list)
+{
+	t_entry 	*entry;
+	char 		**env;
+	int 		i;
+	char 		*temp;
+
+	i = 0;
+	env = malloc(ft_lstsize(list) + 1);
+	if (env == NULL)
+		return (NULL);
+	while (list)
+	{
+		entry = to_entry(list->content);
+		if (entry->is_exported == false || entry->value == NULL)
+		{
+			list = list->next;
+			continue;
+		}
+		temp = ft_strjoin(entry->key, "=");
+		if (temp == NULL)
+			return (NULL);
+		env[i] = ft_strjoin(temp,entry->value);
+		free(temp);
+		if (env[i] == NULL)
+			return (NULL);
+		list = list->next;
+	}
+	env[i] = NULL;
+	return (env);
+}
 
 void	run_all(t_var *v)
 {
 	t_command	*temp;
 	char		**args;
-	char		*path;
+	char		**env;
 	int 		i;
-	int			pdes[2];
 	sig_t		sig[2];
-	int			fd;
 
 	temp = v->head;
+	env = to_env(v->env);
+
 	i = 0;
+	sig[0] = signal(SIGINT, sigint_handler_in_process);
+	sig[1] = signal(SIGQUIT, sigquit_handler_in_process);
 	while (temp)
 	{
 		v->out = temp->output;
-		args = check_cmd(v, temp, &path);
+		args = check_cmd(v, temp);
 		if (args != NULL)
 		{
 			v->pids[i] = fork();
-			sig[0] = signal(SIGINT, sigint_handler_in_process);
-			sig[0] = signal(SIGQUIT, sigquit_handler_in_process);
 			if (!v->pids[i])
 			{
 				dup2(temp->input, 0);
@@ -174,7 +205,7 @@ void	run_all(t_var *v)
 				if (temp->output != 1)
 					close(temp->output);
 				if (temp->should_execute)
-					if (execve(temp->command_path, temp->command_args, NULL) == -1)
+					if (execve(temp->command_path, temp->command_args, env) == -1)
 						exit (1/*puterror("", strerror(errno))*/);
 				exit (2);
 			}
@@ -189,41 +220,7 @@ void	run_all(t_var *v)
 	}
 	while (i > -1)
 		waitpid(v->pids[i--], NULL, 0);
+	my_clear(env);
 	signal(SIGINT, sig[0]);
 	signal(SIGQUIT, sig[1]);
-
-	//while (1);
-}
-
-
-void	run_all1(t_var *v)
-{
-	t_command	*temp;
-	char		**args;
-	char		*path;
-	int 		i;
-
-	i = 0;
-	v->head->input = v->in;
-	temp = v->head;
-	int in = v->in;
-	while (temp)
-	{
-		args = check_cmd(v, temp, &path);
-		if (args != NULL)
-		{
-			v->pids[i] = run(path, args, v, temp, temp->input, &v->out);
-			if (temp->next)
-				temp->next->input = temp->output;
-		}
-		else
-		{
-			temp->next->input = to_pipe(temp->input);
-		}
-		temp = temp->next;
-		i++;
-	}
-	while (i > -1)
-		waitpid(v->pids[i--], NULL, 0);
-
 }

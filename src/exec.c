@@ -48,7 +48,7 @@ static char	**check_builtin(t_command *head, t_var *var)
 }
 
 
-char	**check_cmd(t_var *v, t_command *head, char **path)
+char	**check_cmd(t_var *v, t_command *head)
 {
 	char	**sp;
 
@@ -60,10 +60,7 @@ char	**check_cmd(t_var *v, t_command *head, char **path)
 	if (check_builtin(head, v) == NULL)
 		return (NULL);
 	if (head->command_path)
-	{
-		path[0] = head->command_path;
 		return (head->command_args);
-	}
 	try_export_value(sp, v, false, 0);
 	return (NULL);
 }
