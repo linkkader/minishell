@@ -19,12 +19,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a3fc66d-3f27-474e-96a3-d556e9d0b164" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/minishell.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libft/libft.a" beforeDir="false" afterPath="$PROJECT_DIR$/libft/libft.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/main.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/run.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/run.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minishell" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/parse.a" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/parse/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/parse/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parse/close_all.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/close_all.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parse/expanding/expander.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/expanding/expander.c" afterDir="false" />
@@ -35,6 +32,9 @@
       <change beforePath="$PROJECT_DIR$/parse/get_infiles.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/get_infiles.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parse/get_outfiles.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/get_outfiles.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parse/heredoc.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/heredoc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parse/libft/ft_calloc.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/libft/ft_calloc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parse/libft/ft_itoa.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/libft/ft_itoa.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parse/libft/ft_realloc.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/libft/ft_realloc.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parse/libft/is_alnum.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/libft/is_alnum.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parse/libft/list/create_node.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/libft/list/create_node.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parse/libft/list/ft_lst_clear.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/libft/list/ft_lst_clear.c" afterDir="false" />
@@ -47,13 +47,10 @@
       <change beforePath="$PROJECT_DIR$/parse/libft/string/string.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/libft/string/string.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parse/libft/string/wrap_with_space.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/libft/string/wrap_with_space.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parse/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/minishell" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/parse/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/parse/minishell.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parse/open_pipes.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/open_pipes.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parse/remove_quotes.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/remove_quotes.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parse/tokenizer.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/tokenizer.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/run.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/run.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +66,7 @@
     </projectState>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/parse" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
