@@ -66,6 +66,35 @@ void free_entry(void *content)
 	free(content);
 }
 
+void	exe1(t_command *tmp, char **env)
+{
+	int	id;
+
+	while (tmp)
+	{
+		id = fork();
+		if (!id)
+		{
+			dup2(tmp->input, 0);
+			dup2(tmp->output, 1);
+			if (tmp->input != 0)
+				close(tmp->input);
+			if (tmp->output != 1)
+				close(tmp->output);
+			if (tmp->should_execute)
+				if (execve(tmp->command_path, tmp->command_args, env) == -1)
+					exit (1/*puterror("", strerror(errno))*/);
+			exit (2);
+		}
+		wait(NULL);
+		if (tmp->input != 0)
+			close(tmp->input);
+		if (tmp->output != 1)
+			close(tmp->output);
+		tmp = tmp->next;
+	}
+}
+
 int		main(int ac, char **av, char **env)
 {
 	char		*str;
@@ -102,17 +131,20 @@ int		main(int ac, char **av, char **env)
 			head = tokenizer(str);
 			if (check_redirect(head))
 			{
-				parser(head, &pipes,temp_env);
-				//exe(head, env);
+				parser(head, &pipes,env);
+			//	exe1(head, env);
 			}
+			//
+			//cleaning(&head, &pipes);
 		}
 		v.head = head;
 		free(v.pids);
 		exe(&v);
 		free(str);
-		//ft_lstclear(&v.env, &free_entry);
+		////ft_lstclear(&v.env, &free_entry);
 		my_clear(&temp_env);
 		cleaning(&head, &pipes);
+		system("leaks minishell");
 	}
 	return (0);
 }

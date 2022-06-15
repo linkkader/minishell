@@ -25,8 +25,8 @@ LIBFT = $(LIBFT_DIRECTORY)libft.a
 LDFLAGS ="-L/opt/homebrew/opt/readline/lib"
 CPPFLAGS ="-I/opt/homebrew/opt/readline/include"
 
-#LDFLAGS="-L/goinfre/acouliba/brew/opt/readline/lib"
-#CPPFLAGS="-I/goinfre/acouliba/brew/opt/readline/include"
+LDFLAGS="-L/goinfre/acouliba/brew/opt/readline/lib"
+CPPFLAGS="-I/goinfre/acouliba/brew/opt/readline/include"
 
 
 FLAGS = -Wall -Wextra -Werror -fsanitize=address $(LDFLAGS) $(CPPFLAGS)
@@ -71,11 +71,12 @@ clean:
 	rm -Rf $(OBJECTS_DIRECTORY)
 
 fclean: clean
-	#@make fclean -sC $(LIBFT_DIRECTORY)
+	@make fclean -sC $(LIBFT_DIRECTORY)
+	@make fclean -sC $(PARSING_DIRECTORY)
 	rm -f $(NAME)
 
 
-re: fclean all
+re: ree all
 
 ree: fclean
 	@make re -sC $(LIBFT_DIRECTORY)

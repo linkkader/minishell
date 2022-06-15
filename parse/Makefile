@@ -34,7 +34,7 @@ $(NAME) :
 .c.o:
 	gcc  ${FLAGS} -c $< -o ${<:.c=.o}
 
-test: $(SRCS) $(OBJS)
+test: fclean $(SRCS) $(OBJS)
 	ar rc parse.a $(OBJS)
 
 clean :
