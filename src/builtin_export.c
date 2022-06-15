@@ -116,7 +116,6 @@ void try_export_value(char **sp, t_var *var,t_bool is_in_export, int start)
 		ft_putstr_fd("\n", var->console_fd);
 		break;
 	}
-	my_clear(sp);
 }
 
 void	export_builtin(char **cmd, t_var *v)

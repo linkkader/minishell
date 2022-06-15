@@ -18,6 +18,8 @@ FILE_BONUS = exec.c  bonus.c     utils.c    run.c
 
 LIBFT_DIRECTORY = libft/
 
+PARSING_DIRECTORY = parse/
+
 LIBFT = $(LIBFT_DIRECTORY)libft.a
 
 LDFLAGS ="-L/opt/homebrew/opt/readline/lib"
@@ -62,7 +64,7 @@ $(OBJECTS_DIRECTORY):
 	mkdir -p $@
 
 $(NAME): $(LIBFT) $(OBJECTS_DIRECTORY) $(OBJS)
-	gcc $(FLAGS) -I $(HEADERS) $(PRINTF) $(OBJS) $(LIBFT) parsing/parse.a -lreadline -o $(NAME)
+	gcc $(FLAGS) -I $(HEADERS) $(PRINTF) $(OBJS) $(LIBFT) $(PARSING_DIRECTORY)parse.a -lreadline -o $(NAME)
 
 
 clean:
@@ -78,11 +80,11 @@ re: fclean all
 ree: fclean
 	@make re -sC $(LIBFT_DIRECTORY)
 	@make bonus -sC $(LIBFT_DIRECTORY)
-	@make fclean -sC parsing
-	@make test -sC parsing
+	@make test -sC $(PARSING_DIRECTORY)
 	@make bonus -sC $(LIBFT_DIRECTORY)
 
 exe: re
+	@make test -sC $(PARSING_DIRECTORY)
 	./minishell
 
 .PHONY: all clean fclean re

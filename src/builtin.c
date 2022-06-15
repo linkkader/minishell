@@ -12,7 +12,7 @@
 
 #include "../includes/minishell.h"
 
-char *ft_getenv(t_var *var, char *name)
+char *ft_get_env(t_var *var, char *name)
 {
 	t_entry		*entry;
 	t_list		*temp;
@@ -36,7 +36,7 @@ void	cd_builtin(char **cmd, t_var *v)
 
 	if (cmd[1] == NULL)
 	{
-		path = ft_getenv( v, "HOME");
+		path = ft_get_env( v, "HOME");
 	}
 	else
 		path = cmd[1];

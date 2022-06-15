@@ -1,8 +1,0 @@
-Makefile$$$$$
-ft_printf$$$$$
-includes$$$$$
-obj$$$$$
-out$$$$$
-out.txt$$$$$
-pipex$$$$$
-src$$$$$

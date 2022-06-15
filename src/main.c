@@ -23,8 +23,6 @@ static void	init(char **env, t_var *var)
 		push(&var->env, env[index]);
 		index++;
 	}
-	//var->length = 1000;
-	//v->out = dup(STDOUT_FILENO);
 	var->console_fd = 2;
 }
 
@@ -54,29 +52,41 @@ static void	exe(t_var *v)
 	if (v->pids == NULL)
 		return ;
 	run_all(v);
-	wait(NULL);
+}
+
+void free_entry(void *content)
+{
+	t_entry	*entry;
+
+	entry = to_entry(content);
+	if (entry->value != NULL)
+		free(entry->value);
+	if (entry->key != NULL)
+		free(entry->key);
+	free(content);
 }
 
 int		main(int ac, char **av, char **env)
 {
-	//return test(ac, av, env);
 	char		*str;
 	t_var		v;
 	int			**pipes;
 	t_command	*head;
 	char 		**temp_env;
 
-	int 	i = 0;
-
 	signals();
 	correct_echo(&v);
-
 	init(env, &v);
 	while (1)
 	{
 		v.pids = NULL;
-		i++;
+		head  = NULL;
 		str = readline(PROMPT_CMD);
+		if (str != NULL && ft_strlen(str) == 0)
+		{
+			free(str);
+			continue;
+		}
 		if (str == NULL)
 		{
 			ft_putstr_fd(PROMPT_CMD, 1);
@@ -85,22 +95,23 @@ int		main(int ac, char **av, char **env)
 		}
 		head  = NULL;
 		add_history(str);
-		head = tokenizer(str);
 		temp_env = to_env(v.env);
-		if (check_redirect(head))
-			parser(head, &pipes, temp_env);
-		v.head = head;
-		t_command *temp = head;
-		while (temp)
+		if (check_quotes(str) && ft_strlen(str))
 		{
-			printf("%s  %d %d\n", temp->command_name, temp->input, temp->output);
-			temp = temp->next;
+			head = tokenizer(str);
+			if (check_redirect(head))
+			{
+				parser(head, &pipes,temp_env);
+				//exe(head, env);
+			}
 		}
+		v.head = head;
 		free(v.pids);
 		exe(&v);
 		free(str);
-		my_clear(temp_env);
-		//cleaning(&head, &pipes);
+		//ft_lstclear(&v.env, &free_entry);
+		my_clear(&temp_env);
+		cleaning(&head, &pipes);
 	}
 	return (0);
 }

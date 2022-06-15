@@ -21,13 +21,15 @@ static void clear_pipe(int fd)
 	}
 }
 
-void	my_clear(char **cmd)
+void	my_clear(char ***cmd)
 {
 	int		i;
 
 	i = 0;
-	while (cmd[i])
-		free(cmd[i++]);
+	while (cmd[0] && cmd[0][i])
+		free(cmd[0][i++]);
+	if (cmd[0])
+		free(cmd[0]);
 }
 
 static pid_t	run(char *path, char **arg, t_var *v, t_command *cmd, int in, int *out)
@@ -93,12 +95,14 @@ static void	sigint_handler_in_process(int sig)
 {
 	(void) sig;
 	printf("\n");
+	exit(1);
 }
 
 static void	sigquit_handler_in_process(int sig)
 {
 	(void) sig;
 	printf("Quit: %d\n", sig);
+	exit(1);
 }
 
 char	**to_env(t_list *list)
@@ -207,8 +211,8 @@ void	run_all(t_var *v)
 	}
 	while (i > -1)
 		waitpid(v->pids[i--], NULL, 0);
-	my_clear(env);
-	//correct_echo();
+	my_clear(&env);
+	correct_echo(v);
 	signal(SIGINT, sig[0]);
 	signal(SIGQUIT, sig[1]);
 	correct_echo(v);
