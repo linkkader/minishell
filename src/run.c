@@ -95,14 +95,12 @@ static void	sigint_handler_in_process(int sig)
 {
 	(void) sig;
 	printf("\n");
-	exit(1);
 }
 
 static void	sigquit_handler_in_process(int sig)
 {
 	(void) sig;
 	printf("Quit: %d\n", sig);
-	exit(1);
 }
 
 char	**to_env(t_list *list)
@@ -213,14 +211,12 @@ void	run_all(t_var *v)
 			close(temp->input);
 		if (temp->output != 1)
 			close(temp->output);
-		//tmp = tmp->next;
 		i++;
 		temp = temp->next;
 	}
 	while (i > -1)
 		waitpid(v->pids[i--], NULL, 0);
 	my_clear(&env);
-	correct_echo(v);
 	signal(SIGINT, sig[0]);
 	signal(SIGQUIT, sig[1]);
 	correct_echo(v);

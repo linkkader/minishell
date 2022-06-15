@@ -19,38 +19,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a3fc66d-3f27-474e-96a3-d556e9d0b164" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/libft/libft.a" beforeDir="false" afterPath="$PROJECT_DIR$/libft/libft.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minishell" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse.a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/parse/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/close_all.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/close_all.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/expanding/expander.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/expanding/expander.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/expanding/init.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/expanding/init.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/expanding/utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/expanding/utils.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/get_command.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/get_command.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/get_env.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/get_env.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/get_infiles.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/get_infiles.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/get_outfiles.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/get_outfiles.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/heredoc.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/heredoc.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/libft/ft_calloc.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/libft/ft_calloc.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/libft/ft_itoa.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/libft/ft_itoa.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/libft/ft_realloc.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/libft/ft_realloc.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/libft/is_alnum.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/libft/is_alnum.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/libft/list/create_node.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/libft/list/create_node.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/libft/list/ft_lst_clear.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/libft/list/ft_lst_clear.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/libft/list/ft_lstadd_back.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/libft/list/ft_lstadd_back.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/libft/list/ft_lstlast.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/libft/list/ft_lstlast.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/libft/list/ft_lstsize.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/libft/list/ft_lstsize.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/libft/string/ft_strjoin.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/libft/string/ft_strjoin.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/libft/string/puterror.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/libft/string/puterror.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/libft/string/split/split.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/libft/string/split/split.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/libft/string/string.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/libft/string/string.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/libft/string/wrap_with_space.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/libft/string/wrap_with_space.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/parse/minishell.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/open_pipes.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/open_pipes.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/remove_quotes.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/remove_quotes.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parse/tokenizer.c" beforeDir="false" afterPath="$PROJECT_DIR$/parse/tokenizer.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/run.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/run.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/run.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/run.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +38,7 @@
     </projectState>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/parse" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -96,17 +68,18 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/parse" />
       <recent name="$PROJECT_DIR$/includes" />
       <recent name="$PROJECT_DIR$/parsing" />
-      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="RunAnythingCache">
