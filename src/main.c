@@ -75,6 +75,7 @@ int		main(int ac, char **av, char **env)
 	char 		**temp_env;
 
 	signals();
+	v.attributes = NULL;
 	correct_echo(&v);
 	init(env, &v);
 	while (1)

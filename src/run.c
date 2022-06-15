@@ -154,7 +154,15 @@ void correct_echo(t_var *v)
 {
 	struct termios attributes;
 
-	tcgetattr(STDIN_FILENO, &v->attributes);
+	if (v->attributes == NULL)
+	{
+		v->attributes = malloc(sizeof(struct termios));
+		if (v->attributes == NULL)
+		{
+			//exit here
+		}
+		tcgetattr(STDIN_FILENO, v->attributes);
+	}
 	tcgetattr(STDIN_FILENO, &attributes);
 	attributes.c_lflag &= ~~(ECHO | IEXTEN);
 	tcsetattr(STDIN_FILENO, TCSAFLUSH, &attributes);
@@ -163,7 +171,7 @@ void correct_echo(t_var *v)
 
 void normal_echo(t_var *v)
 {
-	tcsetattr(STDIN_FILENO, TCSAFLUSH, &v->attributes);
+	tcsetattr(STDIN_FILENO, TCSAFLUSH, v->attributes);
 }
 
 void	run_all(t_var *v)

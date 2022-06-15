@@ -35,7 +35,7 @@ typedef struct var{
 	int				out;
 	t_list			*env;
 	int 			console_fd;
-	struct termios	attributes;
+	struct termios	*attributes;
 	pid_t			*pids;
 	t_command		*head;
 }	t_var;
