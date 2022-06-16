@@ -12,7 +12,7 @@
 
 #include "../includes/minishell.h"
 
-static void reset_setting(t_var *var)
+static void	reset_setting(t_var *var)
 {
 	signal(SIGINT, sigint_handler_in_process);
 	signal(SIGQUIT, sigquit_handler_in_process);

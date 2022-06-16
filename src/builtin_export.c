@@ -12,8 +12,12 @@
 
 #include "../includes/minishell.h"
 
-static void	part(t_entry entry, char *value, t_bool *is_in)
+static t_bool	part(t_list *temp, char *key,
+					char *value, t_bool is_in_export)
 {
+	t_entry	*entry;
+
+	entry = to_entry(temp->content);
 	if (ft_strncmp(key, entry->key, ft_strlen(entry->key) + 1) == 0)
 	{
 		if (value == NULL && entry->value != NULL)
@@ -24,9 +28,9 @@ static void	part(t_entry entry, char *value, t_bool *is_in)
 				free(entry->value);
 			entry->value = value;
 		}
-		*is_in = true;
-		break ;
+		return (true);
 	}
+	return (false);
 }
 
 void	export_value(char *key, char *value, t_var *var,
@@ -36,21 +40,22 @@ void	export_value(char *key, char *value, t_var *var,
 	t_entry	*entry;
 	t_bool	is_in;
 
-	if (key || value)
+	if (key == NULL)
 		exit_builtin(var);
 	is_in = false;
 	temp = var->env;
 	while (temp)
 	{
-		entry = to_entry(temp->content);
-		part(entry, value, &is_in);
+		is_in = part(temp, key, value, is_in_export);
+		if (is_in == true)
+			break ;
 		temp = temp->next;
 	}
 	if (is_in == false)
 	{
 		entry = malloc(sizeof(*entry));
 		if (entry == NULL)
-			exit_builtin(var);
+			return ;
 		entry->key = key;
 		entry->is_exported = is_in_export;
 		entry->value = value;

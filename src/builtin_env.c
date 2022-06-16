@@ -12,7 +12,7 @@
 
 #include "../includes/minishell.h"
 
-char *ft_get_env(t_var *var, char *name)
+char	*ft_get_env(t_var *var, char *name)
 {
 	t_entry		*entry;
 	t_list		*temp;
@@ -31,7 +31,7 @@ char *ft_get_env(t_var *var, char *name)
 void	env_builtin(char **cmd, t_var *v)
 {
 	t_list	*temp;
-	t_entry *entry;
+	t_entry	*entry;
 
 	if (cmd[1] == NULL)
 	{
@@ -50,5 +50,5 @@ void	env_builtin(char **cmd, t_var *v)
 		}
 	}
 	else
-		ft_putstr_fd("env: too many arguments\n",2);
+		ft_putstr_fd("env: too many arguments\n", 2);
 }

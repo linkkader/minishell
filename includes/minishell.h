@@ -81,10 +81,8 @@ void	pwd_builtin(char **cmd, t_var *v);
 void	exit_builtin(t_var *v);
 void	env_builtin(char **cmd, t_var *v);
 void	export_builtin(char **cmd, t_var *v);
-void	not_an_identifier(t_var *var);
 void	try_export_value(char **sp, t_var *var,t_bool is_in_export, int start);
-void	export_value(char *key, char *value, t_var *var,
-					 t_bool is_in_export)
+void	export_value(char *key, char *value, t_var *var, t_bool is_in_export);
 void	unset_builtin(char **cmd, t_var *v);
 char	**to_env(t_list *list);
 void	my_clear(char ***cmd);

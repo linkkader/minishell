@@ -20,7 +20,6 @@ void	pwd_builtin(char **cmd, t_var *v)
 	if (path == NULL)
 	{
 		perror("pwd");
-		//exit here
 		return ;
 	}
 	if (cmd[1] == NULL)
