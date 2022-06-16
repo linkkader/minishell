@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   signal.c                                           :+:      :+:    :+:   */
+/*   builtin_cd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acouliba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/03 15:10:28 by acouliba          #+#    #+#             */
-/*   Updated: 2022/06/03 15:10:29 by acouliba         ###   ########.fr       */
+/*   Created: 2022/05/25 15:45:00 by acouliba          #+#    #+#             */
+/*   Updated: 2022/05/25 15:45:03 by acouliba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-void	sigint_handler_nonl(int sig)
+void	echo_builtin(char **cmd, t_var *v)
 {
-	rl_on_new_line();
-	rl_replace_line("", 0);
-	rl_redisplay();
-	(void) sig;
-}
+	int		i;
+	t_bool	arg;
 
-static void	handler(int sig)
-{
-	if (sig == SIGINT)
+	i = 1;
+	arg = false;
+	if (cmd[i] && ft_strncmp("-n", cmd[i], 2) == 0)
 	{
-		printf("\n");
-		rl_on_new_line();
-		rl_replace_line("", 0);
-		rl_redisplay();
-		(void) sig;
+		arg = true;
+		i++;
 	}
-}
-
-void	signals(t_var *var)
-{
-	var->sig_int = signal(SIGINT, handler);
-	var->sig_quit = signal(SIGQUIT, SIG_IGN);
+	while (cmd[i])
+	{
+		if (cmd[i + 1] == 0)
+		{
+			ft_putstr_fd(cmd[i], v->out);
+		}
+		else
+		{
+			ft_putstr_fd(cmd[i], v->out);
+			ft_putstr_fd(" ", v->out);
+		}
+		i++;
+	}
+	if (arg == false)
+		ft_putstr_fd("\n", v->out);
 }

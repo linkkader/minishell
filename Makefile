@@ -12,8 +12,8 @@
 
 NAME = minishell
 
-FILE = main.c run.c exec.c builtin.c builtin_export.c t_list_utils.c signal.c
-
+FILE =	builtin_cd.c     builtin_env.c    builtin_export.c builtin_unset.c  main.c           signal.c\
+        builtin_echo.c   builtin_exit.c   builtin_pwd.c    exec.c           run.c            t_list_utils.c
 FILE_BONUS = exec.c  bonus.c     utils.c    run.c
 
 LIBFT_DIRECTORY = libft/
@@ -25,14 +25,13 @@ LIBFT = $(LIBFT_DIRECTORY)libft.a
 LDFLAGS ="-L/opt/homebrew/opt/readline/lib"
 CPPFLAGS ="-I/opt/homebrew/opt/readline/include"
 
-#LDFLAGS="-L/goinfre/acouliba/brew/opt/readline/lib"
-#CPPFLAGS="-I/goinfre/acouliba/brew/opt/readline/include"
+LDFLAGS="-L/goinfre/acouliba/brew/opt/readline/lib"
+CPPFLAGS="-I/goinfre/acouliba/brew/opt/readline/include"
 
 
 FLAGS = -Wall -Wextra -Werror -fsanitize=address $(LDFLAGS) $(CPPFLAGS)
 
 FLAGS =  $(LDFLAGS) $(CPPFLAGS)
-
 
 HEADERS = includes
 
@@ -71,11 +70,12 @@ clean:
 	rm -Rf $(OBJECTS_DIRECTORY)
 
 fclean: clean
-	#@make fclean -sC $(LIBFT_DIRECTORY)
+	@make fclean -sC $(LIBFT_DIRECTORY)
+	@make fclean -sC $(PARSING_DIRECTORY)
 	rm -f $(NAME)
 
 
-re: fclean all
+re: ree all
 
 ree: fclean
 	@make re -sC $(LIBFT_DIRECTORY)

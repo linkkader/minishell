@@ -14,9 +14,8 @@
 
 void	push(t_list **lst, char *str)
 {
-	t_entry		*entry;
-	char		sp;
-	int 		i;
+	t_entry	*entry;
+	int		i;
 
 	entry = malloc(sizeof(*entry));
 	if (entry == NULL)
@@ -28,7 +27,7 @@ void	push(t_list **lst, char *str)
 	while (str[i])
 	{
 		if (str[i] == '=')
-			break;
+			break ;
 		i++;
 	}
 	if (i == ft_strlen(str))
@@ -46,7 +45,7 @@ void	push(t_list **lst, char *str)
 		entry->value = ft_substr(str, i + 1, ft_strlen(str) - i -1);
 		if (entry->key == NULL || entry->value == NULL)
 		{
-
+			//exit here
 		}
 	}
 	entry->is_exported = true;
@@ -56,4 +55,16 @@ void	push(t_list **lst, char *str)
 t_entry	*to_entry(void *e)
 {
 	return ((t_entry *)(e));
+}
+
+void	free_entry(void *content)
+{
+	t_entry	*entry;
+
+	entry = to_entry(content);
+	if (entry->value != NULL)
+		free(entry->value);
+	if (entry->key != NULL)
+		free(entry->key);
+	free(content);
 }

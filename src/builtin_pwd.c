@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   signal.c                                           :+:      :+:    :+:   */
+/*   builtin_cd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acouliba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/03 15:10:28 by acouliba          #+#    #+#             */
-/*   Updated: 2022/06/03 15:10:29 by acouliba         ###   ########.fr       */
+/*   Created: 2022/05/25 15:45:00 by acouliba          #+#    #+#             */
+/*   Updated: 2022/05/25 15:45:03 by acouliba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-void	sigint_handler_nonl(int sig)
+void	pwd_builtin(char **cmd, t_var *v)
 {
-	rl_on_new_line();
-	rl_replace_line("", 0);
-	rl_redisplay();
-	(void) sig;
-}
+	char	*path;
 
-static void	handler(int sig)
-{
-	if (sig == SIGINT)
+	path = malloc(1000);
+	if (path == NULL)
 	{
-		printf("\n");
-		rl_on_new_line();
-		rl_replace_line("", 0);
-		rl_redisplay();
-		(void) sig;
+		perror("pwd");
+		//exit here
+		return ;
 	}
-}
-
-void	signals(t_var *var)
-{
-	var->sig_int = signal(SIGINT, handler);
-	var->sig_quit = signal(SIGQUIT, SIG_IGN);
+	if (cmd[1] == NULL)
+	{
+		getcwd(path, 1000);
+		ft_putstr_fd(path, v->out);
+		ft_putstr_fd("\n", v->out);
+		free(path);
+	}
+	else
+		ft_putstr_fd("pwd: too many arguments\n", 2);
 }
