@@ -49,6 +49,15 @@ typedef enum bool
 }	t_bool;
 
 
+typedef struct util
+{
+	int 	i;
+	int 	j;
+	t_var 	*var;
+	t_bool	bool;
+	t_bool is_in_export;
+}	t_util;
+
 typedef struct entries{
 	char	*key;
 	char 	*value;

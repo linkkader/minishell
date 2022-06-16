@@ -54,50 +54,6 @@ static void	exe(t_var *v)
 	run_all(v);
 }
 
-<<<<<<< HEAD
-=======
-void free_entry(void *content)
-{
-	t_entry	*entry;
-
-	entry = to_entry(content);
-	if (entry->value != NULL)
-		free(entry->value);
-	if (entry->key != NULL)
-		free(entry->key);
-	free(content);
-}
-
-void	exe1(t_command *tmp, char **env)
-{
-	int	id;
-
-	while (tmp)
-	{
-		id = fork();
-		if (!id)
-		{
-			dup2(tmp->input, 0);
-			dup2(tmp->output, 1);
-			if (tmp->input != 0)
-				close(tmp->input);
-			if (tmp->output != 1)
-				close(tmp->output);
-			if (tmp->should_execute)
-				if (execve(tmp->command_path, tmp->command_args, env) == -1)
-					exit (1/*puterror("", strerror(errno))*/);
-			exit (2);
-		}
-		wait(NULL);
-		if (tmp->input != 0)
-			close(tmp->input);
-		if (tmp->output != 1)
-			close(tmp->output);
-		tmp = tmp->next;
-	}
-}
-
->>>>>>> ab0d11ac887b21b9ea742aefd2c4ca861a47cd65
 int		main(int ac, char **av, char **env)
 {
 	char		*str;
@@ -134,24 +90,17 @@ int		main(int ac, char **av, char **env)
 			head = tokenizer(str);
 			if (check_redirect(head))
 			{
-				parser(head, &pipes,env);
-			//	exe1(head, env);
+				parser(head, &pipes,temp_env);
+				//exe(head, env);
 			}
-			//
-			//cleaning(&head, &pipes);
 		}
 		v.head = head;
 		free(v.pids);
 		exe(&v);
 		free(str);
-		////ft_lstclear(&v.env, &free_entry);
+		//ft_lstclear(&v.env, &free_entry);
 		my_clear(&temp_env);
-<<<<<<< HEAD
 		//cleaning(&head, &pipes);
-=======
-		cleaning(&head, &pipes);
-		system("leaks minishell");
->>>>>>> ab0d11ac887b21b9ea742aefd2c4ca861a47cd65
 	}
 	return (0);
 }
