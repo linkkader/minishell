@@ -64,8 +64,7 @@ typedef struct entries{
 	t_bool	is_exported;
 }	t_entry;
 
-
-void	signals();
+void	signals(t_var *var);
 
 char	*read_line(int entry);
 void	exec_doc(int *pdes, char *limit);

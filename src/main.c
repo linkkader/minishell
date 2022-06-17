@@ -62,10 +62,10 @@ int		main(int ac, char **av, char **env)
 	t_command	*head;
 	char 		**temp_env;
 
-	signals();
 	v.attributes = NULL;
 	correct_echo(&v);
 	init(env, &v);
+	signals(&v);
 	while (1)
 	{
 		v.pids = NULL;

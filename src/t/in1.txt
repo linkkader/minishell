@@ -1,0 +1,15 @@
++#+$$$
+Makefile$$$
+in$$$
+in.txt$$$
+in1.txt$$$
+includes$$$
+libft$$$
+minishell$$$
+obj$$$
+out.txt$$$
+outfiletest$$$
+output$$$
+output;$$$
+parse$$$
+src$$$

@@ -32,8 +32,7 @@ void	sigquit_handler_in_process(int sig)
 	printf("Quit: %d\n", sig);
 }
 
-
-static void handler(int sig)
+static void	handler(int sig)
 {
 	if (sig == SIGINT)
 	{
@@ -45,8 +44,8 @@ static void handler(int sig)
 	}
 }
 
-void	signals(void)
+void	signals(t_var *var)
 {
-	signal(SIGINT, handler);
-	signal(SIGQUIT, SIG_IGN);
+	var->sig_int = signal(SIGINT, handler);
+	var->sig_quit = signal(SIGQUIT, SIG_IGN);
 }
