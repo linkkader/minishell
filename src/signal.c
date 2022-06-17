@@ -20,6 +20,19 @@ void	sigint_handler_nonl(int sig)
 	(void) sig;
 }
 
+void	sigint_handler_in_process(int sig)
+{
+	(void) sig;
+	printf("\n");
+}
+
+void	sigquit_handler_in_process(int sig)
+{
+	(void) sig;
+	printf("Quit: %d\n", sig);
+}
+
+
 static void handler(int sig)
 {
 	if (sig == SIGINT)

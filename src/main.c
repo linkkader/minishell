@@ -54,18 +54,6 @@ static void	exe(t_var *v)
 	run_all(v);
 }
 
-void free_entry(void *content)
-{
-	t_entry	*entry;
-
-	entry = to_entry(content);
-	if (entry->value != NULL)
-		free(entry->value);
-	if (entry->key != NULL)
-		free(entry->key);
-	free(content);
-}
-
 int		main(int ac, char **av, char **env)
 {
 	char		*str;
