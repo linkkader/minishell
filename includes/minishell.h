@@ -97,5 +97,7 @@ void	sigint_handler_in_process(int sig);
 void	sigquit_handler_in_process(int sig);
 void	sigint_handler_nonl(int sig);
 
+void	correct_echo(t_var *v);
+void	normal_echo(t_var *v);
 
 #endif

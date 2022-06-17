@@ -32,6 +32,18 @@ static void	handler(int sig)
 	}
 }
 
+void	sigint_handler_in_process(int sig)
+{
+	(void) sig;
+	printf("\n");
+}
+
+void	sigquit_handler_in_process(int sig)
+{
+	(void) sig;
+	printf("Quit: %d\n", sig);
+}
+
 void	signals(t_var *var)
 {
 	var->sig_int = signal(SIGINT, handler);
