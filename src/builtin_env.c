@@ -12,58 +12,23 @@
 
 #include "../includes/minishell.h"
 
-static t_bool	part(t_list *temp, char *key,
-					char *value, t_bool is_in_export)
+char	*ft_get_env(t_var *var, char *name)
 {
-	t_entry	*entry;
+	t_entry		*entry;
+	t_list		*temp;
 
-	entry = to_entry(temp->content);
-	if (ft_strncmp(key, entry->key, ft_strlen(entry->key) + 1) == 0)
-	{
-		if (value == NULL && entry->value != NULL)
-			entry->is_exported = is_in_export;
-		else
-		{
-			if (entry->value)
-				free(entry->value);
-			entry->value = value;
-		}
-		return (true);
-	}
-	return (false);
-}
-
-void	export_value(char *key, char *value, t_var *var,
-			t_bool is_in_export)
-{
-	t_list	*temp;
-	t_entry	*entry;
-	t_bool	is_in;
-
-	if (key == NULL)
-		exit_builtin(var);
-	is_in = false;
 	temp = var->env;
 	while (temp)
 	{
-		is_in = part(temp, key, value, is_in_export);
-		if (is_in == true)
-			break ;
+		entry = to_entry(temp->content);
+		if (ft_strncmp(entry->key, name, ft_strlen(name) + 1) == 0)
+			return (entry->value);
 		temp = temp->next;
 	}
-	if (is_in == false)
-	{
-		entry = malloc(sizeof(*entry));
-		if (entry == NULL)
-			return ;
-		entry->key = key;
-		entry->is_exported = is_in_export;
-		entry->value = value;
-		ft_lstadd_back(&var->env, ft_lstnew(entry));
-	}
+	return (NULL);
 }
 
-void	export_builtin(char **cmd, t_var *v)
+void	env_builtin(char **cmd, t_var *v)
 {
 	t_list	*temp;
 	t_entry	*entry;
@@ -74,18 +39,16 @@ void	export_builtin(char **cmd, t_var *v)
 		while (temp)
 		{
 			entry = to_entry(temp->content);
-			ft_putstr_fd("declare -x ", v->out);
-			ft_putstr_fd(entry->key, v->out);
 			if (entry->is_exported == true && entry->value != NULL)
 			{
-				ft_putstr_fd("=\"", v->out);
+				ft_putstr_fd(entry->key, v->out);
+				ft_putstr_fd("=", v->out);
 				ft_putstr_fd(entry->value, v->out);
-				ft_putstr_fd("\"", v->out);
+				ft_putstr_fd("\n", v->out);
 			}
-			ft_putstr_fd("\n", v->out);
 			temp = temp->next;
 		}
 	}
 	else
-		try_export_value(cmd, v, true, 1);
+		ft_putstr_fd("env: too many arguments\n", 2);
 }

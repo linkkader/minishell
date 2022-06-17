@@ -91,13 +91,13 @@ void	exe(t_command *tmp, char **env)
 }
 
 
-static void	sigint_handler_in_process(int sig)
+void	sigint_handler_in_process(int sig)
 {
 	(void) sig;
 	printf("\n");
 }
 
-static void	sigquit_handler_in_process(int sig)
+void	sigquit_handler_in_process(int sig)
 {
 	(void) sig;
 	printf("Quit: %d\n", sig);

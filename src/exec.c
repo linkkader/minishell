@@ -15,12 +15,12 @@
 static char	**check_builtin(t_command *head, t_var *var)
 {
 	char	*name;
-	int 	len;
+	int		len;
 
 	name = head->command_name;
 	len = ft_strlen(name) + 1;
 	if (ft_strncmp(name, "exit", len) == 0)
-		exit_builtin(head->command_args, var);
+		exit_builtin(var);
 	else if (ft_strncmp(name, "unset", ft_strlen(name)) == 0)
 		unset_builtin(head->command_args, var);
 	else if (ft_strncmp(name, "export", len) == 0)
@@ -38,7 +38,6 @@ static char	**check_builtin(t_command *head, t_var *var)
 	return (NULL);
 }
 
-
 char	**check_cmd(t_var *v, t_command *head)
 {
 	char	**sp;
@@ -54,26 +53,4 @@ char	**check_cmd(t_var *v, t_command *head)
 		return (head->command_args);
 	try_export_value(sp, v, false, 0);
 	return (NULL);
-}
-
-int	to_pipe(int fd)
-{
-	int		pdes[2];
-	pid_t	child;
-	char	c;
-
-	pipe(pdes);
-	child = fork();
-	if (child == -1)
-		perror("Pipe");
-	else if (child == 0)
-	{
-		dup2(pdes[1], STDOUT_FILENO);
-		while (read(fd, &c, 1) > 0)
-			write(1, &c, 1);
-		exit(1);
-	}
-	wait(NULL);
-	close(pdes[1]);
-	return (pdes[0]);
 }

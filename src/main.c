@@ -111,8 +111,8 @@ int		main(int ac, char **av, char **env)
 		exe(&v);
 		free(str);
 		//ft_lstclear(&v.env, &free_entry);
-		my_clear(&temp_env);
-		cleaning(&head, &pipes);
+		//my_clear(&temp_env);
+		//cleaning(&head, &pipes);
 	}
 	return (0);
 }

@@ -34,6 +34,8 @@ typedef struct var{
 	int				in;
 	int				out;
 	t_list			*env;
+	sig_t			sig_int;
+	sig_t			sig_quit;
 	int 			console_fd;
 	struct termios	*attributes;
 	pid_t			*pids;
@@ -47,6 +49,15 @@ typedef enum bool
 }	t_bool;
 
 
+typedef struct util
+{
+	int 	i;
+	int 	j;
+	t_var 	*var;
+	t_bool	bool;
+	t_bool is_in_export;
+}	t_util;
+
 typedef struct entries{
 	char	*key;
 	char 	*value;
@@ -54,7 +65,7 @@ typedef struct entries{
 }	t_entry;
 
 
-void	signals(void);
+void	signals();
 
 char	*read_line(int entry);
 void	exec_doc(int *pdes, char *limit);
@@ -67,17 +78,26 @@ void	exec(char **cmd);
 void	echo_builtin(char **cmd, t_var *v);
 void	cd_builtin(char **path, t_var *v);
 void	pwd_builtin(char **cmd, t_var *v);
-void	exit_builtin(char **cmd, t_var *v);
+void	exit_builtin(t_var *v);
 void	env_builtin(char **cmd, t_var *v);
 void	export_builtin(char **cmd, t_var *v);
 void	try_export_value(char **sp, t_var *var,t_bool is_in_export, int start);
+void	export_value(char *key, char *value, t_var *var, t_bool is_in_export);
 void	unset_builtin(char **cmd, t_var *v);
 char	**to_env(t_list *list);
 void	my_clear(char ***cmd);
+char	*ft_get_env(t_var *var, char *name);
 
 void	correct_echo(t_var *v);
 void	push(t_list **lst, char *str);
 t_entry	*to_entry(void *e);
+void	free_entry(void *content);
 
+void	sigint_handler_in_process(int sig);
+void	sigquit_handler_in_process(int sig);
+void	sigint_handler_nonl(int sig);
+
+void	correct_echo(t_var *v);
+void	normal_echo(t_var *v);
 
 #endif
