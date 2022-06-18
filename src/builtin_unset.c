@@ -59,6 +59,8 @@ void	unset_builtin(char **cmd, t_var *v)
 {
 	int		i;
 
+	if (v->previous != NULL || v->head->next != NULL)
+		return ;
 	i = 1;
 	while (cmd[i])
 	{

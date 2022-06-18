@@ -24,11 +24,20 @@
 #include <readline/history.h>
 #include <signal.h>
 #include "../libft/libft.h"
-#include "../parse/minishell.h"
+#include "../parse2/minishell.h"
 
 # define ERR_CMD "Command not found: "
-# define PROMPT_CMD "minishell$ "
+# define PROMPT_CMD "$ "
 # define NOT_AN_IDENTIFIER "minishell: export: %s: not a valid identifier"
+
+typedef	struct try_exec{
+	int			in;
+	int			out;
+	t_command	*head;
+	int			input;
+	int			output;
+	int 		arg_start;
+} t_try;
 
 typedef struct var{
 	int				in;
@@ -40,6 +49,7 @@ typedef struct var{
 	struct termios	*attributes;
 	pid_t			*pids;
 	t_command		*head;
+	t_command		*previous;
 }	t_var;
 
 typedef enum bool

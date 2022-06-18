@@ -61,7 +61,7 @@ static void	part(char *str, t_util *util)
 			&& str[util->j + 1] == '=')
 			part_part(str, util);
 		if (!(ft_isalpha(str[util->j]) == 1 || ft_isalnum(str[util->j]) == 1
-				||str[util->j] == '_'))
+				||str[util->j] == '_') && util->bool == false)
 		{
 			util->bool = true;
 			if (str[util->j] == '=')
@@ -76,9 +76,20 @@ static void	part(char *str, t_util *util)
 	}
 }
 
+char	*try_exec(t_command *head, int start)
+{
+	t_try	*t;
+
+	t->head = head;
+	t->output = head->output;
+	t->input = head->input;
+	t->arg_start = start;
+	return (NULL);
+}
+
 //[a-zA-Z_][a-zA-Z0-9_]
 void	try_export_value(char **sp, t_var *var,
-				t_bool is_in_export, int start)
+				t_bool is_in_export, int start, t_command *head)
 {
 	t_util	util;
 

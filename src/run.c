@@ -46,9 +46,9 @@ void	run_all(t_var *v)
 	t_command	*temp;
 	char		**env;
 	int			i;
-	sig_t		sig[2];
 
 	temp = v->head;
+	v->previous = NULL;
 	env = to_env(v->env);
 	i = 0;
 	v->sig_int = signal(SIGINT, sigint_handler_in_process);
@@ -58,6 +58,7 @@ void	run_all(t_var *v)
 	{
 		run(v, temp, &i, env);
 		i++;
+		v->previous = temp;
 		temp = temp->next;
 	}
 	while (i > -1)

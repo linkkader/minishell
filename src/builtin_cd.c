@@ -16,6 +16,8 @@ void	cd_builtin(char **cmd, t_var *v)
 {
 	char	*path;
 
+	if (v->previous  != NULL || v->head->next != NULL)
+		return ;
 	chdir(path);
 	if (cmd[1] == NULL)
 		path = ft_get_env(v, "HOME");

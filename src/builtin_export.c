@@ -40,6 +40,8 @@ void	export_value(char *key, char *value, t_var *var,
 	t_entry	*entry;
 	t_bool	is_in;
 
+	if (var->previous != NULL || var->head->next != NULL)
+		return ;
 	if (key == NULL)
 		exit_builtin(var);
 	is_in = false;
@@ -86,6 +88,6 @@ void	export_builtin(char **cmd, t_var *v)
 			temp = temp->next;
 		}
 	}
-	else
+	else if (v->previous == NULL && v->head->next == NULL)
 		try_export_value(cmd, v, true, 1);
 }

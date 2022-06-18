@@ -66,11 +66,13 @@ int		main(int ac, char **av, char **env)
 	correct_echo(&v);
 	init(env, &v);
 	signals(&v);
+	str = NULL;
 	while (1)
 	{
 		v.pids = NULL;
 		head  = NULL;
-		str = readline(PROMPT_CMD);
+		if (str == NULL)
+			str = readline(PROMPT_CMD);
 		if (str != NULL && ft_strlen(str) == 0)
 		{
 			free(str);
@@ -94,10 +96,16 @@ int		main(int ac, char **av, char **env)
 				//exe(head, env);
 			}
 		}
+		if (head != NULL && head->next_line != NULL)
+		{
+			str =  head->next_line;
+			continue ;
+		}
 		v.head = head;
-		free(v.pids);
+		str = NULL;
+		//free(v.pids);
 		exe(&v);
-		free(str);
+		//free(str);
 		//ft_lstclear(&v.env, &free_entry);
 		//my_clear(&temp_env);
 		//cleaning(&head, &pipes);

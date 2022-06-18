@@ -21,7 +21,7 @@ FILE_BONUS = exec.c  bonus.c     utils.c    run.c
 
 LIBFT_DIRECTORY = libft/
 
-PARSING_DIRECTORY = parse/
+PARSING_DIRECTORY = parse2/
 
 LIBFT = $(LIBFT_DIRECTORY)libft.a
 

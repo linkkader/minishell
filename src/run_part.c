@@ -30,8 +30,8 @@ char	*to_env_part(t_list *list)
 	char	*str;
 
 	entry = to_entry(list->content);
-	if (entry->is_exported == false || entry->value == NULL)
-		return (NULL);
+	//if (entry->is_exported == false || entry->value == NULL)
+	//	return (NULL);
 	temp = ft_strjoin(entry->key, "=");
 	if (temp == NULL)
 		return (NULL);
