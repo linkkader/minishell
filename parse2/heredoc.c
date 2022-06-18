@@ -12,7 +12,7 @@
 
 #include "minishell.h"
 
-int		g_global;
+int		g_global = 1;
 
 int	is_there_any_quote(char *str)
 {

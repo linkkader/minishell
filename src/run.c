@@ -12,6 +12,8 @@
 
 #include "../includes/minishell.h"
 
+extern int		g_global;
+
 static void	exe(char *path, t_command *temp, int start, char **env)
 {
 	dup2(temp->input, 0);
@@ -59,13 +61,14 @@ void	run_all(t_var *v)
 	t_command	*temp;
 	char		**env;
 	int			i;
+	sig_t		sig[2];
 
 	temp = v->head;
 	v->previous = NULL;
 	env = to_env(v->env, false);
 	i = 0;
-	v->sig_int = signal(SIGINT, sigint_handler_in_process);
-	v->sig_quit = signal(SIGQUIT, sigquit_handler_in_process);
+	sig[0] = signal(SIGINT, sigint_handler_in_process);
+	sig[1] = signal(SIGQUIT, sigquit_handler_in_process);
 	normal_echo(v);
 	while (temp)
 	{
@@ -76,8 +79,8 @@ void	run_all(t_var *v)
 	}
 	while (i > -1)
 		waitpid(v->pids[i--], NULL, 0);
+	signal(SIGINT, sig[0]);
+	signal(SIGQUIT, sig[1]);
 	my_clear(&env);
-	signal(SIGINT, v->sig_int);
-	signal(SIGQUIT, v->sig_quit);
 	correct_echo(v);
 }

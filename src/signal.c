@@ -12,6 +12,8 @@
 
 #include "../includes/minishell.h"
 
+extern int		g_global;
+
 void	sigint_handler_nonl(int sig)
 {
 	rl_on_new_line();
@@ -23,7 +25,8 @@ void	sigint_handler_nonl(int sig)
 void	sigint_handler_in_process(int sig)
 {
 	(void) sig;
-	printf("\n");
+	g_global++;
+	printf("%d\n", g_global);
 }
 
 void	sigquit_handler_in_process(int sig)
