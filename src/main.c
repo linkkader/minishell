@@ -86,7 +86,7 @@ int		main(int ac, char **av, char **env)
 		}
 		head  = NULL;
 		add_history(str);
-		temp_env = to_env(v.env);
+		temp_env = to_env(v.env, true);
 		if (check_quotes(str) && ft_strlen(str))
 		{
 			head = tokenizer(str);

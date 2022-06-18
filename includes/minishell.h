@@ -26,22 +26,19 @@
 #include "../libft/libft.h"
 #include "../parse2/minishell.h"
 
-# define ERR_CMD "Command not found: "
+# define ERR_CMD ": command not found\n"
 # define PROMPT_CMD "$ "
 # define NOT_AN_IDENTIFIER "minishell: export: %s: not a valid identifier"
 
 typedef	struct try_exec{
-	int			in;
-	int			out;
-	t_command	*head;
-	int			input;
-	int			output;
-	int 		arg_start;
+	char	*path;
+	int		start;
 } t_try;
 
 typedef struct var{
 	int				in;
 	int				out;
+	t_try			*tr;
 	t_list			*env;
 	sig_t			sig_int;
 	sig_t			sig_quit;
@@ -93,7 +90,7 @@ void	export_builtin(char **cmd, t_var *v);
 void	try_export_value(char **sp, t_var *var,t_bool is_in_export, int start);
 void	export_value(char *key, char *value, t_var *var, t_bool is_in_export);
 void	unset_builtin(char **cmd, t_var *v);
-char	**to_env(t_list *list);
+char	**to_env(t_list *list, t_bool real);
 void	my_clear(char ***cmd);
 char	*ft_get_env(t_var *var, char *name);
 

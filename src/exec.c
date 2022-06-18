@@ -17,7 +17,6 @@ static char	**check_builtin(t_command *head, t_var *var)
 	char	*name;
 	int		len;
 
-	printf("head name %s  path %s\n", head->command_name, head->command_path);
 	name = head->command_name;
 	len = ft_strlen(name) + 1;
 	if (ft_strncmp(name, "exit", len) == 0)
@@ -52,6 +51,6 @@ char	**check_cmd(t_var *v, t_command *head)
 		return (NULL);
 	if (head->command_path)
 		return (head->command_args);
-	try_export_value(sp, v, false, 0, head);
+	try_export_value(sp, v, false, 0);
 	return (NULL);
 }

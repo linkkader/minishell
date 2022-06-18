@@ -65,6 +65,19 @@ void	export_value(char *key, char *value, t_var *var,
 	}
 }
 
+static void	export_print(t_var *v, t_entry *entry)
+{
+	ft_putstr_fd("declare -x ", v->out);
+	ft_putstr_fd(entry->key, v->out);
+	if (entry->is_exported == true && entry->value != NULL)
+	{
+		ft_putstr_fd("=\"", v->out);
+		ft_putstr_fd(entry->value, v->out);
+		ft_putstr_fd("\"", v->out);
+	}
+	ft_putstr_fd("\n", v->out);
+}
+
 void	export_builtin(char **cmd, t_var *v)
 {
 	t_list	*temp;
@@ -76,15 +89,8 @@ void	export_builtin(char **cmd, t_var *v)
 		while (temp)
 		{
 			entry = to_entry(temp->content);
-			ft_putstr_fd("declare -x ", v->out);
-			ft_putstr_fd(entry->key, v->out);
-			if (entry->is_exported == true && entry->value != NULL)
-			{
-				ft_putstr_fd("=\"", v->out);
-				ft_putstr_fd(entry->value, v->out);
-				ft_putstr_fd("\"", v->out);
-			}
-			ft_putstr_fd("\n", v->out);
+			if (entry->is_exported == true)
+				export_print(v, entry);
 			temp = temp->next;
 		}
 	}

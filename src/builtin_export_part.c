@@ -76,23 +76,68 @@ static void	part(char *str, t_util *util)
 	}
 }
 
-char	*try_exec(t_command *head, int start)
+static char	*path(t_list *lst, char *name)
+{
+	t_entry		*entry;
+	char		**sp;
+	char 		*p;
+	int 		i;
+	char 		*str;
+
+	i = 0;
+	if (access(name, X_OK) == 0)
+		return (name);
+	while (lst)
+	{
+		entry = to_entry(lst->content);
+		if (ft_strncmp ("PATH", entry->key,
+						ft_strlen(entry->key)) == 0)
+			break ;
+		lst = lst->next;
+	}
+	if (lst)
+	{
+		sp = ft_split(entry->value, ':');
+		while (sp[i])
+		{
+			str = strjoin(sp[i], "/");
+			if (str == NULL)
+				return (NULL);
+			p = strjoin(str, name);
+			free(str);
+			if (p == NULL)
+				return (NULL);
+			if (access(p, X_OK) == 0)
+				return (p);
+			free(p);
+			i++;
+		}
+	}
+	return (NULL);
+}
+
+t_try	*ft_try_exec(t_var *var, char *name, int start)
 {
 	t_try	*t;
 
-	t->head = head;
-	t->output = head->output;
-	t->input = head->input;
-	t->arg_start = start;
-	return (NULL);
+	t = malloc(sizeof(t_try));
+	if (t == NULL)
+		return (NULL);
+	t->start = start;
+	t->path = path(var->env, name);
+	if (t->path == NULL)
+	{
+		free(t);
+		return (NULL);
+	}
+	return (t);
 }
 
 //[a-zA-Z_][a-zA-Z0-9_]
 void	try_export_value(char **sp, t_var *var,
-				t_bool is_in_export, int start, t_command *head)
+				t_bool is_in_export, int start)
 {
 	t_util	util;
-
 	util.i = start;
 	util.var = var;
 	util.is_in_export = is_in_export;
@@ -110,9 +155,11 @@ void	try_export_value(char **sp, t_var *var,
 				NULL, var, util.is_in_export);
 			continue ;
 		}
-		ft_putstr_fd(ERR_CMD, var->console_fd);
+		var->tr = ft_try_exec(var, sp[util.i - 1], util.i - 1);
+		if (var->tr != NULL)
+			return ;
 		ft_putstr_fd(sp[util.i - 1], var->console_fd);
-		ft_putstr_fd("\n", var->console_fd);
+		ft_putstr_fd(ERR_CMD, var->console_fd);
 		break ;
 	}
 }

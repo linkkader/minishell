@@ -33,7 +33,7 @@ void	free_lines(char *line, char *new_line)
 
 void	sig_here_doc(int sig)
 {
-	printf("\n$ ");
+	printf("\nminishell$ ");
 	rl_replace_line("", 0);
 	rl_redisplay();
 	g_global = 1;
