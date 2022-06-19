@@ -20,14 +20,12 @@ static t_bool	part(t_list *temp, char *key,
 	entry = to_entry(temp->content);
 	if (ft_strncmp(key, entry->key, ft_strlen(entry->key) + 1) == 0)
 	{
+		free(key);
 		if (value == NULL && entry->value != NULL)
 			entry->is_exported = is_in_export;
-		else
-		{
-			if (entry->value)
-				free(entry->value);
-			entry->value = value;
-		}
+		if (entry->value)
+			free(entry->value);
+		entry->value = value;
 		return (true);
 	}
 	return (false);
@@ -40,6 +38,8 @@ void	export_value(char *key, char *value, t_var *var,
 	t_entry	*entry;
 	t_bool	is_in;
 
+	if (var->previous != NULL || var->head->next != NULL)
+		return ;
 	if (key == NULL)
 		exit_builtin(var);
 	is_in = false;
@@ -63,6 +63,19 @@ void	export_value(char *key, char *value, t_var *var,
 	}
 }
 
+static void	export_print(t_var *v, t_entry *entry)
+{
+	ft_putstr_fd("declare -x ", v->out);
+	ft_putstr_fd(entry->key, v->out);
+	if (entry->is_exported == true && entry->value != NULL)
+	{
+		ft_putstr_fd("=\"", v->out);
+		ft_putstr_fd(entry->value, v->out);
+		ft_putstr_fd("\"", v->out);
+	}
+	ft_putstr_fd("\n", v->out);
+}
+
 void	export_builtin(char **cmd, t_var *v)
 {
 	t_list	*temp;
@@ -74,18 +87,11 @@ void	export_builtin(char **cmd, t_var *v)
 		while (temp)
 		{
 			entry = to_entry(temp->content);
-			ft_putstr_fd("declare -x ", v->out);
-			ft_putstr_fd(entry->key, v->out);
-			if (entry->is_exported == true && entry->value != NULL)
-			{
-				ft_putstr_fd("=\"", v->out);
-				ft_putstr_fd(entry->value, v->out);
-				ft_putstr_fd("\"", v->out);
-			}
-			ft_putstr_fd("\n", v->out);
+			if (entry->is_exported == true)
+				export_print(v, entry);
 			temp = temp->next;
 		}
 	}
-	else
+	else if (v->previous == NULL && v->head->next == NULL)
 		try_export_value(cmd, v, true, 1);
 }

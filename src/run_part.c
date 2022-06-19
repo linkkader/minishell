@@ -23,14 +23,16 @@ void	my_clear(char ***cmd)
 		free(cmd[0]);
 }
 
-char	*to_env_part(t_list *list)
+static char	*to_env_part(t_list *list, t_bool real)
 {
 	t_entry	*entry;
 	char	*temp;
 	char	*str;
 
 	entry = to_entry(list->content);
-	if (entry->is_exported == false || entry->value == NULL)
+	if (real == true && (entry->value == NULL))
+		return (NULL);
+	if (real == true && ft_strlen(entry->value) == 0)
 		return (NULL);
 	temp = ft_strjoin(entry->key, "=");
 	if (temp == NULL)
@@ -40,7 +42,7 @@ char	*to_env_part(t_list *list)
 	return (str);
 }
 
-char	**to_env(t_list *list)
+char	**to_env(t_list *list, t_bool real)
 {
 	char	**env;
 	int		i;
@@ -52,7 +54,7 @@ char	**to_env(t_list *list)
 		return (NULL);
 	while (list)
 	{
-		temp = to_env_part(list);
+		temp = to_env_part(list, real);
 		if (temp != NULL)
 			env[i++] = temp;
 		list = list->next;

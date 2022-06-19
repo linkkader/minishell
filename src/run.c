@@ -12,30 +12,48 @@
 
 #include "../includes/minishell.h"
 
+extern int		g_global;
+
+static void	exe(char *path, t_command *temp, int start, char **env)
+{
+	dup2(temp->input, 0);
+	dup2(temp->output, 1);
+	if (temp->input != 0)
+		close(temp->input);
+	if (temp->output != 1)
+		close(temp->output);
+	if (temp->should_execute)
+		if (execve(path, temp->command_args + start, env) == -1)
+			exit (1);
+	exit (2);
+}
+
 void	run(t_var *v, t_command *temp, int *i, char **env)
 {
-	char		**args;
+	char	**args;
 
+	v->tr = NULL;
 	v->out = temp->output;
+	v->head = temp;
 	args = check_cmd(v, temp);
-	if (args != NULL)
+	if (args == NULL && v->tr != NULL)
+	{
+		v->pids[*i] = fork();
+		if (!v->pids[*i])
+			exe(v->tr->path, temp, v->tr->start, env);
+	}
+	else if (args != NULL)
 	{
 		v->pids[*i] = fork();
 		if (!v->pids[*i])
 		{
-			dup2(temp->input, 0);
-			dup2(temp->output, 1);
-			if (temp->input != 0)
-				close(temp->input);
-			if (temp->output != 1)
-				close(temp->output);
-			if (temp->should_execute)
-				if (execve(temp->command_path,
-						temp->command_args, env) == -1)
-					exit (1);
-			exit (2);
+			exe(temp->command_path, temp, 0, env);
 		}
 	}
+	if (temp->input != 0)
+		close(temp->input);
+	if (temp->output != 1)
+		close(temp->output);
 }
 
 void	run_all(t_var *v)
@@ -43,25 +61,26 @@ void	run_all(t_var *v)
 	t_command	*temp;
 	char		**env;
 	int			i;
+	sig_t		sig[2];
 
 	temp = v->head;
-	env = to_env(v->env);
+	v->previous = NULL;
+	env = to_env(v->env, false);
 	i = 0;
-	v->sig_quit = signal(SIGQUIT, sigquit_handler_in_process);
+	sig[0] = signal(SIGINT, sigint_handler_in_process);
+	sig[1] = signal(SIGQUIT, sigquit_handler_in_process);
 	normal_echo(v);
 	while (temp)
 	{
 		run(v, temp, &i, env);
-		if (temp->input != 0)
-			close(temp->input);
-		if (temp->output != 1)
-			close(temp->output);
-		(i)++;
+		i++;
+		v->previous = temp;
 		temp = temp->next;
 	}
 	while (i > -1)
 		waitpid(v->pids[i--], NULL, 0);
+	signal(SIGINT, sig[0]);
+	signal(SIGQUIT, sig[1]);
 	my_clear(&env);
 	correct_echo(v);
-	signal(SIGQUIT, v->sig_quit);
 }

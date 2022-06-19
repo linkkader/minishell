@@ -22,6 +22,8 @@ static void	reset_setting(t_var *var)
 
 void	exit_builtin(t_var *v)
 {
+	if (v->previous != NULL || v->head->next != NULL)
+		return ;
 	reset_setting(v);
 	exit(0);
 }

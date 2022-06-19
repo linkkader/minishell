@@ -24,7 +24,7 @@ void	correct_echo(t_var *v)
 		tcgetattr(STDIN_FILENO, v->attributes);
 	}
 	tcgetattr(STDIN_FILENO, &attributes);
-	attributes.c_lflag &= ~~(ECHO | IEXTEN);
+	attributes.c_lflag &= (ECHO | IEXTEN);
 	tcsetattr(STDIN_FILENO, TCSAFLUSH, &attributes);
 }
 

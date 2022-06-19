@@ -21,25 +21,6 @@
     <list default="true" id="0a3fc66d-3f27-474e-96a3-d556e9d0b164" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/includes/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/minishell.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minishell" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/builtin.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/builtin_export.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/exec.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/run.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/signal.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/t_list_utils.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/builtin.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/builtin_export.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtin_export.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exec.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/exec.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/run.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/run.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/signal.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/signal.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/t_list_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/t_list_utils.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test.c" beforeDir="false" />
-=======
       <change beforePath="$PROJECT_DIR$/libft/ft_atoi.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/ft_atoi.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libft/ft_bzero.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/ft_bzero.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libft/ft_calloc.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/ft_calloc.o" afterDir="false" />
@@ -85,15 +66,24 @@
       <change beforePath="$PROJECT_DIR$/libft/ft_toupper.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/ft_toupper.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libft/libft.a" beforeDir="false" afterPath="$PROJECT_DIR$/libft/libft.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/builtin.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtin.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/builtin_cd.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtin_cd.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/builtin_echo.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtin_echo.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/builtin_env.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtin_env.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/builtin_exit.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtin_exit.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/builtin_export.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtin_export.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/builtin_export_part.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtin_export_part.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/builtin_pwd.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtin_pwd.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/builtin_unset.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtin_unset.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/exec.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/exec.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/main.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/run.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/run.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/run_part.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/run_part.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/signal.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/signal.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/t_list_utils.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/t_list_utils.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/termios.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/termios.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtin_cd.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtin_cd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtin_pwd.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtin_pwd.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
->>>>>>> ab0d11ac887b21b9ea742aefd2c4ca861a47cd65
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,15 +133,16 @@
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/includes" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/parse" />
-      <recent name="$PROJECT_DIR$/includes" />
       <recent name="$PROJECT_DIR$/parsing" />
     </key>
   </component>
@@ -179,6 +170,7 @@
       <workItem from="1655202360834" duration="4865000" />
       <workItem from="1655208062067" duration="558000" />
       <workItem from="1655233187382" duration="17754000" />
+      <workItem from="1655537223894" duration="8475000" />
     </task>
     <servers />
   </component>
@@ -200,14 +192,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/run.c</url>
-          <line>55</line>
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/includes/minishell.h</url>
+          <line>74</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/run.c</url>
-          <line>61</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/parsing/heredoc/heredoc.c</url>
+          <line>16</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -12,28 +12,30 @@
 
 NAME = minishell
 
-FILE =builtin_cd.c          builtin_exit.c        builtin_pwd.c         main.c                signal.c\
-      builtin_echo.c        builtin_export.c      builtin_unset.c       run.c                 t_list_utils.c\
-      builtin_env.c         builtin_export_part.c exec.c                run_part.c            termios.c
+FILE = builtin_cd.c          builtin_exit.c        builtin_pwd.c         main.c                signal.c\
+       builtin_echo.c        builtin_export.c      builtin_unset.c       run.c                 t_list_utils.c\
+       builtin_env.c         builtin_export_part.c exec.c                run_part.c            termios.c
+
 
 FILE_BONUS = exec.c  bonus.c     utils.c    run.c
 
 LIBFT_DIRECTORY = libft/
 
-PARSING_DIRECTORY = parse/
+PARSING_DIRECTORY = parsing/
 
 LIBFT = $(LIBFT_DIRECTORY)libft.a
 
-LDFLAGS ="-L/opt/homebrew/opt/readline/lib"
-CPPFLAGS ="-I/opt/homebrew/opt/readline/include"
+#LDFLAGS ="-L/opt/homebrew/opt/readline/lib"
+#CPPFLAGS ="-I/opt/homebrew/opt/readline/include"
 
-#LDFLAGS="-L/goinfre/acouliba/brew/opt/readline/lib"
-#CPPFLAGS="-I/goinfre/acouliba/brew/opt/readline/include"
+LDFLAGS="-L/goinfre/acouliba/brew/opt/readline/lib"
+CPPFLAGS="-I/goinfre/acouliba/brew/opt/readline/include"
 
 
 FLAGS = -Wall -Wextra -Werror -fsanitize=address $(LDFLAGS) $(CPPFLAGS)
 
 FLAGS =  $(LDFLAGS) $(CPPFLAGS)
+
 
 HEADERS = includes
 
@@ -72,12 +74,11 @@ clean:
 	rm -Rf $(OBJECTS_DIRECTORY)
 
 fclean: clean
-	@make fclean -sC $(LIBFT_DIRECTORY)
-	@make fclean -sC $(PARSING_DIRECTORY)
+	#@make fclean -sC $(LIBFT_DIRECTORY)
 	rm -f $(NAME)
 
 
-re: ree all
+re: fclean all
 
 ree: fclean
 	@make re -sC $(LIBFT_DIRECTORY)
