@@ -31,11 +31,23 @@ static t_bool	part(t_list *temp, char *key,
 	return (false);
 }
 
+static void	part1(t_var *var, char *key, char *value, t_bool is_in_export)
+{
+	t_entry	*entry;
+
+	entry = malloc(sizeof(*entry));
+	if (entry == NULL)
+		return ;
+	entry->key = key;
+	entry->is_exported = is_in_export;
+	entry->value = value;
+	ft_lstadd_back(&var->env, ft_lstnew(entry));
+}
+
 void	export_value(char *key, char *value, t_var *var,
 			t_bool is_in_export)
 {
 	t_list	*temp;
-	t_entry	*entry;
 	t_bool	is_in;
 
 	if (var->previous != NULL || var->head->next != NULL)
@@ -52,15 +64,7 @@ void	export_value(char *key, char *value, t_var *var,
 		temp = temp->next;
 	}
 	if (is_in == false)
-	{
-		entry = malloc(sizeof(*entry));
-		if (entry == NULL)
-			return ;
-		entry->key = key;
-		entry->is_exported = is_in_export;
-		entry->value = value;
-		ft_lstadd_back(&var->env, ft_lstnew(entry));
-	}
+		part1(var, key, value, is_in_export);
 }
 
 static void	export_print(t_var *v, t_entry *entry)

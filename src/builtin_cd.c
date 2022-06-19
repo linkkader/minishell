@@ -12,18 +12,33 @@
 
 #include "../includes/minishell.h"
 
+static void	part(t_var *v, char *temp, char *path)
+{
+	temp = getcwd(NULL, 0);
+	if (temp != NULL)
+		export_value(ft_strdup("OLDPWD"), temp, v, true);
+	if (chdir(path) != 0)
+	{
+		perror("cd");
+		return ;
+	}
+	path = getcwd(NULL, 0);
+	if (path != NULL)
+		export_value(ft_strdup("PWD"), path, v, true);
+}
+
 void	cd_builtin(char **cmd, t_var *v)
 {
 	char	*path;
-	char 	*temp;
+	char	*temp;
 
-	if (v->previous  != NULL || v->head->next != NULL)
+	if (v->previous != NULL || v->head->next != NULL)
 		return ;
 	if (cmd[1] == NULL)
 		path = ft_get_env(v, "HOME");
 	else if (ft_strncmp("-", cmd[1], ft_strlen(cmd[1])) == 0)
 	{
-		path = ft_get_env( v, "OLDPWD");
+		path = ft_get_env(v, "OLDPWD");
 		if (path == NULL)
 		{
 			ft_putstr_fd("minishell: cd: OLDPWD not set\n", v->console_fd);
@@ -33,16 +48,7 @@ void	cd_builtin(char **cmd, t_var *v)
 	else
 		path = cmd[1];
 	if (access(path, X_OK) == 0)
-	{
-		temp = getcwd(NULL, 0);
-		printf("%s\n", path);
-		chdir(path);
-		if (temp != NULL)
-			export_value(ft_strdup("OLDPWD"), temp, v, true);
-		path = getcwd(NULL, 0);
-		if (path != NULL)
-			export_value(ft_strdup("PWD"), path, v, true);
-	}
+		part(v, temp, path);
 	else
 		perror("cd");
 }

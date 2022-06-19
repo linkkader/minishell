@@ -102,7 +102,7 @@ int		main(int ac, char **av, char **env)
 		str = NULL;
 		free(v.pids);
 		my_clear(&temp_env);
-		system("leaks minishell");
+		//system("leaks minishell");
 	}
 	return (0);
 }
