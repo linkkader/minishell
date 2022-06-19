@@ -14,7 +14,8 @@ NAME = minishell
 
 FILE = builtin_cd.c          builtin_exit.c        builtin_pwd.c         main.c                signal.c\
        builtin_echo.c        builtin_export.c      builtin_unset.c       run.c                 t_list_utils.c\
-       builtin_env.c         builtin_export_part.c exec.c                run_part.c            termios.c
+       builtin_env.c         builtin_export_part.c exec.c                run_part.c            termios.c\
+       builtin_export_part2.c
 
 
 FILE_BONUS = exec.c  bonus.c     utils.c    run.c

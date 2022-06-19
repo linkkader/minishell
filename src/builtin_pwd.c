@@ -22,7 +22,7 @@ void	pwd_builtin(char **cmd, t_var *v)
 		if (path == NULL)
 		{
 			strerror(errno);
-			return;
+			return ;
 		}
 		ft_putstr_fd(path, v->out);
 		ft_putstr_fd("\n", v->out);

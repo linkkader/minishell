@@ -12,20 +12,34 @@
 
 #include "../includes/minishell.h"
 
-static void	not_an_identifier(t_var *var)
+static void	_part_part(char *str, t_util *util, char *t, t_entry *entry)
 {
-	ft_putstr_fd("minishell: export: ", var->console_fd);
-	ft_putstr_fd("out", var->console_fd);
-	ft_putstr_fd(": not a valid identifier\n", var->console_fd);
+	char	*value;
+	char	*key;
+
+	if (t != NULL)
+	{
+		key = ft_substr(str, util->j + 2,
+				ft_strlen(str) - util->j - 1);
+		value = ft_strjoin(t, key);
+		entry->value = value;
+		free(t);
+		free(key);
+	}
+	else
+	{
+		value = ft_substr(str, util->j + 2, ft_strlen(str) - util->j - 1);
+		export_value(ft_substr(str, 0, util->j),
+			value, util->var, util->is_in_export);
+	}
 }
 
 static void	part_part(char *str, t_util *util)
 {
-	char	*value;
-	char	*t;
 	char	*key;
 	t_list	*temp;
 	t_entry	*entry;
+	char	*t;
 
 	temp = util->var->env;
 	util->bool = true;
@@ -41,23 +55,8 @@ static void	part_part(char *str, t_util *util)
 		temp = temp->next;
 	}
 	free(key);
-	if (t != NULL)
-	{
-		key = ft_substr(str, util->j + 2,
-						ft_strlen(str) - util->j - 1);
-		value = ft_strjoin(t, key);
-		entry->value = value;
-		free(t);
-		free(key);
-	}
-	else
-	{
-		value = ft_substr(str, util->j + 2, ft_strlen(str) - util->j - 1);
-		export_value(ft_substr(str, 0, util->j),
-					 value, util->var, util->is_in_export);
-	}
+	_part_part(str, util, t, entry);
 }
-//free(t);
 
 static void	part(char *str, t_util *util)
 {
@@ -70,9 +69,7 @@ static void	part(char *str, t_util *util)
 	{
 		if (util->bool == false && str[util->j] == '+'
 			&& str[util->j + 1] == '=')
-		{
 			part_part(str, util);
-		}
 		if (!(ft_isalpha(str[util->j]) == 1 || ft_isalnum(str[util->j]) == 1
 				||str[util->j] == '_') && util->bool == false)
 		{
@@ -89,63 +86,10 @@ static void	part(char *str, t_util *util)
 	}
 }
 
-static char	*path(t_list *lst, char *name)
+static void	_try_export_value(t_var *var, char **sp, t_util util)
 {
-	t_entry		*entry;
-	char		**sp;
-	char 		*p;
-	int 		i;
-	char 		*str;
-
-	i = 0;
-	if (access(name, X_OK) == 0)
-		return (name);
-	while (lst)
-	{
-		entry = to_entry(lst->content);
-		if (ft_strncmp ("PATH", entry->key,
-						ft_strlen(entry->key)) == 0)
-			break ;
-		lst = lst->next;
-	}
-	if (lst)
-	{
-		sp = ft_split(entry->value, ':');
-		while (sp[i])
-		{
-			str = strjoin(sp[i], "/");
-			if (str == NULL)
-				return (NULL);
-			p = strjoin(str, name);
-			free(str);
-			if (p == NULL)
-				return (NULL);
-			if (access(p, X_OK) == 0)
-				return (p);
-			free(p);
-			i++;
-		}
-	}
-	my_clear(&sp);
-	return (NULL);
-}
-
-t_try	*ft_try_exec(t_var *var, char *name, int start)
-{
-	t_try	*t;
-
-	t = malloc(sizeof(t_try));
-	if (t == NULL)
-		return (NULL);
-	t->start = start;
-	t->path = path(var->env, name);
-	if (t->path == NULL)
-	{
-		free(t);
-		return (NULL);
-	}
-
-	return (t);
+	ft_putstr_fd(sp[util.i - 1], var->console_fd);
+	ft_putstr_fd(ERR_CMD, var->console_fd);
 }
 
 //[a-zA-Z_][a-zA-Z0-9_]
@@ -153,6 +97,7 @@ void	try_export_value(char **sp, t_var *var,
 				t_bool is_in_export, int start)
 {
 	t_util	util;
+
 	util.i = start;
 	util.var = var;
 	util.is_in_export = is_in_export;
@@ -173,8 +118,7 @@ void	try_export_value(char **sp, t_var *var,
 		var->tr = ft_try_exec(var, sp[util.i - 1], util.i - 1);
 		if (var->tr != NULL)
 			return ;
-		ft_putstr_fd(sp[util.i - 1], var->console_fd);
-		ft_putstr_fd(ERR_CMD, var->console_fd);
+		_try_export_value(var, sp, util);
 		break ;
 	}
 }
