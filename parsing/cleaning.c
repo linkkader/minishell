@@ -18,7 +18,8 @@ void	cleaning(t_command **cmds, int ***pipes, char close_pipe)
 
 	tmp = *cmds;
 	if (close_pipe)
-		close_all(p_ft_lstsize(*cmds), pipes);
+		//close_all(p_ft_lstsize(*cmds), pipes);
+		p_ft_lstsize(*cmds);
 	clear_tokens(&tmp);
 	p_ft_lstclear(cmds);
 }

@@ -15,16 +15,34 @@
 void	cd_builtin(char **cmd, t_var *v)
 {
 	char	*path;
+	char 	*temp;
 
 	if (v->previous  != NULL || v->head->next != NULL)
 		return ;
-	chdir(path);
 	if (cmd[1] == NULL)
 		path = ft_get_env(v, "HOME");
+	else if (ft_strncmp("-", cmd[1], ft_strlen(cmd[1])) == 0)
+	{
+		path = ft_get_env( v, "OLDPWD");
+		if (path == NULL)
+		{
+			ft_putstr_fd("minishell: cd: OLDPWD not set\n", v->console_fd);
+			return ;
+		}
+	}
 	else
 		path = cmd[1];
 	if (access(path, X_OK) == 0)
+	{
+		temp = getcwd(NULL, 0);
+		printf("%s\n", path);
 		chdir(path);
+		if (temp != NULL)
+			export_value(ft_strdup("OLDPWD"), temp, v, true);
+		path = getcwd(NULL, 0);
+		if (path != NULL)
+			export_value(ft_strdup("PWD"), path, v, true);
+	}
 	else
 		perror("cd");
 }
