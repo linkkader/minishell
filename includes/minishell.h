@@ -108,4 +108,5 @@ void	sigint_handler_nonl(int sig);
 void	correct_echo(t_var *v);
 void	normal_echo(t_var *v);
 
+int	size_t_command(t_command *cmd);
 #endif

@@ -66,3 +66,16 @@ void	free_entry(void *content)
 		free(entry->key);
 	free(content);
 }
+
+int	size_t_command(t_command *cmd)
+{
+	int		i;
+
+	i = 0;
+	while (cmd)
+	{
+		i++;
+		cmd = cmd->next;
+	}
+	return (i);
+}
