@@ -20,14 +20,12 @@ static t_bool	part(t_list *temp, char *key,
 	entry = to_entry(temp->content);
 	if (ft_strncmp(key, entry->key, ft_strlen(entry->key) + 1) == 0)
 	{
+		free(key);
 		if (value == NULL && entry->value != NULL)
 			entry->is_exported = is_in_export;
-		else
-		{
-			if (entry->value)
-				free(entry->value);
-			entry->value = value;
-		}
+		if (entry->value)
+			free(entry->value);
+		entry->value = value;
 		return (true);
 	}
 	return (false);

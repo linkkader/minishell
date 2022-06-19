@@ -31,6 +31,8 @@ static void	part_part(char *str, t_util *util)
 	util->bool = true;
 	t = NULL;
 	key = ft_substr(str, 0, util->j);
+	if (key == NULL)
+		return ;
 	while (temp)
 	{
 		entry = to_entry(temp->content);
@@ -38,13 +40,22 @@ static void	part_part(char *str, t_util *util)
 			t = entry->value;
 		temp = temp->next;
 	}
+	free(key);
 	if (t != NULL)
-		value = ft_strjoin(t, ft_substr(str, util->j + 2,
-					ft_strlen(str) - util->j - 1));
+	{
+		key = ft_substr(str, util->j + 2,
+						ft_strlen(str) - util->j - 1);
+		value = ft_strjoin(t, key);
+		entry->value = value;
+		free(t);
+		free(key);
+	}
 	else
+	{
 		value = ft_substr(str, util->j + 2, ft_strlen(str) - util->j - 1);
-	export_value(ft_substr(str, 0, util->j),
-		value, util->var, util->is_in_export);
+		export_value(ft_substr(str, 0, util->j),
+					 value, util->var, util->is_in_export);
+	}
 }
 //free(t);
 
@@ -59,7 +70,9 @@ static void	part(char *str, t_util *util)
 	{
 		if (util->bool == false && str[util->j] == '+'
 			&& str[util->j + 1] == '=')
+		{
 			part_part(str, util);
+		}
 		if (!(ft_isalpha(str[util->j]) == 1 || ft_isalnum(str[util->j]) == 1
 				||str[util->j] == '_') && util->bool == false)
 		{
@@ -113,6 +126,7 @@ static char	*path(t_list *lst, char *name)
 			i++;
 		}
 	}
+	my_clear(&sp);
 	return (NULL);
 }
 
@@ -130,6 +144,7 @@ t_try	*ft_try_exec(t_var *var, char *name, int start)
 		free(t);
 		return (NULL);
 	}
+
 	return (t);
 }
 

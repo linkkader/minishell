@@ -12,6 +12,8 @@
 
 #include "../includes/minishell.h"
 
+int		g_global = 1;
+
 static void	init(char **env, t_var *var)
 {
 	int		index;
@@ -41,14 +43,9 @@ static int size_t_command(t_command *cmd)
 
 static void	exe(t_var *v)
 {
-	int		i;
-
 	v->pids = malloc((size_t_command(v->head)) * sizeof(pid_t));
 	if (v->pids == NULL)
-	{
-		//exit here
-	}
-	i = -1;
+		return ;
 	if (v->pids == NULL)
 		return ;
 	run_all(v);
@@ -76,6 +73,7 @@ int		main(int ac, char **av, char **env)
 		if (str != NULL && ft_strlen(str) == 0)
 		{
 			free(str);
+			str = NULL;
 			continue;
 		}
 		if (str == NULL)
@@ -90,25 +88,21 @@ int		main(int ac, char **av, char **env)
 		if (check_quotes(str) && ft_strlen(str))
 		{
 			head = tokenizer(str);
+			v.head = head;
 			if (check_redirect(head))
 			{
-				parser(head, &pipes,temp_env);
-				//exe(head, env);
+				parser(head, &pipes,env);
+				exe(&v);
+				cleaning(&head, &pipes, 1);
 			}
+			else
+				cleaning(&head, &pipes, 0);
 		}
-		if (head != NULL && head->next_line != NULL)
-		{
-			str =  head->next_line;
-			continue ;
-		}
-		v.head = head;
+		free(str);
 		str = NULL;
-		//free(v.pids);
-		exe(&v);
-		//free(str);
-		//ft_lstclear(&v.env, &free_entry);
-		//my_clear(&temp_env);
-		//cleaning(&head, &pipes);
+		free(v.pids);
+		my_clear(&temp_env);
+		system("leaks minishell");
 	}
 	return (0);
 }

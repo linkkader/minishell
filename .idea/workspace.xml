@@ -19,9 +19,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a3fc66d-3f27-474e-96a3-d556e9d0b164" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/minishell.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libft/ft_atoi.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/ft_atoi.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libft/ft_bzero.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/ft_bzero.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libft/ft_calloc.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/ft_calloc.o" afterDir="false" />
@@ -82,7 +83,15 @@
       <change beforePath="$PROJECT_DIR$/obj/signal.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/signal.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/t_list_utils.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/t_list_utils.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/termios.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/termios.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/run.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/run.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/heredoc/heredoc.c" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/heredoc/heredoc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/minishell" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/parsing/minishell.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtin_export.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtin_export.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtin_export_part.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtin_export_part.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtin_pwd.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtin_pwd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/signal.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/signal.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,11 +137,9 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
@@ -191,6 +198,11 @@
           <url>file://$PROJECT_DIR$/includes/minishell.h</url>
           <line>74</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/parsing/heredoc/heredoc.c</url>
+          <line>16</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -25,8 +25,7 @@ void	sigint_handler_nonl(int sig)
 void	sigint_handler_in_process(int sig)
 {
 	(void) sig;
-	g_global++;
-	printf("%d\n", g_global);
+	printf("\n");
 }
 
 void	sigquit_handler_in_process(int sig)

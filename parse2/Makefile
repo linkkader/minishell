@@ -8,8 +8,8 @@ CC = cc
 LDFLAGS ="-L/opt/homebrew/opt/readline/lib"
 CPPFLAGS ="-I/opt/homebrew/opt/readline/include"
 
-LDFLAGS="-L/goinfre/acouliba/brew/opt/readline/lib"
-CPPFLAGS="-I/goinfre/acouliba/brew/opt/readline/include"
+//LDFLAGS="-L/goinfre/acouliba/brew/opt/readline/lib"
+//CPPFLAGS="-I/goinfre/acouliba/brew/opt/readline/include"
 
 CFLAGS = $(LDFLAGS) $(CPPFLAGS) -Wall -Wextra -Werror -fsanitize=address
 CFLAGS = $(LDFLAGS) $(CPPFLAGS)
@@ -41,6 +41,7 @@ $(NAME) :
 
 .c.o:
 	gcc  $(CFLAGS) -c $< -o ${<:.c=.o}
+
 
 test: fclean $(SRCS) $(OBJS)
 	ar rc parse.a $(OBJS)

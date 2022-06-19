@@ -21,15 +21,15 @@ FILE_BONUS = exec.c  bonus.c     utils.c    run.c
 
 LIBFT_DIRECTORY = libft/
 
-PARSING_DIRECTORY = parse2/
+PARSING_DIRECTORY = parsing/
 
 LIBFT = $(LIBFT_DIRECTORY)libft.a
 
 LDFLAGS ="-L/opt/homebrew/opt/readline/lib"
 CPPFLAGS ="-I/opt/homebrew/opt/readline/include"
 
-LDFLAGS="-L/goinfre/acouliba/brew/opt/readline/lib"
-CPPFLAGS="-I/goinfre/acouliba/brew/opt/readline/include"
+//LDFLAGS="-L/goinfre/acouliba/brew/opt/readline/lib"
+//CPPFLAGS="-I/goinfre/acouliba/brew/opt/readline/include"
 
 
 FLAGS = -Wall -Wextra -Werror -fsanitize=address $(LDFLAGS) $(CPPFLAGS)

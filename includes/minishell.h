@@ -24,7 +24,7 @@
 #include <readline/history.h>
 #include <signal.h>
 #include "../libft/libft.h"
-#include "../parse2/minishell.h"
+#include "../parsing/minishell.h"
 
 # define ERR_CMD ": command not found\n"
 # define PROMPT_CMD "$ "
