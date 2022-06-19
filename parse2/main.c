@@ -18,8 +18,8 @@ void	cleaning(t_command **cmds, int ***pipes)
 
 	tmp = cmds;
 	close_all(*tmp, pipes);
-	clear_tokens(tmp);
-	p_ft_lstclear(cmds);
+	//clear_tokens(tmp);
+	//p_ft_lstclear(cmds);
 }
 
 //void	exe(t_command *tmp, char **env)
@@ -82,4 +82,4 @@ void	cleaning(t_command **cmds, int ***pipes)
 //	}
 //	return (0);
 //}
-
+//

@@ -21,5 +21,5 @@ void    close_all(t_command *cmds, int ***pipes)
     size = p_ft_lstsize(cmds);
     while (++i < size)
         free((*pipes)[i - 1]);
-    free(*pipes);
+    //free(*pipes);
 }
