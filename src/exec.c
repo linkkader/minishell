@@ -20,7 +20,7 @@ static char	**check_builtin(t_command *head, t_var *var)
 	name = head->command_name;
 	len = ft_strlen(name) + 1;
 	if (ft_strncmp(name, "exit", len) == 0)
-		exit_builtin(var);
+		exit_builtin(head->command_args, var);
 	else if (ft_strncmp(name, "unset", ft_strlen(name)) == 0)
 		unset_builtin(head->command_args, var);
 	else if (ft_strncmp(name, "export", len) == 0)

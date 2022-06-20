@@ -12,9 +12,7 @@
 
 #include "../includes/minishell.h"
 
-extern int		g_global;
-
-static void	exe(char *path, t_command *temp, int start, char **env)
+static int 	exe(char *path, t_command *temp, int start, char **env)
 {
 	dup2(temp->input, 0);
 	dup2(temp->output, 1);
@@ -23,8 +21,7 @@ static void	exe(char *path, t_command *temp, int start, char **env)
 	if (temp->output != 1)
 		close(temp->output);
 	if (temp->should_execute)
-		if (execve(path, temp->command_args + start, env) == -1)
-			exit (1);
+		return (execve(path, temp->command_args + start, env));
 	exit (2);
 }
 
@@ -47,7 +44,7 @@ void	run(t_var *v, t_command *temp, int *i, char **env)
 		v->pids[*i] = fork();
 		if (!v->pids[*i])
 		{
-			exe(temp->command_path, temp, 0, env);
+			v->err = exe(temp->command_path, temp, 0, env);
 		}
 	}
 	if (temp->input != 0)
@@ -77,8 +74,10 @@ void	run_all(t_var *v)
 		v->previous = temp;
 		temp = temp->next;
 	}
+	wait(&v->err);
 	while (i > -1)
 		waitpid(v->pids[i--], NULL, 0);
+	v->err = WEXITSTATUS(v->err);
 	signal(SIGINT, sig[0]);
 	signal(SIGQUIT, sig[1]);
 	my_clear(&env);

@@ -8,9 +8,8 @@ extern int		g_global;
 
 void	sig_here_doc(int sig)
 {
-	printf("\nminishell$ ");
-	rl_replace_line("", 0);
-	rl_redisplay();
-	g_global = 1;
+	printf("signal\n");
 	(void) sig;
+	g_global = -1;
+	exit(0);
 }

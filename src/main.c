@@ -12,7 +12,9 @@
 
 #include "../includes/minishell.h"
 
-int	g_global = 1;
+extern int	g_global;
+
+extern int g_errno;
 
 static void	init(char **env, t_var *var, char **str)
 {
@@ -23,6 +25,7 @@ static void	init(char **env, t_var *var, char **str)
 	correct_echo(var);
 	index = 0;
 	var->env = NULL;
+	var->err = 0;
 	signals(var);
 	while (env[index])
 	{
@@ -32,7 +35,7 @@ static void	init(char **env, t_var *var, char **str)
 	var->console_fd = 2;
 }
 
-static char	*exe(t_var *v, char *str)
+static void	exe(t_var *v, char *str)
 {
 	int			**pipes;
 	t_command	*head;
@@ -40,10 +43,12 @@ static char	*exe(t_var *v, char *str)
 
 	v->pids = malloc((size_t_command(v->head)) * sizeof(pid_t));
 	if (v->pids == NULL)
-		return (NULL);
+		return ;
 	add_history(str);
 	head = NULL;
+	pipes = NULL;
 	temp_env = to_env(v->env, true);
+	g_errno = v->err;
 	if (check_quotes(str) && ft_strlen(str))
 	{
 		head = tokenizer(str);
@@ -51,17 +56,17 @@ static char	*exe(t_var *v, char *str)
 		if (check_redirect(head))
 		{
 			parser(head, &pipes, temp_env);
-			run_all(v);
+			if (g_global != -1)
+				run_all(v);
 			cleaning(&head, &pipes, 1);
 		}
 		else
 			cleaning(&head, &pipes, 0);
 	}
 	free(str);
-	str = NULL;
 	free(v->pids);
 	my_clear(&temp_env);
-	return (NULL);
+	system("leaks minishell");
 }
 
 int	main(int ac, char **av, char **env)
@@ -69,11 +74,12 @@ int	main(int ac, char **av, char **env)
 	char		*str;
 	t_var		v;
 
+	g_errno = 0;
 	init(env, &v, &str);
 	while (1)
 	{
-		if (str == NULL)
-			str = readline(PROMPT_CMD);
+		g_global = 1;
+		str = readline(PROMPT_CMD);
 		if (str != NULL && ft_strlen(str) == 0)
 		{
 			free(str);
@@ -84,9 +90,10 @@ int	main(int ac, char **av, char **env)
 		{
 			ft_putstr_fd(PROMPT_CMD, 1);
 			ft_putstr_fd("exit\n", 1);
+			reset_setting(&v);
 			exit(0);
 		}
-		str = exe(&v, str);
+		exe(&v, str);
 	}
 	return (0);
 }

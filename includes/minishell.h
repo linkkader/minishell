@@ -43,6 +43,7 @@ typedef struct var{
 	sig_t			sig_int;
 	sig_t			sig_quit;
 	int 			console_fd;
+	int 			err;
 	struct termios	*attributes;
 	pid_t			*pids;
 	t_command		*head;
@@ -84,7 +85,7 @@ void	exec(char **cmd);
 void	echo_builtin(char **cmd, t_var *v);
 void	cd_builtin(char **path, t_var *v);
 void	pwd_builtin(char **cmd, t_var *v);
-void	exit_builtin(t_var *v);
+void	exit_builtin(char **cmd, t_var *v);
 void	env_builtin(char **cmd, t_var *v);
 void	export_builtin(char **cmd, t_var *v);
 t_try	*ft_try_exec(t_var *var, char *name, int start);
@@ -108,5 +109,6 @@ void	sigint_handler_nonl(int sig);
 void	correct_echo(t_var *v);
 void	normal_echo(t_var *v);
 
-int	size_t_command(t_command *cmd);
+int		size_t_command(t_command *cmd);
+void	reset_setting(t_var *var);
 #endif

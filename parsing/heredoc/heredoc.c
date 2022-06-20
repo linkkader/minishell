@@ -31,11 +31,17 @@ void	free_lines(char *line, char *new_line)
 	free(new_line);
 }
 
+static void	handler(int sig)
+{
+	(void)sig;
+}
+
 void	herdoc_read(t_command *cmds, char *limit, char shld_exp, char shld_wr)
 {
 	char	*line;
 	char	*new_line;
 	int		pipes[2];
+	pid_t 	pid;
 	sig_t	sig;
 
 	if (shld_wr)
@@ -44,32 +50,57 @@ void	herdoc_read(t_command *cmds, char *limit, char shld_exp, char shld_wr)
 			exit (puterror("", strerror(errno)));
 		cmds->input = pipes[0];
 	}
-	sig = signal(SIGINT, sig_here_doc);
-	while (1)
+	sig = signal(SIGINT, handler);
+	pid = fork();
+	if (pid == 0)
 	{
-		line = get_line(0);
-		if (g_global == 1)
+		signal(SIGINT, sig_here_doc);
+		while (1)
 		{
-			cmds->next_line = p_ft_strdup(line);
-			//free all here
-			break ;
+			line = readline("> ");
+			if (line == NULL)
+				break ;
+			if (!p_ft_strcmp(limit, line))
+			{
+				free(line);
+				break ;
+			}
+			new_line = strjoin(line, "\n");
+			if (new_line == NULL)
+				break ;
+			if (shld_wr)
+				write(pipes[1], new_line, p_ft_strlen(new_line));
+			free(line);
+			free(new_line);
 		}
-		if (line == NULL)
-			break;
-		new_line = strjoin(line, "\n");
-		if (!p_ft_strcmp(limit, line))
-			break ;
-		if (shld_exp)
-			new_line = expand_var(new_line, cmds->env, 1);
-		if (shld_wr)
-			write(pipes[1], new_line, p_ft_strlen(new_line));
-		free_lines(line, new_line);
+		exit(0);
 	}
-	signal(SIGINT, sig);
-	g_global = 0;
+	wait(NULL);
 	if (shld_wr)
 		close(pipes[1]);
-	free_lines(line, new_line);
+	signal(SIGINT, sig);
+	//while (1);
+	//while (1)
+	//{
+	//	line = readline("> ");
+	//	if (g_global == 1)
+	//	{
+	//		cmds->next_line = p_ft_strdup(line);
+	//		//free all here
+	//		break ;
+	//	}
+	//	if (line == NULL)
+	//		break;
+	//	new_line = strjoin(line, "\n");
+	//	if (shld_exp)
+	//		new_line = expand_var(new_line, cmds->env, 1);
+	//	if (shld_wr)
+	//		write(pipes[1], new_line, p_ft_strlen(new_line));
+	//	free_lines(line, new_line);
+	//}
+	//signal(SIGINT, sig);
+	//g_global = 0;
+	//free_lines(line, new_line);
 }
 
 void	get_heredocs(t_command *cmds)
@@ -103,7 +134,7 @@ void	heredoc(t_command *cmds)
 	while (cmds)
 	{
 		i = -1;
-		while (cmds->tokens->limiters[++i])
+		while (cmds->tokens->limiters[++i] && g_global != -1)
 		{
 			if (cmds->tokens->limiters[i + 1])
 				herdoc_read(cmds, cmds->tokens->limiters[i], \

@@ -45,7 +45,7 @@ void	get_variable(t_env_var	*env_var, char **env)
 		return ;
 	p_ft_strlcpy(env_var->var, var, env_var->var_len + 1);
 	if (!p_ft_strcmp("?", env_var->var))
-		env_var->val = p_ft_itoa(errno);
+		env_var->val = p_ft_itoa(g_errno);
 	else
 		env_var->val = p_ft_getenv(env_var->var, env);
 	env_var->val_len = p_ft_strlen(env_var->val);

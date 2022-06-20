@@ -53,7 +53,7 @@ void	export_value(char *key, char *value, t_var *var,
 	if (var->previous != NULL || var->head->next != NULL)
 		return ;
 	if (key == NULL)
-		exit_builtin(var);
+		return ;
 	is_in = false;
 	temp = var->env;
 	while (temp)

@@ -24,6 +24,7 @@
 # include <string.h>
 #include <signal.h>
 
+int	g_errno;
 
 typedef struct s_token
 {
