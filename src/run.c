@@ -12,7 +12,7 @@
 
 #include "../includes/minishell.h"
 
-static int 	exe(char *path, t_command *temp, int start, char **env)
+static int	exe(char *path, t_command *temp, int start, char **env)
 {
 	dup2(temp->input, 0);
 	dup2(temp->output, 1);
@@ -60,6 +60,9 @@ void	run_all(t_var *v)
 	int			i;
 	sig_t		sig[2];
 
+	v->pids = malloc((size_t_command(v->head)) * sizeof(pid_t));
+	if (v->pids == NULL)
+		return ;
 	temp = v->head;
 	v->previous = NULL;
 	env = to_env(v->env, false);
@@ -82,4 +85,5 @@ void	run_all(t_var *v)
 	signal(SIGQUIT, sig[1]);
 	my_clear(&env);
 	correct_echo(v);
+	free(v->pids);
 }

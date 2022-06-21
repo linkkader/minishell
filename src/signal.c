@@ -12,8 +12,6 @@
 
 #include "../includes/minishell.h"
 
-extern int		g_global;
-
 void	sigint_handler_nonl(int sig)
 {
 	rl_on_new_line();

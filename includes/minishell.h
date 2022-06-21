@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
+#ifndef HEADER_H1
+#define HEADER_H1
 
 # include <stdlib.h>
 # include <fcntl.h>
@@ -27,7 +28,7 @@
 #include "../parsing/minishell.h"
 
 # define ERR_CMD ": command not found\n"
-# define PROMPT_CMD "$ "
+# define PROMPT_CMD "minishell$ "
 # define NOT_AN_IDENTIFIER "minishell: export: %s: not a valid identifier"
 
 typedef	struct try_exec{

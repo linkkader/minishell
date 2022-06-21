@@ -34,7 +34,6 @@ t_command	*create_node(t_command **head, char *line)
 	node->input = 0;
 	node->output = 1;
 	node->next = NULL;
-	node->next_line = NULL;
 	p_ft_lstadd_back(head, node);
 	return (node);
 }

@@ -73,7 +73,7 @@ void	get_cmds(t_command *cmds, char **env)
 			{
 				if (!cmds->command_name)
 				{
-					cmds->command_name = remove_quotes(expand_var(p_ft_strdup(cmds->tokens->tokens[i]), env, 0));
+					cmds->command_name = remove_quotes(expand_var(p_ft_strdup(cmds->tokens->tokens[i]), env, 0, cmds->error));
 					cmds->command_path = get_command_path(cmds->command_name, env);
 					if (!cmds->command_path)
 					{
@@ -81,7 +81,7 @@ void	get_cmds(t_command *cmds, char **env)
 						cmds->command_name = p_ft_strdup(cmds->tokens->tokens[i]);
 					}
 				}
-				cmds->command_args = p_ft_realloc(cmds->command_args, remove_quotes(expand_var(p_ft_strdup(cmds->tokens->tokens[i]), env, 0)));
+				cmds->command_args = p_ft_realloc(cmds->command_args, remove_quotes(expand_var(p_ft_strdup(cmds->tokens->tokens[i]), env, 0, cmds->error)));
 			}
 		}
 		cmds = cmds->next;

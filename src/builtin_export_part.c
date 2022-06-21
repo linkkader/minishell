@@ -73,12 +73,13 @@ static void	part(char *str, t_util *util)
 		if (!(ft_isalpha(str[util->j]) == 1 || ft_isalnum(str[util->j]) == 1
 				||str[util->j] == '_') && util->bool == false)
 		{
-			util->bool = true;
+			if (util->is_in_export == true)
+				util->bool = true;
 			if (str[util->j] == '=')
 				export_value(ft_substr(str, 0, util->j),
 					ft_substr(str, util->j + 1, ft_strlen(str) - util->j - 1),
 					util->var, util->is_in_export);
-			else
+			else if (util->bool == true)
 				not_an_identifier(util->var);
 			break ;
 		}

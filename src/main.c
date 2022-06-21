@@ -12,10 +12,6 @@
 
 #include "../includes/minishell.h"
 
-extern int	g_global;
-
-extern int g_errno;
-
 static void	init(char **env, t_var *var, char **str)
 {
 	int		index;
@@ -41,18 +37,15 @@ static void	exe(t_var *v, char *str)
 	t_command	*head;
 	char		**temp_env;
 
-	v->pids = malloc((size_t_command(v->head)) * sizeof(pid_t));
-	if (v->pids == NULL)
-		return ;
 	add_history(str);
 	head = NULL;
 	pipes = NULL;
 	temp_env = to_env(v->env, true);
-	g_errno = v->err;
 	if (check_quotes(str) && ft_strlen(str))
 	{
 		head = tokenizer(str);
 		v->head = head;
+		head->error = v->err;
 		if (check_redirect(head))
 		{
 			parser(head, &pipes, temp_env);
@@ -64,7 +57,6 @@ static void	exe(t_var *v, char *str)
 			cleaning(&head, &pipes, 0);
 	}
 	free(str);
-	free(v->pids);
 	my_clear(&temp_env);
 	system("leaks minishell");
 }
@@ -74,7 +66,6 @@ int	main(int ac, char **av, char **env)
 	char		*str;
 	t_var		v;
 
-	g_errno = 0;
 	init(env, &v, &str);
 	while (1)
 	{

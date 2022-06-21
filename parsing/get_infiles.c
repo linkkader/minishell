@@ -48,7 +48,7 @@ void	get_infiles(t_command *cmds, char **env)
 			if (i && !p_ft_strcmp("<", cmds->tokens->tokens[i - 1]))
 			{
 				infile = remove_quotes(\
-				expand_var(p_ft_strdup(cmds->tokens->tokens[i]), env, 0));
+				expand_var(p_ft_strdup(cmds->tokens->tokens[i]), env, 0, cmds->error));
 				if (!p_ft_strlen(infile))
 				{
 					puterror(cmds->tokens->tokens[i], "ambiguous redirect");

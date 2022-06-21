@@ -47,7 +47,7 @@ void	get_outfiles(t_command *cmds, char **env)
 			|| !p_ft_strcmp(">>", cmds->tokens->tokens[i - 1])))
 			{
 				outfile = remove_quotes(expand_var(\
-				p_ft_strdup(cmds->tokens->tokens[i]), env, 0));
+				p_ft_strdup(cmds->tokens->tokens[i]), env, 0, cmds->error));
 				if (!p_ft_strlen(outfile))
 				{
 					puterror(cmds->tokens->tokens[i], "ambiguous redirect");

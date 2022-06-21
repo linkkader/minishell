@@ -24,7 +24,7 @@
 # include <string.h>
 #include <signal.h>
 
-int	g_errno;
+int	g_global;
 
 typedef struct s_token
 {
@@ -46,7 +46,7 @@ typedef struct s_command
 	char				**env;
 	t_token				*tokens;
 	struct s_command	*next;
-	char 				*next_line;
+	int 				error;
 }	t_command;
 
 //					string
@@ -83,7 +83,7 @@ int			p_ft_isalnum(char c);
 char		*p_ft_itoa(int n);
 int			p_ft_strncmp(const char *s1, const char *s2, size_t n);
 char		*p_ft_getenv(char *var, char **env);
-char		*expand_var(char *str, char **env, char expand_all);
+char		*expand_var(char *str, char **env, char expand_all, int error);
 char		*remove_quotes(char *str);
 
 //
