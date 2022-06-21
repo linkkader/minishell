@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acouliba <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: momeaizi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 11:11:35 by acouliba          #+#    #+#             */
-/*   Updated: 2021/11/02 11:17:00 by acouliba         ###   ########.fr       */
+/*   Created: 2021/11/01 14:32:26 by momeaizi          #+#    #+#             */
+/*   Updated: 2021/11/20 14:15:24 by momeaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
 void	ft_bzero(void *s, size_t n)

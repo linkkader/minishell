@@ -3,59 +3,62 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acouliba <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: momeaizi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 14:17:10 by acouliba          #+#    #+#             */
-/*   Updated: 2021/11/11 17:14:17 by acouliba         ###   ########.fr       */
+/*   Created: 2021/11/01 19:35:42 by momeaizi          #+#    #+#             */
+/*   Updated: 2021/11/20 14:15:08 by momeaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-int	check(const char *str)
+static int	ft_isspace(char c)
 {
-	int		i;
-
-	i = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	return (i);
+	if ((c >= 9 && c <= 13) || c == 32)
+		return (1);
+	return (0);
 }
 
-int	mysign(const char *str, int *i)
+static int	ft_check(long nb, int signe)
 {
-	int		sign;
-
-	sign = 1;
-	if (str[*i] == '-' || str[*i] == '+')
+	if (nb < 0)
 	{
-		if (str[*i] == '-')
-			sign = -1;
-		(*i)++;
+		if (signe == 1)
+			return (-1);
+		else if (signe == -1)
+			return (0);
 	}
-	return (sign);
+	return (signe * nb);
 }
 
 int	ft_atoi(const char *str)
 {
-	unsigned long	n;
-	int				i;
-	int				sign;
+	long	nb;
+	int		i;
+	int		signe;
 
-	n = 0;
-	i = check(str);
-	sign = mysign(str, &i);
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		if (str[i + 1] >= '0' && str[i + 1] <= '9')
-			n = (n + str[i] - '0') * 10;
-		else
-			n = n + str[i] - '0';
+	nb = 0;
+	i = 0;
+	signe = 1;
+	while (ft_isspace(str[i]))
 		i++;
-		if (n > 2147483647 && sign == 1)
-			return (-1);
-		if (n > 2147483648 && sign == -1)
-			return (0);
+	if (str[i] == '-')
+	{
+		signe = -1;
+		i++;
 	}
-	return (n * sign);
+	else if (str[i] == '+')
+		i++;
+	while (ft_isdigit(str[i]))
+	{
+		nb = (nb * 10) + (str[i] - 48);
+		i++;
+	}
+	return (ft_check(nb, signe));
 }
+/*#include <stdio.h>
+#include <stdlib.h>
+int	main(int	ac, char	**av)
+{
+	printf("%d\n", atoi(av[1]));
+	printf("%d\n", ft_atoi(av[1]));
+}*/

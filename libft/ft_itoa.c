@@ -3,55 +3,62 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acouliba <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: momeaizi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/04 10:38:54 by acouliba          #+#    #+#             */
-/*   Updated: 2021/11/04 11:53:57 by acouliba         ###   ########.fr       */
+/*   Created: 2021/11/04 15:07:28 by momeaizi          #+#    #+#             */
+/*   Updated: 2021/11/20 15:00:14 by momeaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdlib.h>
 
-#include "libft.h"
-
-int	len_nbr(int n)
+int	get_nbrlen(int n)
 {
-	int		i;
+	int				i;
+	unsigned int	nb;
 
 	i = 0;
-	if (n < 0)
-		i++;
-	while (n != 0)
+	nb = n;
+	if (n <= 0)
 	{
-		n = n / 10;
+		nb *= -1;
 		i++;
+	}
+	while (nb > 0)
+	{
+		i++;
+		nb /= 10;
 	}
 	return (i);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	int		len;
-	int		end;
+	int				i;
+	char			*nbr;
+	unsigned int	nb;
 
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	if (n == 0)
-		return (ft_strdup("0"));
-	end = 0;
-	len = len_nbr(n);
-	str = malloc ((len + 1) * sizeof(char));
-	if (str == NULL)
-		return (NULL);
+	nb = n;
+	i = get_nbrlen(n);
 	if (n < 0)
+		nb = -n;
+	nbr = (char *)malloc((i + 1) * sizeof(char));
+	if (!nbr)
+		return (NULL);
+	nbr[0] = '-';
+	nbr[i] = 0;
+	while (nb > 0)
 	{
-		str[end++] = '-';
-		n = -n;
+		nbr[--i] = nb % 10 + 48;
+		nb /= 10;
 	}
-	str[len--] = '\0';
-	while (len >= end)
-	{
-		str[len--] = (n % 10) + '0';
-		n = n / 10;
-	}
-	return (str);
+	if (n == 0)
+		*nbr = '0';
+	return (nbr);
 }
+
+/*#include<stdio.h>
+
+int	main()
+{
+	printf("%s\n", ft_itoa(-45));
+}*/

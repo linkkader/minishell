@@ -3,29 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acouliba <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: momeaizi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 12:23:00 by acouliba          #+#    #+#             */
-/*   Updated: 2021/11/09 15:50:40 by acouliba         ###   ########.fr       */
+/*   Created: 2021/11/02 12:32:50 by momeaizi          #+#    #+#             */
+/*   Updated: 2021/11/20 16:13:47 by momeaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	int		i;
-	char	character;
+	char	*str;
 
-	character = (char)c;
+	c = (char)c;
+	str = (char *)s;
 	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == character)
-			return ((char *)(str + i));
+	while (str[i] != c && str[i])
 		i++;
-	}
-	if (character == '\0')
-		return ((char *)(str + i));
-	return (NULL);
+	if (str[i] == c)
+		return (str + i);
+	return (0);
 }
+/*#include<stdio.h>
+int	main()
+{
+	printf("%s\n", ft_strchr("tripouille", 't' + 256));
+}*/

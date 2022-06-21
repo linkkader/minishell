@@ -58,7 +58,7 @@ static void	exe(t_var *v, char *str)
 	}
 	free(str);
 	my_clear(&temp_env);
-	system("leaks minishell");
+	//system("leaks minishell");
 }
 
 int	main(int ac, char **av, char **env)

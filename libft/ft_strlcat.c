@@ -3,34 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acouliba <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: momeaizi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/06 17:59:33 by acouliba          #+#    #+#             */
-/*   Updated: 2021/11/09 15:53:33 by acouliba         ###   ########.fr       */
+/*   Created: 2021/09/26 10:50:10 by momeaizi          #+#    #+#             */
+/*   Updated: 2021/11/20 16:24:52 by momeaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	dlen;
-	size_t	slen;
 	size_t	i;
 	size_t	j;
 
-	dlen = 0;
-	slen = 0;
-	while (dst[dlen] != '\0')
-		dlen++;
-	while (src[slen] != '\0')
-		slen++;
-	i = dlen;
-	j = 0;
-	while (src[j] != '\0' && i < (dstsize - 1) && dstsize != 0)
-		dst[i++] = src[j++];
-	dst[i] = '\0';
-	if (dlen > dstsize)
-		return (dstsize + slen);
-	return (dlen + slen);
+	if (!dstsize)
+		return (ft_strlen(src));
+	i = 0;
+	j = ft_strlen(dst);
+	while (src[i] && j < (dstsize - i - 1))
+	{
+		dst[j + i] = src[i];
+		i++;
+	}
+	if (j >= dstsize)
+		return (dstsize + ft_strlen(src));
+	dst[j + i] = 0;
+	return (ft_strlen(src) + j);
 }
+
+/*#include <stdio.h>
+# include <string.h>
+
+int	main()
+{
+	char	dest[15];
+	memset(dest, 'r', 15);
+	printf("%lu\n", ft_strlcat(dest, "lorem ipssum dolor sit amet", 15));
+	printf("%s\n",dest);
+}*/

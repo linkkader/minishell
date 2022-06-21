@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acouliba <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: momeaizi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 10:37:59 by acouliba          #+#    #+#             */
-/*   Updated: 2021/11/02 10:41:33 by acouliba         ###   ########.fr       */
+/*   Created: 2021/11/01 10:43:54 by momeaizi          #+#    #+#             */
+/*   Updated: 2021/11/20 14:43:29 by momeaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isdigit(int c)
 {
@@ -18,3 +16,8 @@ int	ft_isdigit(int c)
 		return (1);
 	return (0);
 }
+/*#include <ctype.h>
+int	main()
+{
+	printf("%d\n", isdigit(53+255));
+}*/

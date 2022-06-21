@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acouliba <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: momeaizi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 11:37:34 by acouliba          #+#    #+#             */
-/*   Updated: 2021/11/08 14:13:35 by acouliba         ###   ########.fr       */
+/*   Created: 2021/11/03 10:34:47 by momeaizi          #+#    #+#             */
+/*   Updated: 2021/11/20 17:00:13 by momeaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,25 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*d;
-	char	*s;
+	unsigned char	*cdst;
+	unsigned char	*csrc;
 
-	d = (char *)dst;
-	s = (char *)src;
-	if (s < d)
-		while (len--)
-			d[len] = s[len];
+	cdst = (unsigned char *)dst;
+	csrc = (unsigned char *)src;
+	if (src < dst)
+		while (len-- > 0)
+			cdst[len] = csrc[len];
 	else
 		return (ft_memcpy(dst, src, len));
 	return (dst);
 }
+
+/*#include <stdio.h>
+#include <string.h>
+int main()
+{
+   char csrc[100] = "Geeksfor";
+   char	*dest = ft_memmove(csrc+5, csrc,strlen(csrc) );
+   printf("%s\n", dest);
+   return 0;
+}*/
