@@ -7,6 +7,5 @@
 void	sig_here_doc(int sig)
 {
 	(void) sig;
-	g_global = -1;
-	exit(0);
+	exit(99);
 }

@@ -58,7 +58,12 @@ static void	exe(t_var *v, char *str)
 	}
 	free(str);
 	my_clear(&temp_env);
-	//system("leaks minishell");
+}
+
+static void	*prompt(void)
+{
+	g_global = 1;
+	return (readline(PROMPT_CMD));
 }
 
 int	main(int ac, char **av, char **env)
@@ -66,11 +71,12 @@ int	main(int ac, char **av, char **env)
 	char		*str;
 	t_var		v;
 
+	if (ac != 1 && av[1])
+		return (write(2, "too many arguments!", 19));
 	init(env, &v, &str);
 	while (1)
 	{
-		g_global = 1;
-		str = readline(PROMPT_CMD);
+		str = prompt();
 		if (str != NULL && ft_strlen(str) == 0)
 		{
 			free(str);

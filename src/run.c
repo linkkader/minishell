@@ -57,10 +57,7 @@ static void	run_all_part(t_var *v, sig_t *sig, int i, char **env)
 {
 	wait(&v->err);
 	while (i >= 1)
-	{
-		printf("%d\n", i);
 		waitpid(v->pids[i-- - 1], NULL, 0);
-	}
 	v->err = WEXITSTATUS(v->err);
 	signal(SIGINT, sig[0]);
 	signal(SIGQUIT, sig[1]);

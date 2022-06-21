@@ -73,9 +73,10 @@ void	herdoc_read(t_command *cmds, char *limit, char shld_exp, char shld_wr)
 		}
 		exit(0);
 	}
-	wait(NULL);
+	wait(&g_global);
 	if (shld_wr)
 		close(pipes[1]);
+	g_global = WEXITSTATUS(g_global);
 	signal(SIGINT, sig);
 	//while (1);
 	//while (1)
@@ -132,7 +133,7 @@ void	heredoc(t_command *cmds)
 	while (cmds)
 	{
 		i = -1;
-		while (cmds->tokens->limiters[++i] && g_global != -1)
+		while (cmds->tokens->limiters[++i] && g_global != 99)
 		{
 			if (cmds->tokens->limiters[i + 1])
 				herdoc_read(cmds, cmds->tokens->limiters[i], \
