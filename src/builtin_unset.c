@@ -23,6 +23,7 @@ static void	part(t_list	*temp, t_list	*temp2, char *str)
 		{
 			free(entry->value);
 			free(entry->key);
+			free(temp->content);
 			temp2->next = temp->next;
 			free(temp);
 			temp = temp2;
@@ -46,6 +47,7 @@ void	delete_item(t_list **lst, char *str)
 		{
 			free(entry->value);
 			free(entry->key);
+			free(temp->content);
 			temp2 = temp->next;
 			free(temp);
 			temp = temp2;

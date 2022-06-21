@@ -53,6 +53,19 @@ void	run(t_var *v, t_command *temp, int *i, char **env)
 		close(temp->output);
 }
 
+static void	run_all_part(t_var *v, sig_t *sig, int i, char **env)
+{
+	wait(&v->err);
+	while (i > -1)
+		waitpid(v->pids[i--], NULL, 0);
+	v->err = WEXITSTATUS(v->err);
+	signal(SIGINT, sig[0]);
+	signal(SIGQUIT, sig[1]);
+	my_clear(&env);
+	correct_echo(v);
+	free(v->pids);
+}
+
 void	run_all(t_var *v)
 {
 	t_command	*temp;
@@ -77,13 +90,5 @@ void	run_all(t_var *v)
 		v->previous = temp;
 		temp = temp->next;
 	}
-	wait(&v->err);
-	while (i > -1)
-		waitpid(v->pids[i--], NULL, 0);
-	v->err = WEXITSTATUS(v->err);
-	signal(SIGINT, sig[0]);
-	signal(SIGQUIT, sig[1]);
-	my_clear(&env);
-	correct_echo(v);
-	free(v->pids);
+	run_all_part(v, sig, i, env);
 }

@@ -20,9 +20,9 @@ void	reset_setting(t_var *var)
 	free(var->attributes);
 }
 
-int 	is_numeric(char *str)
+int	is_numeric(char *str)
 {
-	int 	i;
+	int	i;
 
 	i = 0;
 	if (str[i] == '-')
@@ -38,7 +38,7 @@ int 	is_numeric(char *str)
 
 static int	len_cmd(char **cmd)
 {
-	int 	i;
+	int	i;
 
 	i = 0;
 	while (cmd[i])
