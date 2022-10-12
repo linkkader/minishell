@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtin_cd.c                                       :+:      :+:    :+:   */
+/*   builtin_exit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acouliba <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: momeaizi <momeaizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 15:45:00 by acouliba          #+#    #+#             */
-/*   Updated: 2022/05/25 15:45:03 by acouliba         ###   ########.fr       */
+/*   Updated: 2022/06/22 09:43:02 by momeaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include "../includes/header.h"
 
 void	reset_setting(t_var *var)
 {
@@ -36,6 +36,15 @@ int	is_numeric(char *str)
 	return (1);
 }
 
+static void	part(char **cmd, t_var *v)
+{
+	ft_putstr_fd("minishell: exit: ", 1);
+	ft_putstr_fd(cmd[1], 1);
+	ft_putstr_fd(" numeric argument required\n", 1);
+	reset_setting(v);
+	exit(-1);
+}
+
 static int	len_cmd(char **cmd)
 {
 	int	i;
@@ -54,7 +63,6 @@ void	exit_builtin(char **cmd, t_var *v)
 		return ;
 	len = len_cmd(cmd);
 	ft_putstr_fd("exit\n", 1);
-	reset_setting(v);
 	if (cmd[1] == NULL)
 		exit(0);
 	if (is_numeric(cmd[1]))
@@ -62,13 +70,11 @@ void	exit_builtin(char **cmd, t_var *v)
 		if (len > 2)
 			ft_putstr_fd("minishell: exit: too many arguments\n", 1);
 		else
+		{
+			reset_setting(v);
 			exit(ft_atoi(cmd[1]));
+		}
 	}
 	else
-	{
-		ft_putstr_fd("minishell: exit: ", 1);
-		ft_putstr_fd(cmd[1], 1);
-		ft_putstr_fd(" numeric argument required", 1);
-		exit(0);
-	}
+		part(cmd, v);
 }

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insert3_utils.c                                    :+:      :+:    :+:   */
+/*   t_list_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acouliba <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: momeaizi <momeaizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 17:38:23 by acouliba          #+#    #+#             */
-/*   Updated: 2022/04/11 17:38:25 by acouliba         ###   ########.fr       */
+/*   Updated: 2022/06/21 18:01:23 by momeaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include "../../minishell.h"
 
 static void	part(t_list **lst, char *str, int i, t_entry *entry)
 {
-	if (i == ft_strlen(str))
+	if (i == (int)ft_strlen(str))
 	{
 		entry->key = ft_strdup(str);
 		if (entry->key == NULL)

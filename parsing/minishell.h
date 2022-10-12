@@ -6,7 +6,7 @@
 /*   By: momeaizi <momeaizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 18:52:11 by momeaizi          #+#    #+#             */
-/*   Updated: 2022/06/18 18:44:00 by momeaizi         ###   ########.fr       */
+/*   Updated: 2022/06/22 11:21:27 by momeaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,16 @@
 # include <readline/history.h>
 # include <errno.h>
 # include <string.h>
-#include <signal.h>
+# include <signal.h>
 
-int	g_global;
+typedef struct s_error
+{
+	char	**env;
+	int		heredoc_exit;
+	int		error;
+}	t_error;
+
+t_error	g_global;
 
 typedef struct s_token
 {
@@ -38,15 +45,14 @@ typedef struct s_token
 typedef struct s_command
 {
 	char				should_execute;
-	char				*command_name;
-	char				*command_path;
-	char				**command_args;
+	char				*cmd;
+	char				*path;
+	char				**args;
 	int					input;
 	int					output;
 	char				**env;
 	t_token				*tokens;
 	struct s_command	*next;
-	int 				error;
 }	t_command;
 
 //					string
@@ -57,7 +63,6 @@ int			puterror(char *name, char *error);
 char		*strjoin(char *s1, char *s2);
 char		*p_ft_strdup(char *s1);
 char		*wrap_redirection_by_space(char *str);
-char		*get_line(int fd);
 //					split
 void		split(char ***tokens, char *s, char c);
 int			count_tokens(char *str, char c);
@@ -82,15 +87,16 @@ int			p_ft_isnum(char c);
 int			p_ft_isalnum(char c);
 char		*p_ft_itoa(int n);
 int			p_ft_strncmp(const char *s1, const char *s2, size_t n);
-char		*p_ft_getenv(char *var, char **env);
-char		*expand_var(char *str, char **env, char expand_all, int error);
+char		*p_ft_getenv(char *var);
+char		*expand_var(char *str, char expand_all);
 char		*remove_quotes(char *str);
+int			is_there_any_quote(char *str);
 
 //
-void		get_cmds(t_command *commands, char **env);
+void		get_cmds(t_command *commands);
 void		heredoc(t_command *cmds);
-void		get_infiles(t_command *cmds, char **env);
-void		get_outfiles(t_command *cmds, char **env);
+void		get_infiles(t_command *cmds);
+void		get_outfiles(t_command *cmds);
 int			redirect(char *token);
 
 int			check_quotes(char *str);
@@ -102,6 +108,6 @@ void		clear_tokens(t_command **head);
 void		open_pipes(t_command *cmds, int ***pipes);
 void		close_all(int size, int ***pipes);
 
-void	cleaning(t_command **cmds, int ***pipes, char close_pipe);
-void	sig_here_doc(int sig);
+void		cleaning(t_command **cmds, int ***pipes, char close_pipe);
+void		sig_here_doc(int sig);
 #endif

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: acouliba <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: momeaizi <momeaizi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/06 14:30:37 by acouliba          #+#    #+#              #
-#    Updated: 2021/11/11 16:03:35 by acouliba         ###   ########.fr        #
+#    Updated: 2022/06/21 17:39:40 by momeaizi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,34 +15,27 @@ NAME = minishell
 FILE = builtin_cd.c          builtin_exit.c        builtin_pwd.c         main.c                signal.c\
        builtin_echo.c        builtin_export.c      builtin_unset.c       run.c                 t_list_utils.c\
        builtin_env.c         builtin_export_part.c exec.c                run_part.c            termios.c\
-       builtin_export_part2.c
+       builtin_export_part2.c	init_util.c
 
 
 FILE_BONUS = exec.c  bonus.c     utils.c    run.c
+
 
 LIBFT_DIRECTORY = libft/
 
 PARSING_DIRECTORY = parsing/
 
+PARSE = $(PARSING_DIRECTORY)parse.a
+
 LIBFT = $(LIBFT_DIRECTORY)libft.a
-
-#LDFLAGS ="-L/opt/homebrew/opt/readline/lib"
-#CPPFLAGS ="-I/opt/homebrew/opt/readline/include"
-
-LDFLAGS="-L/goinfre/acouliba/brew/opt/readline/lib"
-CPPFLAGS="-I/goinfre/acouliba/brew/opt/readline/include"
-
-
-FLAGS = -Wall -Wextra -Werror -fsanitize=address $(LDFLAGS) $(CPPFLAGS)
-
-FLAGS = -g -fsanitize=address $(LDFLAGS) $(CPPFLAGS)
-
 
 HEADERS = includes
 
 SOURCES_DIRECTORY = src/
 
 OBJECTS_DIRECTORY = obj/
+
+FLAGS = -Wextra -Wall -Werror $(CPPFLAGS)
 
 SRCS = $(addprefix $(SOURCES_DIRECTORY), $(FILE))
 
@@ -56,39 +49,30 @@ $(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c
 
 all:$(NAME)
 
-bonus: $(NAME) $(OBJS_BONUS)
-	gcc $(FLAGS) -I $(HEADERS) $(PRINTF) $(OBJS_BONUS) -o ${NAME}
-
 $(LIBFT):
-	@echo "make libft"
+	@echo "make $(LIBFT)"
 	@make -sC $(LIBFT_DIRECTORY)
 	@make bonus -sC $(LIBFT_DIRECTORY)
+
+$(PARSE):
+	@echo "make $(PARSE)"
+	@make -sC $(PARSING_DIRECTORY)
 
 $(OBJECTS_DIRECTORY):
 	mkdir -p $@
 
-$(NAME): $(LIBFT) $(OBJECTS_DIRECTORY) $(OBJS)
-	gcc $(FLAGS) -I $(HEADERS) $(PRINTF) $(OBJS) $(LIBFT) $(PARSING_DIRECTORY)parse.a -lreadline -o $(NAME)
+$(NAME): $(PARSE) $(LIBFT) $(OBJECTS_DIRECTORY) $(OBJS)
+	gcc $(FLAGS) -I $(HEADERS) $(OBJS) $(LIBFT) $(PARSE) $(LDFLAGS) -l readline  -o  $(NAME)
 
 
 clean:
 	rm -Rf $(OBJECTS_DIRECTORY)
 
 fclean: clean
-	#@make fclean -sC $(LIBFT_DIRECTORY)
 	rm -f $(NAME)
-
+	@make fclean -sC $(LIBFT_DIRECTORY)
+	@make fclean -sC $(PARSING_DIRECTORY)
 
 re: fclean all
-
-ree: fclean
-	@make re -sC $(LIBFT_DIRECTORY)
-	@make bonus -sC $(LIBFT_DIRECTORY)
-	@make test -sC $(PARSING_DIRECTORY)
-	@make bonus -sC $(LIBFT_DIRECTORY)
-
-exe: re
-	@make test -sC $(PARSING_DIRECTORY)
-	./minishell
 
 .PHONY: all clean fclean re

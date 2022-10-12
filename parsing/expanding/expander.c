@@ -6,7 +6,7 @@
 /*   By: momeaizi <momeaizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 16:03:52 by momeaizi          #+#    #+#             */
-/*   Updated: 2022/06/18 18:43:38 by momeaizi         ###   ########.fr       */
+/*   Updated: 2022/06/22 10:51:55 by momeaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	dollar_counter(char *str, t_expand_var *exp_var)
 	}
 }
 
-void	get_variable(t_env_var	*env_var, char **env, int error)
+void	get_variable(t_env_var	*env_var)
 {
 	char	*var;
 
@@ -45,9 +45,9 @@ void	get_variable(t_env_var	*env_var, char **env, int error)
 		return ;
 	p_ft_strlcpy(env_var->var, var, env_var->var_len + 1);
 	if (!p_ft_strcmp("?", env_var->var))
-		env_var->val = p_ft_itoa(error);
+		env_var->val = p_ft_itoa(g_global.error);
 	else
-		env_var->val = p_ft_getenv(env_var->var, env);
+		env_var->val = p_ft_getenv(env_var->var);
 	env_var->val_len = p_ft_strlen(env_var->val);
 }
 
@@ -78,7 +78,7 @@ void	replace_var_by_val(char *str, t_expand_var *exp_var)
 	exp_var->new_str[j] = 0;
 }
 
-void	expander(char *str, char **env, t_expand_var *exp_var, int error)
+void	expander(char *str, t_expand_var *exp_var)
 {
 	int	i;
 	int	index;
@@ -97,7 +97,7 @@ void	expander(char *str, char **env, t_expand_var *exp_var, int error)
 			exp_var->env_var[index].var = &str[i] + 1;
 			while (p_ft_isalpha(str[++i]) || str[i] == '_')
 				exp_var->env_var[index].var_len++;
-			get_variable(&exp_var->env_var[index], env, error);
+			get_variable(&exp_var->env_var[index]);
 			index++;
 		}
 		else if (str[i] == '$' && str[i] == str[i + 1])
@@ -106,7 +106,7 @@ void	expander(char *str, char **env, t_expand_var *exp_var, int error)
 	exp_var->env_var[index].end = 0;
 }
 
-char	*expand_var(char *str, char **env, char expand_all, int error)
+char	*expand_var(char *str, char expand_all)
 {
 	t_expand_var	*exp_var;
 	char			*new_str;
@@ -119,7 +119,7 @@ char	*expand_var(char *str, char **env, char expand_all, int error)
 			free(exp_var);
 		return (str);
 	}
-	expander(str, env, exp_var, error);
+	expander(str, exp_var);
 	replace_var_by_val(str, exp_var);
 	new_str = exp_var->new_str;
 	if (!expand_all)

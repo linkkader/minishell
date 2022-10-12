@@ -6,7 +6,7 @@
 /*   By: momeaizi <momeaizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 18:46:32 by momeaizi          #+#    #+#             */
-/*   Updated: 2022/06/18 18:46:38 by momeaizi         ###   ########.fr       */
+/*   Updated: 2022/06/22 11:21:27 by momeaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ void	clear_tokens(t_command **head)
 		i = -1;
 		current = *head;
 		*head = (*head)->next;
-		while (current->command_args[++i])
-			free(current->command_args[i]);
-		free(current->command_args);
-		if (current->command_name)
-			free(current->command_name);
-		if (current->command_path)
-			free(current->command_path);
+		while (current->args[++i])
+			free(current->args[i]);
+		free(current->args);
+		if (current->cmd)
+			free(current->cmd);
+		if (current->path)
+			free(current->path);
 	}
 }

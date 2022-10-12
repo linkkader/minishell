@@ -6,7 +6,7 @@
 /*   By: momeaizi <momeaizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 11:58:51 by momeaizi          #+#    #+#             */
-/*   Updated: 2022/06/14 22:17:36 by momeaizi         ###   ########.fr       */
+/*   Updated: 2022/06/22 10:49:37 by momeaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_expand_var	*init(t_expand_var *exp_var, char *str, char expand_all);
 int				ignore_quotes(char *str, t_expand_var *exp_var);
 void			dollar_counter(char *str, t_expand_var *exp_var);
 void			clear_env(t_env_var *env_var);
-void			get_variable(t_env_var	*env_var, char **env, int error);
+void			get_variable(t_env_var	*env_var);
 char			*is_empty(char *str);
 void			set_len(t_expand_var *exp_var, int *index, int *i, int *j);
 void			is_quote(char c, t_expand_var *exp_var);

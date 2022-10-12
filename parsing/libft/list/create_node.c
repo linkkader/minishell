@@ -6,7 +6,7 @@
 /*   By: momeaizi <momeaizi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 18:35:38 by momeaizi          #+#    #+#             */
-/*   Updated: 2022/06/18 18:44:00 by momeaizi         ###   ########.fr       */
+/*   Updated: 2022/06/22 11:21:27 by momeaizi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ t_command	*create_node(t_command **head, char *line)
 		return (NULL);
 	}
 	node->tokens->line = line;
-	node->command_name = NULL;
-	node->command_path = NULL;
+	node->cmd = NULL;
+	node->path = NULL;
 	node->tokens->limiters = (char **)p_ft_calloc(1, sizeof(char *));
-	node->command_args = (char **)p_ft_calloc(1, sizeof(char *));
+	node->args = (char **)p_ft_calloc(1, sizeof(char *));
 	node->should_execute = 1;
 	node->input = 0;
 	node->output = 1;
