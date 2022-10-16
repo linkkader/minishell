@@ -4,16 +4,21 @@
 
 #include "../../minishell.h"
 
-void	exec_kader(t_cmd *tmp, int *pid, int i)
+void	exec_kader(t_cmd *cmd, int *pid, int i)
 {
-	t_cmd	*temp;
+	t_cmd	*tmp;
 
-	temp = tmp;
-	while (tmp)
-	{
-		check_builtin(tmp);
-		tmp = tmp->next;
-	}
+	pid = malloc(list_size(cmd) * sizeof(int));
+	if (pid == NULL)
+		return ;
+	tmp = cmd;
+	run_all(cmd, pid);
+//	while (tmp)
+//	{
+//		check_builtin(tmp);
+//		printf("path %s\n", tmp->path);
+//		tmp = tmp->next;
+//	}
 	//while (1);
 }
 

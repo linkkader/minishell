@@ -163,6 +163,7 @@ void	sigquit_handler_in_process(int sig);
 void	signals();
 
 char	*get_pathk(t_list *lst, char *name);
+void	run_all(t_cmd *cmd, pid_t *pids);
 
 typedef struct entries{
 	char	*key;
