@@ -32,8 +32,6 @@ void	cd_builtin(char **cmd, t_var *v)
 	char	*path;
 	char	*temp;
 
-	if (v->previous != NULL || v->head->next != NULL)
-		return ;
 	temp = NULL;
 	if (cmd[1] == NULL)
 		path = ft_get_env(v, "HOME");
@@ -42,7 +40,8 @@ void	cd_builtin(char **cmd, t_var *v)
 		path = ft_get_env(v, "OLDPWD");
 		if (path == NULL)
 		{
-			ft_putstr_fd("minishell: cd: OLDPWD not set\n", v->console_fd);
+			ft_putstr_fd("minishell: cd: "
+						 "OLDPWD not set\n", v->console_fd);
 			return ;
 		}
 	}

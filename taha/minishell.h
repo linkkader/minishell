@@ -151,8 +151,8 @@ void	check_builtin(t_cmd *tmp);
 void	exit_builtin(t_cmd *cmd);
 void	pwd_builtin(t_cmd *tmp);
 void	export_builtin(t_cmd *cmd);
+void	export_value(char *key, char *value, t_cmd *cmd, t_bool is_in_export);
 void	unset_builtin(t_cmd *cmd);
-
 
 char	**check_cmd(t_cmd *tmp);
 char	*ft_get_env(t_cmd *cmd, char *name);
@@ -164,6 +164,7 @@ void	signals();
 
 char	*get_pathk(t_list *lst, char *name);
 void	run_all(t_cmd *cmd, pid_t *pids);
+void	free_2d(char **str);
 
 typedef struct entries{
 	char	*key;

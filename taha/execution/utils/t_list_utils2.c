@@ -64,3 +64,17 @@ void entries_lst()
 		i++;
 	}
 }
+
+void	free_2d(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str && str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	if (str)
+		free(str);
+}

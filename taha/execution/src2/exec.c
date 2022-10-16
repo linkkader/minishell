@@ -13,17 +13,9 @@ void	exec_kader(t_cmd *cmd, int *pid, int i)
 		return ;
 	tmp = cmd;
 	run_all(cmd, pid);
-//	while (tmp)
-//	{
-//		check_builtin(tmp);
-//		printf("path %s\n", tmp->path);
-//		tmp = tmp->next;
-//	}
-	//while (1);
 }
 
 char	**check_cmd(t_cmd *tmp)
 {
-	//try_export_value(sp, v, false, 0);
 	return (NULL);
 }

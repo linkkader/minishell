@@ -46,8 +46,8 @@ void	run_all(t_cmd *cmd, pid_t *pids)
 
 	temp = cmd;
 	i = 0;
-//	sig[0] = signal(SIGINT, sigint_handler_in_process);
-//	sig[1] = signal(SIGQUIT, sigquit_handler_in_process);
+	sig[0] = signal(SIGINT, sigint_handler_in_process);
+	sig[1] = signal(SIGQUIT, sigquit_handler_in_process);
 	while (temp)
 	{
 		run(temp, pids, &i);
@@ -62,9 +62,9 @@ void	run_all(t_cmd *cmd, pid_t *pids)
 		waitpid(pids[i], NULL, 0);
 	}
 	g_global.exit_code = WEXITSTATUS(g_global.exit_code);
-	//normal_echo(v);
-//	signal(SIGINT, sig[0]);
-//	signal(SIGQUIT, sig[1]);
+//	normal_echo(v);
+	signal(SIGINT, sig[0]);
+	signal(SIGQUIT, sig[1]);
 	//my_clear(&env);
 	//correct_echo(v);
 }

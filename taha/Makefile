@@ -28,8 +28,11 @@ SRC =  main.c\
 	execution/libft_bonus/ft_lstiter_bonus.c execution/libft_bonus/ft_lstlast_bonus.c execution/libft_bonus/ft_lstmap_bonus.c execution/libft_bonus/ft_lstnew_bonus.c\
 	execution/libft_bonus/ft_lstsize_bonus.c	execution/libft_bonus/ft_split.c
 
-LDFLAGS= -L /opt/homebrew/opt/readline/lib
-CPPFLAGS= -I /opt/homebrew/opt/readline/include
+#LDFLAGS= -L /opt/homebrew/opt/readline/lib
+#CPPFLAGS= -I /opt/homebrew/opt/readline/include
+
+LDFLAGS="-L/goinfre/acouliba/brew/opt/readline/lib"
+CPPFLAGS="-I/goinfre/acouliba/brew/opt/readline/include"
 
 #LDFLAGS= -L /Users/momeaizi/Desktop/brew/opt/readline/lib
 #CPPFLAGS= -I /Users/momeaizi/Desktop/brew/opt/readline/include
