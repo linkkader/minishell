@@ -12,26 +12,29 @@
 
 #include "../../minishell.h"
 
-static int	exe(t_cmd *temp)
-{
-	dup2(temp->in, 0);
-	dup2(temp->out, 1);
-	if (temp->in != 0)
-		close(temp->in);
-	if (temp->out != 1)
-		close(temp->out);
-	return (execve(temp->path, temp->args, g_global.env));
-	exit (2);
-}
-
 static void	run(t_cmd *temp, pid_t *pids, int *i)
 {
 	//check if builtin
-	check_builtin(temp);
 	printf("path = %s\n", temp->path);
 	pids[*i] = fork();
+	printf("pids[%d] = %d\n", *i, pids[*i]);
 	if (pids[*i] == 0)
-		temp->error = exe(temp);
+	{
+		//temp->error = exe(temp);
+		check_builtin(temp);
+		if (temp->path != NULL){
+			dup2(temp->in, 0);
+			dup2(temp->out, 1);
+			if (temp->in != 0)
+				close(temp->in);
+			if (temp->out != 1)
+				close(temp->out);
+			(execve(temp->path, temp->args, g_global.env));
+
+		}
+		else
+			exit(0);
+	}
 	if (temp->in != 0)
 		close(temp->in);
 	if (temp->out != 1)

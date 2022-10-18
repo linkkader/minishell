@@ -113,7 +113,10 @@ void	parse_execute(char *line, t_token ***tokens)
 		parser(tokens);
 		if (!g_global.doc_exit)
 			//exec(g_global.cmds, NULL, 0);
+		{
 			exec_kader(g_global.cmds, NULL, 0);
+			g_global.cmds = NULL;
+		}
 		clear_all(tokens);
 		break ;
 	}

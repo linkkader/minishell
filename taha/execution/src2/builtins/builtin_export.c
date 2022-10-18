@@ -64,13 +64,14 @@ void	export_value(char *key, char *value, t_cmd *cmd,
 	if (is_in == false)
 		part1( key, value, is_in_export);
 	free_2d(g_global.env);
+
 	g_global.env = to_env(g_global.entries, true);
-	int i = 0;
-	while (g_global.env[i])
-	{
-		printf("%s\n", g_global.env[i]);
-		i++;
-	}
+//	int i = 0;
+//	while (g_global.env[i])
+//	{
+//		printf("%s\n", g_global.env[i]);
+//		i++;
+//	}
 }
 
 static void	export_print(t_cmd *cmd, t_entry *entry)

@@ -58,6 +58,8 @@ void entries_lst()
 	int		i;
 
 	i = 0;
+	//need optimize
+	g_global.entries = NULL;
 	while (g_global.env[i])
 	{
 		push(&g_global.entries, g_global.env[i]);
