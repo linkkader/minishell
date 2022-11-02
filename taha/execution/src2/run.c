@@ -14,10 +14,10 @@
 
 static void	run(t_cmd *temp, pid_t *pids, int *i)
 {
+	check_builtin(temp);
 	pids[*i] = fork();
 	if (pids[*i] == 0)
 	{
-		check_builtin(temp);
 		if (temp->path != NULL)
 		{
 			dup2(temp->in, 0);

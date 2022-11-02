@@ -12,8 +12,10 @@
 
 #include "../../../minishell.h"
 
-static void	part(t_cmd *cmd, char *temp, char *path)
+static void	part(t_cmd *cmd, char *path)
 {
+	char	*temp;
+
 	temp = getcwd(NULL, 0);
 	if (temp != NULL)
 		export_value(ft_strdup("OLDPWD"), temp, cmd, true);
@@ -30,11 +32,9 @@ static void	part(t_cmd *cmd, char *temp, char *path)
 void	cd_builtin(t_cmd *cmd)
 {
 	char	*path;
-	char	*temp;
 
-	temp = NULL;
 	path = NULL;
-	if (cmd->args[1] == NULL)
+	if (cmd->args[1] == NULL || ( cmd->args[1] != NULL && ft_strcmp(cmd->args[1], "~") == 0))
 		path = ft_get_env(cmd, "HOME");
 	else if (ft_strcmp("-", cmd->args[1]) == 0)
 	{
@@ -46,9 +46,10 @@ void	cd_builtin(t_cmd *cmd)
 		}
 	}
 	else
-		path = cmd->args[1];
+		path = ft_strdup(cmd->args[1]);
 	if (access(path, X_OK) == 0)
-		part(cmd, temp, path);
+		part(cmd, path);
 	else
 		perror("cd");
+	free(path);
 }

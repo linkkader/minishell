@@ -28,7 +28,7 @@ char	*ft_get_env(t_cmd *cmd, char *name)
 			j++;
 		}
 		if (name[j] == '\0' && g_global.env[i][j] == '=')
-			return (g_global.env[i] + j + 1);
+			return ft_strdup((g_global.env[i] + j + 1));
 		i++;
 	}
 	return (NULL);
