@@ -14,15 +14,12 @@
 
 static void	run(t_cmd *temp, pid_t *pids, int *i)
 {
-	//check if builtin
-	printf("path = %s\n", temp->path);
 	pids[*i] = fork();
-	printf("pids[%d] = %d\n", *i, pids[*i]);
 	if (pids[*i] == 0)
 	{
-		//temp->error = exe(temp);
 		check_builtin(temp);
-		if (temp->path != NULL){
+		if (temp->path != NULL)
+		{
 			dup2(temp->in, 0);
 			dup2(temp->out, 1);
 			if (temp->in != 0)
@@ -30,7 +27,6 @@ static void	run(t_cmd *temp, pid_t *pids, int *i)
 			if (temp->out != 1)
 				close(temp->out);
 			(execve(temp->path, temp->args, g_global.env));
-
 		}
 		else
 			exit(0);
@@ -61,13 +57,9 @@ void	run_all(t_cmd *cmd, pid_t *pids)
 	while (i > 0)
 	{
 		i--;
-		printf(" = %d\n", i);
 		waitpid(pids[i], NULL, 0);
 	}
 	g_global.exit_code = WEXITSTATUS(g_global.exit_code);
-//	normal_echo(v);
 	signal(SIGINT, sig[0]);
 	signal(SIGQUIT, sig[1]);
-	//my_clear(&env);
-	//correct_echo(v);
 }

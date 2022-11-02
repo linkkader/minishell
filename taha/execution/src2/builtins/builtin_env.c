@@ -14,8 +14,8 @@
 
 char	*ft_get_env(t_cmd *cmd, char *name)
 {
-	int 	i;
-	int 	j;
+	int		i;
+	int		j;
 
 	i = 0;
 	while (g_global.env[i])
@@ -32,18 +32,6 @@ char	*ft_get_env(t_cmd *cmd, char *name)
 		i++;
 	}
 	return (NULL);
-//	t_entry		*entry;
-//	t_list		*temp;
-//
-//	temp = var->env;
-//	while (temp)
-//	{
-//		entry = to_entry(temp->content);
-//		if (ft_strncmp(entry->key, name, ft_strlen(name) + 1) == 0)
-//			return (entry->value);
-//		temp = temp->next;
-//	}
-//	return (NULL);
 }
 
 void	env_builtin(t_cmd *cmd)
@@ -62,25 +50,4 @@ void	env_builtin(t_cmd *cmd)
 		}
 		i++;
 	}
-//	t_list	*temp;
-//	t_entry	*entry;
-//
-//	if (cmd[1] == NULL)
-//	{
-//		temp = v->env;
-//		while (temp)
-//		{
-//			entry = to_entry(temp->content);
-//			if (entry->is_exported == true && entry->value != NULL)
-//			{
-//				ft_putstr_fd(entry->key, v->out);
-//				ft_putstr_fd("=", v->out);
-//				ft_putstr_fd(entry->value, v->out);
-//				ft_putstr_fd("\n", v->out);
-//			}
-//			temp = temp->next;
-//		}
-//	}
-//	else
-//		ft_putstr_fd("env: too many arguments\n", 2);
 }

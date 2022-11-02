@@ -14,8 +14,3 @@ void	exec_kader(t_cmd *cmd, int *pid, int i)
 	tmp = cmd;
 	run_all(cmd, pid);
 }
-
-char	**check_cmd(t_cmd *tmp)
-{
-	return (NULL);
-}

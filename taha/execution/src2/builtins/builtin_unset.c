@@ -62,8 +62,6 @@ void	unset_builtin(t_cmd *cmd)
 {
 	int		i;
 
-//	if (v->previous != NULL || v->head->next != NULL)
-//		return ;
 	i = 1;
 	while (cmd->args[i])
 	{

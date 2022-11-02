@@ -12,14 +12,6 @@
 
 #include "../../../minishell.h"
 
-//void	reset_setting(t_var *var)
-//{
-//	signal(SIGINT, var->sig_int);
-//	signal(SIGQUIT, var->sig_quit);
-//	tcgetattr(STDIN_FILENO, var->attributes);
-//	free(var->attributes);
-//}
-
 int	is_numeric(char *str)
 {
 	int	i;
@@ -41,7 +33,6 @@ static void	part(t_cmd *cmd)
 	ft_putstr_fd("minishell: exit: ", 1);
 	ft_putstr_fd(cmd->args[1], 1);
 	ft_putstr_fd(" numeric argument required\n", 1);
-	//reset_setting(v);
 	exit(-1);
 }
 
@@ -59,8 +50,6 @@ void	exit_builtin(t_cmd *cmd)
 {
 	char	len;
 
-//	if (v->previous != NULL || v->head->next != NULL)
-//		return ;
 	len = len_args(cmd->args);
 	ft_putstr_fd("exit\n", 1);
 	if (cmd->args[1] == NULL)
@@ -71,7 +60,6 @@ void	exit_builtin(t_cmd *cmd)
 			ft_putstr_fd("minishell: exit: too many arguments\n", 1);
 		else
 		{
-			//reset_setting(v);
 			exit(ft_atoi(cmd->args[1]));
 		}
 	}

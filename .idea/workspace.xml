@@ -3,9 +3,6 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
-  <component name="CMakePresetLoader">{
-  &quot;useNewFormat&quot;: true
-}</component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="minishell" targetName="all" />
@@ -23,17 +20,75 @@
   <component name="ChangeListManager">
     <list default="true" id="0a3fc66d-3f27-474e-96a3-d556e9d0b164" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/taha/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/builtins/builtins_utiles.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/builtins/builtins_utiles.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/builtins/cd.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/builtins/cd.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/builtins/echo.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/builtins/echo.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/builtins/env.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/builtins/env.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/builtins/exit.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/builtins/exit.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/builtins/export.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/builtins/export.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/builtins/pwd.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/builtins/pwd.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/builtins/unset.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/builtins/unset.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/error/error.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/error/error.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/error/put_error.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/error/put_error.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/error/unclosed_car.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/error/unclosed_car.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/exec.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/exec.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/get_command.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/get_command.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/get_env.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/get_env.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/libft_bonus/ft_lstadd_back_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/libft_bonus/ft_lstadd_back_bonus.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/libft_bonus/ft_lstadd_front_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/libft_bonus/ft_lstadd_front_bonus.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/libft_bonus/ft_lstclear_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/libft_bonus/ft_lstclear_bonus.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/libft_bonus/ft_lstdelone_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/libft_bonus/ft_lstdelone_bonus.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/libft_bonus/ft_lstiter_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/libft_bonus/ft_lstiter_bonus.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/libft_bonus/ft_lstlast_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/libft_bonus/ft_lstlast_bonus.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/libft_bonus/ft_lstmap_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/libft_bonus/ft_lstmap_bonus.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/libft_bonus/ft_lstnew_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/libft_bonus/ft_lstnew_bonus.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/libft_bonus/ft_lstsize_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/libft_bonus/ft_lstsize_bonus.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/libft_bonus/ft_split.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/libft_bonus/ft_split.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_cd.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_cd.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_echo.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_echo.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_env.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_env.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_env.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_env.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_exit.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_exit.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_exit.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_exit.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_export.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_export.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_export.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_export.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_pwd.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_pwd.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_unset.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_unset.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_unset.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_unset.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/check_builtins.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/check_builtins.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/check_builtins.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/check_builtins.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/exec.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/exec.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/exec.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/exec.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/get_path.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/get_path.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taha/execution/src2/run.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/run.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taha/execution/src2/run.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/run.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taha/execution/utils/t_list_utils2.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/utils/t_list_utils2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/signal.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/signal.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/signal.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/signal.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/utils/t_list_utils.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/utils/t_list_utils.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taha/execution/utils/t_list_utils2.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/utils/t_list_utils2.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/expanding/expander.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/expanding/expander.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/expanding/init.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/expanding/init.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/expanding/utils.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/expanding/utils.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taha/libft.a" beforeDir="false" afterPath="$PROJECT_DIR$/taha/libft.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/main.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taha/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/taha/minishell" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taha/minishell.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/minishell.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taha/minishell.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/minishell.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/parcing/open_file.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/parcing/open_file.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/parcing/parser.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/parcing/parser.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/parcing/tokenizer.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/parcing/tokenizer.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/quotes/is_there_any_quotes.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/quotes/is_there_any_quotes.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/quotes/remove_quotes.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/quotes/remove_quotes.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/split/clear.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/split/clear.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/split/count_tokens.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/split/count_tokens.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/split/replace.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/split/replace.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/split/split.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/split/split.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/split/tokens_length.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/split/tokens_length.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/utiles/clear.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/utiles/clear.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/utiles/create_list.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/utiles/create_list.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/utiles/utiles.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/utiles/utiles.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/wildcards/wildcards.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/wildcards/wildcards.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/wildcards/willdcards_check.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/wildcards/willdcards_check.o" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,19 +133,9 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />

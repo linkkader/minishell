@@ -44,7 +44,7 @@ static void	handler(int sig)
 	}
 }
 
-void	signals()
+void	signals(void)
 {
 	g_global.sig_int = signal(SIGINT, handler);
 	g_global.sig_quit = signal(SIGQUIT, SIG_IGN);
