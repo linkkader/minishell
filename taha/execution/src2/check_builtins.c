@@ -34,6 +34,6 @@ void	check_builtin(t_cmd *tmp)
 	else if (ft_strcmp(name, "unset") == 0)
 		unset_builtin(tmp);
 	else
-		tmp->path = get_pathk(g_global.entries,
+		tmp->path = get_cmd_pathk(tmp,
 				tmp->args[0]);
 }

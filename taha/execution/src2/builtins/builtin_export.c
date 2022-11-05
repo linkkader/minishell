@@ -62,7 +62,7 @@ void	export_value(char *key, char *value, t_cmd *cmd,
 		temp = temp->next;
 	}
 	if (is_in == false)
-		part1(key, value, is_in_export);
+		part1( key, value, is_in_export);
 	free_2d(g_global.env);
 	g_global.env = to_env(g_global.entries, true);
 }

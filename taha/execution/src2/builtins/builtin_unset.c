@@ -68,4 +68,6 @@ void	unset_builtin(t_cmd *cmd)
 		delete_item(&g_global.entries, cmd->args[i]);
 		i++;
 	}
+	free_2d(g_global.env);
+	g_global.env = to_env(g_global.entries, true);
 }

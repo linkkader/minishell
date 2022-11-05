@@ -19,19 +19,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a3fc66d-3f27-474e-96a3-d556e9d0b164" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_cd.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_cd.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_cd.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_cd.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_env.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_env.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_env.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_env.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_exit.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_exit.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_export.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_export.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taha/execution/src2/exec.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/exec.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taha/execution/src2/run.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/run.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taha/execution/src2/run.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/run.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taha/libft.a" beforeDir="false" afterPath="$PROJECT_DIR$/taha/libft.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_export.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_export.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_unset.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_unset.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_unset.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_unset.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/check_builtins.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/check_builtins.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/check_builtins.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/check_builtins.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/get_path.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/get_path.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/get_path.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/get_path.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taha/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/taha/minishell" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/taha/minishell.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taha/tester/test.sh" beforeDir="false" afterPath="$PROJECT_DIR$/taha/tester/test.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +75,14 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -124,6 +128,8 @@
       <workItem from="1665923044032" duration="3439000" />
       <workItem from="1666100186662" duration="622000" />
       <workItem from="1666102711093" duration="5395000" />
+      <workItem from="1667486892784" duration="1473000" />
+      <workItem from="1667563172270" duration="4823000" />
     </task>
     <servers />
   </component>
@@ -153,6 +159,11 @@
           <url>file://$PROJECT_DIR$/parsing/heredoc/heredoc.c</url>
           <line>14</line>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/taha/execution/src2/builtins/builtin_cd.c</url>
+          <line>40</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

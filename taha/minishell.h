@@ -162,7 +162,7 @@ void	sigint_handler_in_process(int sig);
 void	sigquit_handler_in_process(int sig);
 void	signals();
 
-char	*get_pathk(t_list *lst, char *name);
+char	*get_cmd_pathk(t_cmd *cmd, char *name);
 void	run_all(t_cmd *cmd, pid_t *pids);
 void	free_2d(char **str);
 

@@ -47,29 +47,32 @@ static char	*part(char **sp, char *name)
 	return (NULL);
 }
 
-char	*get_pathk(t_list *lst, char *name)
+char	*get_cmd_pathk(t_cmd *cmd, char *name)
 {
-	t_entry		*entry;
-	char		**sp;
-	char		*p;
+	char	*path;
+	char	**sp;
+	char	*p;
 
 	if (access(name, X_OK) == 0)
 		return (name);
 	p = NULL;
-	while (lst)
+	path = ft_get_env(cmd, "PATH");
+	if (path != NULL)
 	{
-		entry = to_entry(lst->content);
-		if (ft_strncmp ("PATH", entry->key,
-				ft_strlen(entry->key)) == 0)
-			break ;
-		lst = lst->next;
-	}
-	if (lst)
-	{
-		sp = ft_split(entry->value, ':');
+		sp = ft_split(path, ':');
 		if (sp)
 			p = part(sp, name);
+		if (p == NULL)
+		{
+			cmd->error = 127;
+			put_error(name, "command not found");
+		}
 		my_clear(&sp);
+	}
+	else
+	{
+		cmd->error = 127;
+		put_error( name, "No such file or directory");
 	}
 	return (p);
 }
