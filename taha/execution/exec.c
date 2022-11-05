@@ -73,8 +73,8 @@ void	child(t_cmd *tmp, int pid)
 {
 	if (!pid)
 	{
-		signal(SIGINT, SIG_DFL);
-		signal(SIGQUIT, SIG_DFL);
+		//signal(SIGINT, SIG_DFL);
+		//signal(SIGQUIT, SIG_DFL);
 		check_cmds(tmp->args[0], tmp);
 		if (!tmp->error && tmp->path)
 		{
@@ -102,7 +102,7 @@ void	exec(t_cmd *tmp, int *pid, int i)
 			return ;
 		}
 	}
-	signal(SIGINT, SIG_IGN);
+	//signal(SIGINT, SIG_IGN);
 	while (tmp)
 	{
 		pid[i++] = fork();

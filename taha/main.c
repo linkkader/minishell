@@ -18,10 +18,11 @@ void	clear_all(t_token ***tokens)
 	clear_cmds();
 }
 
+int i = 0;
 void	init_prompt(void)
 {
-	signal(SIGQUIT, SIG_IGN);
-	signal(SIGINT, sig_handler);
+	//signal(SIGQUIT, SIG_IGN);
+	//signal(SIGINT, sig_handler);
 	g_global.line = readline("minishell> ");
 	g_global.doc_exit = 0;
 	if (!g_global.line)
@@ -37,9 +38,11 @@ void	init_prompt(void)
 
 void	minishell(int flag, t_token ***tokens)
 {
+	entries_lst();
+	//correct_echo();
+	signals();
 	while (1)
 	{
-		entries_lst();
 		init_prompt();
 		if (!ft_strlen(g_global.line))
 		{

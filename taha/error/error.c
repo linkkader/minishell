@@ -88,7 +88,7 @@ int	check_error(void)
 
 	i = -1;
 	c = 0;
-	signal(SIGINT, &signal_handler);
+	//signal(SIGINT, &signal_handler);
 	g_global.line = unclosed_quotes();
 	if (!g_global.line || !valid_parentheses(g_global.line))
 		return (0);

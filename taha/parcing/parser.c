@@ -22,7 +22,8 @@ void	read_from_heredoc(t_cmd *cmd, char *delimiter, char expand)
 	if (cmd->in != 0)
 		close(cmd->in);
 	cmd->in = pipes[0];
-	signal(SIGINT, &signal_handler);
+	///to do
+	//signal(SIGINT, &signal_handler);
 	while (1)
 	{
 		line = readline("> ");
@@ -63,7 +64,8 @@ void	open_heredocs(t_cmd *tmp, t_token ***tokens)
 				else
 					read_from_heredoc(tmp, delimiter, 1);
 				free(delimiter);
-				signal(SIGINT, &sig_handler);
+				///to do
+				//signal(SIGINT, &sig_handler);
 			}
 		}
 		tmp = tmp->next;

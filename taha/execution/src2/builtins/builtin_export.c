@@ -62,7 +62,7 @@ void	export_value(char *key, char *value, t_cmd *cmd,
 		temp = temp->next;
 	}
 	if (is_in == false)
-		part1( key, value, is_in_export);
+		part1(key, value, is_in_export);
 	free_2d(g_global.env);
 	g_global.env = to_env(g_global.entries, true);
 }
@@ -80,11 +80,39 @@ static void	export_print(t_cmd *cmd, t_entry *entry)
 	ft_putstr_fd("\n", cmd->out);
 }
 
+static	char *get_key(char *str)
+{
+	int		i;
+	char	*key;
+
+	i = 0;
+	while (str[i] && str[i] != '=')
+		i++;
+	key = ft_substr(str, 0, i);
+	return (key);
+}
+
+static char	*get_value(char *str)
+{
+	int		i;
+	char	*value;
+
+	i = 0;
+	while (str[i] && str[i] != '=')
+		i++;
+	if (str[i] == '\0')
+		return (NULL);
+	value = ft_substr(str, i + 1, ft_strlen(str) - i);
+	return (value);
+}
+
 void	export_builtin(t_cmd *cmd)
 {
 	t_list	*temp;
 	t_entry	*entry;
+	int 	i;
 
+	i = 1;
 	if (cmd->args[1] == NULL)
 	{
 		temp = g_global.entries;
@@ -94,6 +122,14 @@ void	export_builtin(t_cmd *cmd)
 			if (entry->is_exported == true)
 				export_print(cmd, entry);
 			temp = temp->next;
+		}
+	}
+	else {
+		while (cmd->args[i] != NULL){
+			export_value(get_key(cmd->args[i]),
+						 get_value(cmd->args[i]),cmd,
+						 true);
+			i++;
 		}
 	}
 }

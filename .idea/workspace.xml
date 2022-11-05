@@ -20,15 +20,40 @@
   <component name="ChangeListManager">
     <list default="true" id="0a3fc66d-3f27-474e-96a3-d556e9d0b164" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/taha/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/error/error.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/error/error.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/error/error.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/error/error.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/exec.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/exec.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/exec.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/exec.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src/builtin_cd.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src/builtin_echo.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src/builtin_env.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src/builtin_exit.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src/builtin_export.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src/builtin_export_part.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src/builtin_export_part2.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src/builtin_pwd.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src/builtin_unset.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src/exec.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src/init_util.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src/main.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src/run.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src/run_part.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src/signal.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src/t_list_utils.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src/termios.c" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_export.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_export.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_unset.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_unset.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_unset.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_unset.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taha/execution/src2/check_builtins.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/check_builtins.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taha/execution/src2/check_builtins.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/check_builtins.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taha/execution/src2/get_path.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/get_path.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taha/execution/src2/get_path.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/get_path.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_export.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/builtins/builtin_export.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/run.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/run.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/run.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/run.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/execution/src2/signal.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/signal.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/libft.a" beforeDir="false" afterPath="$PROJECT_DIR$/taha/libft.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/main.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taha/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/taha/minishell" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taha/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/taha/minishell.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/parcing/parser.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/parcing/parser.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taha/parcing/parser.o" beforeDir="false" afterPath="$PROJECT_DIR$/taha/parcing/parser.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taha/tester/test.sh" beforeDir="false" afterPath="$PROJECT_DIR$/taha/tester/test.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,6 +104,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/taha/execution/src2" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -87,11 +113,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/taha/execution/src2" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/includes" />
       <recent name="$PROJECT_DIR$/parse" />
-      <recent name="$PROJECT_DIR$/parsing" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -129,7 +155,7 @@
       <workItem from="1666100186662" duration="622000" />
       <workItem from="1666102711093" duration="5395000" />
       <workItem from="1667486892784" duration="1473000" />
-      <workItem from="1667563172270" duration="4823000" />
+      <workItem from="1667563172270" duration="9525000" />
     </task>
     <servers />
   </component>

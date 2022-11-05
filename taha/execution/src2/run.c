@@ -59,7 +59,9 @@ void	run_all(t_cmd *cmd, pid_t *pids)
 		i--;
 		waitpid(pids[i], NULL, 0);
 	}
+	//normal_echo();
 	g_global.exit_code = WEXITSTATUS(g_global.exit_code);
 	signal(SIGINT, sig[0]);
 	signal(SIGQUIT, sig[1]);
+	//correct_echo();
 }

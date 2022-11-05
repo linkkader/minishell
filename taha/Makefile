@@ -20,7 +20,7 @@ SRC =  main.c\
 	quotes/is_there_any_quotes.c quotes/remove_quotes.c\
 	split/split.c split/clear.c split/count_tokens.c split/tokens_length.c split/replace.c\
 	wildcards/wildcards.c wildcards/willdcards_check.c   minishell.c \
-	execution/src2/exec.c	execution/src2/run.c	execution/src2/signal.c	execution/src2/get_path.c\
+	execution/src2/exec.c	execution/src2/run.c	execution/src2/signal.c	execution/src2/termios.c	execution/src2/get_path.c\
 	execution/src2/builtins/builtin_cd.c	execution/src2/builtins/builtin_env.c 	execution/src2/builtins/builtin_echo.c execution/src2/check_builtins.c\
 	execution/src2/builtins/builtin_exit.c	execution/src2/builtins/builtin_pwd.c execution/src2/builtins/builtin_export.c execution/src2/builtins/builtin_unset.c\
 	execution/utils/t_list_utils.c execution/utils/t_list_utils2.c	\

@@ -26,6 +26,7 @@
 # include <unistd.h>
 # include <readline/history.h>
 # include <readline/readline.h>
+# include <termios.h>
 
 typedef struct s_token
 {
@@ -59,6 +60,7 @@ typedef struct s_global
 	int		doc_exit;
 	t_list	*entries;
 	int		fd;
+	struct termios	*attributes;
 	sig_t			sig_int;
 	sig_t			sig_quit;
 }					t_global;
@@ -177,5 +179,8 @@ t_entry	*to_entry(void *e);
 void	free_entry(void *content);
 char	**to_env(t_list *list, t_bool real);
 void	entries_lst();
+
+void	correct_echo();
+void	normal_echo();
 
 #endif
