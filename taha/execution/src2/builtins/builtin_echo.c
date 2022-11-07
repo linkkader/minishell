@@ -19,17 +19,12 @@ void	echo_builtin(t_cmd *cmd)
 
 	i = 1;
 	arg = false;
-	if (cmd->args[i] && ft_strcmp("-n", cmd->args[i]) == 0)
-	{
-		arg = true;
-		i++;
-	}
 	while (cmd->args[i])
 	{
-		if (cmd->args[i + 1] == 0)
-		{
+		if (cmd->args[i] && ft_strcmp("-n", cmd->args[i]) == 0)
+			arg = true;
+		else if (cmd->args[i + 1] == 0)
 			ft_putstr_fd(cmd->args[i], cmd->out);
-		}
 		else
 		{
 			ft_putstr_fd(cmd->args[i], cmd->out);
