@@ -22,14 +22,10 @@ static void	run(t_cmd *temp, pid_t *pids, int *i)
 		{
 			dup2(temp->in, 0);
 			dup2(temp->out, 1);
-			if (temp->in != 0)
-				close(temp->in);
-			if (temp->out != 1)
-				close(temp->out);
+			close_all(g_global.cmds);
 			(execve(temp->path, temp->args, g_global.env));
 		}
-		else
-			exit(0);
+		exit(0);
 	}
 	if (temp->in != 0)
 		close(temp->in);
@@ -54,7 +50,7 @@ void	run_all(t_cmd *cmd, pid_t *pids)
 		temp = temp->next;
 	}
 	wait(&g_global.exit_code);
-	while (i > 0)
+	while (i > 1)
 	{
 		i--;
 		waitpid(pids[i], NULL, 0);
