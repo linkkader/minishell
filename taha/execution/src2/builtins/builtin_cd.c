@@ -35,10 +35,10 @@ void	cd_builtin(t_cmd *cmd)
 
 	path = NULL;
 	if (cmd->args[1] == NULL || ( cmd->args[1] != NULL && ft_strcmp(cmd->args[1], "~") == 0))
-		path = ft_get_env(cmd, "HOME");
+		path = ft_get_env("HOME");
 	else if (ft_strcmp("-", cmd->args[1]) == 0)
 	{
-		path = ft_get_env(cmd, "OLDPWD");
+		path = ft_get_env("OLDPWD");
 		if (path == NULL)
 		{
 			ft_putstr_fd("minishell: cd: OLDPWD not set\n", 2);

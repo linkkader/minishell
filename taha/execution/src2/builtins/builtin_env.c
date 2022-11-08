@@ -12,7 +12,7 @@
 
 #include "../../../minishell.h"
 
-char	*ft_get_env(t_cmd *cmd, char *name)
+char	*ft_get_env(char *name)
 {
 	int		i;
 	int		j;

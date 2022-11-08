@@ -157,7 +157,7 @@ void	export_value(char *key, char *value, t_cmd *cmd, t_bool is_in_export);
 void	unset_builtin(t_cmd *cmd);
 
 char	**check_cmd(t_cmd *tmp);
-char	*ft_get_env(t_cmd *cmd, char *name);
+char	*ft_get_env(char *name);
 
 void	sigint_handler_nonl(int sig);
 void	sigint_handler_in_process(int sig);
