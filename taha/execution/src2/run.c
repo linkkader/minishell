@@ -38,6 +38,7 @@ void	run_all(t_cmd *cmd, pid_t *pids)
 	int			i;
 	sig_t		sig[2];
 	t_cmd		*temp;
+	int 		i2;
 
 	temp = cmd;
 	i = 0;
@@ -49,11 +50,11 @@ void	run_all(t_cmd *cmd, pid_t *pids)
 		i++;
 		temp = temp->next;
 	}
-	wait(&g_global.exit_code);
-	while (i > 1)
+	i2 = 0;
+	while (i2 > i)
 	{
-		i--;
-		waitpid(pids[i], NULL, 0);
+		waitpid(pids[i2], &g_global.exit_code, 0);
+		i++;
 	}
 	//normal_echo();
 	g_global.exit_code = WEXITSTATUS(g_global.exit_code);
