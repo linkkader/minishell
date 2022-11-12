@@ -17,13 +17,15 @@ FILE = builtin_cd.c          builtin_exit.c        builtin_pwd.c         main.c 
        builtin_env.c         builtin_export_part.c exec.c                run_part.c            termios.c\
        builtin_export_part2.c	init_util.c
 
-
-FILE_BONUS = exec.c  bonus.c     utils.c    run.c
-
+BUILTINS_DIRECTORY = builtins/
 
 LIBFT_DIRECTORY = libft/
 
 PARSING_DIRECTORY = parsing/
+
+BUILTINS_FILE = builtin_cd.c     builtin_echo.c   builtin_env.c    builtin_exit.c   builtin_export.c builtin_pwd.c    builtin_unset.c
+
+FILE = main.c init.c t_list_utils.c \
 
 PARSE = $(PARSING_DIRECTORY)parse.a
 
@@ -35,14 +37,13 @@ SOURCES_DIRECTORY = src/
 
 OBJECTS_DIRECTORY = obj/
 
-FLAGS = -Wextra -Wall -Werror $(CPPFLAGS)
+FLAGS = -Wextra -Wall -Werror
 
-SRCS = $(addprefix $(SOURCES_DIRECTORY), $(FILE))
+FLAGS =
 
-OBJS = $(addprefix $(OBJECTS_DIRECTORY), $(FILE:.c=.o))
+OBJS = $(addprefix $(OBJECTS_DIRECTORY), $(FILE:.c=.o)) $(addprefix $(OBJECTS_DIRECTORY)$(BUILTINS_DIRECTORY), $(BUILTINS_FILE:.c=.o))
 
 OBJS_BONUS = $(addprefix $(OBJECTS_DIRECTORY), $(FILE_BONUS:.c=.o))
-
 
 $(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c
 	gcc  $(FLAGS) -I $(HEADERS) -c $< -o $@
@@ -60,9 +61,12 @@ $(PARSE):
 
 $(OBJECTS_DIRECTORY):
 	mkdir -p $@
+	mkdir -p $(OBJECTS_DIRECTORY)$(BUILTINS_DIRECTORY)
 
-$(NAME): $(PARSE) $(LIBFT) $(OBJECTS_DIRECTORY) $(OBJS)
-	gcc $(FLAGS) -I $(HEADERS) $(OBJS) $(LIBFT) $(PARSE) $(LDFLAGS) -l readline  -o  $(NAME)
+#$(PARSE)
+# $(PARSE)
+$(NAME): $(LIBFT) $(OBJECTS_DIRECTORY) $(OBJS)
+	gcc $(FLAGS) -I $(HEADERS) $(OBJS) $(LIBFT) $(LDFLAGS) -l readline  -o  $(NAME)
 
 
 clean:

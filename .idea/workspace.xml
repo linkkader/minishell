@@ -20,6 +20,310 @@
   <component name="ChangeListManager">
     <list default="true" id="0a3fc66d-3f27-474e-96a3-d556e9d0b164" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/header.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/libft/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/libft.a" beforeDir="false" afterPath="$PROJECT_DIR$/libft/libft.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/libft.h" beforeDir="false" afterPath="$PROJECT_DIR$/libft/libft.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/includes/header.h" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/includes/header.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_atoi.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_atoi.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_atoi.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_atoi.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_bzero.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_bzero.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_bzero.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_bzero.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_calloc.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_calloc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_calloc.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_calloc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_isalnum.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_isalnum.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_isalnum.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_isalnum.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_isalpha.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_isalpha.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_isalpha.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_isalpha.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_isascii.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_isascii.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_isascii.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_isascii.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_isdigit.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_isdigit.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_isdigit.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_isdigit.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_isprint.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_isprint.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_isprint.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_isprint.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_itoa.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_itoa.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_itoa.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_itoa.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_lstadd_back_bonus.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_lstadd_back_bonus.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_lstadd_back_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_lstadd_back_bonus.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_lstadd_front_bonus.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_lstadd_front_bonus.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_lstadd_front_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_lstadd_front_bonus.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_lstclear_bonus.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_lstclear_bonus.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_lstclear_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_lstclear_bonus.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_lstdelone_bonus.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_lstdelone_bonus.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_lstdelone_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_lstdelone_bonus.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_lstiter_bonus.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_lstiter_bonus.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_lstiter_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_lstiter_bonus.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_lstlast_bonus.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_lstlast_bonus.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_lstlast_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_lstlast_bonus.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_lstmap_bonus.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_lstmap_bonus.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_lstmap_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_lstmap_bonus.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_lstnew_bonus.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_lstnew_bonus.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_lstnew_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_lstnew_bonus.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_lstsize_bonus.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_lstsize_bonus.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_lstsize_bonus.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_lstsize_bonus.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_memchr.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_memchr.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_memchr.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_memchr.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_memcmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_memcmp.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_memcmp.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_memcmp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_memcpy.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_memcpy.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_memcpy.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_memcpy.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_memmove.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_memmove.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_memmove.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_memmove.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_memset.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_memset.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_memset.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_memset.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_putchar_fd.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_putchar_fd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_putchar_fd.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_putchar_fd.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_putendl_fd.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_putendl_fd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_putendl_fd.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_putendl_fd.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_putnbr_fd.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_putnbr_fd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_putnbr_fd.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_putnbr_fd.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_putstr_fd.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_putstr_fd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_putstr_fd.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_putstr_fd.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_split.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_split.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_split.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_split.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_strchr.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_strchr.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_strchr.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_strchr.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_strdup.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_strdup.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_strdup.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_strdup.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_striteri.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_striteri.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_striteri.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_striteri.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_strjoin.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_strjoin.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_strjoin.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_strjoin.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_strlcat.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_strlcat.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_strlcat.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_strlcat.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_strlcpy.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_strlcpy.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_strlcpy.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_strlcpy.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_strlen.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_strlen.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_strlen.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_strlen.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_strmapi.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_strmapi.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_strmapi.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_strmapi.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_strncmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_strncmp.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_strncmp.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_strncmp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_strnstr.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_strnstr.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_strnstr.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_strnstr.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_strrchr.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_strrchr.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_strrchr.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_strrchr.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_strtrim.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_strtrim.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_strtrim.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_strtrim.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_substr.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_substr.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_substr.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_substr.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_tolower.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_tolower.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_tolower.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_tolower.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_toupper.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_toupper.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/ft_toupper.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/ft_toupper.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/libft.a" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/libft.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/libft/libft.h" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/libft/libft.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/minishell" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/obj/builtin_cd.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/obj/builtin_cd.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/obj/builtin_echo.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/obj/builtin_echo.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/obj/builtin_env.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/obj/builtin_env.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/obj/builtin_exit.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/obj/builtin_exit.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/obj/builtin_export.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/obj/builtin_export.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/obj/builtin_export_part.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/obj/builtin_export_part.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/obj/builtin_export_part2.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/obj/builtin_export_part2.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/obj/builtin_pwd.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/obj/builtin_pwd.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/obj/builtin_unset.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/obj/builtin_unset.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/obj/exec.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/obj/exec.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/obj/init_util.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/obj/init_util.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/obj/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/obj/main.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/obj/run.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/obj/run.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/obj/run_part.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/obj/run_part.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/obj/signal.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/obj/signal.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/obj/t_list_utils.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/obj/t_list_utils.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/obj/termios.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/obj/termios.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/clear/cleaning.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/clear/cleaning.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/clear/cleaning.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/clear/cleaning.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/clear/close_all.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/clear/close_all.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/clear/close_all.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/clear/close_all.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/cmd_args/get_command.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/cmd_args/get_command.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/cmd_args/get_command.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/cmd_args/get_command.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/error/check_for_error.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/error/check_for_error.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/error/check_for_error.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/error/check_for_error.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/expanding/expander.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/expanding/expander.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/expanding/expander.h" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/expanding/expander.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/expanding/expander.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/expanding/expander.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/expanding/init.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/expanding/init.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/expanding/init.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/expanding/init.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/expanding/utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/expanding/utils.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/expanding/utils.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/expanding/utils.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/get_env.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/get_env.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/get_env.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/get_env.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/input/get_infiles.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/input/get_infiles.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/input/get_infiles.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/input/get_infiles.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/input/heredoc.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/input/heredoc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/input/heredoc.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/input/heredoc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/input/signal_doc.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/input/signal_doc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/input/signal_doc.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/input/signal_doc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/ft_calloc.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/ft_calloc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/ft_calloc.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/ft_calloc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/ft_itoa.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/ft_itoa.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/ft_itoa.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/ft_itoa.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/ft_realloc.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/ft_realloc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/ft_realloc.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/ft_realloc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/is_alnum.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/is_alnum.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/is_alnum.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/is_alnum.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/list/create_node.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/list/create_node.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/list/create_node.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/list/create_node.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/list/ft_lst_clear.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/list/ft_lst_clear.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/list/ft_lst_clear.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/list/ft_lst_clear.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/list/ft_lstadd_back.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/list/ft_lstadd_back.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/list/ft_lstadd_back.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/list/ft_lstadd_back.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/list/ft_lstlast.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/list/ft_lstlast.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/list/ft_lstlast.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/list/ft_lstlast.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/list/ft_lstsize.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/list/ft_lstsize.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/list/ft_lstsize.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/list/ft_lstsize.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/string/ft_strjoin.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/string/ft_strjoin.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/string/ft_strjoin.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/string/ft_strjoin.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/string/puterror.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/string/puterror.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/string/puterror.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/string/puterror.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/string/split/clear.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/string/split/clear.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/string/split/clear.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/string/split/clear.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/string/split/count_tokens.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/string/split/count_tokens.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/string/split/count_tokens.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/string/split/count_tokens.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/string/split/replace_all_strings.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/string/split/replace_all_strings.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/string/split/replace_all_strings.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/string/split/replace_all_strings.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/string/split/replace_inside_quotes.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/string/split/replace_inside_quotes.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/string/split/replace_inside_quotes.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/string/split/replace_inside_quotes.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/string/split/split.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/string/split/split.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/string/split/split.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/string/split/split.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/string/split/tokens_length.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/string/split/tokens_length.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/string/split/tokens_length.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/string/split/tokens_length.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/string/string.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/string/string.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/string/string.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/string/string.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/string/wrap_with_space.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/string/wrap_with_space.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/libft/string/wrap_with_space.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/libft/string/wrap_with_space.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/minishell.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/output/get_outfiles.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/output/get_outfiles.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/output/get_outfiles.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/output/get_outfiles.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/parse.a" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/parse.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/parser.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/parser.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/parser.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/parser.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/pipes/open_pipes.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/pipes/open_pipes.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/pipes/open_pipes.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/pipes/open_pipes.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/quotes/is_there_any_quotes.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/quotes/is_there_any_quotes.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/quotes/is_there_any_quotes.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/quotes/is_there_any_quotes.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/quotes/remove_quotes.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/quotes/remove_quotes.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/quotes/remove_quotes.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/quotes/remove_quotes.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/tokenizer.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/tokenizer.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/parsing/tokenizer.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/parsing/tokenizer.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/src/builtin_cd.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/src/builtin_cd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/src/builtin_echo.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/src/builtin_echo.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/src/builtin_env.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/src/builtin_env.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/src/builtin_exit.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/src/builtin_exit.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/src/builtin_export.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/src/builtin_export.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/src/builtin_export_part.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/src/builtin_export_part.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/src/builtin_export_part2.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/src/builtin_export_part2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/src/builtin_pwd.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/src/builtin_pwd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/src/builtin_unset.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/src/builtin_unset.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/src/exec.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/src/exec.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/src/init_util.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/src/init_util.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/src/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/src/run.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/src/run.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/src/run_part.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/src/run_part.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/src/signal.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/src/signal.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/src/t_list_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/src/t_list_utils.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mm2 3/src/termios.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/mm2 3/src/termios.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/builtin_cd.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/obj/builtin_cd.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/builtin_exit.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/obj/builtin_exit.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/builtin_pwd.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/obj/builtin_pwd.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/clear/cleaning.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/clear/cleaning.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/clear/cleaning.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/clear/cleaning.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/clear/close_all.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/clear/close_all.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/clear/close_all.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/clear/close_all.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/cmd_args/get_command.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/cmd_args/get_command.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/cmd_args/get_command.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/cmd_args/get_command.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/error/check_for_error.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/error/check_for_error.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/error/check_for_error.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/error/check_for_error.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/expanding/expander.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/expanding/expander.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/expanding/expander.h" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/expanding/expander.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/expanding/expander.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/expanding/expander.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/expanding/init.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/expanding/init.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/expanding/init.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/expanding/init.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/expanding/utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/expanding/utils.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/expanding/utils.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/expanding/utils.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/get_env.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/get_env.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/get_env.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/get_env.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/input/get_infiles.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/input/get_infiles.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/input/get_infiles.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/input/get_infiles.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/input/heredoc.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/input/heredoc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/input/heredoc.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/input/heredoc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/input/signal_doc.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/input/signal_doc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/input/signal_doc.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/input/signal_doc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/ft_calloc.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/ft_calloc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/ft_calloc.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/ft_calloc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/ft_itoa.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/ft_itoa.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/ft_itoa.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/ft_itoa.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/ft_realloc.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/ft_realloc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/ft_realloc.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/ft_realloc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/is_alnum.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/is_alnum.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/is_alnum.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/is_alnum.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/list/create_node.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/list/create_node.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/list/create_node.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/list/create_node.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/list/ft_lst_clear.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/list/ft_lst_clear.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/list/ft_lst_clear.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/list/ft_lst_clear.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/list/ft_lstadd_back.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/list/ft_lstadd_back.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/list/ft_lstadd_back.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/list/ft_lstadd_back.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/list/ft_lstlast.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/list/ft_lstlast.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/list/ft_lstlast.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/list/ft_lstlast.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/list/ft_lstsize.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/list/ft_lstsize.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/list/ft_lstsize.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/list/ft_lstsize.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/string/ft_strjoin.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/string/ft_strjoin.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/string/ft_strjoin.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/string/ft_strjoin.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/string/puterror.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/string/puterror.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/string/puterror.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/string/puterror.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/string/split/clear.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/string/split/clear.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/string/split/clear.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/string/split/clear.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/string/split/count_tokens.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/string/split/count_tokens.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/string/split/count_tokens.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/string/split/count_tokens.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/string/split/replace_all_strings.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/string/split/replace_all_strings.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/string/split/replace_all_strings.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/string/split/replace_all_strings.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/string/split/replace_inside_quotes.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/string/split/replace_inside_quotes.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/string/split/replace_inside_quotes.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/string/split/replace_inside_quotes.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/string/split/split.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/string/split/split.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/string/split/split.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/string/split/split.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/string/split/tokens_length.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/string/split/tokens_length.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/string/split/tokens_length.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/string/split/tokens_length.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/string/string.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/string/string.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/string/string.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/string/string.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/string/wrap_with_space.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/string/wrap_with_space.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/libft/string/wrap_with_space.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/libft/string/wrap_with_space.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/minishell.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/output/get_outfiles.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/output/get_outfiles.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/output/get_outfiles.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/output/get_outfiles.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/parse.a" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/parse.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/parser.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/parser.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/parser.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/parser.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/pipes/open_pipes.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/pipes/open_pipes.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/pipes/open_pipes.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/pipes/open_pipes.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/quotes/is_there_any_quotes.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/quotes/is_there_any_quotes.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/quotes/is_there_any_quotes.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/quotes/is_there_any_quotes.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/quotes/remove_quotes.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/quotes/remove_quotes.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/quotes/remove_quotes.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/quotes/remove_quotes.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/tokenizer.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/tokenizer.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parsing/tokenizer.o" beforeDir="false" afterPath="$PROJECT_DIR$/file/parsing/tokenizer.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtin_cd.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/src/builtin_cd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtin_echo.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/src/builtin_echo.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtin_env.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/src/builtin_env.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtin_exit.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/src/builtin_exit.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtin_export.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/src/builtin_export.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtin_export_part.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/src/builtin_export_part.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtin_export_part2.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/src/builtin_export_part2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtin_pwd.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/src/builtin_pwd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtin_unset.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/src/builtin_unset.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exec.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/src/exec.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/init_util.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/src/init_util.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/src/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/run.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/src/run.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/run_part.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/src/run_part.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/signal.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/src/signal.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/t_list_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/src/t_list_utils.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/termios.c" beforeDir="false" afterPath="$PROJECT_DIR$/file/src/termios.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taha/tester/test.sh" beforeDir="false" afterPath="$PROJECT_DIR$/taha/tester/test.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,17 +374,23 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/builtins" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/builtins" />
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/taha/execution/src2" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/includes" />
-      <recent name="$PROJECT_DIR$/parse" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/file" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -127,6 +437,7 @@
       <workItem from="1667928997634" duration="1430000" />
       <workItem from="1667940750313" duration="2000" />
       <workItem from="1667978093179" duration="2503000" />
+      <workItem from="1668253908463" duration="12806000" />
     </task>
     <servers />
   </component>
@@ -153,7 +464,7 @@
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/parsing/heredoc/heredoc.c</url>
+          <url>file://$PROJECT_DIR$/file/parsing/heredoc/heredoc.c</url>
           <line>14</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>

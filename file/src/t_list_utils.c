@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/header.h"
+#include "../../minishell.h"
 
 static void	part(t_list **lst, char *str, int i, t_entry *entry)
 {
@@ -32,7 +32,7 @@ static void	part(t_list **lst, char *str, int i, t_entry *entry)
 	ft_lstadd_back(lst, ft_lstnew(entry));
 }
 
-void	push_entry(t_list **lst, char *str)
+void	push(t_list **lst, char *str)
 {
 	t_entry	*entry;
 	int		i;
@@ -65,4 +65,17 @@ void	free_entry(void *content)
 	if (entry->key != NULL)
 		free(entry->key);
 	free(content);
+}
+
+int	size_t_command(t_command *cmd)
+{
+	int		i;
+
+	i = 0;
+	while (cmd)
+	{
+		i++;
+		cmd = cmd->next;
+	}
+	return (i);
 }
