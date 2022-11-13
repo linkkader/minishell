@@ -66,8 +66,6 @@ typedef struct s_global
 	t_list			*entries;
 	int				exit_code;
 	struct termios	*attributes;
-	sig_t			sig_int;
-	sig_t			sig_quit;
 }					t_global;
 
 t_global g_global;

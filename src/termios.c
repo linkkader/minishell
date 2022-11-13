@@ -14,6 +14,7 @@
 
 void	correct_echo()
 {
+	return;
 	struct termios	attributes;
 
 	if (g_global.attributes == NULL)
@@ -30,5 +31,6 @@ void	correct_echo()
 
 void	normal_echo()
 {
+	return;
 	tcsetattr(STDIN_FILENO, TCSAFLUSH, g_global.attributes);
 }

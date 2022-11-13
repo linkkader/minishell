@@ -6,12 +6,13 @@
 
 void	reset()
 {
-	reset_signals();
+
 }
 
 static	int init_prompt(void)
 {
 	correct_echo();
+	signals();
 	g_global.line = readline(PROMPT_CMD);
 	if (!g_global.line)
 	{
