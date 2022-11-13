@@ -7,7 +7,6 @@
 void	my_pipe(t_cmd *cmd)
 {
 	int		fd[2];
-	int		fd2[2];
 	int		nextIn;
 
 
@@ -30,5 +29,4 @@ void	my_pipe(t_cmd *cmd)
 		printf("cmd->in = %d cmd->out = %d\n", cmd->in, cmd->out);
 		cmd = cmd->next;
 	}
-
 }

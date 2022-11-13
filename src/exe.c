@@ -46,8 +46,16 @@ int		outfile(t_cmd *cmd)
 
 void	close_all(t_cmd *cmd)
 {
+
+	ft_putstr_fd("close_all\n", 2);
 	while (cmd)
 	{
+		ft_putstr_fd("in", 2);
+		ft_putstr_fd(ft_itoa(cmd->in), 2);
+		ft_putstr_fd("\n", 2);
+		ft_putstr_fd("out", 2);
+		ft_putstr_fd(ft_itoa(cmd->out), 2);
+		ft_putstr_fd("\n", 2);
 		if (cmd->in != 0)
 			close(cmd->in);
 		if (cmd->out != 1)
@@ -76,6 +84,7 @@ void	run(t_cmd *cmd)
 		{
 			dup2(cmd->in, STDIN_FILENO);
 			dup2(cmd->out, STDOUT_FILENO);
+			close_all(g_global.cmds);
 			(execve(cmd->path, cmd->args, g_global.env));
 		}
 		//todo: need to exit with the exit code of the command
@@ -97,7 +106,6 @@ void	exe(t_cmd *cmd)
 	while (cmd)
 	{
 		run(cmd);
-		waitpid(cmd->pid, &g_global.exit_code, 0);
 		cmd = cmd->next;
 	}
 	cmd = g_global.cmds;
