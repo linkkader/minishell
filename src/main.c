@@ -6,7 +6,7 @@
 
 void	reset()
 {
-
+	normal_echo();
 }
 
 static	int init_prompt(void)
