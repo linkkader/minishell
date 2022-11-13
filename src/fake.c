@@ -31,14 +31,15 @@ static t_cmd	*fake_cat()
 	cmd->args[2] = NULL;
 	cmd->infile = NULL;
 	cmd->outfile = NULL;
-	cmd->next = fake_cat2();
+	cmd->next = NULL;
+//	cmd->next = fake_cat2();
 	cmd->path = NULL;
 	return (cmd);
 }
 
 t_cmd	*fake()
 {
-//	return (fake_cat());
+	return (fake_cat());
 	t_cmd	*cmd;
 
 	cmd = malloc(sizeof(t_cmd));

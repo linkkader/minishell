@@ -27,7 +27,6 @@ void	my_pipe(t_cmd *cmd)
 			cmd->out = fd[1];
 			nextIn = fd[0];
 		}
-		//cmd->out = -1;
 		printf("cmd->in = %d cmd->out = %d\n", cmd->in, cmd->out);
 		cmd = cmd->next;
 	}

@@ -20,17 +20,14 @@
   <component name="ChangeListManager">
     <list default="true" id="0a3fc66d-3f27-474e-96a3-d556e9d0b164" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/header.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_strcmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/libft/ft_strcmp.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_strcmp.o" beforeDir="false" afterPath="$PROJECT_DIR$/libft/ft_strcmp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/libft.a" beforeDir="false" afterPath="$PROJECT_DIR$/libft/libft.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/main.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/exe.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/exe.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/fake.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/fake.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/exe.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/exe.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/t_list_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/t_list_utils.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taha/execution/src2/run.c" beforeDir="false" afterPath="$PROJECT_DIR$/taha/execution/src2/run.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fake.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/fake.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/init.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/init.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pipe.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipe.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/taha/tester/test.sh" beforeDir="false" afterPath="$PROJECT_DIR$/taha/tester/test.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -144,7 +141,7 @@
       <workItem from="1667928997634" duration="1430000" />
       <workItem from="1667940750313" duration="2000" />
       <workItem from="1667978093179" duration="2503000" />
-      <workItem from="1668253908463" duration="30318000" />
+      <workItem from="1668253908463" duration="31502000" />
     </task>
     <servers />
   </component>
@@ -177,12 +174,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/fake.c</url>
-          <line>49</line>
+          <line>50</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/fake.c</url>
-          <line>50</line>
+          <line>51</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>

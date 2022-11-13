@@ -98,9 +98,10 @@ void	update_env();
 void	put_error(char *str, char *error);
 void	my_perror(int result, char *str);
 
-//void	sigint_handler_in_process(int sig);
-//void	sigquit_handler_in_process(int sig);
-//void	sigint_handler_nonl(int sig);
+void	sigint_handler_in_process(int sig);
+void	sigquit_handler_in_process(int sig);
+void	sigint_handler_nonl(int sig);
+void	signals();
 
 
 //void	correct_echo(t_var *v);

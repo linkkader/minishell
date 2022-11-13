@@ -91,8 +91,8 @@ void	exe(t_cmd *cmd)
 {
 	sig_t		sig[2];
 
-//	sig[0] = signal(SIGINT, sigint_handler_in_process);
-//	sig[1] = signal(SIGQUIT, sigquit_handler_in_process);
+	sig[0] = signal(SIGINT, sigint_handler_in_process);
+	sig[1] = signal(SIGQUIT, sigquit_handler_in_process);
 	my_pipe(cmd);
 	while (cmd)
 	{
@@ -107,6 +107,6 @@ void	exe(t_cmd *cmd)
 		cmd = cmd->next;
 	}
 	g_global.exit_code = WEXITSTATUS(g_global.exit_code);
-//	signal(SIGINT, sig[0]);
-//	signal(SIGQUIT, sig[1]);
+	signal(SIGINT, sig[0]);
+	signal(SIGQUIT, sig[1]);
 }
