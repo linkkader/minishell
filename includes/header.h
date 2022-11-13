@@ -53,6 +53,8 @@ typedef struct s_cmd
 	char			**args;
 	char			**infile;
 	char			**outfile;
+	int				error;
+	pid_t			pid;
 	struct s_cmd	*next;
 }					t_cmd;
 
@@ -83,12 +85,18 @@ void	export_value(char *key, char *value, t_cmd *cmd, t_bool is_in_export);
 void	unset_builtin(t_cmd *cmd);
 
 //void	correct_echo(t_var *v);
+t_cmd	*fake();
+void	my_pipe(t_cmd *cmd);
+void	exe(t_cmd *cmd);
+char	*get_cmd_path(t_cmd *cmd, char *name);
 void	push_entry(t_list **lst, char *str);
 char	*ft_get_env(char *name);
 t_entry	*to_entry(void *e);
 void	free_entry(void *content);
 void	clear_d2(char **cmd);
 void	update_env();
+void	put_error(char *str, char *error);
+void	my_perror(int result, char *str);
 
 //void	sigint_handler_in_process(int sig);
 //void	sigquit_handler_in_process(int sig);

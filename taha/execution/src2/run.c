@@ -20,15 +20,14 @@ static void	run(t_cmd *temp, pid_t *pids, int *i)
 	{
 		if (temp->path != NULL)
 		{
-			dup2(temp->in, 0);
-			dup2(temp->out, 1);
+			dup2(temp->in, STDIN_FILENO);
+			dup2(temp->out, STDOUT_FILENO);
 			close_all(g_global.cmds);
 			(execve(temp->path, temp->args, g_global.env));
 		}
 		exit(0);
 	}
-	if (temp->in != 0)
-		close(temp->in);
+	close(temp->in);
 	if (temp->out != 1)
 		close(temp->out);
 }

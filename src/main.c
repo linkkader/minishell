@@ -26,7 +26,9 @@ int main(int ac, char **av, char **env)
 	while (1)
 	{
 		if (init_prompt())
-			break ;
+			continue ;
+		g_global.cmds = fake();
+		exe(g_global.cmds);
 	}
 	return (0);
 }

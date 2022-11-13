@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: momeaizi <momeaizi@student.42.fr>          +#+  +:+       +#+         #
+#    By: acouliba <momeaizi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/06 14:30:37 by acouliba          #+#    #+#              #
-#    Updated: 2022/06/21 17:39:40 by momeaizi         ###   ########.fr        #
+#    Updated: 2022/06/21 17:39:40 by acouliba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ PARSING_DIRECTORY = parsing/
 
 BUILTINS_FILE = builtin_cd.c     builtin_echo.c   builtin_env.c    builtin_exit.c   builtin_export.c builtin_pwd.c    builtin_unset.c
 
-FILE = main.c init.c t_list_utils.c \
+FILE = check_builtins.c exe.c            get_path.c       init.c           main.c           signal.c         t_list_utils.c   termios.c error.c  fake.c  pipe.c\
 
 PARSE = $(PARSING_DIRECTORY)parse.a
 
@@ -40,6 +40,17 @@ OBJECTS_DIRECTORY = obj/
 FLAGS = -Wextra -Wall -Werror
 
 FLAGS =
+
+LDFLAGS= -L /opt/homebrew/opt/readline/lib
+CPPFLAGS= -I /opt/homebrew/opt/readline/include
+
+#LDFLAGS="-L/goinfre/acouliba/brew/opt/readline/lib"
+#CPPFLAGS="-I/goinfre/acouliba/brew/opt/readline/include"
+
+#LDFLAGS= -L /Users/momeaizi/Desktop/brew/opt/readline/lib
+#CPPFLAGS= -I /Users/momeaizi/Desktop/brew/opt/readline/include
+
+FLAGS = $(LDFLAGS) $(CPPFLAGS)
 
 OBJS = $(addprefix $(OBJECTS_DIRECTORY), $(FILE:.c=.o)) $(addprefix $(OBJECTS_DIRECTORY)$(BUILTINS_DIRECTORY), $(BUILTINS_FILE:.c=.o))
 
@@ -75,7 +86,7 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 	@make fclean -sC $(LIBFT_DIRECTORY)
-	@make fclean -sC $(PARSING_DIRECTORY)
+	#@make fclean -sC $(PARSING_DIRECTORY)
 
 re: fclean all
 
