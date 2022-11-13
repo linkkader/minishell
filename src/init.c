@@ -118,5 +118,4 @@ void	init(char **env)
 	g_global.entries = NULL;
 	env_to_entries(g_global.env);
 	signals();
-	//print2d(g_global.env);
 }

@@ -10,25 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/header.h"
+#include "../../includes/header.h"
 
-void	correct_echo(t_var *v)
+void	correct_echo()
 {
+	return;
 	struct termios	attributes;
 
 	if (v->attributes == NULL)
 	{
-		v->attributes = malloc(sizeof(struct termios));
-		if (v->attributes == NULL)
+		g_global->attributes = malloc(sizeof(struct termios));
+		if (g_global->attributes == NULL)
 			return ;
-		tcgetattr(STDIN_FILENO, v->attributes);
+		tcgetattr(STDIN_FILENO, g_global->attributes);
 	}
 	tcgetattr(STDIN_FILENO, &attributes);
 	attributes.c_lflag &= (ECHO | IEXTEN);
 	tcsetattr(STDIN_FILENO, TCSAFLUSH, &attributes);
 }
 
-void	normal_echo(t_var *v)
+void	normal_echo()
 {
-	tcsetattr(STDIN_FILENO, TCSAFLUSH, v->attributes);
+	return;
+	tcsetattr(STDIN_FILENO, TCSAFLUSH, g_global->attributes);
 }

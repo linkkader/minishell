@@ -84,7 +84,6 @@ void	export_builtin(t_cmd *cmd);
 void	export_value(char *key, char *value, t_cmd *cmd, t_bool is_in_export);
 void	unset_builtin(t_cmd *cmd);
 
-//void	correct_echo(t_var *v);
 t_cmd	*fake();
 void	my_pipe(t_cmd *cmd);
 void	exe(t_cmd *cmd);
@@ -102,9 +101,10 @@ void	sigint_handler_in_process(int sig);
 void	sigquit_handler_in_process(int sig);
 void	sigint_handler_nonl(int sig);
 void	signals();
+void	reset_signals();
 
 
-//void	correct_echo(t_var *v);
-//void	normal_echo(t_var *v);
+void	correct_echo();
+void	normal_echo();
 
 #endif

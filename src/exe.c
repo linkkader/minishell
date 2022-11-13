@@ -102,6 +102,8 @@ void	exe(t_cmd *cmd)
 
 	sig[0] = signal(SIGINT, sigint_handler_in_process);
 	sig[1] = signal(SIGQUIT, sigquit_handler_in_process);
+	printf("%d  %d\n", sig[0], sig[1]);
+	normal_echo();
 	my_pipe(cmd);
 	while (cmd)
 	{

@@ -4,12 +4,19 @@
 
 #include "../includes/header.h"
 
+void	reset()
+{
+	reset_signals();
+}
+
 static	int init_prompt(void)
 {
+	correct_echo();
 	g_global.line = readline(PROMPT_CMD);
 	if (!g_global.line)
 	{
-		write(1, "exit\n", 5);
+		ft_putstr_fd("exit\n", 1);
+		reset();
 		exit(g_global.exit_code);
 	}
 	if (!ft_strlen(g_global.line))

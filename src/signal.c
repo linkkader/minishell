@@ -24,12 +24,14 @@ void	sigint_handler_nonl(int sig)
 void	sigint_handler_in_process(int sig)
 {
 	(void) sig;
+	ft_putstr_fd("sigint \n", 2);
 	printf("\n");
 }
 
 void	sigquit_handler_in_process(int sig)
 {
 	(void) sig;
+	ft_putstr_fd("siquit \n", 2);
 	printf("Quit: %d\n", sig);
 }
 
@@ -49,4 +51,10 @@ void	signals(void)
 {
 	g_global.sig_int = signal(SIGINT, handler);
 	g_global.sig_quit = signal(SIGQUIT, SIG_IGN);
+}
+
+void	reset_signals()
+{
+	signal(SIGINT, g_global.sig_int);
+	signal(SIGQUIT, g_global.sig_quit);
 }

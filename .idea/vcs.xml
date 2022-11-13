@@ -4,5 +4,6 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/taha/Minishell_Tester" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/taha/tester" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/test" vcs="Git" />
   </component>
 </project>
