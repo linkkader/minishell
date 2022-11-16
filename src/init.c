@@ -113,9 +113,11 @@ void	update_env()
 void	init(char **env)
 {
 	g_global.env = copy(env);
+	g_global.std_in = 0;
+	g_global.doc_here_status = 0;
+	g_global.entries = NULL;
 	if (g_global.env == NULL)
 		return ;
-	g_global.entries = NULL;
 	env_to_entries(g_global.env);
 	signals();
 }

@@ -15,7 +15,7 @@ void	fix_fd(t_cmd *cmd)
 	in = cmd->in;
 	out = cmd->out;
 	tFile = cmd->files;
-	while (cmd->files)
+	while (tFile)
 	{
 		if (tFile->token == INFILE)
 			in = infile(tFile, in, &error);
@@ -33,16 +33,8 @@ void	fix_fd(t_cmd *cmd)
 
 void	close_all(t_cmd *cmd)
 {
-
-	ft_putstr_fd("close_all\n", 2);
 	while (cmd)
 	{
-		ft_putstr_fd("in", 2);
-		ft_putstr_fd(ft_itoa(cmd->in), 2);
-		ft_putstr_fd("\n", 2);
-		ft_putstr_fd("out", 2);
-		ft_putstr_fd(ft_itoa(cmd->out), 2);
-		ft_putstr_fd("\n", 2);
 		if (cmd->in != 0)
 			close(cmd->in);
 		if (cmd->out != 1)
@@ -53,8 +45,6 @@ void	close_all(t_cmd *cmd)
 
 void	run(t_cmd *cmd)
 {
-	int 	in;
-	int 	out;
 	int 	pid[2];
 
 	check_builtin(cmd);
@@ -63,7 +53,6 @@ void	run(t_cmd *cmd)
 		perror("minishell");
 		exit(errno);
 	}
-	printf(" ok \n");
 	cmd->pid = fork();
 	if (cmd->pid == 0)
 	{
@@ -93,6 +82,8 @@ void	exe(t_cmd *cmd)
 	my_pipe(cmd);
 	while (cmd)
 	{
+		fix_fd(cmd);
+		printf("cmd->in = %d cmd->out = %d\n", cmd->in, cmd->out);
 		run(cmd);
 		cmd = cmd->next;
 	}

@@ -10,12 +10,12 @@ void	my_pipe(t_cmd *cmd)
 	int		nextIn;
 
 
-	nextIn = STDIN_FILENO;
+	nextIn = dup(STDIN_FILENO);
 	while (cmd)
 	{
 		if (cmd->next == NULL)
 		{
-			cmd->out = STDOUT_FILENO;
+			cmd->out = dup(STDOUT_FILENO);
 			cmd->in = nextIn;
 		}
 		else
@@ -26,7 +26,6 @@ void	my_pipe(t_cmd *cmd)
 			cmd->out = fd[1];
 			nextIn = fd[0];
 		}
-		printf("cmd->in = %d cmd->out = %d\n", cmd->in, cmd->out);
 		cmd = cmd->next;
 	}
 }

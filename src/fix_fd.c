@@ -11,11 +11,13 @@ int	infile(t_file *tFile, int in, int *error)
 
 	fd = open(tFile->name, O_RDONLY);
 	if (fd < 0)
+	{
+		*error = 1;
 		perror("minishell");
+	}
 	else
 	{
-		//todo: need check if correct
-		dup2(in, fd);
+		dup2(fd, in);
 	}
 	return (in);
 }
@@ -48,9 +50,4 @@ int append_file(t_file *tFile, int out,  int *error)
 		dup2(fd, out);
 	}
 	return (out);
-}
-
-int here_doc(t_file *tFile, int in, int *error)
-{
-	return (in);
 }

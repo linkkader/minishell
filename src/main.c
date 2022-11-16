@@ -20,6 +20,7 @@ static	int init_prompt(void)
 		reset();
 		exit(g_global.exit_code);
 	}
+	g_global.doc_here_status = 0;
 	if (!ft_strlen(g_global.line))
 		return (1);
 	add_history(g_global.line);

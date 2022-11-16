@@ -78,6 +78,8 @@ typedef struct s_global
 	t_list			*entries;
 	int				exit_code;
 	struct termios	*attributes;
+	int				std_in;
+	int 			doc_here_status;
 }					t_global;
 
 t_global g_global;

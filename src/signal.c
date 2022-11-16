@@ -37,7 +37,10 @@ static void	handler(int sig)
 {
 	if (sig == SIGINT)
 	{
-		printf("\n");
+		if (g_global.doc_here_status == 0)
+		{
+			printf("\n");
+		}
 		rl_on_new_line();
 		rl_replace_line("", 0);
 		rl_redisplay();
