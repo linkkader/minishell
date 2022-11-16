@@ -31,6 +31,11 @@
 # define PROMPT_CMD "minishell$ "
 # define NOT_AN_IDENTIFIER "minishell: export: %s: not a valid identifier"
 
+//infile token
+# define INFILE 1
+# define OUTFILE 2
+# define APPEND 3
+# define HEREDOC 4
 
 typedef enum bool
 {
@@ -44,6 +49,14 @@ typedef struct entries{
 	t_bool	is_exported;
 }	t_entry;
 
+typedef struct s_file
+{
+	int				fd;
+	int				token;
+	char			*name;
+	struct s_file	*next;
+}            t_file;
+
 typedef struct s_cmd
 {
 	int				doc_index;
@@ -51,8 +64,7 @@ typedef struct s_cmd
 	int				in;
 	int				out;
 	char			**args;
-	char			**infile;
-	char			**outfile;
+	t_file			*files;
 	int				error;
 	pid_t			pid;
 	struct s_cmd	*next;
@@ -104,5 +116,10 @@ void	reset_signals();
 
 void	correct_echo();
 void	normal_echo();
+
+int	infile(t_file *tFile, int in, int *error);
+int	outfile(t_file *tFile, int out, int *error);
+int append_file(t_file *tFile, int out, int *error);
+int	here_doc(t_file *tFile, int in, int *error);
 
 #endif

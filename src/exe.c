@@ -4,44 +4,31 @@
 
 #include "../includes/header.h"
 
-int 	infile(t_cmd *cmd)
+void	fix_fd(t_cmd *cmd)
 {
-	int		i;
-	int 	fd;
+	int 	in;
+	int 	out;
+	int		error;
+	t_file	*tFile;
 
-	fd = -1;
-	i = 0;
-	while (cmd->infile[i])
+	error = 0;
+	in = cmd->in;
+	out = cmd->out;
+	tFile = cmd->files;
+	while (cmd->files)
 	{
-		fd = open(cmd->infile[i], O_RDONLY);
-		if (fd < 0)
-		{
-			perror("minishell");
+		if (tFile->token == INFILE)
+			in = infile(tFile, in, &error);
+		else if (tFile->token == OUTFILE)
+			out = outfile(tFile, out, &error);
+		else if (tFile->token == APPEND)
+			out = append_file(tFile, out, &error);
+		else if (tFile->token == HEREDOC)
+			in = here_doc(tFile, in, &error);
+		tFile = tFile->next;
+		if (error)
 			break ;
-		}
-		i++;
 	}
-	return (fd);
-}
-
-int		outfile(t_cmd *cmd)
-{
-	int		i;
-	int 	fd;
-
-	fd = -1;
-	i = 0;
-	while (cmd->outfile[i])
-	{
-		fd = open(cmd->outfile[i], O_WRONLY | O_CREAT | O_TRUNC, 0644);
-		if (fd < 0)
-		{
-			perror("minishell");
-			break ;
-		}
-		i++;
-	}
-	return (fd);
 }
 
 void	close_all(t_cmd *cmd)

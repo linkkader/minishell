@@ -25,7 +25,7 @@ PARSING_DIRECTORY = parsing/
 
 BUILTINS_FILE = builtin_cd.c     builtin_echo.c   builtin_env.c    builtin_exit.c   builtin_export.c builtin_pwd.c    builtin_unset.c
 
-FILE = check_builtins.c exe.c            get_path.c       init.c           main.c           signal.c         t_list_utils.c   termios.c error.c  fake.c  pipe.c\
+FILE = check_builtins.c exe.c            get_path.c       init.c           main.c           signal.c         t_list_utils.c   termios.c error.c  fake.c  pipe.c fix_fd.c\
 
 PARSE = $(PARSING_DIRECTORY)parse.a
 
@@ -44,8 +44,8 @@ FLAGS =
 LDFLAGS= -L /opt/homebrew/opt/readline/lib
 CPPFLAGS= -I /opt/homebrew/opt/readline/include
 
-#LDFLAGS="-L/goinfre/acouliba/brew/opt/readline/lib"
-#CPPFLAGS="-I/goinfre/acouliba/brew/opt/readline/include"
+LDFLAGS="-L/goinfre/acouliba/brew/opt/readline/lib"
+CPPFLAGS="-I/goinfre/acouliba/brew/opt/readline/include"
 
 #LDFLAGS= -L /Users/momeaizi/Desktop/brew/opt/readline/lib
 #CPPFLAGS= -I /Users/momeaizi/Desktop/brew/opt/readline/include
