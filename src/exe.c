@@ -29,6 +29,7 @@ void	fix_fd(t_cmd *cmd)
 		if (error)
 			break ;
 	}
+	cmd->error = error;
 }
 
 void	close_all(t_cmd *cmd)
@@ -50,7 +51,7 @@ void	run(t_cmd *cmd)
 	check_builtin(cmd);
 	if (pipe(pid))
 	{
-		perror("minishell");
+		perror("pipe");
 		exit(errno);
 	}
 	cmd->pid = fork();
@@ -61,7 +62,9 @@ void	run(t_cmd *cmd)
 			dup2(cmd->in, STDIN_FILENO);
 			dup2(cmd->out, STDOUT_FILENO);
 			close_all(g_global.cmds);
-			(execve(cmd->path, cmd->args, g_global.env));
+			if (cmd->error == 0)
+				(execve(cmd->path, cmd->args, g_global.env));
+			exit(cmd->error);
 		}
 		//todo: need to exit with the exit code of the command
 		exit(0);

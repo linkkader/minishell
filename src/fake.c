@@ -27,11 +27,11 @@ static t_cmd	*fake_cat()
 	cmd = malloc(sizeof(t_cmd));
 	cmd->args = malloc(sizeof(char *) * 3);
 	cmd->args[0] = ft_strdup("cat");
-	cmd->args[1] = ft_strdup("-e");
+	cmd->args[1] = ft_strdup("in.txt");
 	cmd->args[2] = NULL;
 	cmd->files = NULL;
+//	cmd->next = fake_cat2();
 	cmd->next = NULL;
-	cmd->next = fake_cat2();
 	cmd->path = NULL;
 	return (cmd);
 }
@@ -82,11 +82,11 @@ static t_file *fake_heredoc(char *name)
 
 t_file *fake_file()
 {
-	t_file	*file = fake_infile("Makefile");
-	file->next = fake_infile("in.txt");
-	file->next->next = fake_outfile("out.txt");
-	file->next->next->next = fake_outfile("out2.txt");
-	file->next->next->next->next = fake_heredoc("ll");
+	t_file	*file = fake_infile("in.txt");
+//	file->next = fake_infile("in.txt");
+//	file->next = fake_outfile("out.txt");
+//	file->next->next->next = fake_outfile("out2.txt");
+	file->next = fake_heredoc("ll");
 	return (file);
 }
 
@@ -102,8 +102,8 @@ t_cmd	*fake()
 	cmd->args[1] = NULL;
 	cmd->files = fake_file();
 	cmd->next = fake_cat();
-	cmd->next = fake_cat2();
-	cmd->next = NULL;
+//	cmd->next = fake_cat2();
+//	cmd->next = NULL;
 	cmd->path = NULL;
 	return (cmd);
 }
