@@ -12,10 +12,17 @@
 
 #include    "minishell.h"
 
+void	check_last(int i)
+{
+	if (i != -1)
+		if (i != 5)
+			write(2, "syntax error\n", 14);
+}
+
 void	ft_free(t_cmd *data)
 {
-	t_cmd *tmp;
-	int i = 0;
+	t_cmd	*tmp;
+	int	i = 0;
 
 	tmp = data;
 	while(data)
@@ -33,7 +40,6 @@ void	ft_free(t_cmd *data)
 			i++;
 		}
 		data = data->next;
-		//free(data->cmd);
 	}
 	free(tmp);
 
@@ -84,12 +90,13 @@ t_cmd	*ft_parce(t_lexer *lexer, t_token *token, t_cmd **data)
 	tmp = (*data);
 	while (token != NULL)
 	{
-		// printf("token (%d) ====== name (%s)\n", token->type, token->content);
 		if (ft_check_error(token->type, token->content, &i, (*data)) == -1)
 			break ;
 		ft_pipe_(data, i);
 		token  = next_token(lexer);
 	}
+	check_last(i);
+	system("leaks minishell");
 	return (tmp);
 }
  
@@ -109,7 +116,8 @@ int main()
 			exit(0);
 		lexer = start_lexer(str);
 		token  = next_token(lexer);
-		data = ft_parce(lexer, token, &data);	
+		data = ft_parce(lexer, token, &data);
+		add_history(str);
 		print_data(data);
 	}
 }

@@ -6,13 +6,37 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 08:33:19 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/19 13:22:52 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/21 15:28:56 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"minishell.h"
 
-int	ft_strlen(const char *str)
+char	*ft_substr(char *s, unsigned int start, size_t len)
+{
+	unsigned int	i;
+	unsigned int	str_l;
+	size_t			cnv;
+	char			*rslt;
+
+	cnv = len + 1;
+	if (cnv >= (size_t)ft_strlen(s))
+		cnv = ft_strlen(s);
+	rslt = malloc(cnv * sizeof(char));
+	if (!s || !rslt)
+		return (0);
+	i = 0;
+	str_l = ft_strlen(s);
+	while (s[start + i] && i < len && start < str_l)
+	{
+		rslt[i] = s[start + i];
+		i++;
+	}
+	rslt[i] = '\0';
+	return (rslt);
+}
+
+int	ft_strlen(char *str)
 {
 	int	i;
 
@@ -54,26 +78,6 @@ char	*ft_strjoin(char *s1, char *s2)
 int	is_cmd(char c)
 {
 	if (c != '<' && c != '>' && c != '|')
-		return 1;
-	return 0;
-}
-
-char	*ft_strdup(char *s1)
-{
-	int		x;
-	int		len;
-	char	*dup;
-
-	x = 0;
-	len = ft_strlen(s1);
-	dup = malloc((len + 1) * sizeof(*dup));
-	if (!dup)
-		return (NULL);
-	while (x < len)
-	{
-		dup[x] = s1[x];
-		x++;
-	}
-	dup[len] = '\0';
-	return (dup);
+		return (1);
+	return (0);
 }

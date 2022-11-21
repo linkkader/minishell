@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 08:32:57 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/19 12:35:55 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/21 15:54:56 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,61 +17,57 @@ t_token	*next_token(t_lexer *lexer)
 	t_token	*token;
 
 	token = NULL;
-	while (lexer->current != '\0' &&
-	lexer->index < ft_strlen(lexer->value))
+	while (lexer->c != '\0'
+		&& lexer->index < ft_strlen(lexer->value))
 	{
-		if (lexer->current == ' ' || lexer->current == '\t')
+		if (lexer->c == ' ' || lexer->c == '\t')
 			skip_spaces(lexer);
-		else if (lexer->current == '<')
+		else if (lexer->c == '<')
 		{
 			if (lexer->value[lexer->index + 1] == '<')
-				return(collect_app_here(lexer, '<', 1));
+				return (collect_app_here(lexer, '<', 1));
 			else
-				return (move_token(lexer, start_token(INFILE, convert_char(lexer))));
-			break;
+				return (move_token(lexer,
+						start_token(INFILE, convert_char(lexer))));
+			break ;
 		}
-		else if (lexer->current == '>')
+		else if (lexer->c == '>')
 		{
 			if (lexer->value[lexer->index + 1] == '>')
-				return(collect_app_here(lexer, '>', 0));
+				return (collect_app_here(lexer, '>', 0));
 			else
-				return (move_token(lexer, start_token(OUTFILE, convert_char(lexer))));
-			break;
+				return (move_token(lexer,
+						start_token(OUTFILE, convert_char(lexer))));
+			break ;
 		}
-		else if (lexer->current == '|')
+		else if (lexer->c == '|')
 		{
 			return (move_token(lexer, start_token(PIPE, convert_char(lexer))));
-			break;
+			break ;
 		}
-		else if (lexer->current == 0)
-		{
-			return (move_token(lexer, start_token(T_EOF, convert_char(lexer))));
-			break;
-		}
-	    else
+		else
 			return (collect_str(lexer));
 	}
-	return NULL;
+	return (NULL);
 }
 
 t_token	*collect_str(t_lexer *lexer)
 {
 	char	*value;
 	char	*str;
-	int 	count;
-	int 	convert;
+	int		flag;
 
 	value = NULL;
-	count = 0;
-	convert = 0;
-	// if (lexer->current == '$')
-	// 	convert = 1;
-	while (is_cmd(lexer->current) && lexer->current != ' ' && lexer->current != '\0')
+	flag = 0;
+	while (is_cmd(lexer->c) && lexer->c != ' ' && lexer->c != '\0')
 	{
-		if (lexer->current == '\"')
+		if (lexer->c == '\"')
 			value = handle_quote(lexer, value, '\"');
-		else if (lexer->current == '\'')
+		else if (lexer->c == '\'')
+		{
 			value = handle_quote(lexer, value, '\'');
+			flag = 1;
+		}
 		else
 		{
 			str = convert_char(lexer);
@@ -79,8 +75,8 @@ t_token	*collect_str(t_lexer *lexer)
 			move_byone(lexer);
 		}
 	}
-	// if (convert == 1)
-	// 	value = ft_expand(ft_strdup(value + 1));
+	if (ft_strchr(value, '$') == 1 && flag == 0)
+		value = ft_expand(value);
 	return (start_token(CMD, value));
 }
 
@@ -88,14 +84,14 @@ t_token	*collect_app_here(t_lexer *lexer, char c, int i)
 {
 	char	*value;
 	char	*str;
-	int q;
+	int		q;
 
 	q = 0;
 	value = NULL;
-	while (lexer->current == c && lexer->current != '\0')
+	while (lexer->c == c && lexer->c != '\0')
 	{
 		if (q == 2)
-			break;
+			break ;
 		str = convert_char(lexer);
 		value = ft_strjoin(value, str);
 		q += 1;
@@ -111,7 +107,7 @@ char	*convert_char(t_lexer *lexer)
 	char	*str;
 
 	str = malloc(sizeof(char) * 2);
-	str[0] = lexer->current;
+	str[0] = lexer->c;
 	str[1] = '\0';
 	return (str);
 }
@@ -119,18 +115,21 @@ char	*convert_char(t_lexer *lexer)
 char	*handle_quote(t_lexer *lexer, char *value, char q)
 {
 	char	*str;
-	
+
 	str = NULL;
 	move_byone(lexer);
-	while (lexer->current != q && lexer->current != '\0')
+	while (lexer->c != q && lexer->c != '\0')
 	{
 		str = convert_char(lexer);
 		value = ft_strjoin(value, str);
 		move_byone(lexer);
 	}
-	if (lexer->current == q)
+	if (lexer->c == q)
 		move_byone(lexer);
-	else if (lexer->current == '\0')
-		write(2, "error\n", 6);
+	else if (lexer->c == '\0')
+	{
+		write(2, "quote error\n", 13);
+		return (ft_strdup(""));
+	}
 	return (value);
 }

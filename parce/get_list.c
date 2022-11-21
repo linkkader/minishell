@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 11:12:11 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/19 13:21:28 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/21 15:25:12 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_matrix(char **tab)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (tab[i])
@@ -65,15 +65,14 @@ char	**store_cmd(char **tab, char *str)
 
 void	store_file(t_cmd *data, int i, char *content)
 {
-		if (i == 2)
-			ft_lstadd_back(&data->file, ft_lstnew(2, content));
-		else if (i == 4)
-			ft_lstadd_back(&data->file, ft_lstnew(4, content));
-		else if (i == 0)
-			ft_lstadd_back(&data->file, ft_lstnew(0, content));
-		else if (i == 1)
-			ft_lstadd_back(&data->file, ft_lstnew(1, content));
-		else
-			data->cmd = store_cmd(data->cmd, content);
+	if (i == 2)
+		ft_lstadd_back(&data->file, ft_lstnew(2, content));
+	else if (i == 4)
+		ft_lstadd_back(&data->file, ft_lstnew(4, content));
+	else if (i == 0)
+		ft_lstadd_back(&data->file, ft_lstnew(0, content));
+	else if (i == 1)
+		ft_lstadd_back(&data->file, ft_lstnew(1, content));
+	else
+		data->cmd = store_cmd(data->cmd, content);
 }
-
