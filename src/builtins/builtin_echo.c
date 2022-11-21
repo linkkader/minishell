@@ -19,15 +19,15 @@ void	echo_builtin(t_cmd *cmd)
 
 	i = 1;
 	arg = false;
-	while (cmd->args[i])
+	while (cmd->cmd[i])
 	{
-		if (cmd->args[i] && ft_strcmp("-n", cmd->args[i]) == 0)
+		if (cmd->cmd[i] && ft_strcmp("-n", cmd->cmd[i]) == 0)
 			arg = true;
-		else if (cmd->args[i + 1] == 0)
-			ft_putstr_fd(cmd->args[i], cmd->out);
+		else if (cmd->cmd[i + 1] == 0)
+			ft_putstr_fd(cmd->cmd[i], cmd->out);
 		else
 		{
-			ft_putstr_fd(cmd->args[i], cmd->out);
+			ft_putstr_fd(cmd->cmd[i], cmd->out);
 			ft_putstr_fd(" ", cmd->out);
 		}
 		i++;

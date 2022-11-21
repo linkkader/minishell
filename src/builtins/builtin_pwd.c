@@ -16,7 +16,7 @@ void	pwd_builtin(t_cmd *cmd)
 {
 	char	*path;
 
-	if (cmd->args[1] == NULL)
+	if (cmd->cmd[1] == NULL)
 	{
 		path = getcwd(NULL, 1000);
 		if (path == NULL)

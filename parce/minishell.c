@@ -96,11 +96,19 @@ t_cmd	*ft_parce(t_lexer *lexer, t_token *token, t_cmd **data)
 		token  = next_token(lexer);
 	}
 	check_last(i);
-	system("leaks minishell");
 	return (tmp);
 }
- 
-int main()
+
+void parse()
+{
+	t_lexer	*lexer;
+	t_token	*token;
+
+	lexer = start_lexer(g_global.line);
+	token  = next_token(lexer);
+	g_global.cmds = ft_parce(lexer, token, &g_global.cmds);
+}
+int main1()
 {
 	t_lexer	*lexer;
 	t_token	*token;
@@ -114,9 +122,6 @@ int main()
 		str = readline("minishell> ");
 		if (!str)
 			exit(0);
-		lexer = start_lexer(str);
-		token  = next_token(lexer);
-		data = ft_parce(lexer, token, &data);
 		add_history(str);
 		print_data(data);
 	}

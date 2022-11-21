@@ -9,12 +9,12 @@ static t_cmd	*fake_cat2()
 	t_cmd	*cmd;
 
 	cmd = malloc(sizeof(t_cmd));
-	cmd->args = malloc(sizeof(char *) * 4);
-	cmd->args[0] = ft_strdup("head");
-	cmd->args[1] = ft_strdup("-c");
-	cmd->args[2] = ft_strdup("40");
-	cmd->args[3] = NULL;
-	cmd->files = NULL;
+	cmd->cmd = malloc(sizeof(char *) * 4);
+	cmd->cmd[0] = ft_strdup("head");
+	cmd->cmd[1] = ft_strdup("-c");
+	cmd->cmd[2] = ft_strdup("40");
+	cmd->cmd[3] = NULL;
+	cmd->file = NULL;
 	cmd->next = NULL;
 	cmd->path = NULL;
 	return (cmd);
@@ -25,11 +25,11 @@ static t_cmd	*fake_cat()
 	t_cmd	*cmd;
 
 	cmd = malloc(sizeof(t_cmd));
-	cmd->args = malloc(sizeof(char *) * 3);
-	cmd->args[0] = ft_strdup("cat");
-	cmd->args[1] = ft_strdup("in.txt");
-	cmd->args[2] = NULL;
-	cmd->files = NULL;
+	cmd->cmd = malloc(sizeof(char *) * 3);
+	cmd->cmd[0] = ft_strdup("cat");
+	cmd->cmd[1] = ft_strdup("in.txt");
+	cmd->cmd[2] = NULL;
+	cmd->file = NULL;
 //	cmd->next = fake_cat2();
 	cmd->next = NULL;
 	cmd->path = NULL;
@@ -96,11 +96,11 @@ t_cmd	*fake()
 	t_cmd	*cmd;
 
 	cmd = malloc(sizeof(t_cmd));
-	cmd->args = malloc(sizeof(char *) * 2);
-	cmd->args[0] = ft_strdup("cat");
-//	cmd->args[1] = ft_strdup("-l");
-	cmd->args[1] = NULL;
-	cmd->files = fake_file();
+	cmd->cmd = malloc(sizeof(char *) * 2);
+	cmd->cmd[0] = ft_strdup("cat");
+//	cmd->cmd[1] = ft_strdup("-l");
+	cmd->cmd[1] = NULL;
+	cmd->file = fake_file();
 	cmd->next = fake_cat();
 //	cmd->next = fake_cat2();
 //	cmd->next = NULL;

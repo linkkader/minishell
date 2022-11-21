@@ -66,13 +66,13 @@ char	**store_cmd(char **tab, char *str)
 void	store_file(t_cmd *data, int i, char *content)
 {
 	if (i == 2)
-		ft_lstadd_back(&data->file, ft_lstnew(2, content));
+		ft_lstadd_back_parse(&data->file, ft_lstnew_parse(2, content));
 	else if (i == 4)
-		ft_lstadd_back(&data->file, ft_lstnew(4, content));
+		ft_lstadd_back_parse(&data->file, ft_lstnew_parse(4, content));
 	else if (i == 0)
-		ft_lstadd_back(&data->file, ft_lstnew(0, content));
+		ft_lstadd_back_parse(&data->file, ft_lstnew_parse(0, content));
 	else if (i == 1)
-		ft_lstadd_back(&data->file, ft_lstnew(1, content));
+		ft_lstadd_back_parse(&data->file, ft_lstnew_parse(1, content));
 	else
 		data->cmd = store_cmd(data->cmd, content);
 }

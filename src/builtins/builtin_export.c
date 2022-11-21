@@ -164,7 +164,7 @@ void	export_builtin(t_cmd *cmd)
 	int 	i;
 
 	i = 1;
-	if (cmd->args[1] == NULL)
+	if (cmd->cmd[1] == NULL)
 	{
 		temp = g_global.entries;
 		while (temp)
@@ -176,9 +176,9 @@ void	export_builtin(t_cmd *cmd)
 		}
 	}
 	else {
-		while (cmd->args[i] != NULL)
+		while (cmd->cmd[i] != NULL)
 		{
-			try_export(cmd->args[i], cmd);
+			try_export(cmd->cmd[i], cmd);
 			i++;
 		}
 	}

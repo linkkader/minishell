@@ -36,7 +36,8 @@ int main(int ac, char **av, char **env)
 	{
 		if (init_prompt())
 			continue ;
-		g_global.cmds = fake();
+		//g_global.cmds = fake();
+		parse();
 		exe(g_global.cmds);
 	}
 	return (0);

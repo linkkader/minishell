@@ -26,6 +26,7 @@
 # include <signal.h>
 #include <sys/errno.h>
 # include "../libft/libft.h"
+# include "../parce/minishell.h"
 
 # define ERR_CMD ": command not found\n"
 # define PROMPT_CMD "minishell$ "
@@ -37,52 +38,7 @@
 # define APPEND 3
 # define HEREDOC 4
 
-typedef enum bool
-{
-	false,
-	true
-}	t_bool;
 
-typedef struct entries{
-	char	*key;
-	char	*value;
-	t_bool	is_exported;
-}	t_entry;
-
-typedef struct s_file
-{
-	int				fd;
-	int				token;
-	char			*name;
-	struct s_file	*next;
-}            t_file;
-
-typedef struct s_cmd
-{
-	int				doc_index;
-	char			*path;
-	int				in;
-	int				out;
-	char			**args;
-	t_file			*files;
-	int				error;
-	pid_t			pid;
-	struct s_cmd	*next;
-}					t_cmd;
-
-typedef struct s_global
-{
-	t_cmd			*cmds;
-	char			*line;
-	char			**env;
-	t_list			*entries;
-	int				exit_code;
-	struct termios	*attributes;
-	int				std_in;
-	int 			doc_here_status;
-}					t_global;
-
-t_global g_global;
 
 void	init(char **env);
 
@@ -123,5 +79,6 @@ int	infile(t_file *tFile, int in, int *error);
 int	outfile(t_file *tFile, int out, int *error);
 int append_file(t_file *tFile, int out, int *error);
 int	here_doc(t_file *tFile, int in, int *error);
+
 
 #endif

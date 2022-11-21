@@ -63,9 +63,9 @@ void	unset_builtin(t_cmd *cmd)
 	int		i;
 
 	i = 1;
-	while (cmd->args[i])
+	while (cmd->cmd[i])
 	{
-		delete_item(&g_global.entries, cmd->args[i]);
+		delete_item(&g_global.entries, cmd->cmd[i]);
 		i++;
 	}
 	clear_d2(g_global.env);

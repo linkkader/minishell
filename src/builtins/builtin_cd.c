@@ -34,9 +34,9 @@ void	cd_builtin(t_cmd *cmd)
 	char	*path;
 
 	path = NULL;
-	if (cmd->args[1] == NULL || ( cmd->args[1] != NULL && ft_strcmp(cmd->args[1], "~") == 0))
+	if (cmd->cmd[1] == NULL || ( cmd->cmd[1] != NULL && ft_strcmp(cmd->cmd[1], "~") == 0))
 		path = ft_get_env("HOME");
-	else if (ft_strcmp("-", cmd->args[1]) == 0)
+	else if (ft_strcmp("-", cmd->cmd[1]) == 0)
 	{
 		path = ft_get_env("OLDPWD");
 		if (path == NULL)
@@ -46,7 +46,7 @@ void	cd_builtin(t_cmd *cmd)
 		}
 	}
 	else
-		path = ft_strdup(cmd->args[1]);
+		path = ft_strdup(cmd->cmd[1]);
 	if (access(path, X_OK) == 0)
 		part(cmd, path);
 	else

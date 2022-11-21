@@ -1,6 +1,8 @@
+
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
+CFLAGS =
 CF = -lreadline -L /Users/$(USER)/.brew/opt/readline/lib -I /Users/$(USER)/.brew/opt/readline/include
 
 SRCS =	lexer_tools.c \
@@ -16,13 +18,18 @@ SRCS =	lexer_tools.c \
 
 OBJS = ${SRCS:.c=.o}
 
-NAME = minishell
+NAME = parse.a
 
 REM = rm -f
 
+parse.a: $(OBJS)
+	ar -rc $(NAME) $^
+
 all : $(NAME)
-$(NAME) : $(OBJS)                                                     
-	$(CC) $(CFLAGS) $(CF) $(OBJS) $(CFLAGS) -o $(NAME)
+
+
+#$(NAME) : $(OBJS)
+#	$(CC) $(CFLAGS) $(CF) $(OBJS) $(CFLAGS) -o $(NAME)
 
 clean :
 	${REM} ${OBJS}

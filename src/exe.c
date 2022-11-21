@@ -14,7 +14,7 @@ void	fix_fd(t_cmd *cmd)
 	error = 0;
 	in = cmd->in;
 	out = cmd->out;
-	tFile = cmd->files;
+	tFile = cmd->file;
 	while (tFile)
 	{
 		if (tFile->token == INFILE)
@@ -63,7 +63,7 @@ void	run(t_cmd *cmd)
 			dup2(cmd->out, STDOUT_FILENO);
 			close_all(g_global.cmds);
 			if (cmd->error == 0)
-				(execve(cmd->path, cmd->args, g_global.env));
+				(execve(cmd->path, cmd->cmd, g_global.env));
 			exit(cmd->error);
 		}
 		//todo: need to exit with the exit code of the command

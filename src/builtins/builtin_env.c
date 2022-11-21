@@ -39,7 +39,7 @@ void	env_builtin(t_cmd *cmd)
 	int		i;
 
 	i = 0;
-	if (cmd->args[1] == NULL)
+	if (cmd->cmd[1] == NULL)
 		return ;
 	while (g_global.env[i])
 	{

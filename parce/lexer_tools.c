@@ -37,7 +37,7 @@ void	move_byone(t_lexer *lexer)
 {
 	if (lexer->c != '\0')
 	{
-		if (lexer->index < ft_strlen(lexer->value))
+		if (lexer->index < ft_strlen_parse(lexer->value))
 		{
 			lexer->index += 1;
 			lexer->c = lexer->value[lexer->index];

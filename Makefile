@@ -21,7 +21,7 @@ BUILTINS_DIRECTORY = builtins/
 
 LIBFT_DIRECTORY = libft/
 
-PARSING_DIRECTORY = parsing/
+PARSING_DIRECTORY = parce/
 
 BUILTINS_FILE = builtin_cd.c     builtin_echo.c   builtin_env.c    builtin_exit.c   builtin_export.c builtin_pwd.c    builtin_unset.c
 
@@ -75,9 +75,9 @@ $(OBJECTS_DIRECTORY):
 	mkdir -p $(OBJECTS_DIRECTORY)$(BUILTINS_DIRECTORY)
 
 #$(PARSE)
-# $(PARSE)
-$(NAME): $(LIBFT) $(OBJECTS_DIRECTORY) $(OBJS)
-	gcc $(FLAGS) -I $(HEADERS) $(OBJS) $(LIBFT) $(LDFLAGS) -l readline  -o  $(NAME)
+
+$(NAME): $(LIBFT) $(OBJECTS_DIRECTORY) $(OBJS) $(PARSE)
+	gcc $(FLAGS) -I $(HEADERS) $(OBJS) $(LIBFT) $(PARSE) $(LDFLAGS) -l readline  -o  $(NAME)
 
 
 clean:
