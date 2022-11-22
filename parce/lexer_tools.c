@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 20:49:52 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/21 15:54:10 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/21 21:41:44 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ t_token	*start_token(int type, char *content)
 
 	token = malloc(sizeof(t_token));
 	token->type = type;
-	token->content = content;
+	token->content = ft_strdup(content);
+	free(content);
 	return (token);
 }
 
@@ -37,7 +38,7 @@ void	move_byone(t_lexer *lexer)
 {
 	if (lexer->c != '\0')
 	{
-		if (lexer->index < ft_strlen_parse(lexer->value))
+		if (lexer->index < ft_strlen(lexer->value))
 		{
 			lexer->index += 1;
 			lexer->c = lexer->value[lexer->index];

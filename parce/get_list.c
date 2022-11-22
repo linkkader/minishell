@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 11:12:11 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/21 15:25:12 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/21 23:42:02 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	ft_strlen_(char **tab)
 	int	i;
 
 	i = 0;
+	if (!tab)
+		return 0;
 	while (tab[i])
 		i++;
 	return (i);
@@ -46,7 +48,7 @@ char	**store_cmd(char **tab, char *str)
 	if (!tab)
 	{
 		new = malloc(2 * sizeof(char *));
-		new[0] = str;
+		new[0] = ft_strdup(str);
 		new[1] = NULL;
 	}
 	else
@@ -54,25 +56,30 @@ char	**store_cmd(char **tab, char *str)
 		new = malloc((ft_strlen_(tab) + 2) * sizeof(char *));
 		while (tab[i])
 		{
-			new[i] = tab[i];
+			new[i] = ft_strdup(tab[i]);
 			i++;
 		}
-		new[i] = str;
-		new[i + 1] = NULL;
+		new[i++] = ft_strdup(str);
+		new[i] = NULL;
 	}
+	if (tab)
+		free_matrix(tab);
 	return (new);
 }
 
 void	store_file(t_cmd *data, int i, char *content)
 {
 	if (i == 2)
-		ft_lstadd_back_parse(&data->file, ft_lstnew_parse(2, content));
+		ft_lstadd_back(&data->file, ft_lstnew(2, content));
 	else if (i == 4)
-		ft_lstadd_back_parse(&data->file, ft_lstnew_parse(4, content));
+		ft_lstadd_back(&data->file, ft_lstnew(4, content));
 	else if (i == 0)
-		ft_lstadd_back_parse(&data->file, ft_lstnew_parse(0, content));
+		ft_lstadd_back(&data->file, ft_lstnew(0, content));
 	else if (i == 1)
-		ft_lstadd_back_parse(&data->file, ft_lstnew_parse(1, content));
+		ft_lstadd_back(&data->file, ft_lstnew(1, content));
 	else
+	{
 		data->cmd = store_cmd(data->cmd, content);
+	}
+		
 }

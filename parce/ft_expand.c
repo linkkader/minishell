@@ -22,7 +22,7 @@ char	*ft_charjoin(char *s1, char c)
 		str = malloc(2 * sizeof(char));
 	else
 	{
-		str = malloc((ft_strlen_parse(s1) + 2) * sizeof(char));
+		str = malloc((ft_strlen(s1) + 2) * sizeof(char));
 		while (s1[i])
 		{
 			str[i] = s1[i];
@@ -37,14 +37,14 @@ char	*ft_charjoin(char *s1, char c)
 	return (str);
 }
 
-static int	ft_isalpha_parse(int c)
+static int	ft_isalpha(int c)
 {
 	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
 		return (1);
 	return (0);
 }
 
-static int	ft_isdigit_parse(int c)
+static int	ft_isdigit(int c)
 {
 	if (c >= 48 && c <= 57)
 		return (1);
@@ -58,19 +58,19 @@ char	*get_value(char *value, int *i)
 
 	j = 0;
 	tmp = NULL;
-	if (value[*i] && value[*i] == '$' && (ft_isalpha_parse(value[(*i) + 1])
+	if (value[*i] && value[*i] == '$' && (ft_isalpha(value[(*i) + 1])
 			|| value[(*i) + 1] == '_'))
 	{
 		(*i)++;
 		j = *i;
 		while (value[*i])
 		{
-			if (!ft_isalpha_parse(value[*i + 1]) && value[(*i) + 1] != '_'
-				&& !ft_isdigit_parse(value[(*i) + 1]))
+			if (!ft_isalpha(value[*i + 1]) && value[(*i) + 1] != '_'
+				&& !ft_isdigit(value[(*i) + 1]))
 				break ;
 			(*i)++;
 		}
-		tmp = ft_strdup_parse(getenv(ft_substr_parse(value, j, (*i) - j + 1)));
+		tmp = ft_strdup(getenv(ft_substr(value, j, (*i) - j + 1)));
 	}
 	return (tmp);
 }
@@ -85,7 +85,7 @@ char	*ft_expand(char *value)
 	while (value[i])
 	{
 		if (value[i] == '$')
-			str = ft_strjoin_parse(str, get_value(value, &i));
+			str = ft_strjoin(str, get_value(value, &i));
 		else
 			str = ft_charjoin(str, value[i]);
 		i++;

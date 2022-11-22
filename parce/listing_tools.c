@@ -12,7 +12,7 @@
 
 #include	"minishell.h"
 
-void	ft_lstadd_back_parse(t_file **lst, t_file *new)
+void	ft_lstadd_back(t_file **lst, t_file *new)
 {
 	t_file	*last;
 
@@ -20,7 +20,7 @@ void	ft_lstadd_back_parse(t_file **lst, t_file *new)
 	{
 		if (*lst)
 		{
-			last = ft_lstlast_parse(*lst);
+			last = ft_lstlast(*lst);
 			last->next = new;
 		}
 		else
@@ -28,7 +28,7 @@ void	ft_lstadd_back_parse(t_file **lst, t_file *new)
 	}
 }
 
-t_file	*ft_lstlast_parse(t_file *lst)
+t_file	*ft_lstlast(t_file *lst)
 {
 	while (lst)
 	{
@@ -39,7 +39,7 @@ t_file	*ft_lstlast_parse(t_file *lst)
 	return (0);
 }
 
-t_file	*ft_lstnew_parse(int token, char *name)
+t_file	*ft_lstnew(int token, char *name)
 {
 	t_file	*new;
 
@@ -48,7 +48,7 @@ t_file	*ft_lstnew_parse(int token, char *name)
 	{
 		if (!new)
 			return (NULL);
-		new -> name = ft_strdup_parse(name);
+		new -> name = ft_strdup(name);
 		new -> token = token;
 		new -> next = NULL;
 	}

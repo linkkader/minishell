@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:19:43 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/21 15:20:26 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/22 15:08:00 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ int	ft_check_error(int type, char *content, int *i, t_cmd *data)
 
 	check = 1;
 	if (type == PIPE && (*i) == -1)
+	{
 		write(2, "syntax error\n", 14);
+		return -1;
+	}
 	else if (type == INFILE)
 		check = check_infile(i);
 	else if (type == OUTFILE)
@@ -31,7 +34,9 @@ int	ft_check_error(int type, char *content, int *i, t_cmd *data)
 		check = check_append(i);
 	else if (type == CMD)
 	{
+		
 		store_file(data, (*i), content);
+		// free(content);
 		(*i) = 5;
 	}
 	return (check);
