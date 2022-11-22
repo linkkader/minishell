@@ -48,7 +48,7 @@ char	**store_cmd(char **tab, char *str)
 	if (!tab)
 	{
 		new = malloc(2 * sizeof(char *));
-		new[0] = ft_strdup(str);
+		new[0] = ft_strdup_parse(str);
 		new[1] = NULL;
 	}
 	else
@@ -56,10 +56,10 @@ char	**store_cmd(char **tab, char *str)
 		new = malloc((ft_strlen_(tab) + 2) * sizeof(char *));
 		while (tab[i])
 		{
-			new[i] = ft_strdup(tab[i]);
+			new[i] = ft_strdup_parse(tab[i]);
 			i++;
 		}
-		new[i++] = ft_strdup(str);
+		new[i++] = ft_strdup_parse(str);
 		new[i] = NULL;
 	}
 	if (tab)
@@ -70,13 +70,13 @@ char	**store_cmd(char **tab, char *str)
 void	store_file(t_cmd *data, int i, char *content)
 {
 	if (i == 2)
-		ft_lstadd_back(&data->file, ft_lstnew(2, content));
+		ft_lstadd_back_parse(&data->file, ft_lstnew_parse(2, content));
 	else if (i == 4)
-		ft_lstadd_back(&data->file, ft_lstnew(4, content));
+		ft_lstadd_back_parse(&data->file, ft_lstnew_parse(4, content));
 	else if (i == 0)
-		ft_lstadd_back(&data->file, ft_lstnew(0, content));
+		ft_lstadd_back_parse(&data->file, ft_lstnew_parse(0, content));
 	else if (i == 1)
-		ft_lstadd_back(&data->file, ft_lstnew(1, content));
+		ft_lstadd_back_parse(&data->file, ft_lstnew_parse(1, content));
 	else
 	{
 		data->cmd = store_cmd(data->cmd, content);

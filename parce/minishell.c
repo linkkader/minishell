@@ -105,8 +105,18 @@ t_cmd	*ft_parce(t_lexer *lexer, t_token *token, t_cmd **data)
 	//system("leaks minishell");
 	return (tmp);
 }
- 
-int main()
+
+void parse()
+{
+	t_lexer	*lexer;
+	t_token	*token;
+
+	lexer = start_lexer(g_global.line);
+	token  = next_token(lexer);
+	g_global.cmds = ft_parce(lexer, token, &g_global.cmds);
+}
+
+int main1()
 {
 	t_lexer	*lexer;
 	t_token	*token;

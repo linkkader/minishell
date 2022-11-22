@@ -12,7 +12,7 @@
 
 #include	"minishell.h"
 
-char	*ft_substr(char *s, unsigned int start, size_t len)
+char	*ft_substr_parse(char *s, unsigned int start, size_t len)
 {
 	unsigned int	i;
 	unsigned int	str_l;
@@ -20,13 +20,13 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	char			*rslt;
 
 	cnv = len + 1;
-	if (cnv >= (size_t)ft_strlen(s))
-		cnv = ft_strlen(s);
+	if (cnv >= (size_t)ft_strlen_parse(s))
+		cnv = ft_strlen_parse(s);
 	rslt = malloc(cnv * sizeof(char));
 	if (!s || !rslt)
 		return (0);
 	i = 0;
-	str_l = ft_strlen(s);
+	str_l = ft_strlen_parse(s);
 	while (s[start + i] && i < len && start < str_l)
 	{
 		rslt[i] = s[start + i];
@@ -36,7 +36,7 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	return (rslt);
 }
 
-int	ft_strlen(char *str)
+int	ft_strlen_parse(char *str)
 {
 	int	i;
 
@@ -46,7 +46,7 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_parse(char *s1, char *s2)
 {
 	char	*str;
 	size_t	i;
@@ -55,9 +55,9 @@ char	*ft_strjoin(char *s1, char *s2)
 	i = 0;
 	j = 0;
 	if (s1)
-		j = ft_strlen(s1);
+		j = ft_strlen_parse(s1);
 	if (s2)
-		j += ft_strlen(s2);
+		j += ft_strlen_parse(s2);
 	str = malloc((j + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
