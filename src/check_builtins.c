@@ -12,11 +12,24 @@
 
 #include "../includes/header.h"
 
+char	*ft_lower(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		str[i] = ft_tolower(str[i]);
+		i++;
+	}
+	return (str);
+}
+
 void	check_builtin(t_cmd *tmp)
 {
 	char	*name;
 
-	name = tmp->cmd[0];
+	name = ft_lower(tmp->cmd[0]);
 	if (ft_strcmp(name, "cd") == 0)
 		cd_builtin(tmp);
 	else if (ft_strcmp(name, "echo") == 0)
@@ -34,4 +47,5 @@ void	check_builtin(t_cmd *tmp)
 		tmp->path = get_cmd_path(tmp,
 				tmp->cmd[0]);
 	}
+	free(name);
 }

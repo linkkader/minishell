@@ -19,6 +19,7 @@ void	echo_builtin(t_cmd *cmd)
 
 	i = 1;
 	arg = false;
+	ft_putstr_fd("echo\n", 1);
 	while (cmd->cmd[i])
 	{
 		if (cmd->cmd[i] && ft_strcmp("-n", cmd->cmd[i]) == 0)
