@@ -22,7 +22,7 @@ void	my_pipe(t_cmd *cmd)
 		{
 			cmd->in = nextIn;
 			pipe(fd);
-			printf("fd[0] = %d  fd[1] = %d\n",	fd[0], fd[1]);
+			// printf("fd[0] = %d  fd[1] = %d\n",	fd[0], fd[1]);
 			cmd->out = fd[1];
 			nextIn = fd[0];
 		}

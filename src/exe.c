@@ -86,7 +86,7 @@ void	exe(t_cmd *cmd)
 	while (cmd)
 	{
 		fix_fd(cmd);
-		printf("cmd->in = %d cmd->out = %d\n", cmd->in, cmd->out);
+		// printf("cmd->in = %d cmd->out = %d\n", cmd->in, cmd->out);
 		run(cmd);
 		cmd = cmd->next;
 	}

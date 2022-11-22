@@ -30,14 +30,26 @@ static	int init_prompt(void)
 int main(int ac, char **av, char **env)
 {
 	char	*line;
+	t_global *tmp;
+	int i = 0;
 
+	tmp = &g_global;
 	init(env);
 	while (1)
 	{
 		if (init_prompt())
 			continue ;
-		g_global.cmds = fake();
-//		parse();
+		// g_global.cmds = fake();
+		parse();
+		// t_cmd *tmp = g_global.cmds;
+
+		// while (tmp != NULL)
+		// {
+		// 	for(int i=0; tmp->cmd[i] ; i++)
+		// 		printf("%s\n", tmp->cmd[i]);
+		// 	// printf("%s\n", tmp->cmd);
+		// 	tmp = tmp->next;
+		// }
 		exe(g_global.cmds);
 	}
 	return (0);

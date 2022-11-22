@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: acouliba <momeaizi@student.42.fr>          +#+  +:+       +#+         #
+#    By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/06 14:30:37 by acouliba          #+#    #+#              #
-#    Updated: 2022/06/21 17:39:40 by acouliba         ###   ########.fr        #
+#    Updated: 2022/11/22 23:45:10 by ofarissi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,6 @@ OBJECTS_DIRECTORY = obj/
 
 FLAGS = -Wextra -Wall -Werror
 
-FLAGS =
 
 LDFLAGS= -L /opt/homebrew/opt/readline/lib
 CPPFLAGS= -I /opt/homebrew/opt/readline/include
@@ -68,7 +67,7 @@ $(LIBFT):
 
 $(PARSE):
 	@echo "make $(PARSE)"
-	@make -sC $(PARSING_DIRECTORY)
+	@make -sC  $(PARSING_DIRECTORY)
 
 $(OBJECTS_DIRECTORY):
 	mkdir -p $@

@@ -74,6 +74,7 @@ void	ft_pipe_(t_cmd **data, int i)
 		(*data) = (*data)->next;
 		(*data)->file = NULL;
 		(*data)->cmd = NULL;
+		(*data)->next = NULL;
 	}
 }
 
@@ -92,10 +93,16 @@ t_cmd	*ft_parce(t_lexer *lexer, t_token *token, t_cmd **data)
 	{
 		if (ft_check_error(token->type, token->content, &i, (*data)) == -1)
 			break ;
-		ft_pipe_(data, i);
-		token  = next_token(lexer);
+			ft_pipe_(data, i);
+		token = next_token(lexer);
+		// if (token)
+		// {
+		// 	free(token->content);
+		// 	free(token);
+		// }
 	}
-	check_last(i);
+	//check_last(i, tmp);
+	//system("leaks minishell");
 	return (tmp);
 }
 
@@ -108,21 +115,22 @@ void parse()
 	token  = next_token(lexer);
 	g_global.cmds = ft_parce(lexer, token, &g_global.cmds);
 }
-int main1()
-{
-	t_lexer	*lexer;
-	t_token	*token;
-	t_cmd	*data;
-	char 	*str;
 
-	data = NULL;
-	str = NULL;
-	while(1)
-	{
-		str = readline("minishell> ");
-		if (!str)
-			exit(0);
-		add_history(str);
-		print_data(data);
-	}
-}
+// int main1()
+// {
+// 	t_lexer	*lexer;
+// 	t_token	*token;
+// 	t_cmd	*data;
+// 	char 	*str;
+
+// 	data = NULL;
+// 	str = NULL;
+// 	while(1)
+// 	{
+// 		str = readline("minishell> ");
+// 		if (!str)
+// 			exit(0);
+// 		add_history(str);
+// 		print_data(data);
+// 	}
+// }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signal.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acouliba <acouliba@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 15:10:28 by acouliba          #+#    #+#             */
-/*   Updated: 2022/06/21 18:01:23 by acouliba         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:04:58 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	sigint_handler_nonl(int sig)
 {
 	rl_on_new_line();
-	rl_replace_line("", 0);
+	// rl_replace_line("", 0);
 	rl_redisplay();
 	(void) sig;
 }
@@ -42,7 +42,7 @@ static void	handler(int sig)
 			printf("\n");
 		}
 		rl_on_new_line();
-		rl_replace_line("", 0);
+		// rl_replace_line("", 0);
 		rl_redisplay();
 		(void) sig;
 	}
