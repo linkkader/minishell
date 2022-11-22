@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 08:32:57 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/21 21:40:49 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/21 15:54:56 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_token	*next_token(t_lexer *lexer)
 
 	token = NULL;
 	while (lexer->c != '\0'
-		&& lexer->index < ft_strlen(lexer->value))
+		&& lexer->index < ft_strlen_parse(lexer->value))
 	{
 		if (lexer->c == ' ' || lexer->c == '\t')
 			skip_spaces(lexer);
@@ -51,6 +51,20 @@ t_token	*next_token(t_lexer *lexer)
 	return (NULL);
 }
 
+static int	ft_strchr_parse(char *s, int c)
+{
+	if (s)
+	{
+		while (*s != (unsigned char)c)
+		{
+			if (*s == '\0')
+				return (0);
+			s++;
+		}
+	}
+	return (1);
+}
+
 t_token	*collect_str(t_lexer *lexer)
 {
 	char	*value;
@@ -71,11 +85,11 @@ t_token	*collect_str(t_lexer *lexer)
 		else
 		{
 			str = convert_char(lexer);
-			value = ft_strjoin(value, str);
+			value = ft_strjoin_parse(value, str);
 			move_byone(lexer);
 		}
 	}
-	if (ft_strchr(value, '$') == 1 && flag == 0)
+	if (ft_strchr_parse(value, '$') == 1 && flag == 0)
 		value = ft_expand(value);
 	return (start_token(CMD, value));
 }
@@ -93,7 +107,7 @@ t_token	*collect_app_here(t_lexer *lexer, char c, int i)
 		if (q == 2)
 			break ;
 		str = convert_char(lexer);
-		value = ft_strjoin(value, str);
+		value = ft_strjoin_parse(value, str);
 		q += 1;
 		move_byone(lexer);
 	}
@@ -121,7 +135,7 @@ char	*handle_quote(t_lexer *lexer, char *value, char q)
 	while (lexer->c != q && lexer->c != '\0')
 	{
 		str = convert_char(lexer);
-		value = ft_strjoin(value, str);
+		value = ft_strjoin_parse(value, str);
 		move_byone(lexer);
 	}
 	if (lexer->c == q)
@@ -129,7 +143,7 @@ char	*handle_quote(t_lexer *lexer, char *value, char q)
 	else if (lexer->c == '\0')
 	{
 		write(2, "quote error\n", 13);
-		return (ft_strdup(""));
+		return (ft_strdup_parse(""));
 	}
 	return (value);
 }

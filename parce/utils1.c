@@ -12,21 +12,7 @@
 
 #include	"minishell.h"
 
-int	ft_strchr(char *s, int c)
-{
-	if (s)
-	{
-		while (*s != (unsigned char)c)
-		{
-			if (*s == '\0')
-				return (0);
-			s++;
-		}
-	}
-	return (1);
-}
-
-char	*ft_strdup(char *s1)
+char	*ft_strdup_parse(char *s1)
 {
 	int		x;
 	int		len;
@@ -35,7 +21,7 @@ char	*ft_strdup(char *s1)
 	x = 0;
 	if (!s1)
 		return (NULL);
-	len = ft_strlen(s1);
+	len = ft_strlen_parse(s1);
 	dup = malloc((len + 1) * sizeof(*dup));
 	if (!dup)
 		return (NULL);

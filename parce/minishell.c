@@ -16,7 +16,7 @@ void	check_last(int i)
 {
 	if (i != -1)
 		if (i != 5)
-			write(2, "syntax error\n", 17);
+			write(2, "syntax error\n", 14);
 }
 
 void	ft_free(t_cmd *data)
@@ -34,12 +34,11 @@ void	ft_free(t_cmd *data)
 			data->file = data->file->next;
 		}
 		i = 0;
-		while(data->cmd[i])
+		while(data->cmd && data->cmd[i])
 		{
 			free(data->cmd[i]);
 			i++;
 		}
-		free(data->cmd);
 		data = data->next;
 	}
 	free(tmp);
@@ -82,7 +81,7 @@ t_cmd	*ft_parce(t_lexer *lexer, t_token *token, t_cmd **data)
 {
 	t_cmd *tmp;
 	int 	i;
-	// t_cmd *data;
+
 	i = -1;
 	(*data) = malloc(sizeof(t_cmd));
 	(*data)->file = NULL;
@@ -94,19 +93,22 @@ t_cmd	*ft_parce(t_lexer *lexer, t_token *token, t_cmd **data)
 		if (ft_check_error(token->type, token->content, &i, (*data)) == -1)
 			break ;
 		ft_pipe_(data, i);
-		token = next_token(lexer);
-		// if (token)
-		// {
-		// 	free(token->content);
-		// 	free(token);
-		// }
+		token  = next_token(lexer);
 	}
 	check_last(i);
-	//system("leaks minishell");
 	return (tmp);
 }
- 
-int main()
+
+void parse()
+{
+	t_lexer	*lexer;
+	t_token	*token;
+
+	lexer = start_lexer(g_global.line);
+	token  = next_token(lexer);
+	g_global.cmds = ft_parce(lexer, token, &g_global.cmds);
+}
+int main1()
 {
 	t_lexer	*lexer;
 	t_token	*token;
@@ -119,40 +121,8 @@ int main()
 	{
 		str = readline("minishell> ");
 		if (!str)
-		{
-			free(str);
 			exit(0);
-		}
-		lexer = start_lexer(str);
-		token  = next_token(lexer);
-		data = ft_parce(lexer, token, &data);
+		add_history(str);
 		print_data(data);
-		// free(token->content);
-		// free(token);
-		// free(lexer);
-		// t_cmd* prev = NULL;
-		// while (data)
-		// {
-		// 	prev = data;
-		// 	while (data->file)
-		// 	{
-		// 		free(data->file->name);
-		// 		data->file = data->file->next;
-		// 	}
-		// 	free(data->file);
-		// 	for (int i = 0; i < ft_strlen_(data->cmd); i++)
-		// 	{
-		// 		free(data->cmd[i]);
-		// 	}
-		// 	free(data->cmd);
-		// 	data = data->next;
-		// 	free(prev);
-		// }
-		// add_history(str);
-		free(str);
-		// ft_free(data);
-		// free(lexer->value);
-
-		//system("leaks minishell");
 	}
 }
