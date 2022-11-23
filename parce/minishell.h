@@ -129,6 +129,7 @@ char	*ft_expand(char *value);
 void	ft_lstadd_back_parse(t_file **lst, t_file *new);
 t_cmd	*ft_last(t_cmd *lst);
 t_cmd	*ft_new(t_file *file, char **cmd);
+char	*ft_get_env(char *name);
 
 
 #endif

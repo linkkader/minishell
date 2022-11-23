@@ -12,42 +12,29 @@
 
 #include "../../includes/header.h"
 
-char	*ft_get_env(char *name)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	while (g_global.env[i])
-	{
-		j = 0;
-		while (name[j] && g_global.env[i][j])
-		{
-			if (name[j] != g_global.env[i][j])
-				break ;
-			j++;
-		}
-		if (name[j] == '\0' && g_global.env[i][j] == '=')
-			return ft_strdup((g_global.env[i] + j + 1));
-		i++;
-	}
-	return (NULL);
-}
-
 void	env_builtin(t_cmd *cmd)
 {
-	int		i;
+	t_list	*temp;
+	t_entry	*entry;
 
-	i = 0;
 	if (cmd->cmd[1] == NULL)
-		return ;
-	while (g_global.env[i])
 	{
-		if (ft_strchr(g_global.env[i], '='))
+		temp = g_global.entries;
+		while (temp)
 		{
-			ft_putstr_fd(g_global.env[i], cmd->out);
-			ft_putstr_fd("\n", cmd->out);
+			entry = to_entry(temp->content);
+			if (entry->is_exported == true && entry->value != NULL)
+			{
+				ft_putstr_fd(entry->key, cmd->out);
+				ft_putstr_fd("=", cmd->out);
+				ft_putstr_fd(entry->value, cmd->out);
+				ft_putstr_fd("\n", cmd->out);
+			}
+			temp = temp->next;
 		}
-		i++;
+	}
+	else
+	{
+		ft_putstr_fd("env: too many arguments\n", 2);
 	}
 }
