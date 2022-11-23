@@ -43,6 +43,8 @@ void	check_builtin(t_cmd *tmp)
 		export_builtin(tmp);
 	else if (ft_strcmp(name, "unset") == 0)
 		unset_builtin(tmp);
+	else if (ft_strcmp(name, "env") == 0)
+		env_builtin(tmp);
 	else
 	{
 		tmp->path = get_cmd_path(tmp,

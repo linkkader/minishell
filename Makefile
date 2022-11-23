@@ -46,8 +46,8 @@ CPPFLAGS= -I /opt/homebrew/opt/readline/include
 LDFLAGS="-L/goinfre/acouliba/brew/opt/readline/lib"
 CPPFLAGS="-I/goinfre/acouliba/brew/opt/readline/include"
 
-#LDFLAGS= -L /Users/momeaizi/Desktop/brew/opt/readline/lib
-#CPPFLAGS= -I /Users/momeaizi/Desktop/brew/opt/readline/include
+#LDFLAGS= -L /Users/acouliba/Desktop/brew/opt/readline/lib
+#CPPFLAGS= -I /Users/acouliba/Desktop/brew/opt/readline/include
 
 FLAGS = $(LDFLAGS) $(CPPFLAGS) -fsanitize=address
 
@@ -85,7 +85,7 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 	@make fclean -sC $(LIBFT_DIRECTORY)
-	#@make fclean -sC $(PARSING_DIRECTORY)
+	@make fclean -sC $(PARSING_DIRECTORY)
 
 re: fclean all
 

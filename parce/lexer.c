@@ -55,14 +55,14 @@ static int	ft_strchr_parse(char *s, int c)
 {
 	if (s)
 	{
-		while (*s != (unsigned char)c)
+		while (*s)
 		{
-			if (*s == '\0')
-				return (0);
+			if (*s == c)
+				return (1);
 			s++;
 		}
 	}
-	return (1);
+	return (0);
 }
 
 t_token	*collect_str(t_lexer *lexer)

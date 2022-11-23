@@ -1,6 +1,3 @@
-//
-// Created by Abdoul Kader on 13/11/2022.
-//
 
 #include "../includes/header.h"
 

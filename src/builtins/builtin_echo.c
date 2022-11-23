@@ -16,7 +16,7 @@ t_bool	is_option(char *str)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	if (str[0] != '-')
 		return (false);
 	while (str[i])

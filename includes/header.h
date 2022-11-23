@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acouliba <momeaizi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: acouliba <acouliba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 20:10:22 by acouliba          #+#    #+#             */
 /*   Updated: 2022/06/21 18:00:14 by acouliba         ###   ########.fr       */
@@ -33,10 +33,10 @@
 # define NOT_AN_IDENTIFIER "minishell: export: %s: not a valid identifier"
 
 //infile token
-# define INFILE 1
-# define OUTFILE 2
-# define APPEND 3
-# define HEREDOC 4
+# define INFILE 2
+# define OUTFILE 4
+# define APPEND 1
+# define HEREDOC 0
 
 
 
@@ -51,6 +51,7 @@ void	pwd_builtin(t_cmd *tmp);
 void	export_builtin(t_cmd *cmd);
 void	export_value(char *key, char *value, t_cmd *cmd, t_bool is_in_export);
 void	unset_builtin(t_cmd *cmd);
+void	env_builtin(t_cmd *cmd);
 
 t_cmd	*fake();
 void	my_pipe(t_cmd *cmd);
