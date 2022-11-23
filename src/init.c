@@ -99,15 +99,15 @@ void	update_env()
 	{
 		entry = to_entry(temp->content);
 		str = ft_strjoin(entry->key, "=");
-		if (g_global.env[i] == NULL)
+		if (str == NULL)
 			return ;
 		g_global.env[i] = ft_strjoin(str, entry->value);
 		if(str)
 			free(str);
-		if (g_global.env[i])
-			return ;
+		i++;
 		temp = temp->next;
 	}
+	g_global.env[i] = NULL;
 }
 
 void	init(char **env)

@@ -12,24 +12,45 @@
 
 #include "../../includes/header.h"
 
+t_bool	is_option(char *str)
+{
+	int	i;
+
+	i = 1;
+	if (str[0] != '-')
+		return (false);
+	while (str[i])
+	{
+		if (str[i] != 'n')
+			return (false);
+		i++;
+	}
+	return (true);
+}
+
 void	echo_builtin(t_cmd *cmd)
 {
 	int		i;
 	t_bool	arg;
+	t_bool	ignore;
 
 	i = 1;
 	arg = false;
+	ignore = false;
 	ft_putstr_fd("echo\n", 1);
 	while (cmd->cmd[i])
 	{
-		if (cmd->cmd[i] && ft_strcmp("-n", cmd->cmd[i]) == 0)
+		if (ignore == false && cmd->cmd[i] && is_option(cmd->cmd[i]))
 			arg = true;
 		else if (cmd->cmd[i + 1] == 0)
+		{
 			ft_putstr_fd(cmd->cmd[i], cmd->out);
+		}
 		else
 		{
 			ft_putstr_fd(cmd->cmd[i], cmd->out);
 			ft_putstr_fd(" ", cmd->out);
+			ignore = true;
 		}
 		i++;
 	}

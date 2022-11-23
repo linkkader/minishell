@@ -66,8 +66,7 @@ void	run(t_cmd *cmd)
 				(execve(cmd->path, cmd->cmd, g_global.env));
 			exit(cmd->error);
 		}
-		//todo: need to exit with the exit code of the command
-		exit(0);
+		exit(cmd->error);
 	}
 	if (cmd->in != STDIN_FILENO)
 		close(cmd->in);
@@ -97,6 +96,7 @@ void	exe(t_cmd *cmd)
 		cmd = cmd->next;
 	}
 	g_global.exit_code = WEXITSTATUS(g_global.exit_code);
+	printf("exit code = %d\n", g_global.exit_code);
 	signal(SIGINT, SIG_DFL);
 	signal(SIGQUIT, sig[1]);
 }
