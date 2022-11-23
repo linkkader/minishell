@@ -22,14 +22,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a3fc66d-3f27-474e-96a3-d556e9d0b164" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libft/libft.a" beforeDir="false" afterPath="$PROJECT_DIR$/libft/libft.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/builtins/builtin_env.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtins/builtin_env.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parce/ft_expand.c" beforeDir="false" afterPath="$PROJECT_DIR$/parce/ft_expand.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parce/ft_expand.o" beforeDir="false" afterPath="$PROJECT_DIR$/parce/ft_expand.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parce/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/parce/minishell.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/builtins/builtin_export.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtins/builtin_export.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parce/parse.a" beforeDir="false" afterPath="$PROJECT_DIR$/parce/parse.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_env.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtins/builtin_env.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_export.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtins/builtin_export.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

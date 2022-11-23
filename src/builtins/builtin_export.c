@@ -30,6 +30,8 @@ static t_bool	part(t_list *temp, char *key,
 		free(key);
 		if (value == NULL && entry->value != NULL)
 			entry->is_exported = is_in_export;
+		if (value == NULL)
+			return (true);
 		if (entry->value)
 			free(entry->value);
 		entry->value = value;
