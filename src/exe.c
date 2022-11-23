@@ -63,7 +63,10 @@ void	run(t_cmd *cmd)
 			dup2(cmd->out, STDOUT_FILENO);
 			close_all(g_global.cmds);
 			if (cmd->error == 0)
-				(execve(cmd->path, cmd->cmd, g_global.env));
+				cmd->error = (execve(cmd->path, cmd->cmd, g_global.env));
+			ft_putstr_fd("minishell error : ", 2);
+			ft_putnbr_fd(cmd->error, 2);
+			ft_putstr_fd("\n", 2);
 			exit(cmd->error);
 		}
 		exit(cmd->error);

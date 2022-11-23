@@ -40,6 +40,7 @@ int main(int ac, char **av, char **env)
 		if (init_prompt())
 			continue ;
 		// g_global.cmds = fake();
+		g_global.exit_code = 0;
 		parse();
 		// t_cmd *tmp = g_global.cmds;
 
