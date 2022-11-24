@@ -23,45 +23,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0a3fc66d-3f27-474e-96a3-d556e9d0b164" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libft/libft.a" beforeDir="false" afterPath="$PROJECT_DIR$/libft/libft.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/builtins/builtin_cd.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtins/builtin_cd.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/builtins/builtin_echo.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtins/builtin_echo.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/builtins/builtin_env.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtins/builtin_env.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/builtins/builtin_exit.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtins/builtin_exit.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/builtins/builtin_export.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtins/builtin_export.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/builtins/builtin_pwd.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtins/builtin_pwd.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/builtins/builtin_unset.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtins/builtin_unset.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/check_builtins.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/check_builtins.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/error.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/error.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/exe.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/exe.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/fake.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/fake.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/fix_fd.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/fix_fd.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/get_path.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/get_path.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/here_doc.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/here_doc.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/init.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/init.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/main.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/pipe.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/pipe.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/signal.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/signal.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/t_list_utils.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/t_list_utils.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/termios.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/termios.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parce/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/parce/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parce/ft_check.o" beforeDir="false" afterPath="$PROJECT_DIR$/parce/ft_check.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parce/ft_error.o" beforeDir="false" afterPath="$PROJECT_DIR$/parce/ft_error.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parce/ft_expand.o" beforeDir="false" afterPath="$PROJECT_DIR$/parce/ft_expand.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parce/get_list.o" beforeDir="false" afterPath="$PROJECT_DIR$/parce/get_list.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parce/lexer.o" beforeDir="false" afterPath="$PROJECT_DIR$/parce/lexer.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parce/lexer_tools.o" beforeDir="false" afterPath="$PROJECT_DIR$/parce/lexer_tools.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parce/listing_tools.o" beforeDir="false" afterPath="$PROJECT_DIR$/parce/listing_tools.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parce/minishell.c" beforeDir="false" afterPath="$PROJECT_DIR$/parce/minishell.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parce/minishell.o" beforeDir="false" afterPath="$PROJECT_DIR$/parce/minishell.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parce/parse.a" beforeDir="false" afterPath="$PROJECT_DIR$/parce/parse.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parce/utils.o" beforeDir="false" afterPath="$PROJECT_DIR$/parce/utils.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parce/utils1.o" beforeDir="false" afterPath="$PROJECT_DIR$/parce/utils1.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_pwd.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtins/builtin_pwd.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/check_builtins.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/check_builtins.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +152,7 @@
       <workItem from="1669054949184" duration="984000" />
       <workItem from="1669102967408" duration="1478000" />
       <workItem from="1669219196638" duration="1850000" />
-      <workItem from="1669276119273" duration="5450000" />
+      <workItem from="1669276119273" duration="7596000" />
     </task>
     <servers />
   </component>
