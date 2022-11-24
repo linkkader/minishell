@@ -43,7 +43,7 @@ int main(int ac, char **av, char **env)
 		g_global.exit_code = 0;
 		parse();
 		 t_cmd *tmp = g_global.cmds;
-//
+
 //		 while (tmp != NULL)
 //		 {
 //		 	for(int i=0; tmp->cmd[i] ; i++)
@@ -51,7 +51,8 @@ int main(int ac, char **av, char **env)
 //		 	// printf("%s\n", tmp->cmd);
 //		 	tmp = tmp->next;
 //		 }
-		exe(g_global.cmds);
+		if (g_global.cmds)
+			exe(g_global.cmds);
 
 	}
 	return (0);

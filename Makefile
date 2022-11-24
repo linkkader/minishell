@@ -49,7 +49,7 @@ CPPFLAGS="-I/goinfre/acouliba/brew/opt/readline/include"
 #LDFLAGS= -L /Users/acouliba/Desktop/brew/opt/readline/lib
 #CPPFLAGS= -I /Users/acouliba/Desktop/brew/opt/readline/include
 
-FLAGS = $(LDFLAGS) $(CPPFLAGS) -fsanitize=address
+FLAGS = $(LDFLAGS) $(CPPFLAGS) -fsanitize=address -g
 
 OBJS = $(addprefix $(OBJECTS_DIRECTORY), $(FILE:.c=.o)) $(addprefix $(OBJECTS_DIRECTORY)$(BUILTINS_DIRECTORY), $(BUILTINS_FILE:.c=.o))
 

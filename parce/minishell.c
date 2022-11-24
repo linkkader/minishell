@@ -86,6 +86,7 @@ t_cmd	*ft_parce(t_lexer *lexer, t_token *token, t_cmd **data)
 	i = -1;
 	(*data) = malloc(sizeof(t_cmd));
 	(*data)->file = NULL;
+	(*data)->path = NULL;
 	(*data)->cmd = NULL;
 	(*data)->next = NULL;
 	tmp = (*data);

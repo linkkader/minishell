@@ -1,0 +1,14 @@
+-e
+-la
+Makefile
+cat
+in.txt
+includes
+libft
+minishell
+obj
+out.txt
+parce
+pwd
+src
+test.txt

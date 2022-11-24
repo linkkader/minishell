@@ -22,15 +22,17 @@ char	*ft_lower(char *str)
 		str[i] = ft_tolower(str[i]);
 		i++;
 	}
-	return (str);
+	return ft_strdup(str);
 }
 
 void	check_builtin(t_cmd *tmp)
 {
 	char	*name;
 
-	name = ft_lower(tmp->cmd[0]);
 	tmp->path = NULL;
+	if (tmp->cmd == NULL)
+		return ;
+	name = ft_lower(tmp->cmd[0]);
 	if (ft_strcmp(name, "cd") == 0)
 		cd_builtin(tmp);
 	else if (ft_strcmp(name, "echo") == 0)

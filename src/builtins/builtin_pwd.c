@@ -16,12 +16,15 @@ void	pwd_builtin(t_cmd *cmd)
 {
 	char	*path;
 
+	ft_putstr_fd("pwd", 2);
 	if (cmd->cmd[1] == NULL)
 	{
 		path = getcwd(NULL, 1000);
 		if (path == NULL)
+			path = ft_get_env("PWD");
+		if (path == NULL)
 		{
-			strerror(errno);
+			ft_putstr_fd("minishell: pwd: PWD not set\n", 2);
 			return ;
 		}
 		ft_putstr_fd(path, cmd->out);
