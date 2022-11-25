@@ -25,6 +25,8 @@ char	*handle_quote(char *str, char *value, char q, int *i)
 	else if (value[(*i)] == '\0')
 	{
 		write(2, "quote error\n", 13);
+		free(g_global.line);
+		g_global.line = NULL;
 		return (NULL);
 	}
 	return (str);
@@ -176,7 +178,7 @@ void parse()
 		lexer = start_lexer(g_global.line);
 		token  = next_token(lexer);
 		g_global.cmds = ft_parce(lexer, token, &g_global.cmds);
-		print_cmd(g_global.cmds);
+		//print_cmd(g_global.cmds);
 	}
 	
 }

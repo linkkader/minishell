@@ -25,7 +25,7 @@ PARSING_DIRECTORY = parce/
 
 BUILTINS_FILE = builtin_cd.c     builtin_echo.c   builtin_env.c    builtin_exit.c   builtin_export.c builtin_pwd.c    builtin_unset.c
 
-FILE = check_builtins.c exe.c            get_path.c       init.c           main.c           signal.c         t_list_utils.c   termios.c error.c  fake.c  pipe.c fix_fd.c here_doc.c\
+FILE = check_builtins.c exe.c            get_path.c       init.c           main.c                  t_list_utils.c   termios.c error.c  fake.c  pipe.c fix_fd.c here_doc.c\
 
 PARSE = $(PARSING_DIRECTORY)parse.a
 
@@ -49,7 +49,7 @@ CPPFLAGS="-I/goinfre/acouliba/brew/opt/readline/include"
 #LDFLAGS= -L /Users/acouliba/Desktop/brew/opt/readline/lib
 #CPPFLAGS= -I /Users/acouliba/Desktop/brew/opt/readline/include
 
-FLAGS = $(LDFLAGS) $(CPPFLAGS)
+FLAGS =
 
 OBJS = $(addprefix $(OBJECTS_DIRECTORY), $(FILE:.c=.o)) $(addprefix $(OBJECTS_DIRECTORY)$(BUILTINS_DIRECTORY), $(BUILTINS_FILE:.c=.o))
 
@@ -69,6 +69,7 @@ $(PARSE):
 	@echo "make $(PARSE)"
 	@make -sC  $(PARSING_DIRECTORY)
 
+
 $(OBJECTS_DIRECTORY):
 	mkdir -p $@
 	mkdir -p $(OBJECTS_DIRECTORY)$(BUILTINS_DIRECTORY)
@@ -76,7 +77,8 @@ $(OBJECTS_DIRECTORY):
 #$(PARSE)
 
 $(NAME): $(LIBFT) $(OBJECTS_DIRECTORY) $(OBJS) $(PARSE)
-	gcc $(FLAGS) -I $(HEADERS) $(OBJS) $(LIBFT) $(PARSE) $(LDFLAGS) -l readline  -o  $(NAME)
+	gcc $(FLAGS) -I $(HEADERS) $(CPPFLAGS) -c src/signal.c -o obj/signal.o
+	gcc $(FLAGS) -I $(HEADERS) $(OBJS)  $(LIBFT) $(OBJECTS_DIRECTORY)signal.o $(PARSE) $(LDFLAGS) $(CPPFLAGS) -l readline  -o  $(NAME)
 
 
 clean:

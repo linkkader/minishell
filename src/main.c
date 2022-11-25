@@ -61,8 +61,10 @@ static void clear()
 		temp2 = temp;
 		temp = temp->next;
 		free(temp2);
+		temp2 = NULL;
 	}
 	free(temp);
+	g_global.cmds = NULL;
 }
 
 int main(int ac, char **av, char **env)
@@ -77,12 +79,12 @@ int main(int ac, char **av, char **env)
 	{
 		if (init_prompt())
 			continue ;
-		g_global.cmds = fake();
+//		g_global.cmds = fake();
 		g_global.exit_code = 0;
-//		parse();
+		parse();
 //		while (1);
-//		 t_cmd *tmp = g_global.cmds;
-//
+		 t_cmd *tmp = g_global.cmds;
+
 //		 while (tmp != NULL)
 //		 {
 //		 	for(int i=0; tmp->cmd[i] ; i++)

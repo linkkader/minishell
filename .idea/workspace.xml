@@ -24,6 +24,7 @@
     <list default="true" id="0a3fc66d-3f27-474e-96a3-d556e9d0b164" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/in.txt" beforeDir="false" afterPath="$PROJECT_DIR$/in.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libft/libft.a" beforeDir="false" afterPath="$PROJECT_DIR$/libft/libft.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/builtins/builtin_cd.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtins/builtin_cd.o" afterDir="false" />
@@ -54,16 +55,12 @@
       <change beforePath="$PROJECT_DIR$/parce/lexer.o" beforeDir="false" afterPath="$PROJECT_DIR$/parce/lexer.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parce/lexer_tools.o" beforeDir="false" afterPath="$PROJECT_DIR$/parce/lexer_tools.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parce/listing_tools.o" beforeDir="false" afterPath="$PROJECT_DIR$/parce/listing_tools.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/minishell.c" beforeDir="false" afterPath="$PROJECT_DIR$/parce/minishell.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parce/minishell.o" beforeDir="false" afterPath="$PROJECT_DIR$/parce/minishell.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parce/parse.a" beforeDir="false" afterPath="$PROJECT_DIR$/parce/parse.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parce/utils.o" beforeDir="false" afterPath="$PROJECT_DIR$/parce/utils.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parce/utils1.o" beforeDir="false" afterPath="$PROJECT_DIR$/parce/utils1.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_cd.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtins/builtin_cd.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/builtins/builtin_export.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtins/builtin_export.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fake.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/fake.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/get_path.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/get_path.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/here_doc.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/here_doc.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/init.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/init.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +120,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap"
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.C/C++"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -229,6 +226,11 @@
           <url>file://$PROJECT_DIR$/src/fake.c</url>
           <line>85</line>
           <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/parce/minishell.c</url>
+          <line>26</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
