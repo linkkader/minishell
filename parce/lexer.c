@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 08:32:57 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/21 15:54:56 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/25 16:14:23 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_token	*next_token(t_lexer *lexer)
 	return (NULL);
 }
 
-static int	ft_strchr_parse(char *s, int c)
+int	ft_strchr_parse(char *s, int c)
 {
 	if (s)
 	{
@@ -75,22 +75,20 @@ t_token	*collect_str(t_lexer *lexer)
 	flag = 0;
 	while (is_cmd(lexer->c) && lexer->c != ' ' && lexer->c != '\0')
 	{
-		if (lexer->c == '\"')
-			value = handle_quote(lexer, value, '\"');
-		else if (lexer->c == '\'')
-		{
-			value = handle_quote(lexer, value, '\'');
-			flag = 1;
-		}
-		else
-		{
+		// if (lexer->c == '\"')
+		// 	value = handle_quote(lexer, value, '\"');
+		// else if (lexer->c == '\'')
+		// {
+		// 	value = handle_quote(lexer, value, '\'');
+		// 	flag = 1;
+		// }
+		// else
+		// {
 			str = convert_char(lexer);
 			value = ft_strjoin_parse(value, str);
 			move_byone(lexer);
-		}
+		// }
 	}
-	if (ft_strchr_parse(value, '$') == 1 && flag == 0)
-		value = ft_expand(value);
 	return (start_token(CMD, value));
 }
 
@@ -126,24 +124,24 @@ char	*convert_char(t_lexer *lexer)
 	return (str);
 }
 
-char	*handle_quote(t_lexer *lexer, char *value, char q)
-{
-	char	*str;
+// char	*handle_quote(t_lexer *lexer, char *value, char q)
+// {
+// 	char	*str;
 
-	str = NULL;
-	move_byone(lexer);
-	while (lexer->c != q && lexer->c != '\0')
-	{
-		str = convert_char(lexer);
-		value = ft_strjoin_parse(value, str);
-		move_byone(lexer);
-	}
-	if (lexer->c == q)
-		move_byone(lexer);
-	else if (lexer->c == '\0')
-	{
-		write(2, "quote error\n", 13);
-		return (ft_strdup_parse(""));
-	}
-	return (value);
-}
+// 	str = NULL;
+// 	move_byone(lexer);
+// 	while (lexer->c != q && lexer->c != '\0')
+// 	{
+// 		str = convert_char(lexer);
+// 		value = ft_strjoin_parse(value, str);
+// 		move_byone(lexer);
+// 	}
+// 	if (lexer->c == q)
+// 		move_byone(lexer);
+// 	else if (lexer->c == '\0')
+// 	{
+// 		write(2, "quote error\n", 13);
+// 		return (ft_strdup_parse(""));
+// 	}
+// 	return (value);
+// }

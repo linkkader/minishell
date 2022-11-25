@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 11:12:11 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/21 15:25:12 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/25 16:03:40 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	store_file(t_cmd *data, int i, char *content)
 		ft_lstadd_back_parse(&data->file, ft_lstnew_parse(0, content));
 	else if (i == 1)
 		ft_lstadd_back_parse(&data->file, ft_lstnew_parse(1, content));
-	else
+	else{
 		data->cmd = store_cmd(data->cmd, content);
+	}
 }

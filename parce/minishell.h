@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 08:33:04 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/21 15:54:47 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/25 10:34:21 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ typedef struct s_global
 	int				exit_code;
 	struct termios	*attributes;
 	int				std_in;
+	int				flag;
 	int 			doc_here_status;
 }					t_global;
 
@@ -112,9 +113,8 @@ char	*convert_char(t_lexer *lexer);
 char	*ft_strdup_parse(char *s1);
 int		ft_strlen_parse(char *str);
 char	*ft_strjoin_parse(char *s1, char *s2);
-char	*handle_quote(t_lexer *lexer, char *value, char q);
+char	*ft_charjoin(char *s1, char c);
 int		is_cmd(char c);
-int		check_quote(char *str, int i);
 char	*check(t_lexer *lexer);
 int		ft_check_error(int type, char *content, int *i, t_cmd *data);
 int		check_infile(int *i);
@@ -130,6 +130,8 @@ void	ft_lstadd_back_parse(t_file **lst, t_file *new);
 t_cmd	*ft_last(t_cmd *lst);
 t_cmd	*ft_new(t_file *file, char **cmd);
 char	*ft_get_env(char *name);
+int		ft_strchr_parse(char *s, int c);
+char	*ft_itoa(int n);
 
 
 #endif
