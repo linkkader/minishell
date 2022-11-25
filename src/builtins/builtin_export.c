@@ -73,6 +73,7 @@ void	export_value(char *key, char *value, t_cmd *cmd,
 	}
 	if (is_in == false)
 		part1(key, value, is_in_export);
+	system("leaks minishell");
 	update_env();
 }
 

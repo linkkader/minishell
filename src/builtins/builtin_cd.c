@@ -42,6 +42,7 @@ void	cd_builtin(t_cmd *cmd)
 		if (path == NULL)
 		{
 			ft_putstr_fd("minishell: cd: OLDPWD not set\n", 2);
+			free(path);
 			return ;
 		}
 	}

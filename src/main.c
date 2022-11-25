@@ -27,6 +27,44 @@ static	int init_prompt(void)
 	return (0);
 }
 
+void free_tfile(t_file *tFile)
+{
+	t_file *temp;
+
+	if (tFile == NULL)
+		return ;
+	while (tFile)
+	{
+		temp = tFile;
+		tFile = tFile->next;
+		free(temp->name);
+		free(temp);
+	}
+}
+
+static void clear()
+{
+	t_cmd*	temp;
+	t_cmd*	temp2;
+
+	free(g_global.line);
+	g_global.line = NULL;
+	temp = g_global.cmds;
+//	return;
+	while (temp)
+	{
+		free(temp->path);
+		if (temp->cmd != NULL)
+			clear_d2(temp->cmd);
+		free(temp->cmd);
+		free_tfile(temp->file);
+		temp2 = temp;
+		temp = temp->next;
+		free(temp2);
+	}
+	free(temp);
+}
+
 int main(int ac, char **av, char **env)
 {
 	char	*line;
@@ -39,11 +77,12 @@ int main(int ac, char **av, char **env)
 	{
 		if (init_prompt())
 			continue ;
-		// g_global.cmds = fake();
+		g_global.cmds = fake();
 		g_global.exit_code = 0;
-		parse();
-		 t_cmd *tmp = g_global.cmds;
-
+//		parse();
+//		while (1);
+//		 t_cmd *tmp = g_global.cmds;
+//
 //		 while (tmp != NULL)
 //		 {
 //		 	for(int i=0; tmp->cmd[i] ; i++)
@@ -53,6 +92,7 @@ int main(int ac, char **av, char **env)
 //		 }
 		if (g_global.cmds)
 			exe(g_global.cmds);
+		clear();
 
 	}
 	return (0);

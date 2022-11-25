@@ -93,12 +93,14 @@ t_cmd	*fake()
 	t_cmd	*cmd;
 
 	cmd = malloc(sizeof(t_cmd));
-	cmd->cmd = malloc(sizeof(char *) * 2);
-	cmd->cmd[0] = ft_strdup("cat");
-//	cmd->cmd[1] = ft_strdup("-l");
-	cmd->cmd[1] = NULL;
-	cmd->file = fake_file();
-	cmd->next = fake_cat();
+	cmd->cmd = malloc(sizeof(char *) * 3);
+	cmd->cmd[0] = ft_strdup("cd");
+	cmd->cmd[1] = ft_strdup("..");
+	cmd->cmd[2] = NULL;
+	//cmd->file = fake_file();
+	cmd->file = NULL;
+	cmd->next = NULL;
+//	cmd->next = fake_cat();
 //	cmd->next = fake_cat2();
 //	cmd->next = NULL;
 	cmd->path = NULL;

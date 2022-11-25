@@ -77,7 +77,8 @@ void	env_to_entries(char **env)
 	i = 0;
 	while (env[i])
 	{
-		push_entry(&g_global.entries, env[i]);
+		if (ft_strncmp(env[i], "OLDPWD=", 7) != 0)
+			push_entry(&g_global.entries, env[i]);
 		i++;
 	}
 }
@@ -90,7 +91,9 @@ void	update_env()
 	char	*str;
 
 	i = 0;
+	str = NULL;
 	clear_d2(g_global.env);
+	free(g_global.env);
 	g_global.env = malloc((ft_lstsize(g_global.entries) + 1) * sizeof(char *));
 	if (g_global.env == NULL)
 		return ;

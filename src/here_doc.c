@@ -16,6 +16,11 @@ static void	sigquit(int sig)
 	(void) sig;
 }
 
+char *str_expand()
+{
+	return (NULL);
+}
+
 int here_doc(t_file *tFile, int in, int *error)
 {
 	int 	fd[2];
@@ -41,8 +46,10 @@ int here_doc(t_file *tFile, int in, int *error)
 		if (ft_strcmp(line, tFile->name) == 0)
 		{
 			g_global.doc_here_status = 0;
+			free(line);
 			break ;
 		}
+
 		write(fd[1], line, ft_strlen(line));
 		write(fd[1], "\n", 1);
 		free(line);

@@ -64,5 +64,6 @@ char	*get_cmd_path(t_cmd *cmd, char *name)
 		cmd->error = 127;
 		put_error( name, "No such file or directory");
 	}
+	free(path);
 	return (p);
 }
