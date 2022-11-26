@@ -50,7 +50,7 @@ int here_doc(t_file *tFile, int in, int *error)
 			break ;
 		}
         //here
-        
+
 		write(fd[1], line, ft_strlen(line));
 		write(fd[1], "\n", 1);
 		free(line);
