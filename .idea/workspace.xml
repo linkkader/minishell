@@ -23,13 +23,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0a3fc66d-3f27-474e-96a3-d556e9d0b164" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/exe.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/exe.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/get_path.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/get_path.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/main.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exe.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/exe.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/get_path.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/get_path.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/here_doc.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/here_doc.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +149,7 @@
       <workItem from="1669102967408" duration="1478000" />
       <workItem from="1669219196638" duration="1850000" />
       <workItem from="1669276119273" duration="7596000" />
-      <workItem from="1669455928794" duration="2555000" />
+      <workItem from="1669455928794" duration="3470000" />
     </task>
     <servers />
   </component>
