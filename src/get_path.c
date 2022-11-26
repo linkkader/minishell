@@ -43,7 +43,7 @@ char	*get_cmd_path(t_cmd *cmd, char *name)
 	char	*p;
 
 	if (access(name, X_OK) == 0)
-		return (name);
+		return (ft_strdup(name));
 	p = NULL;
 	path = ft_get_env("PATH");
 	if (path != NULL)

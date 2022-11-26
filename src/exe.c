@@ -77,6 +77,17 @@ void	run(t_cmd *cmd)
 		close(cmd->out);
 }
 
+void    fix_all(t_cmd *cmd)
+{
+    while (cmd)
+    {
+        fix_fd(cmd);
+        // printf("cmd->in = %d cmd->out = %d\n", cmd->in, cmd->out);
+        // run(cmd);
+        cmd = cmd->next;
+    }
+}
+
 void	exe(t_cmd *cmd)
 {
 	sig_t		sig[2];
@@ -85,9 +96,10 @@ void	exe(t_cmd *cmd)
 	sig[1] = signal(SIGQUIT, sigquit_handler_in_process);
 	normal_echo();
 	my_pipe(cmd);
-	while (cmd)
+    fix_all(cmd);
+    while (cmd)
 	{
-		fix_fd(cmd);
+//		fix_fd(cmd);
 		// printf("cmd->in = %d cmd->out = %d\n", cmd->in, cmd->out);
 		run(cmd);
 		cmd = cmd->next;

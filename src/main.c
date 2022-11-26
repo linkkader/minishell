@@ -54,9 +54,11 @@ static void clear()
 	while (temp)
 	{
 		free(temp->path);
+
 		if (temp->cmd != NULL)
 			clear_d2(temp->cmd);
 		free(temp->cmd);
+        temp->cmd = NULL;
 		free_tfile(temp->file);
 		temp2 = temp;
 		temp = temp->next;
@@ -85,15 +87,16 @@ int main(int ac, char **av, char **env)
 //		while (1);
 		 t_cmd *tmp = g_global.cmds;
 
-//		 while (tmp != NULL)
-//		 {
-//		 	for(int i=0; tmp->cmd[i] ; i++)
-//		 		printf("%s\n", tmp->cmd[i]);
-//		 	// printf("%s\n", tmp->cmd);
-//		 	tmp = tmp->next;
-//		 }
+
 		if (g_global.cmds)
 			exe(g_global.cmds);
+//       while (tmp != NULL)
+//        {
+//            for(int i=0; tmp->cmd[i] ; i++)
+//                printf("%d %s\n", i, tmp->cmd[i]);
+//            // printf("%s\n", tmp->cmd);
+//            tmp = tmp->next;
+//        }
 		clear();
 
 	}
