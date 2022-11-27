@@ -12,24 +12,36 @@
 
 #include    "minishell.h"
 
-char	*handle_quote(char *str, char *value, char q, int *i)
+void	in_quote_checker(char *str, int *i, char c)
 {
-	(*i)++;
-	while (value[(*i)] != q && value[(*i)] != '\0')
-	{	
-		str = ft_charjoin(str, value[(*i)]);	
-		(*i)++;
-	}
-	if (value[(*i)] == q)
-		(*i)++;
-	else if (value[(*i)] == '\0')
+    (*i)++;
+	while (str[(*i)] != c && str[(*i)] != '\0')
 	{
-		write(2, "quote error\n", 13);
-		free(g_global.line);
-		g_global.line = NULL;
-		return (NULL);
+        if (ft_isalnum(str[(*i)]) && c == '\'')
+            g_global.flag = 1;
+	    (*i)++;
 	}
-	return (str);
+	if (str[(*i)] == c)
+	    (*i)++;
+}
+
+void	quote_checker(char *str)
+{
+	int i;
+
+	i = 0;
+    if (ft_strchr_parse(str, '$'))
+	{
+        while (str[i])
+        {
+			if (str[i] == '\"')
+        		in_quote_checker(str, &i, '\"');
+            else if (str[i] == '\'')
+				in_quote_checker(str, &i, '\'');
+            else
+                i++;
+        }
+	}
 }
 
 void	free_table(char **str)
@@ -69,31 +81,6 @@ void	free_data(t_cmd *data)
 	}
 }
 
-char	*check_quote(char *value, int *flag)
-{
-	char *str;
-	int i;
-
-	i = 0;
-	str = NULL;
-	while (value[i] != '\0')
-	{
-		if (value[i] == '\"')
-		{
-			str = handle_quote(str, value, '\"', &i);}
-		else if (value[i] == '\'')
-		{
-			str = handle_quote(str, value, '\'', &i);
-			(*flag) = 1;
-		}
-		else
-		{
-			str = ft_charjoin(str, value[i]);
-			i++;
-		}
-	}
-	return (str);
-}
 
 void	check_last(int i)
 {
@@ -103,26 +90,26 @@ void	check_last(int i)
 }
 
 
-// void	print_cmd(t_cmd *data)
-// {
-// 	int i = 0;
-// 	while(data)
-// 	{
-// 		while (data->file)
-// 		{
-// 			printf("token( %d) name (%s)\n", data->file->token, data->file->name);
-// 			data->file = data->file->next;
-// 		}
-// 		i = 0;
-// 		while(data->cmd && data->cmd[i])
-// 		{
-// 			printf("cmd :: %s\n", data->cmd[i]);
-// 			i++;
-// 		}
-// 		printf("================\n");
-// 		data = data->next;
-// 	}
-// }
+void	print_cmd(t_cmd *data)
+{
+	int i = 0;
+	while(data)
+	{
+		while (data->file)
+		{
+			printf("token( %d) name (%s)\n", data->file->token, data->file->name);
+			data->file = data->file->next;
+		}
+		i = 0;
+		while(data->cmd && data->cmd[i])
+		{
+			printf("cmd :: %s\n", data->cmd[i]);
+			i++;
+		}
+		printf("================\n");
+		data = data->next;
+	}
+}
 
 void	ft_pipe_(t_cmd **data, int i)
 {
@@ -140,6 +127,7 @@ t_cmd	*ft_parce(t_lexer *lexer, t_token *token, t_cmd **data)
 {
 	t_cmd *tmp;
 	int 	i;
+	t_token *tmp_tok;
 
 	i = -1;
 	(*data) = malloc(sizeof(t_cmd));
@@ -149,36 +137,37 @@ t_cmd	*ft_parce(t_lexer *lexer, t_token *token, t_cmd **data)
 	tmp = (*data);
 	while (token != NULL)
 	{
-		if (ft_check_error(token->type, token->content, &i, (*data)) == -1)
+		if (ft_check_error(token->type, token->content, &i, (*data)) == -1
+			|| token->content[0] == '\0')
 		{
 			free_data(tmp);
 			check_last(i);
 			return NULL;
 		}
 		ft_pipe_(data, i);
+		tmp_tok = token;
 		token = next_token(lexer);
+		free(tmp_tok->content);
+		free(tmp_tok);
 	}
-	
 	return (tmp);
 }
 
 void parse()
 {
-	t_lexer	*lexer;
-	t_token	*token;
-	int flag;
+	t_lexer	*lexer = NULL;
+	t_token	*token = NULL;
 
-	flag = 0;
-	g_global.line = check_quote(g_global.line, &flag);
-	if (ft_strchr_parse(g_global.line, '$') == 1 && flag == 0)
-		g_global.line = ft_expand(g_global.line);
-
+	g_global.flag = 0;
+	quote_checker(g_global.line);	
+	if (ft_strchr_parse(g_global.line, '$') == 1)
+		if (g_global.flag != 1)
+			g_global.line = ft_expand(g_global.line);
 	if (g_global.line != NULL)
 	{
 		lexer = start_lexer(g_global.line);
 		token  = next_token(lexer);
 		g_global.cmds = ft_parce(lexer, token, &g_global.cmds);
-		//print_cmd(g_global.cmds);
+		free(lexer);
 	}
-	
 }

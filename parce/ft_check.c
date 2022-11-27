@@ -6,13 +6,13 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:19:43 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/22 15:16:07 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/27 10:55:50 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"minishell.h"
 
-int	ft_check_error(int type, char *content, int *i, t_cmd *data)
+int	 ft_check_error(int type, char *content, int *i, t_cmd *data)
 {
 	int	check;
 

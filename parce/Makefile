@@ -1,7 +1,7 @@
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -g
 
 CF = -lreadline -L /Users/$(USER)/.brew/opt/readline/lib -I /Users/$(USER)/.brew/opt/readline/include
 
@@ -28,7 +28,7 @@ parse.a: $(OBJS)
 all : $(NAME)
 
 
-# $(NAME) : $(OBJS)
+#$(NAME) : $(OBJS)
 #	$(CC) $(CFLAGS) $(CF) $(OBJS) $(CFLAGS) -o $(NAME)
 
 clean :

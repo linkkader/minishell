@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:44:36 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/25 15:13:22 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/27 16:48:07 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,29 +34,29 @@ char	*ft_get_env(char *name)
 	return (NULL);
 }
 
-char	*ft_charjoin(char *s1, char c)
+char	*ft_charjoin(char *str, char c)
 {
-	char	*str;
+	char	*tmp;
 	size_t	i;
 
 	i = 0;
-	if (!s1)
-		str = malloc(2 * sizeof(char));
+	if (!str)
+		tmp = malloc(2 * sizeof(char));
 	else
 	{
-		str = malloc((ft_strlen_parse(s1) + 2) * sizeof(char));
-		while (s1[i])
+		tmp = malloc((ft_strlen_parse(str) + 2) * sizeof(char));
+		while (str[i])
 		{
-			str[i] = s1[i];
+			tmp[i] = str[i];
 			i++;
 		}
 	}
-	str[i] = c;
+	tmp[i] = c;
 	i++;
-	free(s1);
-	s1 = NULL;
-	str[i] = '\0';
-	return (str);
+	tmp[i] = '\0';
+	free(str);
+	str = NULL;
+	return (tmp);
 }
 
 static int	ft_isalpha_parse(int c)
@@ -92,7 +92,12 @@ char	*get_value(char *value, int *i)
 				break ;
 			(*i)++;
 		}
-		tmp = ft_strdup_parse(ft_get_env(ft_substr_parse(value, j, (*i) - j + 1)));
+		tmp = ft_get_env(ft_substr(value, j, (*i) - j + 1));
+	}
+	else if (value[*i] == '$' && value[(*i) + 1] == '?')
+	{
+		tmp = ft_strjoin_parse(tmp, ft_itoa(g_global.exit_code));
+		(*i)++;
 	}
 	return (tmp);
 }

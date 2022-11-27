@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 08:33:04 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/25 10:34:21 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/26 21:05:06 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ typedef struct	s_token
 		PIPE,
 		OUTFILE,
 		CMD,
-		T_EOF
 	} type;
 	char *content;
 }	t_token;
@@ -98,7 +97,6 @@ typedef struct	s_lexer
 /* ===================== PARISING ===================== */
 
 void	parse();
-
 t_lexer	*start_lexer(char *content);
 t_token	*start_token(int type, char *content);
 t_token	*move_token(t_lexer *lexer, t_token *token);
@@ -112,6 +110,7 @@ void	move_byone(t_lexer *lexer);
 char	*convert_char(t_lexer *lexer);
 char	*ft_strdup_parse(char *s1);
 int		ft_strlen_parse(char *str);
+char	*handle_quote(t_lexer *lexer, char *value, char q);
 char	*ft_strjoin_parse(char *s1, char *s2);
 char	*ft_charjoin(char *s1, char c);
 int		is_cmd(char c);
