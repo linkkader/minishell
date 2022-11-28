@@ -13,6 +13,7 @@
 #ifndef HEADER_H
 # define HEADER_H
 
+#include <dirent.h>
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>

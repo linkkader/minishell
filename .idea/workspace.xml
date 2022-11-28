@@ -22,8 +22,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a3fc66d-3f27-474e-96a3-d556e9d0b164" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/p" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/header.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libft/libft.a" beforeDir="false" afterPath="$PROJECT_DIR$/libft/libft.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/builtins/builtin_cd.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtins/builtin_cd.o" afterDir="false" />
@@ -58,8 +60,8 @@
       <change beforePath="$PROJECT_DIR$/parce/parse.a" beforeDir="false" afterPath="$PROJECT_DIR$/parce/parse.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parce/utils.o" beforeDir="false" afterPath="$PROJECT_DIR$/parce/utils.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parce/utils1.o" beforeDir="false" afterPath="$PROJECT_DIR$/parce/utils1.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_echo.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtins/builtin_echo.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_export.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtins/builtin_export.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exe.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/exe.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/get_path.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/get_path.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +189,8 @@
       <workItem from="1669276119273" duration="7596000" />
       <workItem from="1669455928794" duration="4480000" />
       <workItem from="1669640391768" duration="5000" />
-      <workItem from="1669643538647" duration="5315000" />
+      <workItem from="1669643538647" duration="7429000" />
+      <workItem from="1669654602366" duration="2000" />
     </task>
     <servers />
   </component>

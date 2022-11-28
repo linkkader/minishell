@@ -41,9 +41,17 @@ char	*get_cmd_path(t_cmd *cmd, char *name)
 	char	*path;
 	char	**sp;
 	char	*p;
+    DIR     *pDir;
 
-	if (access(name, X_OK) == 0)
-		return (ft_strdup(name));
+
+    if (access(name, X_OK) == 0)
+    {
+        pDir = opendir(name);
+        if (pDir != NULL)
+            closedir(pDir);
+        else
+            return (ft_strdup(name));
+    }
 	p = NULL;
 	path = ft_get_env("PATH");
 	if (path != NULL)
