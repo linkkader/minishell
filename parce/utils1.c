@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:28:29 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/21 15:29:04 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/28 12:06:19 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,26 @@ char	*ft_strdup_parse(char *s1)
 	}
 	dup[len] = '\0';
 	return (dup);
+}
+
+char	*ft_get_env(char *name)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (g_global.env[i])
+	{
+		j = 0;
+		while (name[j] && g_global.env[i][j])
+		{
+			if (name[j] != g_global.env[i][j])
+				break ;
+			j++;
+		}
+		if (name[j] == '\0' && g_global.env[i][j] == '=')
+			return ft_strdup((g_global.env[i] + j + 1));
+		i++;
+	}
+	return (NULL);
 }

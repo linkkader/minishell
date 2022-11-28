@@ -6,13 +6,13 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:44:36 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/28 00:01:42 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/28 12:04:52 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"minishell.h"
 
-char	*ft_get_env(char *name)
+static char	*ft_getenv(char *name)
 {
 	int		i;
 	int		j;
@@ -95,7 +95,7 @@ char	*get_value(char *value, int *i)
 				break ;
 			(*i)++;
 		}
-		tmp = ft_get_env(ft_substr(value, j, (*i) - j + 1));
+		tmp = ft_getenv(ft_substr(value, j, (*i) - j + 1));
 	}
 	else if (value[*i] == '$' && value[(*i) + 1] == '?')
 	{
