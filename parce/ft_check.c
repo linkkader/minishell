@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:19:43 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/27 10:55:50 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/28 18:23:34 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	 ft_check_error(int type, char *content, int *i, t_cmd *data)
 		check = check_append(i);
 	else if (type == CMD)
 	{
-		
 		store_file(data, (*i), content);
 		(*i) = 5;
 	}

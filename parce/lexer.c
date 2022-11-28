@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 08:32:57 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/27 11:01:10 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/28 19:15:05 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ t_token	*collect_str(t_lexer *lexer)
 			move_byone(lexer);
 		}
 	}
-	return (start_token(CMD,value));
+	return (start_token(CMD, value));
 }
 
 t_token	*collect_app_here(t_lexer *lexer, char c, int i)
@@ -140,8 +140,10 @@ char	*handle_quote(t_lexer *lexer, char *value, char q)
 		move_byone(lexer);
 	else if (lexer->c == '\0')
 	{
+		free(value);
+		value = NULL;
 		write(2, "quote error\n", 13);
-		return (ft_strdup_parse(""));
+		return (NULL);
 	}
 	return (value);
 }

@@ -139,8 +139,8 @@ t_cmd	*ft_parce(t_lexer *lexer, t_token *token, t_cmd **data)
 	tmp = (*data);
 	while (token != NULL)
 	{
-		if (ft_check_error(token->type, token->content, &i, (*data)) == -1
-			|| token->content[0] == '\0')
+		if (token->content && (ft_check_error(token->type, token->content, &i, (*data)) == -1
+			|| token->content[0] == '\0'))
 		{
 			free_data(tmp);
 			check_last(i);

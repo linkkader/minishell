@@ -1,7 +1,11 @@
 
 CC = gcc
 
+<<<<<<< HEAD
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -g
+=======
 CFLAGS = -Wall -Wextra -Werror
+>>>>>>> d595086deccc93b64213c7a40d1ee35b40eff8e3
 
 CF = -lreadline -L /Users/$(USER)/.brew/opt/readline/lib -I /Users/$(USER)/.brew/opt/readline/include
 
