@@ -15,12 +15,6 @@ static void	sigquit(int sig)
 {
 	(void) sig;
 }
-
-char *str_expand()
-{
-	return (NULL);
-}
-
 int here_doc(t_file *tFile, int in, int *error)
 {
 	int 	fd[2];
@@ -49,8 +43,7 @@ int here_doc(t_file *tFile, int in, int *error)
 			free(line);
 			break ;
 		}
-        //here
-
+        line = ft_expand(line);
 		write(fd[1], line, ft_strlen(line));
 		write(fd[1], "\n", 1);
 		free(line);

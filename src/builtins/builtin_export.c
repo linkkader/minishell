@@ -27,6 +27,8 @@ static t_bool	part(t_list *temp, char *key,
 	entry = to_entry(temp->content);
 	if (ft_strncmp(key, entry->key, ft_strlen(entry->key) + 1) == 0)
 	{
+        system("leaks minishell");
+        ft_putstr_fd(key, 2);
 		free(key);
 		if (value == NULL && entry->value != NULL)
 			entry->is_exported = is_in_export;
@@ -64,10 +66,10 @@ void	export_value(char *key, char *value, t_cmd *cmd,
 		return ;
 	is_in = false;
 	temp = g_global.entries;
-	while (temp)
+    while (temp)
 	{
-		is_in = part(temp, key, value, is_in_export);
-		if (is_in == true)
+        is_in = part(temp, key, value, is_in_export);
+        if (is_in == true)
 			break ;
 		temp = temp->next;
 	}
@@ -97,8 +99,8 @@ static	char *get_key(char *str)
 	i = 0;
 	while (str[i] && str[i] != '=' && str[i] != '+')
 		i++;
-	key = ft_substr(str, 0, i);
-	return (key);
+    key = ft_substr(str, 0, i);
+    return (key);
 }
 
 static char	*get_value(char *str)
@@ -114,7 +116,9 @@ static char	*get_value(char *str)
 	{
 		if (str[i] == '+')
 		{
-			temp = ft_get_env(get_key(str));
+            sub = get_key(str);
+			temp = ft_get_env(sub);
+            free(sub);
 		}
 		i++;
 	}
@@ -129,7 +133,7 @@ static char	*get_value(char *str)
 		free(temp);
 		free(sub);
 	}
-	return (value);
+    return (value);
 }
 
 //[a-zA-Z_][a-zA-Z0-9_]
