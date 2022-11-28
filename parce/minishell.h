@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 08:33:04 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/26 21:05:06 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/27 20:50:32 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ char	*ft_strjoin_parse(char *s1, char *s2);
 char	*ft_charjoin(char *s1, char c);
 int		is_cmd(char c);
 char	*check(t_lexer *lexer);
+void	free_data(t_cmd *data);
 int		ft_check_error(int type, char *content, int *i, t_cmd *data);
 int		check_infile(int *i);
 int		check_outfile(int *i);

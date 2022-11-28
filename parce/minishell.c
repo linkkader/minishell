@@ -63,6 +63,8 @@ void	free_data(t_cmd *data)
 	t_file	*tmp;
 	t_cmd	*tmp1;
 
+	free(g_global.line);
+	g_global.line = NULL;
 	while (data)
 	{
 		while (data->file)
@@ -126,8 +128,8 @@ void	ft_pipe_(t_cmd **data, int i)
 t_cmd	*ft_parce(t_lexer *lexer, t_token *token, t_cmd **data)
 {
 	t_cmd *tmp;
-	int 	i;
 	t_token *tmp_tok;
+	int 	i;
 
 	i = -1;
 	(*data) = malloc(sizeof(t_cmd));
@@ -168,6 +170,7 @@ void parse()
 		lexer = start_lexer(g_global.line);
 		token  = next_token(lexer);
 		g_global.cmds = ft_parce(lexer, token, &g_global.cmds);
+		//print_cmd(g_global.cmds);
 		free(lexer);
 	}
 }

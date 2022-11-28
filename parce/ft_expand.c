@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:44:36 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/27 16:48:07 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/28 00:01:42 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ char	*ft_get_env(char *name)
 			j++;
 		}
 		if (name[j] == '\0' && g_global.env[i][j] == '=')
+		{
+			free(name);
 			return ft_strdup((g_global.env[i] + j + 1));
+		}
 		i++;
 	}
 	return (NULL);
@@ -117,5 +120,6 @@ char	*ft_expand(char *value)
 			str = ft_charjoin(str, value[i]);
 		i++;
 	}
+	free(value);
 	return (str);
 }
