@@ -48,7 +48,16 @@ char	*get_cmd_path(t_cmd *cmd, char *name)
     {
         pDir = opendir(name);
         if (pDir != NULL)
+        {
             closedir(pDir);
+            if (name[0] == '/')
+            {
+                put_error(name, "is a directory");
+                cmd->error = 126;
+                g_global.exit_code = 126;
+                return (NULL);
+            }
+        }
         else
             return (ft_strdup(name));
     }

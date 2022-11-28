@@ -23,6 +23,9 @@ LIBFT_DIRECTORY = libft/
 
 PARSING_DIRECTORY = parce/
 
+PARSING_FILE = ft_check.c              get_list.c              listing_tools copy.c    utils.c   ft_error.c              lexer.c                 listing_tools.c         utils1.c   ft_expand.c             lexer_tools.c           minishell.c
+
+
 BUILTINS_FILE = builtin_cd.c     builtin_echo.c   builtin_env.c    builtin_exit.c   builtin_export.c builtin_pwd.c    builtin_unset.c
 
 FILE = check_builtins.c exe.c            get_path.c       init.c           main.c                  t_list_utils.c   termios.c error.c  fake.c  pipe.c fix_fd.c here_doc.c\
@@ -51,7 +54,7 @@ CPPFLAGS="-I/goinfre/acouliba/brew/opt/readline/include"
 
 FLAGS =
 
-OBJS = $(addprefix $(OBJECTS_DIRECTORY), $(FILE:.c=.o)) $(addprefix $(OBJECTS_DIRECTORY)$(BUILTINS_DIRECTORY), $(BUILTINS_FILE:.c=.o))
+OBJS = $(addprefix $(OBJECTS_DIRECTORY), $(FILE:.c=.o)) $(addprefix $(OBJECTS_DIRECTORY)$(BUILTINS_DIRECTORY), $(BUILTINS_FILE:.c=.o)) $(addprefix $(OBJECTS_DIRECTORY)$(PARSING_DIRECTORY), $(PARSING_FILE:.c=.o))
 
 OBJS_BONUS = $(addprefix $(OBJECTS_DIRECTORY), $(FILE_BONUS:.c=.o))
 
@@ -68,6 +71,7 @@ $(LIBFT):
 $(PARSE):
 	@echo "make $(PARSE)"
 	@make -sC  $(PARSING_DIRECTORY)
+
 
 
 $(OBJECTS_DIRECTORY):
