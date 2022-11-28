@@ -27,7 +27,6 @@ static t_bool	part(t_list *temp, char *key,
 	entry = to_entry(temp->content);
 	if (ft_strncmp(key, entry->key, ft_strlen(entry->key) + 1) == 0)
 	{
-        system("leaks minishell");
         ft_putstr_fd(key, 2);
 		free(key);
 		if (value == NULL && entry->value != NULL)
@@ -73,7 +72,7 @@ void	export_value(char *key, char *value, t_cmd *cmd,
 			break ;
 		temp = temp->next;
 	}
-	if (is_in == false)
+    if (is_in == false)
 		part1(key, value, is_in_export);
 	update_env();
 }
@@ -125,7 +124,7 @@ static char	*get_value(char *str)
 	if (str[i] == '\0')
 		return (NULL);
 	sub = ft_substr(str, i + 1, ft_strlen(str) - i);
-	if (temp == NULL)
+    if (temp == NULL)
 		value = sub;
 	else
 	{

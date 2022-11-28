@@ -19,6 +19,7 @@ t_bool	is_option(char *str)
 	i = 0;
 	if (str[0] != '-')
 		return (false);
+    i++;
 	while (str[i])
 	{
 		if (str[i] != 'n')
