@@ -22,8 +22,8 @@ void	fix_fd(t_cmd *cmd)
 	error = 0;
 	in = cmd->in;
 	out = cmd->out;
-	tFile = cmd->file;
-	while (tFile)
+	file = cmd->file;
+	while (file)
 	{
 		if (file->token == INFILE)
 			in = infile(file, in, &error);
@@ -33,7 +33,7 @@ void	fix_fd(t_cmd *cmd)
 			out = append_file(file, out, &error);
 		else if (file->token == HEREDOC)
 			in = here_doc(file, in, &error);
-		tFile = file->next;
+		file = file->next;
 		if (error)
 			break ;
 	}
@@ -77,10 +77,6 @@ void	run(t_cmd *cmd)
 		}
 		exit(cmd->error);
 	}
-	if (cmd->in != STDIN_FILENO)
-		close(cmd->in);
-	if (cmd->out != STDOUT_FILENO)
-		close(cmd->out);
 }
 
 void	fix_all(t_cmd *cmd)
@@ -104,6 +100,10 @@ void	exe(t_cmd *cmd)
 	while (cmd)
 	{
 		run(cmd);
+		if (cmd->in != STDIN_FILENO)
+			close(cmd->in);
+		if (cmd->out != STDOUT_FILENO)
+			close(cmd->out);
 		cmd = cmd->next;
 	}
 	cmd = g_global.cmds;
