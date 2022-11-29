@@ -41,26 +41,25 @@ char	*get_cmd_path(t_cmd *cmd, char *name)
 	char	*path;
 	char	**sp;
 	char	*p;
-    DIR     *pDir;
+	DIR		*dir;
 
-
-    if (access(name, X_OK) == 0)
-    {
-        pDir = opendir(name);
-        if (pDir != NULL)
-        {
-            closedir(pDir);
-            if (name[0] == '/')
-            {
-                put_error(name, "is a directory");
-                cmd->error = 126;
-                g_global.exit_code = 126;
-                return (NULL);
-            }
-        }
-        else
-            return (ft_strdup(name));
-    }
+	if (access(name, X_OK) == 0)
+	{
+		dir = opendir(name);
+		if (dir != NULL)
+		{
+			closedir(dir);
+			if (name[0] == '/')
+			{
+				put_error(name, "is a directory");
+				cmd->error = 126;
+				g_global.exit_code = 126;
+				return (NULL);
+			}
+		}
+		else
+			return (ft_strdup(name));
+	}
 	p = NULL;
 	path = ft_get_env("PATH");
 	if (path != NULL)
@@ -79,7 +78,7 @@ char	*get_cmd_path(t_cmd *cmd, char *name)
 	else
 	{
 		cmd->error = 127;
-		put_error( name, "No such file or directory");
+		put_error(name, "No such file or directory");
 	}
 	free(path);
 	return (p);

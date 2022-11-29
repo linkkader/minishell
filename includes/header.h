@@ -69,7 +69,6 @@ void	my_perror(int result, char *str);
 
 void	sigint_handler_in_process(int sig);
 void	sigquit_handler_in_process(int sig);
-void	sigint_handler_nonl(int sig);
 void	signals();
 void	reset_signals();
 

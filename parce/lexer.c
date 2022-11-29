@@ -68,7 +68,8 @@ t_token	*collect_str(t_lexer *lexer)
 
 	value = NULL;
 	flag = 0;
-	while (is_cmd(lexer->c) && lexer->c != ' ' && lexer->c != '\0')
+	while (is_cmd(lexer->c) && lexer->c != ' '
+		&& lexer->c != '\t' && lexer->c != '\0')
 	{
 		if (lexer->c == '\"')
 			value = handle_quote(lexer, value, '\"');

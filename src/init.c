@@ -1,6 +1,14 @@
-//
-// Created by Abdoul Kader on 12/11/2022.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: acouliba <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/29 16:43:52 by acouliba          #+#    #+#             */
+/*   Updated: 2022/11/29 16:43:55 by acouliba         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../includes/header.h"
 
@@ -16,9 +24,11 @@ void	clear_d2(char **cmd)
 	}
 }
 
-static void print2d(char **arr)
+static void	print2d(char **arr)
 {
-	int i = 0;
+	int		i;
+
+	i = 0;
 	while (arr[i] != NULL)
 	{
 		ft_putstr_fd(arr[i], 1);
@@ -27,10 +37,10 @@ static void print2d(char **arr)
 	}
 }
 
-static char **copy(char **env)
+static char	**copy(char **env)
 {
-	char **cpy;
-	int i;
+	char	**cpy;
+	int		i;
 
 	i = 0;
 	while (env[i])
@@ -54,22 +64,6 @@ static char **copy(char **env)
 	return (cpy);
 }
 
-void	print_all_entries()
-{
-	t_entry *entry;
-
-	t_list *lst = g_global.entries;
-	while (lst)
-	{
-		entry = to_entry(lst->content);
-		ft_putstr_fd(entry->key, 1);
-		ft_putstr_fd("=", 1);
-		ft_putstr_fd(entry->value, 1);
-		ft_putstr_fd("\n", 1);
-		lst = lst->next;
-	}
-}
-
 void	env_to_entries(char **env)
 {
 	int		i;
@@ -83,9 +77,9 @@ void	env_to_entries(char **env)
 	}
 }
 
-void	update_env()
+void	update_env(void)
 {
-	t_entry *entry;
+	t_entry	*entry;
 	int		i;
 	t_list	*temp;
 	char	*str;
@@ -104,10 +98,9 @@ void	update_env()
 		str = ft_strjoin(entry->key, "=");
 		if (str == NULL)
 			return ;
-		g_global.env[i] = ft_strjoin(str, entry->value);
-		if(str)
+		g_global.env[i++] = ft_strjoin(str, entry->value);
+		if (str)
 			free(str);
-		i++;
 		temp = temp->next;
 	}
 	g_global.env[i] = NULL;

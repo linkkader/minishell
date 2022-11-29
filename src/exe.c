@@ -1,15 +1,23 @@
-//
-// Created by Abdoul Kader on 12/11/2022.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   exe.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: acouliba <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/29 17:06:19 by acouliba          #+#    #+#             */
+/*   Updated: 2022/11/29 17:06:24 by acouliba         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../includes/header.h"
 
 void	fix_fd(t_cmd *cmd)
 {
-	int 	in;
-	int 	out;
+	int		in;
+	int		out;
 	int		error;
-	t_file	*tFile;
+	t_file	*file;
 
 	error = 0;
 	in = cmd->in;
@@ -17,15 +25,15 @@ void	fix_fd(t_cmd *cmd)
 	tFile = cmd->file;
 	while (tFile)
 	{
-		if (tFile->token == INFILE)
-			in = infile(tFile, in, &error);
-		else if (tFile->token == OUTFILE)
-			out = outfile(tFile, out, &error);
-		else if (tFile->token == APPEND)
-			out = append_file(tFile, out, &error);
-		else if (tFile->token == HEREDOC)
-			in = here_doc(tFile, in, &error);
-		tFile = tFile->next;
+		if (file->token == INFILE)
+			in = infile(file, in, &error);
+		else if (file->token == OUTFILE)
+			out = outfile(file, out, &error);
+		else if (file->token == APPEND)
+			out = append_file(file, out, &error);
+		else if (file->token == HEREDOC)
+			in = here_doc(file, in, &error);
+		tFile = file->next;
 		if (error)
 			break ;
 	}
@@ -46,7 +54,7 @@ void	close_all(t_cmd *cmd)
 
 void	run(t_cmd *cmd)
 {
-	int 	pid[2];
+	int		pid[2];
 
 	check_builtin(cmd);
 	if (pipe(pid))
@@ -64,8 +72,8 @@ void	run(t_cmd *cmd)
 			close_all(g_global.cmds);
 			if (cmd->error == 0)
 				cmd->error = (execve(cmd->path, cmd->cmd, g_global.env));
-            put_error(cmd->path, strerror(errno));
-            exit(errno);
+			put_error(cmd->path, strerror(errno));
+			exit(errno);
 		}
 		exit(cmd->error);
 	}
@@ -75,15 +83,13 @@ void	run(t_cmd *cmd)
 		close(cmd->out);
 }
 
-void    fix_all(t_cmd *cmd)
+void	fix_all(t_cmd *cmd)
 {
-    while (cmd)
-    {
-        fix_fd(cmd);
-        // printf("cmd->in = %d cmd->out = %d\n", cmd->in, cmd->out);
-        // run(cmd);
-        cmd = cmd->next;
-    }
+	while (cmd)
+	{
+		fix_fd(cmd);
+		cmd = cmd->next;
+	}
 }
 
 void	exe(t_cmd *cmd)
@@ -94,11 +100,9 @@ void	exe(t_cmd *cmd)
 	sig[1] = signal(SIGQUIT, sigquit_handler_in_process);
 	normal_echo();
 	my_pipe(cmd);
-    fix_all(cmd);
-    while (cmd)
+	fix_all(cmd);
+	while (cmd)
 	{
-//		fix_fd(cmd);
-		// printf("cmd->in = %d cmd->out = %d\n", cmd->in, cmd->out);
 		run(cmd);
 		cmd = cmd->next;
 	}

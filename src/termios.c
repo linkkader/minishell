@@ -12,7 +12,7 @@
 
 #include "../includes/header.h"
 
-void	correct_echo()
+void	correct_echo(void)
 {
 	struct termios	attributes;
 
@@ -28,7 +28,7 @@ void	correct_echo()
 	tcsetattr(STDIN_FILENO, TCSAFLUSH, &attributes);
 }
 
-void	normal_echo()
+void	normal_echo(void)
 {
 	tcsetattr(STDIN_FILENO, TCSAFLUSH, g_global.attributes);
 }

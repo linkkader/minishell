@@ -23,26 +23,49 @@
   <component name="ChangeListManager">
     <list default="true" id="0a3fc66d-3f27-474e-96a3-d556e9d0b164" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/header.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/builtins/builtin_echo.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtins/builtin_echo.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/builtins/builtin_export.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/builtins/builtin_export.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/exe.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/exe.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/here_doc.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/here_doc.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/main.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/parce/ft_check.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/parce/ft_check.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/parce/minishell.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/parce/minishell.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parce/parse.a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_cd.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtins/builtin_cd.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_export.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtins/builtin_export.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_unset.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtins/builtin_unset.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/init.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/init.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/parce/ft_expand.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/parce/ft_expand.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/parce/lexer.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/parce/lexer.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_cd.c" beforeDir="false" afterPath="$PROJECT_DIR$/builtins/builtin_cd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_echo.c" beforeDir="false" afterPath="$PROJECT_DIR$/builtins/builtin_echo.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_env.c" beforeDir="false" afterPath="$PROJECT_DIR$/builtins/builtin_env.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_exit.c" beforeDir="false" afterPath="$PROJECT_DIR$/builtins/builtin_exit.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_export.c" beforeDir="false" afterPath="$PROJECT_DIR$/builtins/builtin_export.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_pwd.c" beforeDir="false" afterPath="$PROJECT_DIR$/builtins/builtin_pwd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_unset.c" beforeDir="false" afterPath="$PROJECT_DIR$/builtins/builtin_unset.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/check_builtins.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/check_builtins.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/error.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/error.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/exe.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/exe.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fake.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fix_fd.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/fix_fd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/get_path.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/get_path.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/here_doc.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/here_doc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/init.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/init.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parce/ft_check.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parce/ft_check.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parce/minishell.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parce/minishell.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parce/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/parce/minishell.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parce/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/parce/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parce/Makefile copy" beforeDir="false" afterPath="$PROJECT_DIR$/parce/Makefile copy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parce/ft_check.c" beforeDir="false" afterPath="$PROJECT_DIR$/parce/ft_check.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parce/ft_error.c" beforeDir="false" afterPath="$PROJECT_DIR$/parce/ft_error.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parce/ft_expand.c" beforeDir="false" afterPath="$PROJECT_DIR$/parce/ft_expand.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parce/ft_free.c" beforeDir="false" afterPath="$PROJECT_DIR$/parce/ft_free.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parce/ft_free.o" beforeDir="false" afterPath="$PROJECT_DIR$/parce/ft_free.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parce/get_list.c" beforeDir="false" afterPath="$PROJECT_DIR$/parce/get_list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parce/lexer.c" beforeDir="false" afterPath="$PROJECT_DIR$/parce/lexer.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parce/lexer_tools.c" beforeDir="false" afterPath="$PROJECT_DIR$/parce/lexer_tools.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parce/listing_tools copy.c" beforeDir="false" afterPath="$PROJECT_DIR$/parce/listing_tools copy.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parce/listing_tools.c" beforeDir="false" afterPath="$PROJECT_DIR$/parce/listing_tools.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parce/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/parce/minishell" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parce/minishell copy.h" beforeDir="false" afterPath="$PROJECT_DIR$/parce/minishell copy.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parce/minishell.c" beforeDir="false" afterPath="$PROJECT_DIR$/parce/minishell.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parce/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/parce/minishell.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parce/todo" beforeDir="false" afterPath="$PROJECT_DIR$/parce/todo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parce/utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/parce/utils.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parce/utils1.c" beforeDir="false" afterPath="$PROJECT_DIR$/parce/utils1.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pipe.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipe.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/signal.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/signal.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/termios.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/termios.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,8 +133,8 @@
       <recent name="$PROJECT_DIR$/includes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/file" />
     </key>
   </component>
@@ -170,7 +193,7 @@
       <workItem from="1669640391768" duration="5000" />
       <workItem from="1669643538647" duration="7429000" />
       <workItem from="1669654602366" duration="2000" />
-      <workItem from="1669720844929" duration="9744000" />
+      <workItem from="1669720844929" duration="12913000" />
     </task>
     <servers />
   </component>
@@ -203,16 +226,11 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/fix_fd.c</url>
-          <line>19</line>
+          <line>26</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/fake.c</url>
-          <line>85</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/parce/minishell.c</url>
+          <url>file://$PROJECT_DIR$/parce/minishell.c</url>
           <line>26</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>

@@ -10,16 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../includes/header.h"
-
-void	sigint_handler_nonl(int sig)
-{
-	rl_on_new_line();
-	// rl_replace_line("", 0);
-	rl_redisplay();
-	(void) sig;
-}
 
 void	sigint_handler_in_process(int sig)
 {

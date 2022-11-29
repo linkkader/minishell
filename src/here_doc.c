@@ -1,6 +1,14 @@
-//
-// Created by Abdoul kader Coulibaly on 11/16/22.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   here_doc.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: acouliba <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/29 17:00:40 by acouliba          #+#    #+#             */
+/*   Updated: 2022/11/29 17:00:43 by acouliba         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../includes/header.h"
 
@@ -15,9 +23,10 @@ static void	sigquit(int sig)
 {
 	(void) sig;
 }
-int here_doc(t_file *tFile, int in, int *error)
+
+int	here_doc(t_file *tFile, int in, int *error)
 {
-	int 	fd[2];
+	int		fd[2];
 	char	*line;
 	sig_t	sig;
 
@@ -42,7 +51,7 @@ int here_doc(t_file *tFile, int in, int *error)
 			free(line);
 			break ;
 		}
-        line = ft_expand(line);
+		line = ft_expand(line);
 		write(fd[1], line, ft_strlen(line));
 		write(fd[1], "\n", 1);
 		free(line);

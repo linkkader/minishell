@@ -1,30 +1,36 @@
-//
-// Created by Abdoul Kader on 13/11/2022.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pipe.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: acouliba <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/29 17:02:50 by acouliba          #+#    #+#             */
+/*   Updated: 2022/11/29 17:02:59 by acouliba         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../includes/header.h"
 
 void	my_pipe(t_cmd *cmd)
 {
 	int		fd[2];
-	int		nextIn;
+	int		next_in;
 
-
-	nextIn = dup(STDIN_FILENO);
+	next_in = dup(STDIN_FILENO);
 	while (cmd)
 	{
 		if (cmd->next == NULL)
 		{
 			cmd->out = dup(STDOUT_FILENO);
-			cmd->in = nextIn;
+			cmd->in = next_in;
 		}
 		else
 		{
-			cmd->in = nextIn;
+			cmd->in = next_in;
 			pipe(fd);
-			// printf("fd[0] = %d  fd[1] = %d\n",	fd[0], fd[1]);
 			cmd->out = fd[1];
-			nextIn = fd[0];
+			next_in = fd[0];
 		}
 		cmd = cmd->next;
 	}
