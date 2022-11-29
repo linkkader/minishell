@@ -99,6 +99,7 @@ char	*handle_quote(t_lexer *lexer, char *value, char q)
 		free(value);
 		value = NULL;
 		write(2, "quote error\n", 13);
+		g_global.q_flag = 1;
 		return (NULL);
 	}
 	return (value);

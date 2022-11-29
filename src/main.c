@@ -71,32 +71,32 @@ static void clear()
 
 int main(int ac, char **av, char **env)
 {
-	char	*line;
-	t_global *tmp;
-	int i = 0;
-
-	tmp = &g_global;
+	if (ac > 1)
+	{
+		ft_putendl_fd("error", 2);
+		return (1);
+	}
 	init(env);
 	while (1)
 	{
 		if (init_prompt())
 			continue ;
-//		g_global.cmds = fake();
-		g_global.exit_code = 0;
 		parse();
-//		while (1);
-		 t_cmd *tmp = g_global.cmds;
-
-
+		system("leaks minishell");
+//		while (g_global.cmds)
+//		{
+//			int 	i;
+//
+//			i = 0;
+//			while (g_global.cmds->cmd[i])
+//			{
+//				printf("%s\n", g_global.cmds->cmd[i]);
+//				i++;
+//			}
+//			g_global.cmds = g_global.cmds->next;
+//		}
 		if (g_global.cmds)
 			exe(g_global.cmds);
-//       while (tmp != NULL)
-//        {
-//            for(int i=0; tmp->cmd[i] ; i++)
-//                printf("%d %s\n", i, tmp->cmd[i]);
-//            // printf("%s\n", tmp->cmd);
-//            tmp = tmp->next;
-//        }
 		clear();
 
 	}

@@ -109,7 +109,6 @@ void	exe(t_cmd *cmd)
 		cmd = cmd->next;
 	}
 	g_global.exit_code = WEXITSTATUS(g_global.exit_code);
-	printf("exit code = %d\n", g_global.exit_code);
 	signal(SIGINT, SIG_DFL);
 	signal(SIGQUIT, sig[1]);
 }

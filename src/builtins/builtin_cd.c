@@ -19,7 +19,7 @@ static void	part(t_cmd *cmd, char *path)
 	temp = getcwd(NULL, 0);
 	if (temp != NULL)
 		export_value(ft_strdup("OLDPWD"), temp, cmd, true);
-	if  (chdir(path) != 0)
+	if (chdir(path) != 0)
 	{
 		perror("cd");
 		return ;
@@ -34,7 +34,8 @@ void	cd_builtin(t_cmd *cmd)
 	char	*path;
 
 	path = NULL;
-	if (cmd->cmd[1] == NULL || ( cmd->cmd[1] != NULL && ft_strcmp(cmd->cmd[1], "~") == 0))
+	if (cmd->cmd[1] == NULL || (cmd->cmd[1] != NULL
+			&& ft_strcmp(cmd->cmd[1], "~") == 0))
 		path = ft_get_env("HOME");
 	else if (ft_strcmp("-", cmd->cmd[1]) == 0)
 	{

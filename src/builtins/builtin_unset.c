@@ -69,8 +69,4 @@ void	unset_builtin(t_cmd *cmd)
 		i++;
 	}
 	update_env();
-//	clear_d2(g_global.env);
-	//env_to_entries
-	//env_to_entries();
-	//g_global.env = to_env(g_global.entries, true);
 }

@@ -55,7 +55,7 @@ t_cmd	*ft_parce(t_lexer *lexer, t_token *token, t_cmd **data)
 		free(tmp_tok->content);
 		free(tmp_tok);
 	}
-	if (i != 5)
+	if (i != 5 || g_global.q_flag)
 		return (is_error(tmp, i));
 	return (tmp);
 }
@@ -67,6 +67,7 @@ void	parse(void)
 
 	lexer = NULL;
 	token = NULL;
+	g_global.q_flag = 0;
 	g_global.flag = 0;
 	quote_checker(g_global.line);
 	if (ft_strchr_parse(g_global.line, '$') == 1)

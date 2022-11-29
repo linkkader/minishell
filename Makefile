@@ -27,7 +27,8 @@ PARSING_FILE = lexer_tools.c \
                		utils.c \
                		utils1.c \
                		listing_tools.c \
-               		get_list.c
+               		get_list.c\
+               		ft_free.c
 
 
 BUILTINS_FILE = builtin_cd.c     builtin_echo.c   builtin_env.c    builtin_exit.c   builtin_export.c builtin_pwd.c    builtin_unset.c

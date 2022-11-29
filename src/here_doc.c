@@ -26,7 +26,6 @@ int here_doc(t_file *tFile, int in, int *error)
 	if (pipe(fd))
 	{
 		perror("minishell");
-		//todo: manage error and manage signal
 		exit(errno);
 	}
 	while (1)

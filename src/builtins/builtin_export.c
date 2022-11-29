@@ -12,8 +12,9 @@
 
 #include "../../includes/header.h"
 
-void	not_an_identifier(char *error)
+void	not_an_identifier(char *error, t_cmd *cmd)
 {
+	cmd->error = 1;
 	ft_putstr_fd("minishell: export: `", 2);
 	ft_putstr_fd(error, 2);
 	ft_putstr_fd("': not a valid identifier\n", 2);
@@ -90,7 +91,7 @@ static void	export_print(t_cmd *cmd, t_entry *entry)
 	ft_putstr_fd("\n", cmd->out);
 }
 
-static	char *get_key(char *str)
+static char	*get_key(char *str)
 {
 	int		i;
 	char	*key;
@@ -98,8 +99,8 @@ static	char *get_key(char *str)
 	i = 0;
 	while (str[i] && str[i] != '=' && str[i] != '+')
 		i++;
-    key = ft_substr(str, 0, i);
-    return (key);
+	key = ft_substr(str, 0, i);
+	return (key);
 }
 
 static char	*get_value(char *str)
@@ -115,16 +116,16 @@ static char	*get_value(char *str)
 	{
 		if (str[i] == '+')
 		{
-            sub = get_key(str);
+			sub = get_key(str);
 			temp = ft_get_env(sub);
-            free(sub);
+			free(sub);
 		}
 		i++;
 	}
 	if (str[i] == '\0')
 		return (NULL);
 	sub = ft_substr(str, i + 1, ft_strlen(str) - i);
-    if (temp == NULL)
+	if (temp == NULL)
 		value = sub;
 	else
 	{
@@ -132,7 +133,7 @@ static char	*get_value(char *str)
 		free(temp);
 		free(sub);
 	}
-    return (value);
+	return (value);
 }
 
 //[a-zA-Z_][a-zA-Z0-9_]
@@ -142,31 +143,32 @@ void	try_export(char *str, t_cmd *cmd)
 
 	if (!(ft_isalpha(str[0]) == 1 || str[0] == '_'))
 	{
-		not_an_identifier(str);
+		not_an_identifier(str, cmd);
 		return ;
 	}
 	i = 1;
 	while (str[i] && str[i] != '=')
 	{
 		if (str[i] == '+' && str[i + 1] == '=')
-			break;
-		if (!(ft_isalpha(str[i]) == 1 || ft_isalnum(str[i]) == 1 || str[i] == '_'))
+			break ;
+		if (!(ft_isalpha(str[i]) == 1
+				|| ft_isalnum(str[i]) == 1 || str[i] == '_'))
 		{
-			not_an_identifier(str);
+			not_an_identifier(str, cmd);
 			return ;
 		}
 		i++;
 	}
 	export_value(get_key(str),
-		get_value(str),cmd,
-	true);
+		get_value(str), cmd,
+		true);
 }
 
-void    export_builtin(t_cmd *cmd)
+void	export_builtin(t_cmd *cmd)
 {
 	t_list	*temp;
 	t_entry	*entry;
-	int 	i;
+	int		i;
 
 	i = 1;
 	if (cmd->cmd[1] == NULL)
@@ -180,7 +182,8 @@ void    export_builtin(t_cmd *cmd)
 			temp = temp->next;
 		}
 	}
-	else {
+	else
+	{
 		while (cmd->cmd[i] != NULL)
 		{
 			try_export(cmd->cmd[i], cmd);
