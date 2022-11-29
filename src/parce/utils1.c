@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:28:29 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/28 12:06:19 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:07:08 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,57 @@ char	*ft_get_env(char *name)
 			j++;
 		}
 		if (name[j] == '\0' && g_global.env[i][j] == '=')
-			return ft_strdup((g_global.env[i] + j + 1));
+			return (ft_strdup((g_global.env[i] + j + 1)));
 		i++;
 	}
 	return (NULL);
+}
+
+char	*ft_charjoin(char *str, char c)
+{
+	char	*tmp;
+	size_t	i;
+
+	i = 0;
+	if (!str)
+		tmp = malloc(2 * sizeof(char));
+	else
+	{
+		tmp = malloc((ft_strlen_parse(str) + 2) * sizeof(char));
+		while (str[i])
+		{
+			tmp[i] = str[i];
+			i++;
+		}
+	}
+	tmp[i] = c;
+	i++;
+	tmp[i] = '\0';
+	free(str);
+	str = NULL;
+	return (tmp);
+}
+
+int	ft_strchr_parse(char *s, int c)
+{
+	if (s)
+	{
+		while (*s)
+		{
+			if (*s == c)
+				return (1);
+			s++;
+		}
+	}
+	return (0);
+}
+
+char	*convert_char(t_lexer *lexer)
+{
+	char	*str;
+
+	str = malloc(sizeof(char) * 2);
+	str[0] = lexer->c;
+	str[1] = '\0';
+	return (str);
 }

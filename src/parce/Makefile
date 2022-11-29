@@ -1,6 +1,4 @@
-
 CC = gcc
-
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -10,6 +8,7 @@ SRCS =	lexer_tools.c \
 		lexer.c \
 		ft_check.c \
 		ft_error.c \
+		ft_free.c \
 		minishell.c \
 		ft_expand.c \
 		utils.c \

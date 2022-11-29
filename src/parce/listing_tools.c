@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 11:49:04 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/27 10:45:49 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/29 12:21:02 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ t_file	*ft_lstnew_parse(int token, char *name)
 	t_file	*new;
 
 	new = malloc(sizeof(t_file));
-		if (!new)
-			return (NULL);
+	if (!new)
+		return (NULL);
 	if (name)
 	{
 		new -> name = ft_strdup_parse(name);
