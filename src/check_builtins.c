@@ -12,14 +12,8 @@
 
 #include "../includes/header.h"
 
-void	check_builtin(t_cmd *tmp)
+static void	part(t_cmd *tmp, char *name)
 {
-	char	*name;
-
-	tmp->path = NULL;
-	if (tmp->cmd == NULL)
-		return ;
-	name = ft_strdup(tmp->cmd[0]);
 	if (ft_strcmp(name, "cd") == 0)
 		cd_builtin(tmp);
 	else if (ft_strcmp(name, "echo") == 0)
@@ -39,5 +33,16 @@ void	check_builtin(t_cmd *tmp)
 		tmp->path = get_cmd_path(tmp,
 				tmp->cmd[0]);
 	}
+}
+
+void	check_builtin(t_cmd *tmp)
+{
+	char	*name;
+
+	tmp->path = NULL;
+	if (tmp->cmd == NULL)
+		return ;
+	name = ft_strdup(tmp->cmd[0]);
+	part(tmp, name);
 	free(name);
 }

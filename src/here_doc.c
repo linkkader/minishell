@@ -60,7 +60,7 @@ int	here_doc(t_file *tFile, int in, int *error)
 		perror("minishell");
 		exit(errno);
 	}
-	part(tFile, fd);
+	line = part(tFile, fd);
 	dup2(g_global.std_in, 0);
 	close(fd[1]);
 	dup2(fd[0], in);

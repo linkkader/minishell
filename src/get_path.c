@@ -61,6 +61,7 @@ static char	*part2(char *path, t_cmd *cmd, char *name)
 		put_error(name, "No such file or directory");
 	}
 	free(path);
+	return (p);
 }
 
 char	*get_cmd_path(t_cmd *cmd, char *name)
