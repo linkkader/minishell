@@ -31,7 +31,7 @@ static void	part(t_cmd *tmp, char *name)
 	else
 	{
 		tmp->path = get_cmd_path(tmp,
-			tmp->cmd[0]);
+				tmp->cmd[0]);
 	}
 }
 

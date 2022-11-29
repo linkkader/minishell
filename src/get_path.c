@@ -36,10 +36,37 @@ static char	*part(char **sp, char *name)
 	return (NULL);
 }
 
+static char	*part2(char *path, t_cmd *cmd, char *name)
+{
+	char	**sp;
+	char	*p;
+
+	p = NULL;
+	if (path != NULL)
+	{
+		sp = ft_split(path, ':');
+		if (sp)
+			p = part(sp, name);
+		if (p == NULL)
+		{
+			cmd->error = 127;
+			put_error(name, "command not found");
+		}
+		clear_d2(sp);
+		free(sp);
+	}
+	else
+	{
+		cmd->error = 127;
+		put_error(name, "No such file or directory");
+	}
+	free(path);
+	return (p);
+}
+
 char	*get_cmd_path(t_cmd *cmd, char *name)
 {
 	char	*path;
-	char	**sp;
 	char	*p;
 	DIR		*dir;
 
@@ -60,26 +87,7 @@ char	*get_cmd_path(t_cmd *cmd, char *name)
 		else
 			return (ft_strdup(name));
 	}
-	p = NULL;
 	path = ft_get_env("PATH");
-	if (path != NULL)
-	{
-		sp = ft_split(path, ':');
-		if (sp)
-			p = part(sp, name);
-		if (p == NULL)
-		{
-			cmd->error = 127;
-			put_error(name, "command not found");
-		}
-		clear_d2(sp);
-		free(sp);
-	}
-	else
-	{
-		cmd->error = 127;
-		put_error(name, "No such file or directory");
-	}
-	free(path);
+	p = part2(path, cmd, name);
 	return (p);
 }
