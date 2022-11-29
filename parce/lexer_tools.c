@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 20:49:52 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/26 17:31:01 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:08:32 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_token	*start_token(int type, char *content)
 	t_token	*token;
 
 	token = malloc(sizeof(t_token));
-	token->type = type;
+	token->e_type = type;
 	token->content = content;
 	return (token);
 }

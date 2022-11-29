@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 11:12:11 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/26 18:46:54 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/29 12:06:09 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_strlen_(char **tab)
 void	free_matrix(char **tab)
 {
 	int	i;
-	int size;
+	int	size;
 
 	i = 0;
 	size = ft_strlen_(tab);
@@ -38,8 +38,6 @@ void	free_matrix(char **tab)
 	free(tab);
 	tab = NULL;
 }
-
-
 
 char	**store_cmd(char **tab, char *str)
 {
@@ -80,7 +78,6 @@ void	store_file(t_cmd *data, int i, char *content)
 		ft_lstadd_back_parse(&data->file, ft_lstnew_parse(0, content));
 	else if (i == 1)
 		ft_lstadd_back_parse(&data->file, ft_lstnew_parse(1, content));
-	else{
+	else
 		data->cmd = store_cmd(data->cmd, ft_strdup_parse(content));
-	}
 }

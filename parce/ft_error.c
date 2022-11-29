@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 08:36:51 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/22 15:16:19 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:06:35 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	check_infile(int *i)
 {
 	if ((*i) == 0 || (*i) == 1 || (*i) == 4 || (*i) == 2)
 	{
-		// write(2, "syntax error\n", 14);
 		return (-1);
 	}
 	else
@@ -28,7 +27,6 @@ int	check_outfile(int *i)
 {
 	if ((*i) == 0 || (*i) == 1 || (*i) == 2 || (*i) == 4)
 	{
-		// write(2, "syntax error\n", 14);
 		return (-1);
 	}
 	else
@@ -40,7 +38,6 @@ int	check_heredoc(int *i)
 {
 	if ((*i) == 4 || (*i) == 1 || (*i) == 2 || (*i) == 0)
 	{
-		// write(2, "syntax error\n", 14);
 		return (-1);
 	}
 	else
@@ -52,7 +49,6 @@ int	check_append(int *i)
 {
 	if ((*i) == 4 || (*i) == 0 || (*i) == 2 || (*i) == 1)
 	{
-		// write(2, "syntax error\n", 14);
 		return (-1);
 	}
 	else
@@ -63,10 +59,7 @@ int	check_append(int *i)
 int	check_pipe(int *i)
 {
 	if ((*i) == 0 || (*i) == 4 || (*i) == 1 || (*i) == 2 || (*i) == 3)
-	{
-		// write(2, "syntax error\n", 14);
 		return (-1);
-	}
 	else
 		(*i) = 3;
 	return (1);

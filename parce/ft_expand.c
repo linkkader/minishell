@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:44:36 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/28 12:04:52 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/29 12:04:31 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,36 +30,11 @@ static char	*ft_getenv(char *name)
 		if (name[j] == '\0' && g_global.env[i][j] == '=')
 		{
 			free(name);
-			return ft_strdup((g_global.env[i] + j + 1));
+			return (ft_strdup((g_global.env[i] + j + 1)));
 		}
 		i++;
 	}
 	return (NULL);
-}
-
-char	*ft_charjoin(char *str, char c)
-{
-	char	*tmp;
-	size_t	i;
-
-	i = 0;
-	if (!str)
-		tmp = malloc(2 * sizeof(char));
-	else
-	{
-		tmp = malloc((ft_strlen_parse(str) + 2) * sizeof(char));
-		while (str[i])
-		{
-			tmp[i] = str[i];
-			i++;
-		}
-	}
-	tmp[i] = c;
-	i++;
-	tmp[i] = '\0';
-	free(str);
-	str = NULL;
-	return (tmp);
 }
 
 static int	ft_isalpha_parse(int c)

@@ -6,11 +6,31 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 08:32:57 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/28 19:15:05 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:07:34 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include    "minishell.h"
+
+static t_token	*is_here(t_lexer *lexer)
+{
+	if (lexer->value[lexer->index + 1] == '>')
+		return (collect_app_here(lexer, '>', 1));
+	else
+		return (move_token(lexer,
+				start_token(INFILE, convert_char(lexer))));
+	return (NULL);
+}
+
+static t_token	*is_app(t_lexer *lexer)
+{
+	if (lexer->value[lexer->index + 1] == '<')
+		return (collect_app_here(lexer, '<', 0));
+	else
+		return (move_token(lexer,
+				start_token(OUTFILE, convert_char(lexer))));
+	return (NULL);
+}
 
 t_token	*next_token(t_lexer *lexer)
 {
@@ -21,23 +41,12 @@ t_token	*next_token(t_lexer *lexer)
 			skip_spaces(lexer);
 		else if (lexer->c == '<')
 		{
-			if (lexer->value[lexer->index + 1] == '<')
-				return (collect_app_here(lexer, '<', 1));
-			else
-				return (move_token(lexer,
-						start_token(INFILE, convert_char(lexer))));
+			return (is_here(lexer));
 			break ;
 		}
 		else if (lexer->c == '>')
 		{
-			if (lexer->value[lexer->index + 1] == '>')
-				return (collect_app_here(lexer, '>', 0));
-			else
-			{
-				char *tmp =  convert_char(lexer);
-				t_token *ptr = start_token(OUTFILE, tmp);
-				return (move_token(lexer, ptr));
-			}
+			return (is_app(lexer));
 			break ;
 		}
 		else if (lexer->c == '|')
@@ -49,20 +58,6 @@ t_token	*next_token(t_lexer *lexer)
 			return (collect_str(lexer));
 	}
 	return (NULL);
-}
-
-int	ft_strchr_parse(char *s, int c)
-{
-	if (s)
-	{
-		while (*s)
-		{
-			if (*s == c)
-				return (1);
-			s++;
-		}
-	}
-	return (0);
 }
 
 t_token	*collect_str(t_lexer *lexer)
@@ -112,38 +107,4 @@ t_token	*collect_app_here(t_lexer *lexer, char c, int i)
 	if (i == 1)
 		return (start_token(HEREDOC, value));
 	return (start_token(APPEND, value));
-}
-
-char	*convert_char(t_lexer *lexer)
-{
-	char	*str;
-
-	str = malloc(sizeof(char) * 2);
-	str[0] = lexer->c;
-	str[1] = '\0';
-	return (str);
-}
-
-char	*handle_quote(t_lexer *lexer, char *value, char q)
-{
-	char	*str;
-
-	str = NULL;
-	move_byone(lexer);
-	while (lexer->c != q && lexer->c != '\0')
-	{
-		str = convert_char(lexer);
-		value = ft_strjoin_parse(value, str);
-		move_byone(lexer);
-	}
-	if (lexer->c == q)
-		move_byone(lexer);
-	else if (lexer->c == '\0')
-	{
-		free(value);
-		value = NULL;
-		write(2, "quote error\n", 13);
-		return (NULL);
-	}
-	return (value);
 }
