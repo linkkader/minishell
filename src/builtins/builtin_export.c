@@ -27,7 +27,7 @@ static t_bool	part(t_list *temp, char *key,
 	entry = to_entry(temp->content);
 	if (ft_strncmp(key, entry->key, ft_strlen(entry->key) + 1) == 0)
 	{
-        ft_putstr_fd(key, 2);
+		ft_putstr_fd(key, 2);
 		free(key);
 		if (value == NULL && entry->value != NULL)
 			entry->is_exported = is_in_export;
@@ -65,14 +65,14 @@ void	export_value(char *key, char *value, t_cmd *cmd,
 		return ;
 	is_in = false;
 	temp = g_global.entries;
-    while (temp)
+	while (temp)
 	{
-        is_in = part(temp, key, value, is_in_export);
-        if (is_in == true)
+		is_in = part(temp, key, value, is_in_export);
+		if (is_in == true)
 			break ;
 		temp = temp->next;
 	}
-    if (is_in == false)
+	if (is_in == false)
 		part1(key, value, is_in_export);
 	update_env();
 }
@@ -158,11 +158,11 @@ void	try_export(char *str, t_cmd *cmd)
 		i++;
 	}
 	export_value(get_key(str),
-				 get_value(str),cmd,
-				 true);
+		get_value(str),cmd,
+	true);
 }
 
-void	export_builtin(t_cmd *cmd)
+void    export_builtin(t_cmd *cmd)
 {
 	t_list	*temp;
 	t_entry	*entry;

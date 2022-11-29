@@ -12,25 +12,27 @@
 
 NAME = minishell
 
-FILE = builtin_cd.c          builtin_exit.c        builtin_pwd.c         main.c                signal.c\
-       builtin_echo.c        builtin_export.c      builtin_unset.c       run.c                 t_list_utils.c\
-       builtin_env.c         builtin_export_part.c exec.c                run_part.c            termios.c\
-       builtin_export_part2.c	init_util.c
-
 BUILTINS_DIRECTORY = builtins/
 
 LIBFT_DIRECTORY = libft/
 
 PARSING_DIRECTORY = parce/
 
-PARSING_FILE = ft_check.c              get_list.c              listing_tools copy.c    utils.c   ft_error.c              lexer.c                 listing_tools.c         utils1.c   ft_expand.c             lexer_tools.c           minishell.c
+PARSING_FILE = lexer_tools.c \
+               		lexer.c \
+               		ft_check.c \
+               		ft_error.c \
+               		minishell.c \
+               		ft_expand.c \
+               		utils.c \
+               		utils1.c \
+               		listing_tools.c \
+               		get_list.c
 
 
 BUILTINS_FILE = builtin_cd.c     builtin_echo.c   builtin_env.c    builtin_exit.c   builtin_export.c builtin_pwd.c    builtin_unset.c
 
-FILE = check_builtins.c exe.c            get_path.c       init.c           main.c                  t_list_utils.c   termios.c error.c  fake.c  pipe.c fix_fd.c here_doc.c\
-
-PARSE = $(PARSING_DIRECTORY)parse.a
+FILE = check_builtins.c exe.c            get_path.c       init.c                  t_list_utils.c   termios.c error.c  fake.c  pipe.c fix_fd.c here_doc.c main.c\
 
 LIBFT = $(LIBFT_DIRECTORY)libft.a
 
@@ -68,21 +70,19 @@ $(LIBFT):
 	@make -sC $(LIBFT_DIRECTORY)
 	@make bonus -sC $(LIBFT_DIRECTORY)
 
-$(PARSE):
-	@echo "make $(PARSE)"
-	@make -sC  $(PARSING_DIRECTORY)
 
 
 
 $(OBJECTS_DIRECTORY):
 	mkdir -p $@
 	mkdir -p $(OBJECTS_DIRECTORY)$(BUILTINS_DIRECTORY)
+	mkdir -p $(OBJECTS_DIRECTORY)$(PARSING_DIRECTORY)
+	6gcc $(FLAGS) -I $(HEADERS) $(CPPFLAGS) -c src/signal.c -o obj/signal.o
 
-#$(PARSE)
 
-$(NAME): $(LIBFT) $(OBJECTS_DIRECTORY) $(OBJS) $(PARSE)
-	gcc $(FLAGS) -I $(HEADERS) $(CPPFLAGS) -c src/signal.c -o obj/signal.o
-	gcc $(FLAGS) -I $(HEADERS) $(OBJS)  $(LIBFT) $(OBJECTS_DIRECTORY)signal.o $(PARSE) $(LDFLAGS) $(CPPFLAGS) -l readline  -o  $(NAME)
+
+$(NAME): $(LIBFT) $(OBJECTS_DIRECTORY) $(OBJS)
+	gcc $(FLAGS) -I $(HEADERS) $(OBJS)  $(LIBFT) $(OBJECTS_DIRECTORY)signal.o $(LDFLAGS) $(CPPFLAGS) -l readline  -o  $(NAME)
 
 
 clean:
@@ -91,7 +91,6 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 	@make fclean -sC $(LIBFT_DIRECTORY)
-	@make fclean -sC $(PARSING_DIRECTORY)
 
 re: fclean all
 

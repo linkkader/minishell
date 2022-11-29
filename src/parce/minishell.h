@@ -22,7 +22,7 @@
 # include <readline/history.h>
 # include <fcntl.h>
 # include <limits.h>
-# include "../libft/libft.h"
+# include "../../libft/libft.h"
 
 typedef enum bool
 {

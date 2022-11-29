@@ -22,14 +22,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a3fc66d-3f27-474e-96a3-d556e9d0b164" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/-e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/-la" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/in.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/header.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libft/libft.a" beforeDir="false" afterPath="$PROJECT_DIR$/libft/libft.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/minishell" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/get_path.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/get_path.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parce/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/parce/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parce/parse.a" beforeDir="false" afterPath="$PROJECT_DIR$/parce/parse.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/get_path.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/get_path.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/p" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/parce/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/Makefile copy" beforeDir="false" afterPath="$PROJECT_DIR$/src/parce/Makefile copy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/ft_check.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parce/ft_check.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/ft_check.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/ft_error.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parce/ft_error.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/ft_error.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/ft_expand.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parce/ft_expand.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/ft_expand.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/get_list.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parce/get_list.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/get_list.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/lexer.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parce/lexer.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/lexer.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/lexer_tools.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parce/lexer_tools.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/lexer_tools.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/listing_tools copy.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parce/listing_tools copy.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/listing_tools.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parce/listing_tools.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/listing_tools.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/minishell" beforeDir="false" afterPath="$PROJECT_DIR$/src/parce/minishell" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/minishell copy.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/parce/minishell copy.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/minishell.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parce/minishell.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/parce/minishell.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/minishell.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/parse.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/todo" beforeDir="false" afterPath="$PROJECT_DIR$/src/parce/todo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parce/utils.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/utils.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/utils1.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parce/utils1.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parce/utils1.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pwd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_cd.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtins/builtin_cd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_echo.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtins/builtin_echo.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_export.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtins/builtin_export.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,9 +93,6 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/in.txt" root0="FORCE_HIGHLIGHTING" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -77,20 +112,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.C/C++&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode.C/C++"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
@@ -100,6 +135,7 @@
       <recent name="$PROJECT_DIR$/includes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/file" />
     </key>
@@ -159,6 +195,7 @@
       <workItem from="1669640391768" duration="5000" />
       <workItem from="1669643538647" duration="7429000" />
       <workItem from="1669654602366" duration="2000" />
+      <workItem from="1669720844929" duration="5215000" />
     </task>
     <servers />
   </component>
@@ -200,7 +237,7 @@
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/parce/minishell.c</url>
+          <url>file://$PROJECT_DIR$/src/parce/minishell.c</url>
           <line>26</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>

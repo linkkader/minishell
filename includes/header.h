@@ -27,7 +27,7 @@
 # include <signal.h>
 #include <sys/errno.h>
 # include "../libft/libft.h"
-# include "../parce/minishell.h"
+# include "../src/parce/minishell.h"
 
 # define ERR_CMD ": command not found\n"
 # define PROMPT_CMD "minishell$ "

@@ -19,13 +19,15 @@ t_bool	is_option(char *str)
 	i = 0;
 	if (str[0] != '-')
 		return (false);
-    i++;
+	i++;
 	while (str[i])
 	{
 		if (str[i] != 'n')
 			return (false);
 		i++;
 	}
+	if (i <= 1)
+		return (false);
 	return (true);
 }
 
@@ -38,7 +40,6 @@ void	echo_builtin(t_cmd *cmd)
 	i = 1;
 	arg = false;
 	ignore = false;
-	ft_putstr_fd("echo\n", 1);
 	while (cmd->cmd[i])
 	{
 		if (ignore == false && cmd->cmd[i] && is_option(cmd->cmd[i]))

@@ -19,7 +19,7 @@ static void	part(t_cmd *cmd, char *path)
 	temp = getcwd(NULL, 0);
 	if (temp != NULL)
 		export_value(ft_strdup("OLDPWD"), temp, cmd, true);
-	if (chdir(path) != 0)
+	if  (chdir(path) != 0)
 	{
 		perror("cd");
 		return ;
