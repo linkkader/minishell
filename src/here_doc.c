@@ -24,6 +24,29 @@ static void	sigquit(int sig)
 	(void) sig;
 }
 
+static char	*part(t_file *tFile, int *fd)
+{
+	char	*line;
+
+	while (1)
+	{
+		line = readline("> ");
+		if (!line)
+			break ;
+		if (ft_strcmp(line, tFile->name) == 0)
+		{
+			g_global.doc_here_status = 0;
+			free(line);
+			break ;
+		}
+		line = ft_expand(line);
+		write(fd[1], line, ft_strlen(line));
+		write(fd[1], "\n", 1);
+		free(line);
+	}
+	return (line);
+}
+
 int	here_doc(t_file *tFile, int in, int *error)
 {
 	int		fd[2];
@@ -37,25 +60,7 @@ int	here_doc(t_file *tFile, int in, int *error)
 		perror("minishell");
 		exit(errno);
 	}
-	while (1)
-	{
-		line = readline("> ");
-		if (!line)
-		{
-			ft_putstr_fd("line is null\n", 2);
-			break ;
-		}
-		if (ft_strcmp(line, tFile->name) == 0)
-		{
-			g_global.doc_here_status = 0;
-			free(line);
-			break ;
-		}
-		line = ft_expand(line);
-		write(fd[1], line, ft_strlen(line));
-		write(fd[1], "\n", 1);
-		free(line);
-	}
+	line = part(tFile, fd);
 	dup2(g_global.std_in, 0);
 	close(fd[1]);
 	dup2(fd[0], in);
