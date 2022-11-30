@@ -88,3 +88,15 @@ void	export_builtin(t_cmd *cmd)
 		}
 	}
 }
+
+char	*get_key_cmd(char *str)
+{
+	int		i;
+	char	*key;
+
+	i = 0;
+	while (str[i] && str[i] != '=' && str[i] != '+')
+		i++;
+	key = ft_substr(str, 0, i);
+	return (key);
+}

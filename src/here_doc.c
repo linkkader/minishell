@@ -19,11 +19,6 @@ static void	sigint(int sig)
 	close(0);
 }
 
-static void	sigquit(int sig)
-{
-	(void) sig;
-}
-
 static void	part(t_file *tFile, int *fd)
 {
 	char	*line;
@@ -50,8 +45,6 @@ int	here_doc(t_file *tFile, int in, int *error)
 {
 	int		fd[2];
 	sig_t	sig;
-
-
 
 	sig = signal(SIGINT, sigint);
 	(void) error;

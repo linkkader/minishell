@@ -77,6 +77,7 @@ static void	clear(void)
 
 int	main(int ac, char **av, char **env)
 {
+	(void)av;
 	if (ac > 1)
 	{
 		ft_putendl_fd("error", 2);

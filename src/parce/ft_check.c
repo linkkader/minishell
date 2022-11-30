@@ -19,7 +19,6 @@ int	ft_check_error(int type, char *content, int *i, t_cmd *data)
 	check = 1;
 	if (type == PIPE && (*i) == -1)
 	{
-
 		write(2, "syntax error\n", 14);
 		return (-1);
 	}

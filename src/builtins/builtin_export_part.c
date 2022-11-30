@@ -54,6 +54,7 @@ void	export_value(char *key, char *value, t_cmd *cmd,
 	t_list	*temp;
 	t_bool	is_in;
 
+	(void)cmd;
 	if (key == NULL)
 		return ;
 	is_in = false;
@@ -68,18 +69,6 @@ void	export_value(char *key, char *value, t_cmd *cmd,
 	if (is_in == false)
 		part1(key, value, is_in_export);
 	update_env();
-}
-
-char	*get_key_cmd(char *str)
-{
-	int		i;
-	char	*key;
-
-	i = 0;
-	while (str[i] && str[i] != '=' && str[i] != '+')
-		i++;
-	key = ft_substr(str, 0, i);
-	return (key);
 }
 
 static void	_part(char *str, int *i, char **sub, char **temp)

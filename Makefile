@@ -31,7 +31,7 @@ PARSING_FILE = lexer_tools.c \
                		ft_free.c
 
 
-BUILTINS_FILE = builtin_cd.c     builtin_echo.c   builtin_env.c    builtin_exit.c   builtin_export.c builtin_pwd.c    builtin_unset.c export_part.c
+BUILTINS_FILE = builtin_cd.c     builtin_echo.c   builtin_env.c    builtin_exit.c   builtin_export.c builtin_export_part.c builtin_pwd.c    builtin_unset.c
 
 FILE = check_builtins.c exe.c            get_path.c       init.c                  t_list_utils.c   termios.c error.c  pipe.c fix_fd.c here_doc.c main.c part.c\
 
@@ -43,7 +43,7 @@ SOURCES_DIRECTORY = src/
 
 OBJECTS_DIRECTORY = obj/
 
-FLAGS = -fsanitize=address -g
+FLAGS =  -Wall -Wextra -Werror -fsanitize=address -g
 
 
 LDFLAGS= -L /opt/homebrew/opt/readline/lib
@@ -86,6 +86,8 @@ $(NAME): $(LIBFT) $(OBJECTS_DIRECTORY) $(OBJS)
 
 clean:
 	rm -Rf $(OBJECTS_DIRECTORY)
+	@make clean -sC $(LIBFT_DIRECTORY)
+
 
 fclean: clean
 	rm -f $(NAME)

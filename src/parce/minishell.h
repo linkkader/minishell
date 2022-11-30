@@ -67,7 +67,7 @@ typedef struct s_global
 	struct termios	*attributes;
 	int				std_in;
 	int				flag;
-	int 			 q_flag;
+	int				q_flag;
 	int				doc_here_status;
 }					t_global;
 

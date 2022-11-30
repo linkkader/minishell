@@ -29,10 +29,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (str);
 }
-/*#include <string.h>
-#include<stdio.h>
-
-int	main()
-{
-	printf("%d\n", *ft_strrchr("taha meizi", 0));
-}*/

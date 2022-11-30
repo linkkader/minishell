@@ -63,23 +63,21 @@ char	*ft_get_env(char *name);
 t_entry	*to_entry(void *e);
 void	free_entry(void *content);
 void	clear_d2(char **cmd);
-void	update_env();
+void	update_env(void);
 void	put_error(char *str, char *error);
 void	my_perror(int result, char *str);
 
 void	sigint_handler_in_process(int sig);
 void	sigquit_handler_in_process(int sig);
-void	signals();
-void	reset_signals();
+void	signals(void);
+void	reset_signals(void);
 
+void	correct_echo(void);
+void	normal_echo(void);
 
-void	correct_echo();
-void	normal_echo();
-
-int	infile(t_file *tFile, int in, int *error);
-int	outfile(t_file *tFile, int out, int *error);
-int append_file(t_file *tFile, int out, int *error);
-int	here_doc(t_file *tFile, int in, int *error);
-
+int		infile(t_file *tFile, int in, int *error);
+int		outfile(t_file *tFile, int out, int *error);
+int		append_file(t_file *tFile, int out, int *error);
+int		here_doc(t_file *tFile, int in, int *error);
 
 #endif

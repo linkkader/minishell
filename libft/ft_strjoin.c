@@ -43,14 +43,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_strcpy(res + i, (char *)s2);
 	return (res);
 }
-
-/*#include <stdio.h>
-
-int	main()
-{
-	char 	*arr = ft_strjoin("mohamed taha ", "meaizi");
-	for(int i = 0;i < 20;i++)
-	{
-		printf("%d %c\n", arr[i] , arr[i]);
-	}
-}*/
