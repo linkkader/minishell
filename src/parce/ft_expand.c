@@ -29,6 +29,8 @@ static char	*ft_getenv(char *name)
 		}
 		if (name[j] == '\0' && g_global.env[i][j] == '=')
 		{
+			free(name);
+			name = NULL;
 			return (ft_strdup((g_global.env[i] + j + 1)));
 		}
 		i++;

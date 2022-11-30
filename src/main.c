@@ -88,7 +88,6 @@ int	main(int ac, char **av, char **env)
 		if (init_prompt())
 			continue ;
 		parse();
-		system("leaks minishell");
 		if (g_global.cmds)
 			exe(g_global.cmds);
 		clear();

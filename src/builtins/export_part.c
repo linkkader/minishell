@@ -13,7 +13,7 @@
 #include "../../includes/header.h"
 
 static t_bool	part(t_list *temp, char *key,
-					  char *value, t_bool is_in_export)
+				char *value, t_bool is_in_export)
 {
 	t_entry	*entry;
 
@@ -34,7 +34,6 @@ static t_bool	part(t_list *temp, char *key,
 	return (false);
 }
 
-
 static void	part1(char *key, char *value, t_bool is_in_export)
 {
 	t_entry	*entry;
@@ -48,10 +47,9 @@ static void	part1(char *key, char *value, t_bool is_in_export)
 	ft_lstadd_back(&g_global.entries, ft_lstnew(entry));
 }
 
-
 //[a-zA-Z_][a-zA-Z0-9_]
 void	export_value(char *key, char *value, t_cmd *cmd,
-					 t_bool is_in_export)
+			t_bool is_in_export)
 {
 	t_list	*temp;
 	t_bool	is_in;
@@ -84,6 +82,20 @@ char	*get_key_cmd(char *str)
 	return (key);
 }
 
+static void	_part(char *str, int *i, char **sub, char **temp)
+{
+	while (str[*i] && str[*i] != '=')
+	{
+		if (str[*i] == '+')
+		{
+			sub[0] = get_key_cmd(str);
+			temp[0] = ft_get_env(sub[0]);
+			free(sub[0]);
+		}
+		(*i)++;
+	}
+}
+
 char	*get_value_cmd(char *str)
 {
 	int		i;
@@ -93,16 +105,7 @@ char	*get_value_cmd(char *str)
 
 	temp = NULL;
 	i = 0;
-	while (str[i] && str[i] != '=')
-	{
-		if (str[i] == '+')
-		{
-			sub = get_key_cmd(str);
-			temp = ft_get_env(sub);
-			free(sub);
-		}
-		i++;
-	}
+	_part(str, &i, &sub, &temp);
 	if (str[i] == '\0')
 		return (NULL);
 	sub = ft_substr(str, i + 1, ft_strlen(str) - i);

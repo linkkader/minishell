@@ -13,7 +13,7 @@
 #ifndef HEADER_H
 # define HEADER_H
 
-#include <dirent.h>
+# include <dirent.h>
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
@@ -25,7 +25,7 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 # include <signal.h>
-#include <sys/errno.h>
+# include <sys/errno.h>
 # include "../libft/libft.h"
 # include "../src/parce/minishell.h"
 
@@ -38,8 +38,6 @@
 # define OUTFILE 4
 # define APPEND 1
 # define HEREDOC 0
-
-
 
 void	init(char **env);
 
@@ -57,7 +55,6 @@ void	export_value(char *key, char *value, t_cmd *cmd, t_bool is_in_export);
 void	unset_builtin(t_cmd *cmd);
 void	env_builtin(t_cmd *cmd);
 
-t_cmd	*fake();
 void	my_pipe(t_cmd *cmd);
 void	exe(t_cmd *cmd);
 char	*get_cmd_path(t_cmd *cmd, char *name);

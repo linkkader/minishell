@@ -24,7 +24,7 @@ static void	sigquit(int sig)
 	(void) sig;
 }
 
-static char	*part(t_file *tFile, int *fd)
+static void	part(t_file *tFile, int *fd)
 {
 	char	*line;
 
@@ -44,23 +44,24 @@ static char	*part(t_file *tFile, int *fd)
 		write(fd[1], "\n", 1);
 		free(line);
 	}
-	return (line);
 }
 
 int	here_doc(t_file *tFile, int in, int *error)
 {
 	int		fd[2];
-	char	*line;
 	sig_t	sig;
 
+
+
 	sig = signal(SIGINT, sigint);
+	(void) error;
 	g_global.doc_here_status = 1;
 	if (pipe(fd))
 	{
 		perror("minishell");
 		exit(errno);
 	}
-	line = part(tFile, fd);
+	part(tFile, fd);
 	dup2(g_global.std_in, 0);
 	close(fd[1]);
 	dup2(fd[0], in);

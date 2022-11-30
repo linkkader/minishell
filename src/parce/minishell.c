@@ -14,6 +14,7 @@
 
 t_cmd	*is_error(t_cmd *to_free, int i)
 {
+	g_global.exit_code = 258;
 	free_list(to_free);
 	check_last(i);
 	return (NULL);

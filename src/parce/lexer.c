@@ -14,8 +14,8 @@
 
 static t_token	*is_here(t_lexer *lexer)
 {
-	if (lexer->value[lexer->index + 1] == '>')
-		return (collect_app_here(lexer, '>', 1));
+	if (lexer->value[lexer->index + 1] == '<')
+		return (collect_app_here(lexer, '<', 1));
 	else
 		return (move_token(lexer,
 				start_token(INFILE, convert_char(lexer))));
@@ -24,8 +24,8 @@ static t_token	*is_here(t_lexer *lexer)
 
 static t_token	*is_app(t_lexer *lexer)
 {
-	if (lexer->value[lexer->index + 1] == '<')
-		return (collect_app_here(lexer, '<', 0));
+	if (lexer->value[lexer->index + 1] == '>')
+		return (collect_app_here(lexer, '>', 0));
 	else
 		return (move_token(lexer,
 				start_token(OUTFILE, convert_char(lexer))));
