@@ -36,5 +36,6 @@ void	env_builtin(t_cmd *cmd)
 	else
 	{
 		ft_putstr_fd("env: too many arguments\n", 2);
+		cmd->error = 1;
 	}
 }

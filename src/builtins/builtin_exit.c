@@ -30,9 +30,9 @@ int	is_numeric(char *str)
 
 static void	part(t_cmd *cmd)
 {
-	ft_putstr_fd("minishell: exit: ", 1);
-	ft_putstr_fd(cmd->cmd[1], 1);
-	ft_putstr_fd(" numeric argument required\n", 1);
+	ft_putstr_fd("minishell: exit: ", 2);
+	ft_putstr_fd(cmd->cmd[1], 2);
+	ft_putstr_fd(" numeric argument required\n", 2);
 	exit(-1);
 }
 
@@ -51,13 +51,15 @@ void	exit_builtin(t_cmd *cmd)
 	char	len;
 
 	len = len_cmd(cmd->cmd);
-	ft_putstr_fd("exit\n", 1);
 	if (cmd->cmd[1] == NULL)
 		exit(0);
 	if (is_numeric(cmd->cmd[1]))
 	{
 		if (len > 2)
-			ft_putstr_fd("minishell: exit: too many arguments\n", 1);
+		{
+			ft_putstr_fd("minishell: exit: too many arguments\n", 2);
+			cmd->error = 1;
+		}
 		else
 		{
 			exit(ft_atoi(cmd->cmd[1]));

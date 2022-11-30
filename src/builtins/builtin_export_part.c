@@ -20,7 +20,6 @@ static t_bool	part(t_list *temp, char *key,
 	entry = to_entry(temp->content);
 	if (ft_strncmp(key, entry->key, ft_strlen(entry->key) + 1) == 0)
 	{
-		ft_putstr_fd(key, 2);
 		free(key);
 		if (value == NULL && entry->value != NULL)
 			entry->is_exported = is_in_export;

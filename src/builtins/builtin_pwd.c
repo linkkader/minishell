@@ -16,7 +16,6 @@ void	pwd_builtin(t_cmd *cmd)
 {
 	char	*path;
 
-	ft_putstr_fd("pwd", 2);
 	if (cmd->cmd[1] == NULL)
 	{
 		path = getcwd(NULL, 1000);
@@ -34,5 +33,6 @@ void	pwd_builtin(t_cmd *cmd)
 	else
 	{
 		ft_putstr_fd("pwd: too many arguments\n", 2);
+		cmd->error = 1;
 	}
 }

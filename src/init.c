@@ -73,5 +73,6 @@ void	init(char **env)
 	if (g_global.env == NULL)
 		return ;
 	env_to_entries(g_global.env);
+	update_env();
 	signals();
 }

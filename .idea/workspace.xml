@@ -19,103 +19,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a3fc66d-3f27-474e-96a3-d556e9d0b164" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/header.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_atoi.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_bzero.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_calloc.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_isalnum.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_isalpha.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_isascii.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_isdigit.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_isprint.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_itoa.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_lstadd_back_bonus.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_lstadd_front_bonus.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_lstclear_bonus.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_lstdelone_bonus.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_lstiter_bonus.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_lstlast_bonus.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_lstmap_bonus.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_lstnew_bonus.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_lstsize_bonus.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_memchr.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_memcmp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_memcpy.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_memmove.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_memset.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_putchar_fd.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_putendl_fd.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_putnbr_fd.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_putstr_fd.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_split.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_strchr.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_strcmp.c" beforeDir="false" afterPath="$PROJECT_DIR$/libft/ft_strcmp.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_strcmp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_strdup.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_striteri.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_strjoin.c" beforeDir="false" afterPath="$PROJECT_DIR$/libft/ft_strjoin.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_strjoin.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_strlcat.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_strlcpy.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_strlen.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_strmapi.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_strncmp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_strnstr.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_strrchr.c" beforeDir="false" afterPath="$PROJECT_DIR$/libft/ft_strrchr.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_strrchr.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_strtrim.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_substr.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_tolower.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/ft_toupper.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/libft.a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/minishell" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/builtins/builtin_cd.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/builtins/builtin_echo.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/builtins/builtin_env.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/builtins/builtin_exit.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/builtins/builtin_export.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/builtins/builtin_pwd.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/builtins/builtin_unset.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/builtins/export_part.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/check_builtins.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/error.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/exe.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/fix_fd.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/get_path.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/here_doc.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/init.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/parce/ft_check.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/parce/ft_error.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/parce/ft_expand.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/parce/ft_free.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/parce/get_list.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/parce/lexer.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/parce/lexer_tools.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/parce/listing_tools.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/parce/minishell.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/parce/utils.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/parce/utils1.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/part.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/pipe.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/signal.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/t_list_utils.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/termios.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_export.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtins/builtin_export.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/builtins/export_part.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtins/builtin_export_part.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/here_doc.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/here_doc.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parce/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parce/Makefile copy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parce/ft_check.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parce/ft_check.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parce/ft_free.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parce/lexer.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/parce/lexer.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parce/listing_tools copy.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parce/minishell" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parce/minishell copy.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parce/minishell.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/parce/minishell.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parce/todo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_env.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtins/builtin_env.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_exit.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtins/builtin_exit.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_export_part.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtins/builtin_export_part.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/builtins/builtin_pwd.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/builtins/builtin_pwd.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/init.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/init.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +147,7 @@
       <workItem from="1669643538647" duration="7429000" />
       <workItem from="1669654602366" duration="2000" />
       <workItem from="1669720844929" duration="12913000" />
-      <workItem from="1669817461900" duration="4521000" />
+      <workItem from="1669817461900" duration="7833000" />
     </task>
     <servers />
   </component>
