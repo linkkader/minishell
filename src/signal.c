@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 15:10:28 by acouliba          #+#    #+#             */
-/*   Updated: 2022/11/22 17:04:58 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/12/01 11:10:52 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	handler(int sig)
 			printf("\n");
 		}
 		rl_on_new_line();
-		rl_replace_line("", 0);
+		// rl_replace_line("", 0);
 		rl_redisplay();
 		(void) sig;
 	}

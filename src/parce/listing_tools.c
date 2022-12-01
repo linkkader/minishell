@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 11:49:04 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/29 12:21:02 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/12/01 12:19:49 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,12 @@ t_file	*ft_lstnew_parse(int token, char *name)
 		new -> next = NULL;
 	}
 	return (new);
+}
+
+t_cmd	*is_error(t_cmd *to_free, int i)
+{
+	g_global.exit_code = 258;
+	free_list(to_free);
+	check_last(i);
+	return (NULL);
 }

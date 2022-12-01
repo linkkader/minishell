@@ -6,7 +6,7 @@
 /*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 08:33:04 by ofarissi          #+#    #+#             */
-/*   Updated: 2022/11/29 15:04:51 by ofarissi         ###   ########.fr       */
+/*   Updated: 2022/12/01 11:44:25 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,7 @@ char	*check(t_lexer *lexer);
 int		ft_check_error(int type, char *content, int *i, t_cmd *data);
 int		check_infile(int *i);
 int		check_outfile(int *i);
+t_cmd	*is_error(t_cmd *to_free, int i);
 int		check_heredoc(int *i);
 int		check_append(int *i);
 void	check_last(int i);

@@ -12,9 +12,14 @@
 
 #include    "minishell.h"
 
-t_cmd	*is_error(t_cmd *to_free, int i)
+t_cmd	*is_error_1(t_cmd *to_free, int i, t_token *tmp)
 {
 	g_global.exit_code = 258;
+	if (tmp)
+	{
+		free(tmp->content);
+		free(tmp);
+	}
 	free_list(to_free);
 	check_last(i);
 	return (NULL);
@@ -49,7 +54,7 @@ t_cmd	*ft_parce(t_lexer *lexer, t_token *token, t_cmd **data)
 		if (token->content && (ft_check_error(token->e_type, token->content,
 					&i, (*data)) == -1
 				|| token->content[0] == '\0'))
-			return (is_error(tmp, i));
+			return (is_error_1(tmp, i, token));
 		ft_pipe_(data, i);
 		tmp_tok = token;
 		token = next_token(lexer);
@@ -59,6 +64,23 @@ t_cmd	*ft_parce(t_lexer *lexer, t_token *token, t_cmd **data)
 	if (i != 5 || g_global.q_flag)
 		return (is_error(tmp, i));
 	return (tmp);
+}
+
+static int	how_many(char *s, int c)
+{
+	int	i;
+
+	i = 0;
+	if (s[i])
+	{
+		while (s[i])
+		{
+			if (s[i] == c)
+				return (i);
+			i++;
+		}
+	}
+	return (0);
 }
 
 void	parse(void)
@@ -72,7 +94,8 @@ void	parse(void)
 	g_global.flag = 0;
 	quote_checker(g_global.line);
 	if (ft_strchr_parse(g_global.line, '$') == 1)
-		if (g_global.flag != 1)
+		if (g_global.flag != 1 && g_global.line[how_many(g_global.line,
+					'$') + 1] != '$')
 			g_global.line = ft_expand(g_global.line);
 	if (g_global.line != NULL)
 	{

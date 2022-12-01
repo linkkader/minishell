@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acouliba <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ofarissi <ofarissi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 17:12:48 by acouliba          #+#    #+#             */
-/*   Updated: 2022/11/29 17:12:51 by acouliba         ###   ########.fr       */
+/*   Updated: 2022/12/01 12:15:27 by ofarissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ int	main(int ac, char **av, char **env)
 		if (g_global.cmds)
 			exe(g_global.cmds);
 		clear();
+		//system("leaks minishell");
 	}
 	return (0);
 }
