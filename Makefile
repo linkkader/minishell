@@ -43,7 +43,7 @@ SOURCES_DIRECTORY = src/
 
 OBJECTS_DIRECTORY = obj/
 
-FLAGS =  -Wall -Wextra -Werror $(CPPFLAGS) -fsanitize=address -g
+FLAGS =  -Wall -Wextra -Werror $(CPPFLAGS)
 
 LDFLAGS="-L/goinfre/acouliba/brew/opt/readline/lib"
 CPPFLAGS="-I/goinfre/acouliba/brew/opt/readline/include"

@@ -30,7 +30,11 @@ static int	init_prompt(void)
 	}
 	g_global.doc_here_status = 0;
 	if (!ft_strlen(g_global.line))
+	{
+		free(g_global.line);
+		g_global.line = NULL;
 		return (1);
+	}
 	add_history(g_global.line);
 	return (0);
 }
@@ -92,7 +96,6 @@ int	main(int ac, char **av, char **env)
 		if (g_global.cmds)
 			exe(g_global.cmds);
 		clear();
-		//system("leaks minishell");
 	}
 	return (0);
 }

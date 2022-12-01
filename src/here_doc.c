@@ -35,6 +35,7 @@ static void	part(t_file *tFile, int *fd)
 			break ;
 		}
 		line = ft_expand(line);
+		ft_putendl_fd(line, 2);
 		write(fd[1], line, ft_strlen(line));
 		write(fd[1], "\n", 1);
 		free(line);

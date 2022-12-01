@@ -95,7 +95,8 @@ void	parse(void)
 	quote_checker(g_global.line);
 	if (ft_strchr_parse(g_global.line, '$') == 1)
 		if (g_global.flag != 1 && g_global.line[how_many(g_global.line,
-					'$') + 1] != '$')
+					'$') + 1] != '$' && g_global.line[how_many(
+					g_global.line, '$') + 1] != '\0')
 			g_global.line = ft_expand(g_global.line);
 	if (g_global.line != NULL)
 	{
